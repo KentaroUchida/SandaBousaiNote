@@ -11,6 +11,7 @@ import {SafetyMeasures} from './SafetyMeasures'
 export const Jishin = () => {
     return(<>
         <Title/>
+        <img src="/img/family_under_table.png" alt="" style={{width:"100%"}}/>
         <ActionList/>
 
         <PrecautionList1/>
