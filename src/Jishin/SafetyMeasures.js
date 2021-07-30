@@ -9,14 +9,15 @@ import {
   Grid,
 } from "@material-ui/core";
 
-const useStyles = makeStyles({
+const useStyles = makeStyles((theme) => ({
   card: {
     height: 450,
   },
   cardTitle: {
     backgroundColor: "#ffc0cb",
+    margin: theme.spacing(1),
   }
-});
+}))
 
 const Measure = ({ title, text, image }) => {
   const classes = useStyles();
@@ -38,7 +39,7 @@ const Measure = ({ title, text, image }) => {
 export const SafetyMeasures = () => {
   return (
     <>
-      <Typography variant="h3">
+      <Typography variant="h3" gutterBottom>
         たいせつな家族の命を守る「安全対策」の例
       </Typography>
       <Grid container spacing={3}>
