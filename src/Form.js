@@ -133,112 +133,88 @@ class PrintShelterInformation extends React.Component{
     }
 }
 
-let family=[
-    {
-        "name":"山田航樹",
-        "phoneNumber":"090-1234-5678",
-        "insuranceId":"123456789",
-        "illness":"花粉"
-    },
-    {
-        "name":"内田健太郎",
-        "phoneNumber":"090-8765-4321",
-        "insuranceId":"987654321",
-        "illness":"猫アレルギー"
+class Form extends React.Component {
+    constructor() {
+        super();
+        this.state = {
+            family: [
+                {
+                    "name":"山田航樹",
+                    "phoneNumber":"090-1234-5678",
+                    "insuranceId":"123456789",
+                    "illness":"花粉"
+                },
+                {
+                    "name":"内田健太郎",
+                    "phoneNumber":"090-8765-4321",
+                    "insuranceId":"987654321",
+                    "illness":"猫アレルギー"
+                }
+            ],
+            relative: [
+                {
+                    "name":"三田太郎",
+                    "phoneNumber":"090-1234-5678"
+                },
+                {
+                    "name":"四山",
+                    "phoneNumber":"090-8765-4321"
+                }
+            ],
+            school: [
+                {
+                    "name":"神戸大学",
+                    "phoneNumber":"090-1234-5678"
+                },
+                {
+                    "name":"生駒高校",
+                    "phoneNumber":"090-8765-4321"
+                }
+            ]
+        };
     }
-];
-let relative=[
-    {
-        "name":"三田太郎",
-        "phoneNumber":"090-1234-5678"
-    },
-    {
-        "name":"四山",
-        "phoneNumber":"090-8765-4321"
+
+    render() {
+        return(
+            <div>
+                <h2>・家族の連絡先</h2>
+                {this.state.family.map((v) => <PrintFamilyInformation name={v.name} phoneNumber={v.phoneNumber} insuranceId={v.insuranceId} illness={v.illness}/>)}
+                <h2>・親戚、知人の連絡先</h2>
+                {this.state.relative.map((v) => <PrintRelativeInformation name={v.name} phoneNumber={v.phoneNumber}/>)}
+                <h2>・学校の連絡先</h2>
+                {this.state.school.map((v) => <PrintSchoolInformation name={v.name} phoneNumber={v.phoneNumber}/>)}
+                <br></br>
+                <table border="1">
+                    <tr>
+                        <td>NTT災害ダイヤル</td>
+                        <td>171</td>
+                    </tr>
+                </table>
+                <br></br>
+                <table border="1">
+                    <tr>
+                        <td>自宅の電話番号</td>
+                        <td><TextField/></td>
+                    </tr>
+                </table>
+                <h2>・避難所</h2>
+                <table border="1">
+                    <tr>
+                        <td>一時避難所</td>
+                        <td><td><TextField id="standard-basic"/></td></td>
+                    </tr>
+                    <tr>
+                        <td>災害避難所</td>
+                        <td><td><TextField id="standard-basic"/></td></td>
+                    </tr>
+                    <tr>
+                        <td>津波避難所</td>
+                        <td><td><TextField id="standard-basic"/></td></td>
+                    </tr>
+                </table>
+            </div>
+        );
     }
-];
-let school=[
-    {
-        "name":"神戸大学",
-        "phoneNumber":"090-1234-5678"
-    },
-    {
-        "name":"生駒高校",
-        "phoneNumber":"090-8765-4321"
-    }
-];
-export default function Input(){
-    // list.push(obj);
-    return(
-        <div>
-            <h2>・家族の連絡先</h2>
-            {family.map((v) => <PrintFamilyInformation name={v.name} phoneNumber={v.phoneNumber} insuranceId={v.insuranceId} illness={v.illness}/>)}
-            <h2>・親戚、知人の連絡先</h2>
-            {relative.map((v) => <PrintRelativeInformation name={v.name} phoneNumber={v.phoneNumber}/>)}
-            <h2>・学校の連絡先</h2>
-            {school.map((v) => <PrintSchoolInformation name={v.name} phoneNumber={v.phoneNumber}/>)}
-            <br></br>
-            <table border="1">
-                <tr>
-                    <td>NTT災害ダイヤル</td>
-                    <td>171</td>
-                </tr>
-            </table>
-            <br></br>
-            <table border="1">
-                <tr>
-                    <td>自宅の電話番号</td>
-                    <td><TextField/></td>
-                </tr>
-            </table>
-            <h2>・避難所</h2>
-            <table border="1">
-                <tr>
-                    <td>一時避難所</td>
-                    <td><td><TextField id="standard-basic"/></td></td>
-                </tr>
-                <tr>
-                    <td>災害避難所</td>
-                    <td><td><TextField id="standard-basic"/></td></td>
-                </tr>
-                <tr>
-                    <td>津波避難所</td>
-                    <td><td><TextField id="standard-basic"/></td></td>
-                </tr>
-            </table>
-        </div>
-    )
 }
 
-// export default function Form(props) {
-//     const classes = useStyles();
-//     const [open, setOpen] = React.useState(true);
-//     const handleClick = () => {
-//         setOpen(!open);
-//     };
-//     return(
-//         <div>
-//             <h2>・家族の連絡先</h2>
-//             <Accordion>
-//                 <AccordionSummary
-//                     expandIcon={<ExpandMoreIcon />}
-//                     aria-controls="panel1a-content"
-//                     id="panel1a-header"
-//                     >
-//                     <Typography className={classes.heading}>{props.name}</Typography>
-//                 </AccordionSummary>
-//                 <AccordionDetails>
-//                     <Typography>
-//                         <p>{props.phoneNumber}</p>
-//                         <p>{props.insuranceId}</p>
-//                         <p>{props.illness}</p>
-//                     </Typography>
-//                 </AccordionDetails>
-//             </Accordion>
-//             <br></br>
-//             <h2>・親戚、知人の連絡先</h2>
-//             <br></br>
-//             <h2>・保育園、幼稚園、学校の連絡先</h2>
-//         </div>
-//     );
-// }
+export default Form;
