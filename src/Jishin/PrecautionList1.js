@@ -8,7 +8,7 @@ import { CardContent } from '@material-ui/core'
 const useStyles = makeStyles({
     root: {
       width: "100%",
-      backgroundColor: "#81c784"
+      backgroundColor: "#ffcc66"
     },
     media: {
       height: "100%"
@@ -23,9 +23,9 @@ export const PrecautionList1 = () => {
         <img src="/img/jishin_tsukue.png" alt="" style={{height: 200}}/>
       </CardMedia>
             <CardContent>
-              <Typography variant="body2" color="textSecondary" component="p">
+             
                 テーブルや机などの下にもぐり身を守る。足は出さないように注意！
-              </Typography>
+             
             </CardContent>
         </Card>
       );
