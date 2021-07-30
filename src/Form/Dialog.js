@@ -9,7 +9,7 @@ import DialogTitle from '@material-ui/core/DialogTitle';
 import IconButton from '@material-ui/core/IconButton';
 import AddCircleIcon from '@material-ui/icons/AddCircle';
 
-class Create extends React.Component {
+class FormDialog extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
@@ -51,7 +51,7 @@ class Create extends React.Component {
 
     render() {
         return (
-            <div className="Create">
+            <div className="FormDialog">
                 <IconButton
                     color="primary"
                     aria-label="create form"
@@ -97,9 +97,9 @@ class FamilyTextField extends React.Component {
         super(props);
         this.state = {
             name: "",
-            phone: "",
-            healthInsuranceId: "",
-            illnessAndAllergy: ""
+            phoneNumber: "",
+            insuranceId: "",
+            illness: ""
         };
         this.handleChange = this.handleChange.bind(this);
     }
@@ -127,7 +127,7 @@ class FamilyTextField extends React.Component {
                 />
                 <TextField
                     margin="dense"
-                    id="phone"
+                    id="phoneNumber"
                     label="電話番号"
                     type="text"
                     helperText="家族の電話番号を入力してください。"
@@ -136,7 +136,7 @@ class FamilyTextField extends React.Component {
                 />
                 <TextField
                     margin="dense"
-                    id="healthInsuranceId"
+                    id="insuranceId"
                     label="保険証番号"
                     type="text"
                     helperText="家族の保険証番号を入力してください。"
@@ -145,7 +145,7 @@ class FamilyTextField extends React.Component {
                 />
                 <TextField
                     margin="dense"
-                    id="illnessAndAllergy"
+                    id="illness"
                     label="病気・アレルギー"
                     type="text"
                     helperText="家族の病気・アレルギーを入力してください。"
@@ -162,7 +162,7 @@ class RelativeTextField extends React.Component {
         super(props);
         this.state = {
             name: "",
-            phone: ""
+            phoneNumber: ""
         }
         this.handleChange = this.handleChange.bind(this);
     }
@@ -189,7 +189,7 @@ class RelativeTextField extends React.Component {
                 />
                 <TextField
                     margin="dense"
-                    id="phone"
+                    id="phoneNumber"
                     label="電話番号"
                     type="text"
                     helperText="親戚・知人の電話番号を入力してください。"
@@ -206,7 +206,7 @@ class FacilityTextField extends React.Component {
         super(props);
         this.state = {
             name: "",
-            phone: ""
+            phoneNumber: ""
         }
         this.handleChange = this.handleChange.bind(this);
     }
@@ -233,7 +233,7 @@ class FacilityTextField extends React.Component {
                 />
                 <TextField
                     margin="dense"
-                    id="phone"
+                    id="phoneNumber"
                     label="電話番号"
                     type="text"
                     helperText="施設の電話番号を入力してください。"
@@ -245,41 +245,4 @@ class FacilityTextField extends React.Component {
     }
 }
 
-class Form extends React.Component {
-    constructor(props) {
-        super(props);
-        this.state = { // TODO: ローカルストレージに情報を保持させられるように
-            family: [],
-            relatives: [],
-            facilities: []
-        };
-        this.addFamily   = this.addFamily.bind(this);
-        this.addRelative = this.addRelative.bind(this);
-        this.addFacility = this.addFacility.bind(this);
-    }
-
-    addFamily(member) {
-        this.state.family.push(member);
-    }
-
-    addRelative(member) {
-        this.state.relatives.push(member);
-    }
-
-    addFacility(member) {
-        this.state.facilities.push(member);
-    }
-
-    render() {
-        return (
-            <div className="Form">
-                <p>Test</p>
-                <Create category="family"   submit={this.addFamily}/>
-                <Create category="relative" submit={this.addRelative}/>
-                <Create category="facility" submit={this.addFacility}/>
-            </div>
-        );
-    }
-}
-
-export default Form;
+export default FormDialog;

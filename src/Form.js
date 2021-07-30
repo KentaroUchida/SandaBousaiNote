@@ -1,25 +1,11 @@
 import React from 'react';
 import Accordion from '@material-ui/core/Accordion';
-import { makeStyles } from '@material-ui/core/styles';
-import ListSubheader from '@material-ui/core/ListSubheader';
-import List from '@material-ui/core/List';
-import ListItem from '@material-ui/core/ListItem';
 import AccordionSummary from '@material-ui/core/AccordionSummary';
 import AccordionDetails from '@material-ui/core/AccordionDetails';
 import Typography from '@material-ui/core/Typography';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 import TextField from '@material-ui/core/TextField';
-
-const useStyles = makeStyles((theme) => ({
-  root: {
-    width: '100%',
-    maxWidth: 360,
-    backgroundColor: theme.palette.background.paper,
-  },
-  nested: {
-    paddingLeft: theme.spacing(4),
-  },
-}));
+import FormDialog from './Form/Dialog';
 
 class PrintFamilyInformation extends React.Component{
     constructor(props){
@@ -77,7 +63,7 @@ class PrintRelativeInformation extends React.Component{
     }
 }
 
-class PrintSchoolInformation extends React.Component{
+class PrintFacilityInformation extends React.Component{
     constructor(props){
         super(props);
         this.state={name:props.name, phoneNumber:props.phoneNumber};
@@ -136,7 +122,7 @@ class PrintShelterInformation extends React.Component{
 class Form extends React.Component {
     constructor() {
         super();
-        this.state = {
+        this.state = { // プロトタイプ閲覧用初期データ TODO: ローカルストレージに情報を保持させられるように
             family: [
                 {
                     "name":"山田航樹",
@@ -151,7 +137,7 @@ class Form extends React.Component {
                     "illness":"猫アレルギー"
                 }
             ],
-            relative: [
+            relatives: [
                 {
                     "name":"三田太郎",
                     "phoneNumber":"090-1234-5678"
@@ -161,7 +147,7 @@ class Form extends React.Component {
                     "phoneNumber":"090-8765-4321"
                 }
             ],
-            school: [
+            facilities: [
                 {
                     "name":"神戸大学",
                     "phoneNumber":"090-1234-5678"
@@ -172,17 +158,53 @@ class Form extends React.Component {
                 }
             ]
         };
+
+        this.addFamily       = this.addFamily.bind(this);
+        this.addRelative     = this.addRelative.bind(this);
+        this.addFacility     = this.addFacility.bind(this);
+        this.familyInfoItems = this.familyInfoItems.bind(this);
+    }
+
+
+    addFamily(member) {
+        this.state.family.push(member);
+        this.setState(this.state);
+    }
+
+    addRelative(member) {
+        this.state.relatives.push(member);
+        this.setState(this.state);
+    }
+
+    addFacility(member) {
+        this.state.facilities.push(member);
+        this.setState(this.state);
+    }
+
+    familyInfoItems() {
+        return this.state.family.map((v) =>
+            <PrintFamilyInformation
+                name={v.name}
+                phoneNumber={v.phoneNumber}
+                insuranceId={v.insuranceId}
+                illness={v.illness}
+        />);
     }
 
     render() {
         return(
             <div>
                 <h2>・家族の連絡先</h2>
-                {this.state.family.map((v) => <PrintFamilyInformation name={v.name} phoneNumber={v.phoneNumber} insuranceId={v.insuranceId} illness={v.illness}/>)}
+                <FormDialog category="family" submit={this.addFamily}/>
+                {this.familyInfoItems()}
+
                 <h2>・親戚、知人の連絡先</h2>
-                {this.state.relative.map((v) => <PrintRelativeInformation name={v.name} phoneNumber={v.phoneNumber}/>)}
-                <h2>・学校の連絡先</h2>
-                {this.state.school.map((v) => <PrintSchoolInformation name={v.name} phoneNumber={v.phoneNumber}/>)}
+                <FormDialog category="relative" submit={this.addRelative}/>
+                {this.state.relatives.map((v) => <PrintRelativeInformation name={v.name} phoneNumber={v.phoneNumber}/>)}
+
+                <h2>・保育園、幼稚園、学校の連絡先</h2>
+                <FormDialog category="facility" submit={this.addFacility}/>
+                {this.state.facilities.map((v) => <PrintFacilityInformation name={v.name} phoneNumber={v.phoneNumber}/>)}
                 <br></br>
                 <table border="1">
                     <tr>
