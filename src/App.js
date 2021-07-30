@@ -8,7 +8,6 @@ import {Jishin} from './Jishin/Main'
 
 function App() {
   return (
-   <>
       <BrowserRouter>
         <Menu title="Home">
           <Route exact path='/'>
@@ -19,7 +18,6 @@ function App() {
           </Route>
         </Menu>
       </BrowserRouter>
-   </> 
   )
 }
 
