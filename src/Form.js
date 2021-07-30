@@ -9,54 +9,87 @@ import DialogTitle from '@material-ui/core/DialogTitle';
 import IconButton from '@material-ui/core/IconButton';
 import AddCircleIcon from '@material-ui/icons/AddCircle';
 
-function Create(props) {
-    const [open, setOpen] = React.useState(false);
+class Create extends React.Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            member: {},
+            open: false
+        };
 
-    const handleClickOpen = () => {
-        setOpen(true);
-    };
+        this.cg = "";
+        if(props.category === "family") {
+            this.cg = "家族";
+        } else if(props.category === "relative") {
+            this.cg = "親戚・知人";
+        } else if(props.category === "facility") {
+            this.cg = "保育園・幼稚園・学校";
+        }
 
-    const handleClose = () => {
-        setOpen(false);
-    };
-
-    let cg = "";
-    if(props.category === "family") {
-        cg = "家族";
-    } else if(props.category === "relative") {
-        cg = "親戚・知人";
-    } else if(props.category === "facility") {
-        cg = "保育園・幼稚園・学校";
+        this.handleClickOpen      = this.handleClickOpen.bind(this);
+        this.handleClose          = this.handleClose.bind(this);
+        this.handleCloseAndSubmit = this.handleCloseAndSubmit.bind(this);
+        this.setMember            = this.setMember.bind(this);
     }
 
-    return (
-        <div className="Create">
-            <IconButton color="primary" aria-label="create form" onClick={handleClickOpen}>
-                <AddCircleIcon/>
-            </IconButton>
-            <Dialog open={open} onClose={handleClose} aria-labelledby="form-dialog-title">
-                <DialogTitle id="form-dialog-title">
-                    {cg}の連絡先追加
-                </DialogTitle>
-                <DialogContent>
-                    <DialogContentText>
-                        {cg}の情報を入力してください。
-                    </DialogContentText>
-                    {props.category === "family"   && <FamilyTextField/>}
-                    {props.category === "relative" && <RelativeTextField/>}
-                    {props.category === "facility" && <FacilityTextField/>}
-                </DialogContent>
-                <DialogActions>
-                    <Button onClick={handleClose} color="primary">
-                        キャンセル
-                    </Button>
-                    <Button onClick={handleClose} color="primary">
-                        追加
-                    </Button>
-                </DialogActions>
-            </Dialog>
-        </div>
-    );
+    handleClickOpen() {
+        this.setState({open: true});
+    }
+
+    handleClose() {
+        this.setState({open: false});
+    }
+
+    handleCloseAndSubmit() {
+        this.props.submit(this.state.member);
+        this.handleClose();
+    }
+
+    setMember(member) {
+        this.setState({member: member});
+    }
+
+    render() {
+        return (
+            <div className="Create">
+                <IconButton
+                    color="primary"
+                    aria-label="create form"
+                    onClick={this.handleClickOpen}
+                >
+                    <AddCircleIcon/>
+                </IconButton>
+                <Dialog
+                    open={this.state.open}
+                    onClose={this.handleClose}
+                    aria-labelledby="form-dialog-title"
+                >
+                    <DialogTitle id="form-dialog-title">
+                        {this.cg}の連絡先追加
+                    </DialogTitle>
+                    <DialogContent>
+                        <DialogContentText>
+                            {this.cg}の情報を入力してください。
+                        </DialogContentText>
+                        {this.props.category === "family"   &&
+                            <FamilyTextField   func={this.setMember}/>}
+                        {this.props.category === "relative" &&
+                            <RelativeTextField func={this.setMember}/>}
+                        {this.props.category === "facility" &&
+                            <FacilityTextField func={this.setMember}/>}
+                    </DialogContent>
+                    <DialogActions>
+                        <Button onClick={this.handleClose} color="primary">
+                            キャンセル
+                        </Button>
+                        <Button onClick={this.handleCloseAndSubmit} color="primary">
+                            追加
+                        </Button>
+                    </DialogActions>
+                </Dialog>
+            </div>
+        );
+    }
 }
 
 class FamilyTextField extends React.Component {
@@ -71,12 +104,10 @@ class FamilyTextField extends React.Component {
         this.handleChange = this.handleChange.bind(this);
     }
 
+    // TODO整理
     handleChange(event) {
         this.setState({
-            name: event.target.name,
-            phone: event.target.phone,
-            healthInsuranceId: event.target.healthInsuranceId,
-            illnessAndAllergy: event.target.illnessAndAllergy
+            [event.target.id]: event.target.value
         });
         this.props.func(this.state);
     }
@@ -133,12 +164,12 @@ class RelativeTextField extends React.Component {
             name: "",
             phone: ""
         }
+        this.handleChange = this.handleChange.bind(this);
     }
 
     handleChange(event) {
         this.setState({
-            name: event.target.name,
-            phone: event.target.phone
+            [event.target.id]: event.target.value
         });
         this.props.func(this.state);
     }
@@ -177,12 +208,12 @@ class FacilityTextField extends React.Component {
             name: "",
             phone: ""
         }
+        this.handleChange = this.handleChange.bind(this);
     }
 
     handleChange(event) {
         this.setState({
-            name: event.target.name,
-            phone: event.target.phone
+            [event.target.id]: event.target.value
         });
         this.props.func(this.state);
     }
@@ -217,30 +248,26 @@ class FacilityTextField extends React.Component {
 class Form extends React.Component {
     constructor(props) {
         super(props);
-        this.state = { // TODO: キャッシュから情報を読み取れるように
+        this.state = { // TODO: ローカルストレージに情報を保持させられるように
             family: [],
             relatives: [],
             facilities: []
         };
+        this.addFamily   = this.addFamily.bind(this);
+        this.addRelative = this.addRelative.bind(this);
+        this.addFacility = this.addFacility.bind(this);
     }
 
     addFamily(member) {
-        this.family.push(member);
-        this.getAllState()
+        this.state.family.push(member);
     }
 
     addRelative(member) {
-        this.relatives.push(member);
-        this.getAllState()
+        this.state.relatives.push(member);
     }
 
     addFacility(member) {
-        this.facilities.push(member);
-        this.getAllState()
-    }
-
-    getAllState() {
-        console.log(this.state);
+        this.state.facilities.push(member);
     }
 
     render() {
