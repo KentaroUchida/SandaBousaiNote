@@ -24,6 +24,7 @@ import WarningIcon from '@material-ui/icons/WarningSharp';
 import HomeIcon from '@material-ui/icons/HomeSharp';
 import DirectionsRunSharpIcon from '@material-ui/icons/DirectionsRunSharp';
 import { makeStyles, useTheme } from '@material-ui/core/styles';
+import { Link } from "react-router-dom"
 
 const drawerWidth = 350;
 
@@ -80,18 +81,28 @@ export default function ResponsiveDrawer(props) {
     setMobileOpen(!mobileOpen);
   };
 
+  const icons = [
+    <HomeIcon/>,<WarningIcon/>,<DirectionsRunSharpIcon/>
+  ];
+
+  const links = [
+    "/","/jishin"
+  ];
+
   const drawer = (
     <div>
       <div className={classes.toolbar} />
       <Divider />
       <List>
-        {['Home','グラっと地震が来たら！いのちを守る！できるだけケガをせず生き残る！'].map((text, index) => (
-          <ListItem button key={text}>
-            <ListItemIcon>
-                {index % 2 === 0 ?<HomeIcon/>:<WarningIcon />}
-            </ListItemIcon>
-            <ListItemText primary={text} />
-          </ListItem>
+        {['Home','グラっと地震が来たら！いのちを守る！できるだけケガをせず生き残る！','揺れがおさまったら'].map((text, index) => (
+            <Link to={links[index]} key={index}>
+                <ListItem button >
+                    <ListItemIcon>
+                        {icons[index]}
+                    </ListItemIcon>
+                <ListItemText primary={text} />
+                </ListItem>
+            </Link>
         ))}
       </List>
     </div>
