@@ -6,10 +6,11 @@ import { CardMedia } from '@material-ui/core'
 import { CardContent } from '@material-ui/core'
 const useStyles = makeStyles({
     root: {
-      maxWidth: 345,
+      width: "100%",
+      backgroundColor: "#81c784"
     },
     media: {
-      height: 140,
+      height: "100%"
     },
   });
 
@@ -17,11 +18,9 @@ export const PrecautionList2 = () => {
     const classes = useStyles();
     return (
         <Card className={classes.root}>
-            <CardMedia
-              className={classes.media}
-              image="/public/img/gomi_waremono.png"
-              title="gomi waremono irasutoya"
-            />
+            <CardMedia>
+        <img src="/img/gomi_waremono.png" alt="" style={{height: 200}}/>
+      </CardMedia>
             <CardContent>
               <Typography variant="body2" color="textSecondary" component="p">
                 キッチンにいる人は、子供の名前を呼んではいけません。キッチンにはガラスや割れ物がいっぱいです。
