@@ -2,7 +2,7 @@ import { BrowserRouter, Route } from 'react-router-dom';
 
 import Home from './Home'
 import Menu from './Menu'
-//import Form from './Form'
+import Form from './Form'
 
 import {Jishin} from './Jishin/Main'
 
@@ -15,6 +15,9 @@ function App() {
           </Route>
           <Route exact path='/jishin'>
             <Jishin/>
+          </Route>
+          <Route exact path='/form'>
+            <Form/>
           </Route>
         </Menu>
       </BrowserRouter>
