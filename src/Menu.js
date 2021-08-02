@@ -82,11 +82,11 @@ export default function ResponsiveDrawer(props) {
   };
 
   const icons = [
-    <HomeIcon/>,<WarningIcon/>,<DirectionsRunSharpIcon/>
+    <HomeIcon/>,<WarningIcon/>,<DirectionsRunSharpIcon/>,<WarningIcon/>
   ];
 
   const links = [
-    "/","/jishin"
+    "/","/jishin","/jishin","/form"
   ];
 
   const drawer = (
@@ -94,7 +94,7 @@ export default function ResponsiveDrawer(props) {
       <div className={classes.toolbar} />
       <Divider />
       <List>
-        {['Home','グラっと地震が来たら！いのちを守る！できるだけケガをせず生き残る！','揺れがおさまったら'].map((text, index) => (
+        {['Home','グラっと地震が来たら！いのちを守る！できるだけケガをせず生き残る！','揺れがおさまったら','緊急時のわがやの情報'].map((text, index) => (
             <Link to={links[index]} key={index}>
                 <ListItem button >
                     <ListItemIcon>
