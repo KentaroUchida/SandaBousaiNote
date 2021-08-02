@@ -26,10 +26,10 @@ class FormDialog extends React.Component {
             this.cg = "保育園・幼稚園・学校";
         }
 
-        this.handleClickOpen      = this.handleClickOpen.bind(this);
-        this.handleClose          = this.handleClose.bind(this);
-        this.handleCloseAndSubmit = this.handleCloseAndSubmit.bind(this);
-        this.setMember            = this.setMember.bind(this);
+        this.handleClickOpen = this.handleClickOpen.bind(this);
+        this.handleClose     = this.handleClose.bind(this);
+        this.handleSubmit    = this.handleSubmit.bind(this);
+        this.setMember       = this.setMember.bind(this);
     }
 
     handleClickOpen() {
@@ -40,7 +40,7 @@ class FormDialog extends React.Component {
         this.setState({open: false});
     }
 
-    handleCloseAndSubmit() {
+    handleSubmit() {
         this.props.submit(this.state.member);
         this.handleClose();
     }
@@ -82,7 +82,7 @@ class FormDialog extends React.Component {
                         <Button onClick={this.handleClose} color="primary">
                             キャンセル
                         </Button>
-                        <Button onClick={this.handleCloseAndSubmit} color="primary">
+                        <Button onClick={this.handleSubmit} color="primary">
                             追加
                         </Button>
                     </DialogActions>

@@ -5,6 +5,7 @@ import AccordionDetails from '@material-ui/core/AccordionDetails';
 import Typography from '@material-ui/core/Typography';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 import TextField from '@material-ui/core/TextField';
+import Grid from '@material-ui/core/Grid';
 import FormDialog from './Form/Dialog';
 
 class PrintFamilyInformation extends React.Component{
@@ -159,10 +160,9 @@ class Form extends React.Component {
             ]
         };
 
-        this.addFamily       = this.addFamily.bind(this);
-        this.addRelative     = this.addRelative.bind(this);
-        this.addFacility     = this.addFacility.bind(this);
-        this.familyInfoItems = this.familyInfoItems.bind(this);
+        this.addFamily = this.addFamily.bind(this);
+        this.addRelative = this.addRelative.bind(this);
+        this.addFacility = this.addFacility.bind(this);
     }
 
 
@@ -181,29 +181,37 @@ class Form extends React.Component {
         this.setState(this.state);
     }
 
-    familyInfoItems() {
-        return this.state.family.map((v) =>
-            <PrintFamilyInformation
-                name={v.name}
-                phoneNumber={v.phoneNumber}
-                insuranceId={v.insuranceId}
-                illness={v.illness}
-        />);
-    }
-
     render() {
         return(
             <div>
-                <h2>・家族の連絡先</h2>
-                <FormDialog category="family" submit={this.addFamily}/>
-                {this.familyInfoItems()}
+                <Grid
+                    justify="space-between"
+                    alignItems="center"
+                    container
+                >
+                    <h2>・家族の連絡先</h2>
+                    <FormDialog category="family" submit={this.addFamily}/>
+                </Grid>
+                {this.state.family.map((v) => <PrintFamilyInformation name={v.name} phoneNumber={v.phoneNumber} insuranceId={v.insuranceId} illness={v.illness}/>)}
 
-                <h2>・親戚、知人の連絡先</h2>
-                <FormDialog category="relative" submit={this.addRelative}/>
+                <Grid
+                    justify="space-between"
+                    alignItems="center"
+                    container
+                >
+                    <h2>・親戚、知人の連絡先</h2>
+                    <FormDialog category="relative" submit={this.addRelative}/>
+                </Grid>
                 {this.state.relatives.map((v) => <PrintRelativeInformation name={v.name} phoneNumber={v.phoneNumber}/>)}
 
-                <h2>・保育園、幼稚園、学校の連絡先</h2>
-                <FormDialog category="facility" submit={this.addFacility}/>
+                <Grid
+                    justify="space-between"
+                    alignItems="center"
+                    container
+                >
+                    <h2>・保育園、幼稚園、学校の連絡先</h2>
+                    <FormDialog category="facility" submit={this.addFacility}/>
+                </Grid>
                 {this.state.facilities.map((v) => <PrintFacilityInformation name={v.name} phoneNumber={v.phoneNumber}/>)}
                 <br></br>
                 <table border="1">
@@ -223,15 +231,15 @@ class Form extends React.Component {
                 <table border="1">
                     <tr>
                         <td>一時避難所</td>
-                        <td><td><TextField id="standard-basic"/></td></td>
+                        <td><TextField id="ichiji"/></td>
                     </tr>
                     <tr>
                         <td>災害避難所</td>
-                        <td><td><TextField id="standard-basic"/></td></td>
+                        <td><TextField id="saigai"/></td>
                     </tr>
                     <tr>
                         <td>津波避難所</td>
-                        <td><td><TextField id="standard-basic"/></td></td>
+                        <td><TextField id="tsunami"/></td>
                     </tr>
                 </table>
             </div>
