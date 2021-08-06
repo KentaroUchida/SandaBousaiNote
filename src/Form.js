@@ -7,6 +7,7 @@ import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 import TextField from '@material-ui/core/TextField';
 import Grid from '@material-ui/core/Grid';
 import FormDialog from './Form/Dialog';
+import Button from '@material-ui/core/Button';
 
 class PrintFamilyInformation extends React.Component{
     constructor(props){
@@ -163,6 +164,8 @@ class Form extends React.Component {
         this.addFamily = this.addFamily.bind(this);
         this.addRelative = this.addRelative.bind(this);
         this.addFacility = this.addFacility.bind(this);
+        this.setValues = this.setValues.bind(this);
+        this.handleChange = this.handleChange.bind(this);
     }
 
 
@@ -181,7 +184,23 @@ class Form extends React.Component {
         this.setState(this.state);
     }
 
+    handleChange(event){
+        this.setState({[event.target.id]:event.target.value});
+    }
+    setValues(){
+        localStorage.setItem('phone',this.state.phone);
+        localStorage.setItem('ichiji',this.state.ichiji);
+        localStorage.setItem('saigai',this.state.saigai);
+        localStorage.setItem('tsunami',this.state.tsunami);
+        alert(this.state.phone +"と"+this.state.ichiji +"を保存しました");
+        // alert("電話番号と避難先を保存しました");
+    }
+
     render() {
+        var phoneNumber=localStorage.getItem('phone');
+        var ichiji=localStorage.getItem('ichiji');
+        var saigai=localStorage.getItem('saigai');
+        var tsunami=localStorage.getItem('tsunami');
         return(
             <div>
                 <Grid
@@ -224,24 +243,28 @@ class Form extends React.Component {
                 <table border="1">
                     <tr>
                         <td>自宅の電話番号</td>
-                        <td><TextField/></td>
+                        <td><TextField onChange={this.handleChange} id="phone" defaultValue={phoneNumber}/></td>
                     </tr>
                 </table>
                 <h2>・避難所</h2>
                 <table border="1">
                     <tr>
                         <td>一時避難所</td>
-                        <td><TextField id="ichiji"/></td>
+                        <td><TextField onChange={this.handleChange} id="ichiji" defaultValue={ichiji}/></td>
                     </tr>
                     <tr>
                         <td>災害避難所</td>
-                        <td><TextField id="saigai"/></td>
+                        <td><TextField onChange={this.handleChange} id="saigai" defaultValue={saigai}/></td>
                     </tr>
                     <tr>
                         <td>津波避難所</td>
-                        <td><TextField id="tsunami"/></td>
+                        <td><TextField onChange={this.handleChange} id="tsunami" defaultValue={tsunami}/></td>
                     </tr>
                 </table>
+                <br></br>
+                <Button onClick={this.setValues} variant="contained" color="primary">
+                保存
+                </Button>
             </div>
         );
     }
