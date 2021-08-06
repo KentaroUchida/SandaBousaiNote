@@ -2,6 +2,8 @@ import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import Button from '@material-ui/core/Button';
 import { Menu } from '@material-ui/core';
+import "react-minesweeper/lib/minesweeper.css";
+import Minesweeper from 'react-minesweeper'
 const useStyles = makeStyles((theme) => ({
   root: {
     '& > *': {
@@ -29,6 +31,13 @@ export default function Home(props) {
     return (
         <div>
             {list}
+            <Minesweeper
+                onWin={() => console.log("GAME WON")}
+                onLose={() => console.log("GAME LOST")}
+                bombChance={0.15} // 15% chance that a field will contain a bomb
+                width={10} // amount of fields horizontally
+                height={10} // amount of fields vertically
+            />
         </div>
     );
     //return (
