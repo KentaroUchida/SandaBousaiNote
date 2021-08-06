@@ -124,7 +124,12 @@ class PrintShelterInformation extends React.Component{
 class Form extends React.Component {
     constructor() {
         super();
-        this.state = { // プロトタイプ閲覧用初期データ TODO: ローカルストレージに情報を保持させられるように
+        this.state = {
+            // phone:"",
+            // ichiji:"",
+            // saigai:"",
+            // tsunami:"",
+            // プロトタイプ閲覧用初期データ TODO: ローカルストレージに情報を保持させられるように
             family: [
                 {
                     "name":"山田航樹",
@@ -187,13 +192,13 @@ class Form extends React.Component {
     handleChange(event){
         this.setState({[event.target.id]:event.target.value});
     }
+
     setValues(){
-        localStorage.setItem('phone',this.state.phone);
-        localStorage.setItem('ichiji',this.state.ichiji);
-        localStorage.setItem('saigai',this.state.saigai);
-        localStorage.setItem('tsunami',this.state.tsunami);
-        alert(this.state.phone +"と"+this.state.ichiji +"を保存しました");
-        // alert("電話番号と避難先を保存しました");
+        if(this.state.phone!=undefined) localStorage.setItem('phone',this.state.phone);
+        if(this.state.ichiji!=undefined) localStorage.setItem('ichiji',this.state.ichiji);
+        if(this.state.saigai!=undefined) localStorage.setItem('saigai',this.state.saigai);
+        if(this.state.tsunami!=undefined) localStorage.setItem('tsunami',this.state.tsunami);
+        alert("電話番号と避難先を保存しました");
     }
 
     render() {
