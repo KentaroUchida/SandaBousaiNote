@@ -13,7 +13,7 @@ import ListItem from '@material-ui/core/ListItem';
 import ListItemIcon from '@material-ui/core/ListItemIcon';
 import ListItemText from '@material-ui/core/ListItemText';
 import MailIcon from '@material-ui/icons/Mail';
-import MenuIcon from '@material-ui/icons/Menu';
+import ListIcon from '@material-ui/icons/List';
 import ChevronLeftIcon from '@material-ui/icons/ChevronLeft';
 import ChevronRightIcon from '@material-ui/icons/ChevronRight';
 import Toolbar from '@material-ui/core/Toolbar';
@@ -24,7 +24,9 @@ import WarningIcon from '@material-ui/icons/WarningSharp';
 import HomeIcon from '@material-ui/icons/HomeSharp';
 import DirectionsRunSharpIcon from '@material-ui/icons/DirectionsRunSharp';
 import { makeStyles, useTheme } from '@material-ui/core/styles';
-import { Link } from "react-router-dom"
+import { Link } from "react-router-dom";
+import Grid from '@material-ui/core/Grid';
+import ButtonGroup from '@material-ui/core/ButtonGroup';
 
 const drawerWidth = 350;
 
@@ -92,10 +94,10 @@ export default function ResponsiveDrawer(props) {
   const drawer = (
     <div>
       <div className={classes.toolbar} />
-      <Divider />
       <List>
         {['Home','グラっと地震が来たら！いのちを守る！できるだけケガをせず生き残る！','揺れがおさまったら','緊急時のわがやの情報'].map((text, index) => (
             <Link to={links[index]} key={index}>
+              <Divider/>
                 <ListItem button >
                     <ListItemIcon>
                         {icons[index]}
@@ -104,6 +106,7 @@ export default function ResponsiveDrawer(props) {
                 </ListItem>
             </Link>
         ))}
+        <Divider/>
       </List>
     </div>
   );
@@ -119,22 +122,33 @@ export default function ResponsiveDrawer(props) {
           [classes.appBarShift]: mobileOpen,
         })}>
         <Toolbar>
-          <IconButton
-            color="inherit"
-            aria-label="open drawer"
-            edge="start"
-            onClick={handleDrawerOpen}
-            className={clsx(classes.menuButton, mobileOpen && classes.hide)}
-          >
-            <MenuIcon />
-          </IconButton>
-          <Typography variant="h6" noWrap>
-            {props.title}
-          </Typography>
-          <Button
-            color="inherit"
-            startIcon={<PrintIcon />}>
-          </Button>
+          <Grid
+            justify="space-between"
+            alignItems="center"
+            container
+            >
+              <div style={{display:"inline-flex",}}>
+                  <IconButton
+                    color="inherit"
+                    aria-label="open drawer"
+                    edge="start"
+                    onClick={handleDrawerOpen}
+                    className={clsx(classes.menuButton, mobileOpen && classes.hide)}
+                  >
+                    <ListIcon />
+                  </IconButton>
+                  <Typography variant="h6" noWrap style={{marginTop:"8px"}}>
+                    {props.title}
+                  </Typography>
+              </div>
+              <IconButton
+                color="inherit"
+                edge="end"
+                // onClick={handleDrawerOpen}
+                >
+                  <PrintIcon />
+              </IconButton>
+          </Grid>
         </Toolbar>
       </AppBar>
       <nav className={classes.drawer} aria-label="mailbox folders">

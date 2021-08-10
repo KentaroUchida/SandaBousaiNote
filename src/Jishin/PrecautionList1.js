@@ -18,7 +18,7 @@ const useStyles = makeStyles({
 export const PrecautionList1 = () => {
     const classes = useStyles();
     return (
-        <Card className={classes.root}>
+        <Card className={classes.root} gutterBottom>
            <CardMedia>
         <img src="/img/jishin_tsukue.png" alt="" style={{height: 200}}/>
       </CardMedia>
