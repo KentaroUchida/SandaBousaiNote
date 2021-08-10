@@ -42,8 +42,6 @@ class FormDialog extends React.Component {
 
     handleSubmit() {
         this.props.submit(this.state.member);
-
-        //入力したデータをlocalStorageに保存
         if(this.cg === "家族"){
             var cnt = localStorage.getItem('familyCounter');
             if(cnt === null) cnt=1;
@@ -126,9 +124,8 @@ class FamilyTextField extends React.Component {
         this.handleChange = this.handleChange.bind(this);
     }
 
-    // TODO整理
-    handleChange(event) {
-        this.setState({
+    async handleChange(event) {
+        await this.setState({
             [event.target.id]: event.target.value
         });
         this.props.func(this.state);
@@ -189,8 +186,8 @@ class RelativeTextField extends React.Component {
         this.handleChange = this.handleChange.bind(this);
     }
 
-    handleChange(event) {
-        this.setState({
+    async handleChange(event) {
+        await this.setState({
             [event.target.id]: event.target.value
         });
         this.props.func(this.state);
@@ -233,8 +230,8 @@ class FacilityTextField extends React.Component {
         this.handleChange = this.handleChange.bind(this);
     }
 
-    handleChange(event) {
-        this.setState({
+    async handleChange(event) {
+        await this.setState({
             [event.target.id]: event.target.value
         });
         this.props.func(this.state);
