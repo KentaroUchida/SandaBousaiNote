@@ -6,7 +6,7 @@ import Typography from '@material-ui/core/Typography';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 import TextField from '@material-ui/core/TextField';
 import Grid from '@material-ui/core/Grid';
-import FormDialog from './Form/Dialog';
+import FormDialog from '../components/Dialog';
 import Button from '@material-ui/core/Button';
 
 class PrintFamilyInformation extends React.Component{
