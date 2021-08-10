@@ -1,12 +1,13 @@
 import { BrowserRouter, Route } from 'react-router-dom';
 
 import Home from './pages/Home'
-import Menu from './Menu'
-import Form from './Form'
 
-import {Jishin} from './Jishin/Main'
-import {Taiken} from './Taiken/Main'
-import {P10TaikenPapa} from './P10TaikenPapa/Main'
+import Form from './pages/P0Form'
+import Menu from './components/Menu'
+import { Jishin } from './pages/P3Jishin'
+import { Taiken } from './pages/P5Taiken'
+import {P10TaikenPapa} from './pages/P10TaikenPapa'
+import {P11KikenSouzou} from './pages/P11KikenSouzou'
 
 function App() {
   return (
@@ -21,11 +22,14 @@ function App() {
           <Route exact path='/taiken'>
             <Taiken/>
           </Route>
-          <Route exact path='/P10TaikenPapa'>
+          <Route exact path='/taikenPapa'>
             <P10TaikenPapa/>
           </Route>
           <Route exact path='/form'>
             <Form/>
+          </Route>
+          <Route exact path='/souzou'>
+            <P11KikenSouzou/>
           </Route>
         </Menu>
       </BrowserRouter>
