@@ -6,6 +6,7 @@ import Form from './Form'
 
 import {Jishin} from './Jishin/Main'
 import {Taiken} from './Taiken/Main'
+import {P11KikenSouzou} from './pages/P11KikenSouzou'
 
 function App() {
   return (
@@ -22,6 +23,9 @@ function App() {
           </Route>
           <Route exact path='/form'>
             <Form/>
+          </Route>
+          <Route exact path='/souzou'>
+            <P11KikenSouzou/>
           </Route>
         </Menu>
       </BrowserRouter>
