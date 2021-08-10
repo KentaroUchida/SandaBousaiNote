@@ -124,46 +124,33 @@ class PrintShelterInformation extends React.Component{
 class Form extends React.Component {
     constructor() {
         super();
+        var family=[];
+        var famCnt=localStorage.getItem('familyCounter');
+        if(famCnt === null) famCnt=0;
+        for(var i=1; i<=famCnt; i++){
+            family.push(JSON.parse(localStorage.getItem("family"+i)));
+        }
+        var relative=[];
+        var relCnt=localStorage.getItem('relativeCounter');
+        if(relCnt === null) relCnt=0;
+        for(var i=1; i<=relCnt; i++){
+            relative.push(JSON.parse(localStorage.getItem("relative"+i)));
+        }
+        var facility=[];
+        var facCnt=localStorage.getItem('facilityCounter');
+        if(facCnt === null) facCnt=0;
+        for(var i=1; i<=facCnt; i++){
+            facility.push(JSON.parse(localStorage.getItem("facility"+i)));
+        }
         this.state = {
             // phone:"",
             // ichiji:"",
             // saigai:"",
             // tsunami:"",
             // プロトタイプ閲覧用初期データ TODO: ローカルストレージに情報を保持させられるように
-            family: [
-                // {
-                //     "name":"山田航樹",
-                //     "phoneNumber":"090-1234-5678",
-                //     "insuranceId":"123456789",
-                //     "illness":"花粉"
-                // },
-                // {
-                //     "name":"内田健太郎",
-                //     "phoneNumber":"090-8765-4321",
-                //     "insuranceId":"987654321",
-                //     "illness":"猫アレルギー"
-                // }
-            ],
-            relatives: [
-                // {
-                //     "name":"三田太郎",
-                //     "phoneNumber":"090-1234-5678"
-                // },
-                // {
-                //     "name":"四山",
-                //     "phoneNumber":"090-8765-4321"
-                // }
-            ],
-            facilities: [
-                // {
-                //     "name":"神戸大学",
-                //     "phoneNumber":"090-1234-5678"
-                // },
-                // {
-                //     "name":"生駒高校",
-                //     "phoneNumber":"090-8765-4321"
-                // }
-            ]
+            family: family,
+            relatives: relative,
+            facilities: facility
         };
 
         this.addFamily = this.addFamily.bind(this);
@@ -206,22 +193,22 @@ class Form extends React.Component {
         var ichiji=localStorage.getItem('ichiji');
         var saigai=localStorage.getItem('saigai');
         var tsunami=localStorage.getItem('tsunami');
-        var familyCounter=localStorage.getItem('familyCounter');
-        if(familyCounter===null) familyCounter=0;
-        var relativeCounter=localStorage.getItem('relativeCounter');
-        if(relativeCounter===null) relativeCounter=0;
-        var facilityCounter=localStorage.getItem('facilityCounter');
-        if(facilityCounter===null) facilityCounter=0;
+        // var familyCounter=localStorage.getItem('familyCounter');
+        // if(familyCounter===null) familyCounter=0;
+        // var relativeCounter=localStorage.getItem('relativeCounter');
+        // if(relativeCounter===null) relativeCounter=0;
+        // var facilityCounter=localStorage.getItem('facilityCounter');
+        // if(facilityCounter===null) facilityCounter=0;
         
-        for(var i=0; i<familyCounter; i++){
-            this.state.family.push(JSON.parse(localStorage.getItem("family"+familyCounter)));
-        }
-        for(var i=0; i<relativeCounter; i++){
-            this.state.relatives.push(JSON.parse(localStorage.getItem("relative"+relativeCounter)));
-        }
-        for(var i=0; i<facilityCounter; i++){
-            this.state.facilities.push(JSON.parse(localStorage.getItem("facility"+facilityCounter)));
-        }
+        // for(var i=0; i<familyCounter; i++){
+        //     this.state.family.push(JSON.parse(localStorage.getItem("family"+familyCounter)));
+        // }
+        // for(var i=0; i<relativeCounter; i++){
+        //     this.state.relatives.push(JSON.parse(localStorage.getItem("relative"+relativeCounter)));
+        // }
+        // for(var i=0; i<facilityCounter; i++){
+        //     this.state.facilities.push(JSON.parse(localStorage.getItem("facility"+facilityCounter)));
+        // }
 
 
         // if(familyCounter!==0) this.state.family.push(JSON.parse(localStorage.getItem("family"+(familyCounter-1))));

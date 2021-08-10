@@ -42,13 +42,13 @@ class FormDialog extends React.Component {
 
     handleSubmit() {
         this.props.submit(this.state.member);
-        if(this.cg === "家族"){
+        if(this.props.category==="family"){
             var cnt = localStorage.getItem('familyCounter');
             if(cnt === null) cnt=1;
             else cnt++;
             localStorage.setItem('familyCounter', cnt);
             localStorage.setItem("family"+cnt, JSON.stringify(this.state.member));
-        }else if(this.cg === "親戚・知人"){
+        }else if(this.props.category==="relative"){
             var cnt = localStorage.getItem('relativeCounter');
             if(cnt === null) cnt=1;
             else cnt++;
