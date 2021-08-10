@@ -5,6 +5,7 @@ import Menu from './Menu'
 import Form from './Form'
 
 import {Jishin} from './Jishin/Main'
+import {Taiken} from './Taiken/Main'
 
 function App() {
   return (
@@ -15,6 +16,9 @@ function App() {
           </Route>
           <Route exact path='/jishin'>
             <Jishin/>
+          </Route>
+          <Route exact path='/taiken'>
+            <Taiken/>
           </Route>
           <Route exact path='/form'>
             <Form/>
