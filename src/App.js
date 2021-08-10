@@ -9,6 +9,7 @@ import { Taiken } from './pages/P5Taiken'
 import {P10TaikenPapa} from './pages/P10TaikenPapa'
 import {P11KikenSouzou} from './pages/P11KikenSouzou'
 import {P12KikenJissai} from './pages/P12KikenJissai'
+import {P14Daijobu} from './pages/P14Daijobu'
 
 function App() {
   return (
@@ -34,6 +35,9 @@ function App() {
           </Route>
           <Route exact path="/jissai">
             <P12KikenJissai/>
+          </Route>
+          <Route exact path='/daijobu'>
+            <P14Daijobu/>
           </Route>
         </Menu>
       </BrowserRouter>
