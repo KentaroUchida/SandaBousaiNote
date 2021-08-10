@@ -61,10 +61,11 @@ function App() {
 
   return (
     <BrowserRouter>
-      <Menu title="Home" />
+      <Menu title="Home">
       {pages.map((_, i) => (
         <ContentPage index={i} />
       ))}
+      </Menu>
     </BrowserRouter>
   );
 }
