@@ -8,6 +8,7 @@ import { Jishin } from './pages/P3Jishin'
 import { Taiken } from './pages/P5Taiken'
 import {P10TaikenPapa} from './pages/P10TaikenPapa'
 import {P11KikenSouzou} from './pages/P11KikenSouzou'
+import {P12KikenJissai} from './pages/P12KikenJissai'
 
 function App() {
   return (
@@ -30,6 +31,9 @@ function App() {
           </Route>
           <Route exact path='/souzou'>
             <P11KikenSouzou/>
+          </Route>
+          <Route exact path="/jissai">
+            <P12KikenJissai/>
           </Route>
         </Menu>
       </BrowserRouter>
