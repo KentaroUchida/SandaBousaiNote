@@ -42,6 +42,26 @@ class FormDialog extends React.Component {
 
     handleSubmit() {
         this.props.submit(this.state.member);
+        if(this.props.category==="family"){
+            var cnt = localStorage.getItem('familyCounter');
+            if(cnt === null) cnt=1;
+            else cnt++;
+            localStorage.setItem('familyCounter', cnt);
+            localStorage.setItem("family"+cnt, JSON.stringify(this.state.member));
+        }else if(this.props.category==="relative"){
+            var cnt = localStorage.getItem('relativeCounter');
+            if(cnt === null) cnt=1;
+            else cnt++;
+            localStorage.setItem('relativeCounter', cnt);
+            localStorage.setItem("relative"+cnt, JSON.stringify(this.state.member));
+        }else{
+            var cnt = localStorage.getItem('facilityCounter');
+            if(cnt === null) cnt=1;
+            else cnt++;
+            localStorage.setItem('facilityCounter', cnt);
+            localStorage.setItem("facility"+cnt, JSON.stringify(this.state.member));
+        }
+
         this.handleClose();
     }
 
@@ -104,9 +124,8 @@ class FamilyTextField extends React.Component {
         this.handleChange = this.handleChange.bind(this);
     }
 
-    // TODO整理
-    handleChange(event) {
-        this.setState({
+    async handleChange(event) {
+        await this.setState({
             [event.target.id]: event.target.value
         });
         this.props.func(this.state);
@@ -167,8 +186,8 @@ class RelativeTextField extends React.Component {
         this.handleChange = this.handleChange.bind(this);
     }
 
-    handleChange(event) {
-        this.setState({
+    async handleChange(event) {
+        await this.setState({
             [event.target.id]: event.target.value
         });
         this.props.func(this.state);
@@ -211,8 +230,8 @@ class FacilityTextField extends React.Component {
         this.handleChange = this.handleChange.bind(this);
     }
 
-    handleChange(event) {
-        this.setState({
+    async handleChange(event) {
+        await this.setState({
             [event.target.id]: event.target.value
         });
         this.props.func(this.state);
