@@ -1,11 +1,10 @@
 import { BrowserRouter, Route } from 'react-router-dom';
 
 import Home from './pages/Home'
-import Menu from './Menu'
-import Form from './Form'
-
-import {Jishin} from './Jishin/Main'
-import {Taiken} from './Taiken/Main'
+import Form from './pages/P0Form'
+import Menu from './components/Menu'
+import { Jishin } from './pages/P3Jishin'
+import { Taiken } from './pages/P5Taiken'
 import {P11KikenSouzou} from './pages/P11KikenSouzou'
 
 function App() {
