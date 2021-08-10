@@ -89,20 +89,20 @@ const taikenTexts = [
 ];
 
 const taikenImages = [
-  "img/Taiken/tsunagari.png",
-  "img/Taiken/juden.png",
-  "img/Taiken/taishitsu.png",
-  "img/Taiken/app.png",
-  "img/Taiken/tansu.png",
-  "img/Taiken/huan.png",
-  "img/Taiken/taisetsu.png",
-  "img/Taiken/anpi.png",
+  "img/pages/Taiken/tsunagari.png",
+  "img/pages/Taiken/juden.png",
+  "img/pages/Taiken/taishitsu.png",
+  "img/pages/Taiken/app.png",
+  "img/pages/Taiken/tansu.png",
+  "img/pages/Taiken/huan.png",
+  "img/pages/Taiken/taisetsu.png",
+  "img/pages/Taiken/anpi.png",
 ];
 
 const photoImages = [
-  "img/Taiken/pic1.png",
-  "img/Taiken/pic2.png",
-  "img/Taiken/pic3.png"
+  "img/pages/Taiken/pic1.png",
+  "img/pages/Taiken/pic2.png",
+  "img/pages/Taiken/pic3.png"
 ]
 
 const photoTexts = [
@@ -114,7 +114,7 @@ const photoTexts = [
 export const Taiken = () => {
   return (
     <>
-      <FlexImage image="img/Taiken/title.png" />
+      <FlexImage image="img/pages/Taiken/title.png" />
       <Typography variant="h2">大阪北部地震・台風21号を体験してほくせつママ&amp;パパの声をご紹介します。</Typography>
       {taikenTitles.map((_, i) => (
         <Taikendan title={taikenTitles[i]} text={taikenTexts[i]} image={taikenImages[i]} />
