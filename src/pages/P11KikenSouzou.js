@@ -2,13 +2,11 @@ import React from "react";
 import {
   Card,
   CardContent,
-  Paper,
   Typography,
   CardMedia,
   makeStyles,
   Grid,
 } from "@material-ui/core";
-import { classes } from "istanbul-lib-coverage";
 
 const imgPath = "/img/pages/P11KikenSouzou/";
 
