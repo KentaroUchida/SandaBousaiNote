@@ -91,7 +91,7 @@ export default function ResponsiveDrawer(props) {
     <WarningIcon />,
   ];
 
-  const links = ["/", "/jishin", "/jishin", "/form"];
+  const links = ["/", "/jishin", "/jishin","/izanigeru", "/form"];
 
   const drawer = (
     <div>
