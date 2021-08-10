@@ -115,6 +115,7 @@ export const Taiken = () => {
   return (
     <>
       <FlexImage image="img/Taiken/title.png" />
+      <Typography variant="h2">大阪北部地震・台風21号を体験してほくせつママ&amp;パパの声をご紹介します。</Typography>
       {taikenTitles.map((_, i) => (
         <Taikendan title={taikenTitles[i]} text={taikenTexts[i]} image={taikenImages[i]} />
       ))}
