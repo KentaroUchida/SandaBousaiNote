@@ -43,7 +43,7 @@ class FormDialog extends React.Component {
     handleSubmit() {
         this.props.submit(this.state.member);
 
-        //TODO 入力したデータをlocalStorageに保存
+        //入力したデータをlocalStorageに保存
         if(this.cg === "家族"){
             var cnt = localStorage.getItem('familyCounter');
             if(cnt === null) cnt=1;
