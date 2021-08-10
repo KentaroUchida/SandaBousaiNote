@@ -7,6 +7,7 @@ import {
   makeStyles,
   Grid,
 } from "@material-ui/core";
+import { ResponsiveFontProvider } from "../components/ResponsiveFontProvider";
 
 const imgPath = "/img/pages/P11KikenSouzou/";
 
@@ -51,12 +52,14 @@ export const P11KikenSouzou = () => {
   const classes = useStyles();
   return (
     <>
-      <Typography variant="h3" gutterBottom>
-        もし地震がおきたら
-      </Typography>
-      <Typography variant="h2" gutterBottom>
-        どんな危険がおきる？
-      </Typography>
+      <ResponsiveFontProvider>
+        <Typography variant="h3" gutterBottom>
+          もし地震がおきたら
+        </Typography>
+        <Typography variant="h1" gutterBottom>
+          どんな危険がおきる？
+        </Typography>
+      </ResponsiveFontProvider>
       <FlexImage image={imgPath + "madori.png"} />
       <Grid container>
         {images.map((_, i) => (
@@ -65,12 +68,14 @@ export const P11KikenSouzou = () => {
           </Grid>
         ))}
       </Grid>
-      <Typography variant="h3" gutterBottom>
-        想像してみよう！！
-      </Typography>
-      <Typography variant="h6" gutterBottom>
-        あなたが家にいるとき、通学路にいるとき、地震がおきたらどのように身を守ればいいかな？
-      </Typography>
+      <ResponsiveFontProvider>
+        <Typography variant="h3" gutterBottom>
+          想像してみよう！！
+        </Typography>
+        <Typography variant="h6" gutterBottom>
+          あなたが家にいるとき、通学路にいるとき、地震がおきたらどのように身を守ればいいかな？
+        </Typography>
+      </ResponsiveFontProvider>
       <FlexImage image={imgPath + "mokumoku.png"} />
       <FlexImage image={imgPath + "hatena.png"} />
     </>

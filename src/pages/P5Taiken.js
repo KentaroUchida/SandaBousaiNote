@@ -8,6 +8,7 @@ import {
   makeStyles,
   Grid,
 } from "@material-ui/core";
+import { ResponsiveFontProvider } from "../components/ResponsiveFontProvider";
 
 const useStyles = makeStyles((theme) => ({
   card: {
@@ -102,28 +103,34 @@ const taikenImages = [
 const photoImages = [
   "img/pages/Taiken/pic1.png",
   "img/pages/Taiken/pic2.png",
-  "img/pages/Taiken/pic3.png"
-]
+  "img/pages/Taiken/pic3.png",
+];
 
 const photoTexts = [
   "いすに座っていたと思ったら・・・",
   "屋根がごっそり落ちてきました",
-  "ベランダの壁を突き破り、隣家からタイヤが飛んできました"
-]
+  "ベランダの壁を突き破り、隣家からタイヤが飛んできました",
+];
 
 export const Taiken = () => {
   return (
     <>
       <FlexImage image="img/pages/Taiken/title.png" />
-      <Typography variant="h2">大阪北部地震・台風21号を体験してほくせつママ&amp;パパの声をご紹介します。</Typography>
+      <ResponsiveFontProvider>
+        <Typography variant="h3">
+          大阪北部地震・台風21号を体験してほくせつママ&amp;パパの声をご紹介します。
+        </Typography>
+      </ResponsiveFontProvider>
       {taikenTitles.map((_, i) => (
-        <Taikendan title={taikenTitles[i]} text={taikenTexts[i]} image={taikenImages[i]} />
+        <Taikendan
+          title={taikenTitles[i]}
+          text={taikenTexts[i]}
+          image={taikenImages[i]}
+        />
       ))}
-      {
-        photoImages.map((_,i)=>(
-          <Photo image={photoImages[i]} text={photoTexts[i]}/>
-        ))
-      }
+      {photoImages.map((_, i) => (
+        <Photo image={photoImages[i]} text={photoTexts[i]} />
+      ))}
     </>
   );
 };
