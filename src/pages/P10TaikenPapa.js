@@ -8,6 +8,7 @@ import {
   makeStyles,
   Grid,
 } from "@material-ui/core";
+import { ResponsiveFontProvider } from "../components/ResponsiveFontProvider";
 
 const useStyles = makeStyles((theme) => ({
   card: {
@@ -104,21 +105,27 @@ const photoImages = [
   "img/pages/P10TaikenPapa/pic3.png",
   "img/pages/P10TaikenPapa/pic4.png",
   "img/pages/P10TaikenPapa/pic5.png",
-]
+];
 
 export const P10TaikenPapa = () => {
   return (
     <>
       <FlexImage image="img/P10TaikenPapa/title.png" />
-      <Typography variant="h2">実際の3.11震災の当時、仙台に住んでいたパパの体験をご紹介します。</Typography>
+      <ResponsiveFontProvider>
+        <Typography variant="h2">
+          実際の3.11震災の当時、仙台に住んでいたパパの体験をご紹介します。
+        </Typography>
+      </ResponsiveFontProvider>
       {taikenTitles.map((_, i) => (
-        <Taikendan title={taikenTitles[i]} text={taikenTexts[i]} image={taikenImages[i]} />
+        <Taikendan
+          title={taikenTitles[i]}
+          text={taikenTexts[i]}
+          image={taikenImages[i]}
+        />
       ))}
-      {
-        photoImages.map((_,i)=>(
-          <Photo image={photoImages[i]}/>
-        ))
-      }
+      {photoImages.map((_, i) => (
+        <Photo image={photoImages[i]} />
+      ))}
     </>
   );
 };

@@ -1,4 +1,3 @@
-
 import React from "react";
 import {
   Card,
@@ -8,6 +7,7 @@ import {
   makeStyles,
   Grid,
 } from "@material-ui/core";
+import { ResponsiveFontProvider } from "../components/ResponsiveFontProvider";
 
 const imgPath = "/img/pages/P12KikenJissai/";
 
@@ -44,30 +44,43 @@ const Photo = ({ image, text }) => {
   );
 };
 
-const illustImages = ["tosyokan.png", "rouka.png", "genkan.png", "undoujou.png"];
+const illustImages = [
+  "tosyokan.png",
+  "rouka.png",
+  "genkan.png",
+  "undoujou.png",
+];
 
 const illustTexts = ["図書館", "ろうか", "げんかん(下足場)", "運動場"];
 
-const mamoruImages = ["atama.png", "tsukue.png", "kodomobeya.png", "kitchen.png", "waremono.png"]
+const mamoruImages = [
+  "atama.png",
+  "tsukue.png",
+  "kodomobeya.png",
+  "kitchen.png",
+  "waremono.png",
+];
 
 const mamoruTexts = [
-    "近くにあるもので、まず頭を守る。",
-    "動けそうなら机などの下に隠れ、机の脚をしっかりつかむ。",
-    "子ども部屋に子どもがいたら・・・",
-    "キッチンにママがいたら・・・",
-    "割れものがいっぱい"
-]
+  "近くにあるもので、まず頭を守る。",
+  "動けそうなら机などの下に隠れ、机の脚をしっかりつかむ。",
+  "子ども部屋に子どもがいたら・・・",
+  "キッチンにママがいたら・・・",
+  "割れものがいっぱい",
+];
 
 export const P12KikenJissai = () => {
   const classes = useStyles();
   return (
     <>
-      <Typography variant="h3" gutterBottom>
-        実際に地震がおきるとキケンなものが
-      </Typography>
-      <Typography variant="h2" gutterBottom>
-        落ちる！倒れる！動く！
-      </Typography>
+      <ResponsiveFontProvider>
+        <Typography variant="h3" gutterBottom>
+          実際に地震がおきるとキケンなものが
+        </Typography>
+        <Typography variant="h1" gutterBottom>
+          落ちる！倒れる！動く！
+        </Typography>
+      </ResponsiveFontProvider>
       <FlexImage image={imgPath + "madori.png"} />
       <Grid container>
         {illustImages.map((_, i) => (
@@ -76,14 +89,16 @@ export const P12KikenJissai = () => {
           </Grid>
         ))}
       </Grid>
-      <Typography variant="h3" gutterBottom>
-        自分の身は自分で守ろう！！
-      </Typography>
-      <Typography variant="h6" gutterBottom>
-        大地震がおきたとき、とっさの行動が命を分けます。
-        すぐに行動するには、からだで覚えるしかありません。
-        家族で話し合い、ふだんからイメージして実際に訓練しましょう。
-      </Typography>
+      <ResponsiveFontProvider>
+        <Typography variant="h3" gutterBottom>
+          自分の身は自分で守ろう！！
+        </Typography>
+        <Typography variant="h6" gutterBottom>
+          大地震がおきたとき、とっさの行動が命を分けます。
+          すぐに行動するには、からだで覚えるしかありません。
+          家族で話し合い、ふだんからイメージして実際に訓練しましょう。
+        </Typography>
+      </ResponsiveFontProvider>
       <Grid container>
         {mamoruImages.map((_, i) => (
           <Grid item xs={6} className={classes.grid}>
