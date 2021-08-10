@@ -88,22 +88,22 @@ const taikenTexts = [
 ];
 
 const taikenImages = [
-  "img/P10TaikenPapa/kiken.png",
-  "img/P10TaikenPapa/must.png",
-  "img/P10TaikenPapa/tounan.png",
-  "img/P10TaikenPapa/tounan2.png",
-  "img/P10TaikenPapa/huro.png",
-  "img/P10TaikenPapa/gasorin.png",
-  "img/P10TaikenPapa/economy.png",
-  "img/P10TaikenPapa/food.png",
+  "img/pages/P10TaikenPapa/kiken.png",
+  "img/pages/P10TaikenPapa/must.png",
+  "img/pages/P10TaikenPapa/tounan.png",
+  "img/pages/P10TaikenPapa/tounan2.png",
+  "img/pages/P10TaikenPapa/huro.png",
+  "img/pages/P10TaikenPapa/gasorin.png",
+  "img/pages/P10TaikenPapa/economy.png",
+  "img/pages/P10TaikenPapa/food.png",
 ];
 
 const photoImages = [
-  "img/P10TaikenPapa/pic1.png",
-  "img/P10TaikenPapa/pic2.png",
-  "img/P10TaikenPapa/pic3.png",
-  "img/P10TaikenPapa/pic4.png",
-  "img/P10TaikenPapa/pic5.png",
+  "img/pages/P10TaikenPapa/pic1.png",
+  "img/pages/P10TaikenPapa/pic2.png",
+  "img/pages/P10TaikenPapa/pic3.png",
+  "img/pages/P10TaikenPapa/pic4.png",
+  "img/pages/P10TaikenPapa/pic5.png",
 ]
 
 export const P10TaikenPapa = () => {
