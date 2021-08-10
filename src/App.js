@@ -1,10 +1,12 @@
 import { BrowserRouter, Route } from 'react-router-dom';
 
 import Home from './pages/Home'
+
 import Form from './pages/P0Form'
 import Menu from './components/Menu'
 import { Jishin } from './pages/P3Jishin'
 import { Taiken } from './pages/P5Taiken'
+import {P10TaikenPapa} from './pages/P10TaikenPapa'
 import {P11KikenSouzou} from './pages/P11KikenSouzou'
 import {P12KikenJissai} from './pages/P12KikenJissai'
 
@@ -20,6 +22,9 @@ function App() {
           </Route>
           <Route exact path='/taiken'>
             <Taiken/>
+          </Route>
+          <Route exact path='/taikenPapa'>
+            <P10TaikenPapa/>
           </Route>
           <Route exact path='/form'>
             <Form/>
