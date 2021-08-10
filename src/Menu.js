@@ -127,20 +127,20 @@ export default function ResponsiveDrawer(props) {
             alignItems="center"
             container
             >
-              <p>
-                <IconButton
-                  color="inherit"
-                  aria-label="open drawer"
-                  edge="start"
-                  onClick={handleDrawerOpen}
-                  className={clsx(classes.menuButton, mobileOpen && classes.hide)}
-                >
-                  <ListIcon />
-                </IconButton>
-                <Typography variant="h6" noWrap>
-                  {props.title}
-                </Typography>
-              </p>
+              <div style={{display:"inline-flex",}}>
+                  <IconButton
+                    color="inherit"
+                    aria-label="open drawer"
+                    edge="start"
+                    onClick={handleDrawerOpen}
+                    className={clsx(classes.menuButton, mobileOpen && classes.hide)}
+                  >
+                    <ListIcon />
+                  </IconButton>
+                  <Typography variant="h6" noWrap style={{marginTop:"8px"}}>
+                    {props.title}
+                  </Typography>
+              </div>
               <IconButton
                 color="inherit"
                 edge="end"
