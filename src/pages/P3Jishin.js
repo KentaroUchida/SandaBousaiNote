@@ -6,16 +6,26 @@ import CardContent from '@material-ui/core/CardContent';
 import Grid from '@material-ui/core/Grid';
 import Paper from '@material-ui/core/Paper';
 import Typography from '@material-ui/core/Typography';
+import {
+    createTheme,
+    responsiveFontSizes,
+    ThemeProvider,
+  } from '@material-ui/core/styles';
+
+let theme = createTheme();
+theme = responsiveFontSizes(theme);
 
 const Title = () => {
-    return(<>
-        <Typography variant="h1" gutterBottom>
-            グラッと地震がきたら！
-        </Typography>
-        <Typography variant="h3" gutterBottom>
-            いのちを守る！できるだけケガをせず生き残る！
-        </Typography>
-    </>);
+    return(
+        <ThemeProvider theme={theme}>
+            <Typography variant="h1" gutterBottom>
+                グラッと地震がきたら！
+            </Typography>
+            <Typography variant="h3" gutterBottom>
+                いのちを守る！できるだけケガをせず生き残る！
+            </Typography>
+        </ThemeProvider>
+        );
 }
 
 const ActionList = () => {
