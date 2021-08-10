@@ -50,7 +50,7 @@ const PrecautionList1 = () => {
     return (
         <Card className={classes.root} gutterBottom>
            <CardMedia>
-                <img src="/img/jishin_tsukue.png" alt="" style={{height: 200}}/>
+                <img src="/img/pages/Jishin/jishin_tsukue.png" alt="" style={{height: 200}}/>
             </CardMedia>
             <CardContent>
                 テーブルや机などの下にもぐり身を守る。足は出さないように注意！
@@ -64,7 +64,7 @@ const PrecautionList2 = () => {
     return (
         <Card className={classes.root}>
             <CardMedia>
-                <img src="/img/gomi_waremono.png" alt="" style={{height: 200}}/>
+                <img src="/img/pages/Jishin/gomi_waremono.png" alt="" style={{height: 200}}/>
             </CardMedia>
             <CardContent>
                 キッチンにいる人は、子供の名前を呼んではいけません。キッチンにはガラスや割れ物がいっぱいです。
@@ -78,7 +78,7 @@ const PrecautionList3 = () => {
     return (
         <Card className={classes.root}>
             <CardMedia>
-                <img src="/img/jiko_jishin_himoto.png" alt="" style={{height: 200}}/>
+                <img src="/img/pages/Jishin/jiko_jishin_himoto.png" alt="" style={{height: 200}}/>
             </CardMedia>
             <CardContent>
                 火の元よりもまずは自分の身を守ること。大阪ガスでは、震度５以上の揺れを感知すると自動的にガスが止まるようになっています。
@@ -125,28 +125,28 @@ const SafetyMeasures = () => {
         <Measure
             title="家具の固定"
             text="L字金具などで固定する。2段重ねの家具は、つなぎ目を金具で連結させる。"
-            image="/img/shijin_taishin1.png"
+            image="/img/pages/Jishin/shijin_taishin1.png"
         />
         </Grid>
         <Grid item xs={6} className={classes.grid}>
         <Measure
             title="家具の配置を工夫"
             text="(特に子どもや高齢者の部屋)倒れても下敷きにならない家具の配置にする。寝室にスリッパや靴を置いておく。"
-            image="/img/kagu_haiti.png"
+            image="/img/pages/Jishin/kagu_haiti.png"
         />
         </Grid>
         <Grid item xs={6} className={classes.grid}>
         <Measure
             title="ガラスの飛散防止"
             text="窓ガラスに飛散防止フィルムをはる。または、強化ガラスに替える。食器棚のガラスにも飛散防止フィルムをはる。"
-            image="/img/curtain_pink.png"
+            image="/img/pages/Jishin/curtain_pink.png"
         />
         </Grid>
         <Grid item xs={6} className={classes.grid}>
         <Measure
             title="収納"
             text="家具の上など、高いところに重いものを置かない。重いものは家具の下部に、軽いものは上部に収納する。"
-            image="/img/kagu_nimotsu_orosu.png"
+            image="/img/pages/Jishin/kagu_nimotsu_orosu.png"
         />
         </Grid>
     </Grid>
@@ -156,7 +156,7 @@ const SafetyMeasures = () => {
 export const Jishin = () => {
     return(<>
         <Title/>
-        <img src="/img/family_under_table.png" alt="" style={{width:"100%"}}/>
+        <img src="/img/pages/Jishin/family_under_table.png" alt="" style={{width:"100%"}}/>
         <ActionList/>
 
         <PrecautionList1/>
