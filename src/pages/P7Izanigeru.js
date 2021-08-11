@@ -6,6 +6,8 @@ import CardContent from '@material-ui/core/CardContent';
 import Grid from '@material-ui/core/Grid';
 import Paper from '@material-ui/core/Paper';
 import Typography from '@material-ui/core/Typography';
+import { ResponsiveFontProvider } from "../components/ResponsiveFontProvider"
+import Button from '@material-ui/core/Button';
 import {
     createTheme,
     responsiveFontSizes,
@@ -18,12 +20,14 @@ theme = responsiveFontSizes(theme);
 const Title = () => {
     return(
         <ThemeProvider theme={theme}>
-            <Typography variant="h1" gutterBottom>
-                いざ逃げる！
-            </Typography>
-            <Typography variant="h3" gutterBottom>
-                災害によって、避難場所がちがうよ!
-            </Typography>
+            <ResponsiveFontProvider>
+                <Typography variant="h2" gutterBottom>
+                    いざ逃げる！
+                </Typography>
+                <Typography variant="h4" gutterBottom>
+                    災害によって、避難場所がちがうよ!
+                </Typography>
+            </ResponsiveFontProvider>
         </ThemeProvider>
         );
 }
@@ -31,158 +35,229 @@ const Title = () => {
 const Shelter1 = () => {
     return(
         <Card>
+            <CardContent>
+                広域避難所・一次避難所
+            </CardContent>
             <CardMedia>
-            <img src="/img/pages/Jishin/jishin_tsukue.png"/>
+            <img 
+                src="/img/pages/P7Izanigeru/tatemono_kouen.png"
+                style={{ height: 300 }}
+            />
             </CardMedia>
             <CardContent>
-                
+                火災などの際に、一時的に逃げる場所。<br></br>
+                公園などが指定されている。
             </CardContent>
         </Card>
     )
 }
 
-// const ActionList = () => {
-//     return (<>
-//         <Typography variant="h6">
-//             １姿勢を低く
-//         </Typography>
-//         <Typography variant="h6">
-//             ２判断する
-//         </Typography>
-//         <Typography variant="h6">
-//             ３頭を守る
-//         </Typography>
-//         <Typography variant="h6">
-//             ４避難する
-//         </Typography>
-//     </>);
-// }
+const Shelter2 = () => {
+    return(
+        <Card>
+            <CardContent>
+                避難所
+            </CardContent>
+            <CardMedia>
+            <img 
+                src="/img/pages/P7Izanigeru/hinanjo_seikatsu_family_smile.png"
+                style={{ height: 300 }}
+            />
+            
+            </CardMedia>
+            <CardContent>
+               自宅が被災した際に生活をする場。<br></br>
+               小・中学校や公民館など。
+            </CardContent>
+        </Card>
+    )
+}
 
-// const precautionStyles = makeStyles({
-//     root: {
-//       width: "100%",
-//       backgroundColor: "#ffcc66"
-//     },
-//     media: {
-//       height: "100%"
-//     },
-// });
+const Shelter3 = () => {
+    return(
+        <Card>
+            <CardContent>
+                福祉避難所
+            </CardContent>
+            <CardMedia>
+            <img 
+                src="/img/pages/P7Izanigeru/tatemono_kaigo_shisetsu.png"
+                style={{ height: 300 }}
+            />
+            
+            </CardMedia>
+            <CardContent>
+                障がいや介護など、特別な支援が必要な人のための避難所。<br></br>
+            </CardContent>
+        </Card>
+    )
+}
 
-// const Precaution = () => {
-    
-// }
+const measureStyles = makeStyles((theme) => ({
+	grid: {
+		display: "flex",
+	},
+	cardTitle: {
+		backgroundColor: "#ffc0cb",
+		margin: theme.spacing(1),
+	},
+}));
 
-// const PrecautionList1 = () => {
-//     const classes = precautionStyles();
-//     return (
-//         <Card className={classes.root} gutterBottom>
-//            <CardMedia>
-//                 <img src="/img/pages/Jishin/jishin_tsukue.png" alt="" style={{height: 200}}/>
-//             </CardMedia>
-//             <CardContent>
-//                 テーブルや机などの下にもぐり身を守る。足は出さないように注意！
-//             </CardContent>
-//         </Card>
-//     );
-// }
+const Measure = ({ title, image, text }) => {
+	const classes = measureStyles();
+	return (
+		<Card>
+			<CardContent>
+				<Paper elevation={3} className={classes.cardTitle}>
+					<Typography variant="h5">{title}</Typography>
+				</Paper>
+			</CardContent>
+			<CardMedia>
+				<img src={image} alt="" style={{ maxWidth: "100%", height: "auto" }} />
+			</CardMedia>
+			<CardContent>
+					{text}
+			</CardContent>
+		</Card>
+	);
+};
 
-// const PrecautionList2 = () => {
-//     const classes = precautionStyles();
-//     return (
-//         <Card className={classes.root}>
-//             <CardMedia>
-//                 <img src="/img/pages/Jishin/gomi_waremono.png" alt="" style={{height: 200}}/>
-//             </CardMedia>
-//             <CardContent>
-//                 キッチンにいる人は、子供の名前を呼んではいけません。キッチンにはガラスや割れ物がいっぱいです。
-//             </CardContent>
-//         </Card>
-//     );
-// }
+const Shelter = () => {
+	const classes = measureStyles();
+	return (
+		<>
+			<Grid container direction="column" alignItems="center" justify="center" spacing={3}>
+				<Grid item xs={15} className={classes.grid}>
+					<Measure
+						title="広域避難所・一次避難所"
+						image="/img/pages/P7Izanigeru/tatemono_kouen.png"
+						text="火災などの際に、一時的に逃げる場所。公園などが指定されている。"
+					/>
+				</Grid>
+				<Grid item xs={15} className={classes.grid}>
+					<Measure
+						title="避難所"
+						image="/img/pages/P7Izanigeru/hinanjo_seikatsu_family_smile.png"
+						text="自宅が被災した際に生活をする場。小・中学校や公民館など。"
+					/>
+				</Grid>
+				<Grid item xs={15} className={classes.grid}>
+					<Measure
+						title="福祉避難所"
+						image="/img/pages/P7Izanigeru/tatemono_kaigo_shisetsu.png"
+						text="障がいや介護など、特別な支援が必要な人のための避難所。"
+					/>
+				</Grid>
+			</Grid>
+		</>
+	);
+};
 
-// const PrecautionList3 = () => {
-//     const classes = precautionStyles();
-//     return (
-//         <Card className={classes.root}>
-//             <CardMedia>
-//                 <img src="/img/pages/Jishin/jiko_jishin_himoto.png" alt="" style={{height: 200}}/>
-//             </CardMedia>
-//             <CardContent>
-//                 火の元よりもまずは自分の身を守ること。大阪ガスでは、震度５以上の揺れを感知すると自動的にガスが止まるようになっています。
-//             </CardContent>
-//         </Card>
-//     );
-// }
+const Sitteta = () => {
+	return(<>
+		<Grid>
+			<Grid>
+				<img src="/img/pages/P7Izanigeru/sitteta.png" alt="" style={{ maxWidth: "30%", height: "auto" }} />
+			</Grid>
+			<Grid>
+				<Card>
+					<CardMedia>
+						<img src="/img/pages/P7Izanigeru/hinanbasyo.png" alt="" style={{ maxWidth: "100%", height: "auto" }} />
+					</CardMedia>
+					<CardContent>
+						避難場所も災害によっては危険な場所になります！
+					</CardContent>
+				</Card>
+			</Grid>
+		</Grid>
+	</>)
+}
 
-// const measureStyles = makeStyles((theme) => ({
-//     grid: {
-//         display: "flex",
-//     },
-//     cardTitle: {
-//         backgroundColor: "#ffc0cb",
-//         margin: theme.spacing(1),
-//     },
-// }));
+const CheckPlace = () =>{
+	return(<>
+		<img src="/img/pages/P7Izanigeru/pict.png" style={{ maxWidth: "100%", height: "auto" }}/>
+		</>
+	);
+};
 
-// const Measure = ({ title, text, image }) => {
-//   const classes = measureStyles();
-//   return (
-//     <Card>
-//       <CardContent>
-//         <Paper elevation={3} className={classes.cardTitle}>
-//           <Typography variant="h5">{title}</Typography>
-//         </Paper>
-//         {text}
-//       </CardContent>
-//       <CardMedia>
-//         <img src={image} alt="" style={{ maxWidth: "100%", height: "auto" }} />
-//       </CardMedia>
-//     </Card>
-//   );
-// };
+const Notokiha = () =>{
+	return(<>
+		<Grid  direction="row">
+			<Grid>
+				<Card>
+					<CardMedia>
+						<img src="/img/pages/P7Izanigeru/kouzui.png" style={{ maxWidth: "40%", height: "auto" }}/>
+					</CardMedia>
+					<CardContent>
+						洪水・津波の時は…<br></br>
+						高い所へ<br></br>
+						海・川の遠くへ
+					</CardContent>
+				</Card>
+			</Grid>
+			<Grid>
+				<Card>
+					<CardMedia>
+						<img src="/img/pages/P7Izanigeru/dosya.png" style={{ maxWidth: "40%", height: "auto" }}/>
+					</CardMedia>
+					<CardContent>
+						土砂の時は…<br></br>
+						山・崖から離れたところへ
+					</CardContent>
+				</Card>
+			</Grid>
+		
+		</Grid>
+	</>)
+}
 
-// const SafetyMeasures = () => {
-//   const classes = measureStyles();
-//   return (<>
-//     <Typography variant="h3" gutterBottom>
-//         たいせつな家族の命を守る「安全対策」の例
-//     </Typography>
-//     <Grid container spacing={3}>
-//         <Grid item xs={6} className={classes.grid}>
-//         <Measure
-//             title="家具の固定"
-//             text="L字金具などで固定する。2段重ねの家具は、つなぎ目を金具で連結させる。"
-//             image="/img/pages/Jishin/shijin_taishin1.png"
-//         />
-//         </Grid>
-//         <Grid item xs={6} className={classes.grid}>
-//         <Measure
-//             title="家具の配置を工夫"
-//             text="(特に子どもや高齢者の部屋)倒れても下敷きにならない家具の配置にする。寝室にスリッパや靴を置いておく。"
-//             image="/img/pages/Jishin/kagu_haiti.png"
-//         />
-//         </Grid>
-//         <Grid item xs={6} className={classes.grid}>
-//         <Measure
-//             title="ガラスの飛散防止"
-//             text="窓ガラスに飛散防止フィルムをはる。または、強化ガラスに替える。食器棚のガラスにも飛散防止フィルムをはる。"
-//             image="/img/pages/Jishin/curtain_pink.png"
-//         />
-//         </Grid>
-//         <Grid item xs={6} className={classes.grid}>
-//         <Measure
-//             title="収納"
-//             text="家具の上など、高いところに重いものを置かない。重いものは家具の下部に、軽いものは上部に収納する。"
-//             image="/img/pages/Jishin/kagu_nimotsu_orosu.png"
-//         />
-//         </Grid>
-//     </Grid>
-//     </>);
-// }
+const HinanCard = () =>{
+	return(<>
+	<Card>
+			<ResponsiveFontProvider>
+				<Typography variant="h3" gutterBottom>
+					わがやの災害避難カードを作ろう！
+				</Typography>
+			</ResponsiveFontProvider>
+			<p>水害、土砂、地震、火災など災害によって複数の逃げる場所を持つことが大切です。</p>
+			<img src="/img/pages/P7Izanigeru/bousaiMap.png" style={{ maxWidth: "80%", height: "auto"}}/>
+		</Card>
+	</>)
+}
+
+const ShelterInformation = () =>{
+	return(<>
+		<table border="1">
+			<tr>
+				<th>blank</th><th>まず逃げるところ</th><th>家に帰れないときに過ごす場所</th>
+			</tr>
+			<tr>
+				<th>水害</th><th>form</th><th>form</th>
+			</tr>
+			<tr>
+				<th>土砂</th><th>form</th><th>form</th>
+			</tr>
+			<tr>
+				<th>地震</th><th>form</th><th>form</th>
+			</tr>
+			<tr>
+				<th>火災</th><th>form</th><th>form</th>
+			</tr>
+		</table>
+		<Button variant="contained" color="primary">
+      保存
+    </Button>
+	</>)
+}
 
 export const P7Izanigeru= () => {
     return(<>
         <Title/>
-        <Shelter1/>
+        <Shelter/>
+				<Sitteta/>
+				<CheckPlace/>
+				<Notokiha/>
+				<HinanCard/>
+				<ShelterInformation/>
     </>);
 }
