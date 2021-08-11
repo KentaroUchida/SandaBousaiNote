@@ -8,6 +8,7 @@ import Form from "./pages/P0Form";
 import Menu from "./components/Menu";
 import { Jishin } from "./pages/P3Jishin";
 import { Taiken } from "./pages/P5Taiken";
+import P8Goods from "./pages/P8Goods";
 import { P10TaikenPapa } from "./pages/P10TaikenPapa";
 import { P11KikenSouzou } from "./pages/P11KikenSouzou";
 import { P12KikenJissai } from "./pages/P12KikenJissai";
@@ -17,6 +18,7 @@ const paths = [
   "/",
   "/jishin",
   "/taiken",
+  "/goods",
   "/taikenPapa",
   "/souzou",
   "/jissai",
@@ -27,6 +29,7 @@ const pages = [
   <Home />,
   <Jishin />,
   <Taiken />,
+  <P8Goods />,
   <P10TaikenPapa />,
   <P11KikenSouzou />,
   <P12KikenJissai />,
