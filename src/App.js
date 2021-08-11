@@ -9,6 +9,7 @@ import { Jishin } from "./pages/P3Jishin";
 import P4Yurega  from "./pages/P4Yurega";
 import { Taiken } from "./pages/P5Taiken";
 import P6Mada from './pages/P6Mada';
+import { P7Izanigeru } from "./pages/P7Izanigeru";
 import P8Goods from "./pages/P8Goods";
 import { P10TaikenPapa } from "./pages/P10TaikenPapa";
 import { P11KikenSouzou } from "./pages/P11KikenSouzou";
@@ -23,6 +24,7 @@ const paths = [
   "/yurega",
   "/taiken",
   "/mada",
+  "/izanigeru",
   "/goods",
   "/taikenPapa",
   "/souzou",
@@ -38,6 +40,7 @@ const pages = [
   <P4Yurega />,
   <Taiken />,
   <P6Mada />,
+  <P7Izanigeru />,
   <P8Goods />,
   <P10TaikenPapa />,
   <P11KikenSouzou />,
