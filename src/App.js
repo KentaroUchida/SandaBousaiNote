@@ -12,6 +12,7 @@ import P6Mada from './pages/P6Mada';
 import { P10TaikenPapa } from "./pages/P10TaikenPapa";
 import { P11KikenSouzou } from "./pages/P11KikenSouzou";
 import { P12KikenJissai } from "./pages/P12KikenJissai";
+import { P14Daijobu } from './pages/P14Daijobu'
 import { P13Toilet } from "./pages/P13Toilet";
 
 const paths = [
@@ -24,6 +25,7 @@ const paths = [
   "/taikenPapa",
   "/souzou",
   "/jissai",
+  "/daijobu",
   "/toilet",
 ];
 
@@ -37,6 +39,7 @@ const pages = [
   <P10TaikenPapa />,
   <P11KikenSouzou />,
   <P12KikenJissai />,
+  <P14Daijobu />,
   <P13Toilet />,
 ];
 
@@ -70,6 +73,34 @@ function App() {
   };
 
   return (
+      // <BrowserRouter>
+      //   <Menu title="Home">
+      //     <Route exact path='/'>
+      //       <Home/>
+      //     </Route>
+      //     <Route exact path='/jishin'>
+      //       <Jishin/>
+      //     </Route>
+      //     <Route exact path='/taiken'>
+      //       <Taiken/>
+      //     </Route>
+      //     <Route exact path='/taikenPapa'>
+      //       <P10TaikenPapa/>
+      //     </Route>
+      //     <Route exact path='/form'>
+      //       <Form/>
+      //     </Route>
+      //     <Route exact path='/souzou'>
+      //       <P11KikenSouzou/>
+      //     </Route>
+      //     <Route exact path="/jissai">
+      //       <P12KikenJissai/>
+      //     </Route>
+      //     <Route exact path='/daijobu'>
+      //       <P14Daijobu/>
+      //     </Route>
+      //   </Menu>
+      // </BrowserRouter>
     <BrowserRouter>
       <Menu title="Home">
         {pages.map((_, i) => (
