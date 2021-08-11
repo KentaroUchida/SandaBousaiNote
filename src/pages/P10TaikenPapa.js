@@ -110,7 +110,7 @@ const photoImages = [
 export const P10TaikenPapa = () => {
   return (
     <>
-      <FlexImage image="img/P10TaikenPapa/title.png" />
+      <FlexImage image="img/pages/P10TaikenPapa/title.png" />
       <ResponsiveFontProvider>
         <Typography variant="h2">
           実際の3.11震災の当時、仙台に住んでいたパパの体験をご紹介します。

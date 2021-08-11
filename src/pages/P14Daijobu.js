@@ -2,6 +2,7 @@ import React from "react";
 import {
   Card,
   CardContent,
+  Paper,
   Typography,
   CardMedia,
   makeStyles,
@@ -18,59 +19,122 @@ const useStyles = makeStyles((theme) => ({
   card: {
     margin: theme.spacing(1),
   },
+  cardTitle: {
+    backgroundColor: "#ffc0cb",
+    margin: theme.spacing(1),
+  },
   flex: {
     display: "flex",
     justifyContent: "space-between",
   },
+  root: {
+    flexGrow: 1,
+  },
+  paper: {
+    padding: theme.spacing(2),
+    margin: 'auto',
+    maxWidth: 500,
+  },
+  image: {
+    width: 128,
+    height: 128,
+  },
+  img1: {
+    margin: 'auto',
+    display: 'block',
+    maxWidth: '100%',
+    maxHeight: '100%',
+  },
+  img2: {
+    textAlign: "center",
+  }
 }));
 
-const HeartPhoto = ({ image }) => {
-  return (
-    <img src={image} alt="" style={{ maxWidth: "30%", height: "auto" }}/>
-  );
-}
+// const HeartPhoto = ({ image }) => {
+//   return (
+//     <img src={image} alt="" style={{ maxWidth: "30%", height: "auto" }}/>
+//   );
+// }
 
-const FlexImage = ({ image }) => {
-  return (
-    <img src={image} alt="" style={{ maxWidth: "100%", height: "auto" }} />
-  );
-};
+// const FlexImage = ({ image }) => {
+//   return (
+//     <img src={image} alt="" style={{ maxWidth: "100%", height: "auto" }} />
+//   );
+// };
 
-const Photo = ({ image, text }) => {
+// const Photo = ({ image1, image2, text1 ,text2 }) => {
+//   const classes = useStyles();
+//   return (
+//     <Card className={classes.card}>
+//       <CardMedia>
+//         <div className={classes.flex}>
+//           <img src={image1} alt="" style={{ maxWidth: "30%", height: "auto"}}/>
+//           <CardContent>
+//             <Paper elevation={3} className={classes.cardTitle}>
+//               <Typography variant="h5">{text1}</Typography>
+//             </Paper>
+//             {text2}
+//             <br/>
+//             <div className={classes.img2}>
+//               <img src={image2} alt="" style={{ maxWidth: "100%" ,height: "200px"}}/>
+//             </div>
+//           </CardContent>
+//         </div>
+//       </CardMedia>
+//     </Card>
+//   );
+//};
+
+const Photo = ({ image1, image2, text1 ,text2 }) => {
   const classes = useStyles();
   return (
-    <Card className={classes.card}>
-      <CardMedia>
-        <Grid container justify="center">
-          <img src={image} alt="" style={{ maxWidth: "90%", height: "auto" }}/>
+    <div className={classes.root}>
+      <Paper className={classes.paper}>
+        <Grid container xs={12}spacing={2}>
+          <Grid item xs={3}>
+            <div>
+              <img className={classes.img1} src={image1} alt="complex" />
+            </div>
+          </Grid>
+          <Grid item xs={9} sm container>
+            <Grid item xs container direction="column" spacing={2}>
+              <Grid item xs>
+                <Paper elevation={3} className={classes.cardTitle}>
+                  <Typography variant="h5">{text1}</Typography>
+                </Paper>
+                {text2}
+                <div className={classes.img2}>
+                  <img src={image2} alt="" style={{ maxWidth: "100%" ,height: "200px"}}/>
+                </div>
+              </Grid>
+            </Grid>
+          </Grid>
         </Grid>
-      </CardMedia>
-      <CardContent>{text}</CardContent>
-    </Card>
+      </Paper>
+      <br/>
+    </div>
   );
 };
 
-const heartImages = ["heart1.png", "heart2.png", "heart3.png"];
 
-const illustTexts = ["図書館", "ろうか", "げんかん(下足場)"];
+const heartImages = ["heart1.png", "heart2.png"];
 
-const mamoruImages = ["atama.png", "tsukue.png", "kodomobeya.png", "kitchen.png", "waremono.png"]
+const illustTexts1 = ["体に避難行動をすり込ませます。",
+  "勇気を出して、主体的に避難します。",];
+  
+const illustTexts2 = ["継続的に、様々な場所や場面を想定した防災訓練に取り組みます。すぐに行動するには、体で覚えるしかありません。ふだんからイメージして実際に訓練しましょう。",
+  "今までに経験したことのない場面で迷ったとき、周囲の人と同じ行動を取ろうとすることがあります。周囲と異なる行動には抵抗があるかもしれませんが、声を掛けながら避難することは、自分だけでなく、周りの人の命を助けることにもなります。"];
 
-const mamoruTexts = [
-    "近くにあるもので、まず頭を守る。",
-    "動けそうなら机などの下に隠れ、机の脚をしっかりつかむ。",
-    "子ども部屋に子どもがいたら・・・",
-    "キッチンにママがいたら・・・",
-    "割れものがいっぱい"
-]
+const subImages = ["pic1_1.png", "pic2_1.png"]
+
 
 export const P14Daijobu = () => {
     const classes = useStyles();
     return (
       <>
         <ResponsiveFontProvider>
-          <Typography variant="h2" gutterBottom>
-            「私は大丈夫!」
+          <Typography variant="h1" gutterBottom>
+            私は大丈夫!
           </Typography>
           <Typography variant="h3" gutterBottom>
             って思ってない？
@@ -82,41 +146,54 @@ export const P14Daijobu = () => {
           </Typography>
         </ResponsiveFontProvider>
 
+        <br/>
         <ResponsiveFontProvider>
           <Typography variant="h6" gutterBottom >
-            確かな災害情報があったにもかかわらず、避難に結びつかなかったケースがありました。その理由のひとつは、非常事態が起きても「自分は大丈夫」という心理が働き、「油断」を生み、避難を遅くさせてしまったからです。
+            ●確かな災害情報があったにもかかわらず、避難に結びつかなかったケースがありました。その理由のひとつは、非常事態が起きても「自分は大丈夫」という心理が働き、「油断」を生み、避難を遅くさせてしまったからです。
           </Typography>
         </ResponsiveFontProvider>
 
-        <img
-        src="/img/pages/Jishin/family_under_table.png"
-        alt=""
-        style={{ width: "20%" }}
-      />
-
-        <FlexImage image={imgPath + "madori.png"} />
         <Grid container>
           {heartImages.map((_, i) => (
-            <Grid item xs={5} className={classes.grid}>
-              <Photo image={imgPath + heartImages[i]} text={illustTexts[i]} />
+            <Grid item xs={40} className={classes.grid}>
+              <Photo image1={imgPath + heartImages[i]} image2={imgPath + subImages[i]} text1={illustTexts1[i]} text2={illustTexts2[i]} />
             </Grid>
           ))}
         </Grid>
-        <Typography variant="h3" gutterBottom>
-          自分の身は自分で守ろう！！
-        </Typography>
-        <Typography variant="h6" gutterBottom>
-          大地震がおきたとき、とっさの行動が命を分けます。
-          すぐに行動するには、からだで覚えるしかありません。
-          家族で話し合い、ふだんからイメージして実際に訓練しましょう。
-        </Typography>
+
         <Grid container>
-          {mamoruImages.map((_, i) => (
-            <Grid item xs={6} className={classes.grid}>
-              <Photo image={imgPath + mamoruImages[i]} text={mamoruTexts[i]} />
-            </Grid>
-          ))}
+          <Grid item xs={40} className={classes.grid}>
+            <div className={classes.root}>
+              <Paper className={classes.paper}>
+                <Grid container xs={12}spacing={2}>
+                  <Grid item xs={3}>
+                    <div>
+                      <img className={classes.img1} src={imgPath + "heart3.png"} alt="complex" />
+                    </div>
+                  </Grid>
+                  <Grid item xs={9} sm container>
+                    <Grid item xs container direction="column" spacing={2}>
+                      <Grid item xs>
+                        <Paper elevation={3} className={classes.cardTitle}>
+                          <Typography variant="h5">油断しないで、最善をつくす。</Typography>
+                        </Paper>
+                        自然災害は、想定していたものより、小さなもので済むことがあります。
+                        でも、そのようなことが続いたとしても、油断しないで最善を尽くします。
+                        自然災害は、想定していた以上の被害が生じることもあるからです。
+                        <div className={classes.img2}>
+                          <img src={imgPath + "pic3_1.png"} alt="" style={{ maxWidth: "100%" ,height: "auto"}}/>
+                          <img src={imgPath + "pic3_2.png"} alt="" style={{ maxWidth: "50%" ,height: "auto"}}/>
+                          <img src={imgPath + "pic3_3.png"} alt="" style={{ maxWidth: "50%" ,height: "auto"}}/>
+                        </div>
+                      </Grid>
+                    </Grid>
+                  </Grid>
+                </Grid>
+              </Paper>
+            </div>
+          </Grid>
         </Grid>
+        
       </>
     );
   };
