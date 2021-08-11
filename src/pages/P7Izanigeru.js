@@ -4,6 +4,7 @@ import Card from '@material-ui/core/Card';
 import CardMedia from '@material-ui/core/CardMedia';
 import CardContent from '@material-ui/core/CardContent';
 import Grid from '@material-ui/core/Grid';
+import TextField from '@material-ui/core/TextField';
 import Paper from '@material-ui/core/Paper';
 import Typography from '@material-ui/core/Typography';
 import { ResponsiveFontProvider } from "../components/ResponsiveFontProvider"
@@ -13,6 +14,7 @@ import {
     responsiveFontSizes,
     ThemeProvider,
   } from '@material-ui/core/styles';
+import { render } from '@testing-library/react';
 
 let theme = createTheme();
 theme = responsiveFontSizes(theme);
@@ -225,39 +227,68 @@ const HinanCard = () =>{
 	</>)
 }
 
-const ShelterInformation = () =>{
-	return(<>
+class ShelterInformation extends React.Component {
+	constructor(){
+		super();
+	}
+	setValues(){
+		alert("避難先情報を保存しました")
+	}
+	render(){
+		let suigai1;
+		let suigai2;
+		let dosya1;
+		let dosya2;
+		let jishin1;
+		let jishin2;
+		let kasai1;
+		let kasai2;
+
+		return(
+		<div>
 		<table border="1">
 			<tr>
-				<th>blank</th><th>まず逃げるところ</th><th>家に帰れないときに過ごす場所</th>
+				<th></th>
+				<th>まず逃げるところ</th>
+				<th>家に帰れないときに過ごす場所</th>
 			</tr>
 			<tr>
-				<th>水害</th><th>form</th><th>form</th>
+				<th>水害</th>
+				<th><TextField onChange={this.handleChange} defaultValue={suigai1}/></th>
+				<th><TextField onChange={this.handleChange} defaultValue={suigai2}/></th>
 			</tr>
 			<tr>
-				<th>土砂</th><th>form</th><th>form</th>
+				<th>土砂</th>
+				<th><TextField onChange={this.handleChange} defaultValue={dosya1}/></th>
+				<th><TextField onChange={this.handleChange} defaultValue={dosya2}/></th>
 			</tr>
 			<tr>
-				<th>地震</th><th>form</th><th>form</th>
+				<th>地震</th>
+				<th><TextField onChange={this.handleChange} defaultValue={jishin1}/></th>
+				<th><TextField onChange={this.handleChange} defaultValue={jishin2}/></th>
 			</tr>
 			<tr>
-				<th>火災</th><th>form</th><th>form</th>
+				<th>火災</th>
+				<th><TextField onChange={this.handleChange} defaultValue={kasai1}/></th>
+				<th><TextField onChange={this.handleChange} defaultValue={kasai2}/></th>
 			</tr>
 		</table>
-		<Button variant="contained" color="primary">
+		<Button onClick={this.setValues} variant="contained" color="primary">
       保存
     </Button>
-	</>)
+		</div>
+		)
+	}
 }
 
 export const P7Izanigeru= () => {
-    return(<>
-        <Title/>
-        <Shelter/>
-				<Sitteta/>
-				<CheckPlace/>
-				<Notokiha/>
-				<HinanCard/>
-				<ShelterInformation/>
-    </>);
+	return(<>
+		<Title/>
+		<Shelter/>
+		<Sitteta/>
+		<CheckPlace/>
+		<Notokiha/>
+		<HinanCard/>
+		<ShelterInformation/>
+	</>);
 }
