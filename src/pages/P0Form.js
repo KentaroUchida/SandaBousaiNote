@@ -23,7 +23,7 @@ class PrintFamilyInformation extends React.Component{
                         aria-controls="panel1a-content"
                         id="panel1a-header"
                         >
-                        <Typography >名前:{this.state.name}</Typography>
+                        <Typography>名前:{this.state.name}</Typography>
                     </AccordionSummary>
                     <AccordionDetails>
                         <Typography>
@@ -92,6 +92,7 @@ class PrintFacilityInformation extends React.Component{
     }
 }
 
+/*
 class PrintShelterInformation extends React.Component{
     constructor(props){
         super(props);
@@ -120,6 +121,7 @@ class PrintShelterInformation extends React.Component{
         );
     }
 }
+*/
 
 class Form extends React.Component {
     constructor() {
@@ -127,19 +129,19 @@ class Form extends React.Component {
         var family=[];
         var famCnt=localStorage.getItem('familyCounter');
         if(famCnt === null) famCnt=0;
-        for(var i=1; i<=famCnt; i++){
+        for(let i=1; i<=famCnt; i++){
             family.push(JSON.parse(localStorage.getItem("family"+i)));
         }
         var relative=[];
         var relCnt=localStorage.getItem('relativeCounter');
         if(relCnt === null) relCnt=0;
-        for(var i=1; i<=relCnt; i++){
+        for(let i=1; i<=relCnt; i++){
             relative.push(JSON.parse(localStorage.getItem("relative"+i)));
         }
         var facility=[];
         var facCnt=localStorage.getItem('facilityCounter');
         if(facCnt === null) facCnt=0;
-        for(var i=1; i<=facCnt; i++){
+        for(let i=1; i<=facCnt; i++){
             facility.push(JSON.parse(localStorage.getItem("facility"+i)));
         }
         this.state = {
@@ -147,7 +149,6 @@ class Form extends React.Component {
             // ichiji:"",
             // saigai:"",
             // tsunami:"",
-            // プロトタイプ閲覧用初期データ TODO: ローカルストレージに情報を保持させられるように
             family: family,
             relatives: relative,
             facilities: facility
@@ -181,10 +182,10 @@ class Form extends React.Component {
     }
 
     setValues(){
-        if(this.state.phone!=undefined) localStorage.setItem('phone',this.state.phone);
-        if(this.state.ichiji!=undefined) localStorage.setItem('ichiji',this.state.ichiji);
-        if(this.state.saigai!=undefined) localStorage.setItem('saigai',this.state.saigai);
-        if(this.state.tsunami!=undefined) localStorage.setItem('tsunami',this.state.tsunami);
+        if(this.state.phone!==undefined) localStorage.setItem('phone',this.state.phone);
+        if(this.state.ichiji!==undefined) localStorage.setItem('ichiji',this.state.ichiji);
+        if(this.state.saigai!==undefined) localStorage.setItem('saigai',this.state.saigai);
+        if(this.state.tsunami!==undefined) localStorage.setItem('tsunami',this.state.tsunami);
         alert("電話番号と避難先を保存しました");
     }
 
