@@ -1,5 +1,8 @@
-import { useState } from "react";
-import { BrowserRouter, Route, useHistory } from "react-router-dom";
+import {
+  BrowserRouter,
+  Route,
+  useHistory,
+} from "react-router-dom";
 import { useSwipeable } from "react-swipeable";
 
 import Home from "./pages/Home";
@@ -33,21 +36,23 @@ const pages = [
 ];
 
 function App() {
-  const [pageIndex, setPageIndex] = useState(1);
-
   const ContentPage = ({ index }) => {
     const history = useHistory();
     const incrementPage = (pageIndex) => (pageIndex + 1) % pages.length;
-    const decrementPage = (pageIndex) => (pageIndex - 1) % pages.length;
+    const decrementPage = (pageIndex) =>
+      (pageIndex + pages.length - 1) % pages.length;
+    const searchIndex = (path) => paths.findIndex((el) => el === path);
     const handleSwipe = useSwipeable(
       {
         onSwipedRight: (_) => {
-          history.push(paths[incrementPage(pageIndex)]);
-          setPageIndex((pageIndex) => incrementPage(pageIndex));
+          history.push(
+            paths[decrementPage(searchIndex(history.location.pathname))]
+          );
         },
         onSwipedLeft: (_) => {
-          history.push(paths[decrementPage(pageIndex)]);
-          setPageIndex((pageIndex) => decrementPage(pageIndex));
+          history.push(
+            paths[incrementPage(searchIndex(history.location.pathname))]
+          );
         },
       },
       [history]
@@ -62,9 +67,9 @@ function App() {
   return (
     <BrowserRouter>
       <Menu title="Home">
-      {pages.map((_, i) => (
-        <ContentPage index={i} />
-      ))}
+        {pages.map((_, i) => (
+          <ContentPage index={i} />
+        ))}
       </Menu>
     </BrowserRouter>
   );
