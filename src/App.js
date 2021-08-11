@@ -21,6 +21,7 @@ const paths = [
   "/taikenPapa",
   "/souzou",
   "/jissai",
+  "/daijobu",
 ];
 
 const pages = [
@@ -31,6 +32,7 @@ const pages = [
   <P10TaikenPapa />,
   <P11KikenSouzou />,
   <P12KikenJissai />,
+  <P14Daijobu />,
 ];
 
 function App() {

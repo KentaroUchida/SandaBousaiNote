@@ -7,6 +7,7 @@ import {
   makeStyles,
   Grid,
 } from "@material-ui/core";
+import { ResponsiveFontProvider } from "../components/ResponsiveFontProvider";
 
 const imgPath = "/img/pages/P14Daijobu/";
 
@@ -17,7 +18,17 @@ const useStyles = makeStyles((theme) => ({
   card: {
     margin: theme.spacing(1),
   },
+  flex: {
+    display: "flex",
+    justifyContent: "space-between",
+  },
 }));
+
+const HeartPhoto = ({ image }) => {
+  return (
+    <img src={image} alt="" style={{ maxWidth: "30%", height: "auto" }}/>
+  );
+}
 
 const FlexImage = ({ image }) => {
   return (
@@ -31,11 +42,7 @@ const Photo = ({ image, text }) => {
     <Card className={classes.card}>
       <CardMedia>
         <Grid container justify="center">
-          <img
-            src={image}
-            alt=""
-            style={{ maxWidth: "100%", height: "auto" }}
-          />
+          <img src={image} alt="" style={{ maxWidth: "90%", height: "auto" }}/>
         </Grid>
       </CardMedia>
       <CardContent>{text}</CardContent>
@@ -43,9 +50,9 @@ const Photo = ({ image, text }) => {
   );
 };
 
-const illustImages = ["tosyokan.png", "rouka.png", "genkan.png", "undoujou.png"];
+const heartImages = ["heart1.png", "heart2.png", "heart3.png"];
 
-const illustTexts = ["図書館", "ろうか", "げんかん(下足場)", "運動場"];
+const illustTexts = ["図書館", "ろうか", "げんかん(下足場)"];
 
 const mamoruImages = ["atama.png", "tsukue.png", "kodomobeya.png", "kitchen.png", "waremono.png"]
 
@@ -61,30 +68,37 @@ export const P14Daijobu = () => {
     const classes = useStyles();
     return (
       <>
-        <div style={{ display: "inline-flex" }}>
-          <Typography variant="h4" gutterBottom>
+        <ResponsiveFontProvider>
+          <Typography variant="h2" gutterBottom>
             「私は大丈夫!」
           </Typography>
-          <Typography variant="h5" gutterBottom>
+          <Typography variant="h3" gutterBottom>
             って思ってない？
           </Typography>
-        </div>
-        <div style={{ display: "inline-flex" }}>
-          <Typography variant="h5" gutterBottom>
-            それは、イヤなことを考えたくない
+        </ResponsiveFontProvider>
+        <ResponsiveFontProvider>
+          <Typography variant="h4" gutterBottom style={{color:"red"}}>
+            それは、イヤなことを考えたくない心理です！
           </Typography>
-          <Typography variant="h5" gutterBottom　style={{color:"red"}}>
-            心理
+        </ResponsiveFontProvider>
+
+        <ResponsiveFontProvider>
+          <Typography variant="h6" gutterBottom >
+            確かな災害情報があったにもかかわらず、避難に結びつかなかったケースがありました。その理由のひとつは、非常事態が起きても「自分は大丈夫」という心理が働き、「油断」を生み、避難を遅くさせてしまったからです。
           </Typography>
-          <Typography variant="h5" gutterBottom>
-            です！
-          </Typography>
-        </div>
+        </ResponsiveFontProvider>
+
+        <img
+        src="/img/pages/Jishin/family_under_table.png"
+        alt=""
+        style={{ width: "20%" }}
+      />
+
         <FlexImage image={imgPath + "madori.png"} />
         <Grid container>
-          {illustImages.map((_, i) => (
-            <Grid item xs={6} className={classes.grid}>
-              <Photo image={imgPath + illustImages[i]} text={illustTexts[i]} />
+          {heartImages.map((_, i) => (
+            <Grid item xs={5} className={classes.grid}>
+              <Photo image={imgPath + heartImages[i]} text={illustTexts[i]} />
             </Grid>
           ))}
         </Grid>
