@@ -23,7 +23,7 @@ const useStyles = makeStyles((theme) => ({
 function NotificationList(props) {
   const classes = useStyles();
 
-  const lastIndex = props.notifications.size-1;
+  //const lastIndex = props.notifications.size-1;
   return (
     <Paper spacing={2} elevation={2}>
       <List

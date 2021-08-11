@@ -43,19 +43,19 @@ class FormDialog extends React.Component {
     handleSubmit() {
         this.props.submit(this.state.member);
         if(this.props.category==="family"){
-            var cnt = localStorage.getItem('familyCounter');
+            let cnt = localStorage.getItem('familyCounter');
             if(cnt === null) cnt=1;
             else cnt++;
             localStorage.setItem('familyCounter', cnt);
             localStorage.setItem("family"+cnt, JSON.stringify(this.state.member));
         }else if(this.props.category==="relative"){
-            var cnt = localStorage.getItem('relativeCounter');
+            let cnt = localStorage.getItem('relativeCounter');
             if(cnt === null) cnt=1;
             else cnt++;
             localStorage.setItem('relativeCounter', cnt);
             localStorage.setItem("relative"+cnt, JSON.stringify(this.state.member));
         }else{
-            var cnt = localStorage.getItem('facilityCounter');
+            let cnt = localStorage.getItem('facilityCounter');
             if(cnt === null) cnt=1;
             else cnt++;
             localStorage.setItem('facilityCounter', cnt);
