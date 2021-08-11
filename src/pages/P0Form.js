@@ -147,7 +147,6 @@ class Form extends React.Component {
             // ichiji:"",
             // saigai:"",
             // tsunami:"",
-            // プロトタイプ閲覧用初期データ TODO: ローカルストレージに情報を保持させられるように
             family: family,
             relatives: relative,
             facilities: facility
@@ -283,7 +282,7 @@ class Form extends React.Component {
                 </table>
                 <br></br>
                 <Button onClick={this.setValues} variant="contained" color="primary">
-                保存
+                    保存
                 </Button>
             </div>
         );

@@ -230,19 +230,35 @@ const HinanCard = () =>{
 class ShelterInformation extends React.Component {
 	constructor(){
 		super();
+		this.state={
+
+		}
+		this.setValues = this.setValues.bind(this);
+    this.handleChange = this.handleChange.bind(this);
+	}
+	handleChange(event){
+		this.setState({[event.target.id]:event.target.value});
 	}
 	setValues(){
+		if(this.state.suigai1!=undefined) localStorage.setItem('suigai1',this.state.suigai1);
+		if(this.state.suigai2!=undefined) localStorage.setItem('suigai2',this.state.suigai2);
+		if(this.state.dosya1!=undefined)  localStorage.setItem('dosya1',this.state.dosya1);
+		if(this.state.dosya2!=undefined) localStorage.setItem('dosya2',this.state.dosya2);
+		if(this.state.jishin1!=undefined) localStorage.setItem('jishin1',this.state.jishin1);
+		if(this.state.jishin2!=undefined) localStorage.setItem('jishin2',this.state.jishin2);
+		if(this.state.kasai1!=undefined) localStorage.setItem('kasai1',this.state.kasai1);
+		if(this.state.kasai2!=undefined) localStorage.setItem('kasai2',this.state.kasai2);
 		alert("避難先情報を保存しました")
 	}
 	render(){
-		let suigai1;
-		let suigai2;
-		let dosya1;
-		let dosya2;
-		let jishin1;
-		let jishin2;
-		let kasai1;
-		let kasai2;
+		let suigai1=localStorage.getItem('suigai1');
+		let suigai2=localStorage.getItem('suigai2');
+		let dosya1=localStorage.getItem('dosya1');
+		let dosya2=localStorage.getItem('dosya2');
+		let jishin1=localStorage.getItem('jishin1');
+		let jishin2=localStorage.getItem('jishin2');
+		let kasai1=localStorage.getItem('kasai1');
+		let kasai2=localStorage.getItem('kasai2');
 
 		return(
 		<div>
@@ -254,23 +270,23 @@ class ShelterInformation extends React.Component {
 			</tr>
 			<tr>
 				<th>水害</th>
-				<th><TextField onChange={this.handleChange} defaultValue={suigai1}/></th>
-				<th><TextField onChange={this.handleChange} defaultValue={suigai2}/></th>
+				<th><TextField onChange={this.handleChange} id="suigai1" defaultValue={suigai1}/></th>
+				<th><TextField onChange={this.handleChange} id="suigai2" defaultValue={suigai2}/></th>
 			</tr>
 			<tr>
 				<th>土砂</th>
-				<th><TextField onChange={this.handleChange} defaultValue={dosya1}/></th>
-				<th><TextField onChange={this.handleChange} defaultValue={dosya2}/></th>
+				<th><TextField onChange={this.handleChange} id="dosya1" defaultValue={dosya1}/></th>
+				<th><TextField onChange={this.handleChange} id="dosya2" defaultValue={dosya2}/></th>
 			</tr>
 			<tr>
 				<th>地震</th>
-				<th><TextField onChange={this.handleChange} defaultValue={jishin1}/></th>
-				<th><TextField onChange={this.handleChange} defaultValue={jishin2}/></th>
+				<th><TextField onChange={this.handleChange} id="jishin1" defaultValue={jishin1}/></th>
+				<th><TextField onChange={this.handleChange} id="jishin2" defaultValue={jishin2}/></th>
 			</tr>
 			<tr>
 				<th>火災</th>
-				<th><TextField onChange={this.handleChange} defaultValue={kasai1}/></th>
-				<th><TextField onChange={this.handleChange} defaultValue={kasai2}/></th>
+				<th><TextField onChange={this.handleChange} id="kasai1" defaultValue={kasai1}/></th>
+				<th><TextField onChange={this.handleChange} id="kasai2" defaultValue={kasai2}/></th>
 			</tr>
 		</table>
 		<Button onClick={this.setValues} variant="contained" color="primary">
