@@ -1,4 +1,3 @@
-import { useState } from "react";
 import { BrowserRouter, Route, useHistory } from "react-router-dom";
 import { useSwipeable } from "react-swipeable";
 
@@ -8,18 +7,22 @@ import Form from "./pages/P0Form";
 import Menu from "./components/Menu";
 import { Jishin } from "./pages/P3Jishin";
 import { Taiken } from "./pages/P5Taiken";
+import P6Mada from './pages/P6Mada';
 import { P10TaikenPapa } from "./pages/P10TaikenPapa";
 import { P11KikenSouzou } from "./pages/P11KikenSouzou";
 import { P12KikenJissai } from "./pages/P12KikenJissai";
+import { P13Toilet } from "./pages/P13Toilet";
 
 const paths = [
   "/form",
   "/",
   "/jishin",
   "/taiken",
+  "/mada",
   "/taikenPapa",
   "/souzou",
   "/jissai",
+  "/toilet",
 ];
 
 const pages = [
@@ -27,27 +30,31 @@ const pages = [
   <Home />,
   <Jishin />,
   <Taiken />,
+  <P6Mada />,
   <P10TaikenPapa />,
   <P11KikenSouzou />,
   <P12KikenJissai />,
+  <P13Toilet />,
 ];
 
 function App() {
-  const [pageIndex, setPageIndex] = useState(1);
-
   const ContentPage = ({ index }) => {
     const history = useHistory();
     const incrementPage = (pageIndex) => (pageIndex + 1) % pages.length;
-    const decrementPage = (pageIndex) => (pageIndex - 1) % pages.length;
+    const decrementPage = (pageIndex) =>
+      (pageIndex + pages.length - 1) % pages.length;
+    const searchIndex = (path) => paths.findIndex((el) => el === path);
     const handleSwipe = useSwipeable(
       {
         onSwipedRight: (_) => {
-          history.push(paths[incrementPage(pageIndex)]);
-          setPageIndex((pageIndex) => incrementPage(pageIndex));
+          history.push(
+            paths[decrementPage(searchIndex(history.location.pathname))]
+          );
         },
         onSwipedLeft: (_) => {
-          history.push(paths[decrementPage(pageIndex)]);
-          setPageIndex((pageIndex) => decrementPage(pageIndex));
+          history.push(
+            paths[incrementPage(searchIndex(history.location.pathname))]
+          );
         },
       },
       [history]
@@ -62,9 +69,9 @@ function App() {
   return (
     <BrowserRouter>
       <Menu title="Home">
-      {pages.map((_, i) => (
-        <ContentPage index={i} />
-      ))}
+        {pages.map((_, i) => (
+          <ContentPage index={i} />
+        ))}
       </Menu>
     </BrowserRouter>
   );
