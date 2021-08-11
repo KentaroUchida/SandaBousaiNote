@@ -88,10 +88,9 @@ export default function ResponsiveDrawer(props) {
     <WarningIcon />,
     <DirectionsRunSharpIcon />,
     <WarningIcon />,
-    <WarningIcon />,
   ];
 
-  const links = ["/", "/jishin", "/jishin", "/form", "/daijobu"];
+  const links = ["/", "/jishin", "/jishin", "/form"];
 
   const drawer = (
     <div>
@@ -102,7 +101,6 @@ export default function ResponsiveDrawer(props) {
           "グラっと地震が来たら！いのちを守る！できるだけケガをせず生き残る！",
           "揺れがおさまったら",
           "緊急時のわがやの情報",
-          "「私は大丈夫！」それホント？",
         ].map((text, index) => (
           <Link to={links[index]} key={index} style={{ textDecoration: 'none' }}>
             <Divider />
