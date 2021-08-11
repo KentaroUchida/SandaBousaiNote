@@ -7,18 +7,15 @@ import Divider from "@material-ui/core/Divider";
 import Drawer from "@material-ui/core/Drawer";
 import Hidden from "@material-ui/core/Hidden";
 import IconButton from "@material-ui/core/IconButton";
-import InboxIcon from "@material-ui/icons/MoveToInbox";
 import List from "@material-ui/core/List";
 import ListItem from "@material-ui/core/ListItem";
 import ListItemIcon from "@material-ui/core/ListItemIcon";
 import ListItemText from "@material-ui/core/ListItemText";
-import MailIcon from "@material-ui/icons/Mail";
 import ListIcon from "@material-ui/icons/List";
 import ChevronLeftIcon from "@material-ui/icons/ChevronLeft";
 import ChevronRightIcon from "@material-ui/icons/ChevronRight";
 import Toolbar from "@material-ui/core/Toolbar";
 import Typography from "@material-ui/core/Typography";
-import Button from "@material-ui/core/Button";
 import PrintIcon from "@material-ui/icons/Print";
 import WarningIcon from "@material-ui/icons/WarningSharp";
 import HomeIcon from "@material-ui/icons/HomeSharp";
@@ -26,7 +23,6 @@ import DirectionsRunSharpIcon from "@material-ui/icons/DirectionsRunSharp";
 import { makeStyles, useTheme } from "@material-ui/core/styles";
 import { Link } from "react-router-dom";
 import Grid from "@material-ui/core/Grid";
-import ButtonGroup from "@material-ui/core/ButtonGroup";
 
 const drawerWidth = 350;
 
