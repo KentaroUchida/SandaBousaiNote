@@ -1,8 +1,4 @@
-import {
-  BrowserRouter,
-  Route,
-  useHistory,
-} from "react-router-dom";
+import { BrowserRouter, Route, useHistory } from "react-router-dom";
 import { useSwipeable } from "react-swipeable";
 
 import Home from "./pages/Home";
@@ -15,6 +11,7 @@ import P6Mada from './pages/P6Mada';
 import { P10TaikenPapa } from "./pages/P10TaikenPapa";
 import { P11KikenSouzou } from "./pages/P11KikenSouzou";
 import { P12KikenJissai } from "./pages/P12KikenJissai";
+import { P13Toilet } from "./pages/P13Toilet";
 
 const paths = [
   "/form",
@@ -25,6 +22,7 @@ const paths = [
   "/taikenPapa",
   "/souzou",
   "/jissai",
+  "/toilet",
 ];
 
 const pages = [
@@ -36,6 +34,7 @@ const pages = [
   <P10TaikenPapa />,
   <P11KikenSouzou />,
   <P12KikenJissai />,
+  <P13Toilet />,
 ];
 
 function App() {
