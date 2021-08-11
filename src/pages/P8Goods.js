@@ -231,7 +231,33 @@ function More() {
         titleTypographyProps={{ align: "center" }}
       />
       <CardContent>
-        <Checkbox2lines items={more_items}/>
+        {more_items.map((item, i) => {
+          return (
+            <Card>
+              <CardActionArea>
+                <FormControlLabel
+                  control={
+                    <Checkbox
+                      checked={item.checked} name={item.name}
+                    />
+                  }
+                  label={item.name}
+                />
+                <CardMedia
+                  component="img"
+                  alt={item.path}
+                  image={getPath(item.path)}
+                  title={item.name}
+                />
+                <CardContent>
+                  <Typography variant="body2">
+                    {item.message}
+                  </Typography>
+                </CardContent>
+              </CardActionArea>
+            </Card>
+          );
+        })}
       </CardContent>
     </Card>
   );
