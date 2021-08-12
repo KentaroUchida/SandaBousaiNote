@@ -66,22 +66,22 @@ const Shelter = () => {
 	const classes = measureStyles();
 	return (
 		<>
-			<Grid container direction="column" alignItems="center" justify="center" spacing={3}>
-				<Grid item xs={15} className={classes.grid}>
+			<Grid container direction="row" alignItems="center" justify="center" spacing={3}>
+				<Grid item xs={13} className={classes.grid}>
 					<Measure
 						title="広域避難所・一次避難所"
 						image="/img/pages/P7Izanigeru/tatemono_kouen.png"
 						text="火災などの際に、一時的に逃げる場所。公園などが指定されている。"
 					/>
 				</Grid>
-				<Grid item xs={15} className={classes.grid}>
+				<Grid item xs={13} className={classes.grid}>
 					<Measure
 						title="避難所"
 						image="/img/pages/P7Izanigeru/hinanjo_seikatsu_family_smile.png"
 						text="自宅が被災した際に生活をする場。小・中学校や公民館など。"
 					/>
 				</Grid>
-				<Grid item xs={15} className={classes.grid}>
+				<Grid item xs={13} className={classes.grid}>
 					<Measure
 						title="福祉避難所"
 						image="/img/pages/P7Izanigeru/tatemono_kaigo_shisetsu.png"
@@ -121,12 +121,13 @@ const CheckPlace = () =>{
 };
 
 const Notokiha = () =>{
+	const classes = measureStyles();
 	return(<>
-		<Grid  direction="row">
-			<Grid>
+		<Grid  container spacing={3} direction="row">
+			<Grid item xs={6} className={classes.grid}>
 				<Card>
 					<CardMedia>
-						<img alt="" src="/img/pages/P7Izanigeru/kouzui.png" style={{ maxWidth: "40%", height: "auto" }}/>
+						<img alt="" src="/img/pages/P7Izanigeru/kouzui.png" style={{ maxWidth: "100%", height: "auto" }}/>
 					</CardMedia>
 					<CardContent>
 						洪水・津波の時は…<br></br>
@@ -135,10 +136,10 @@ const Notokiha = () =>{
 					</CardContent>
 				</Card>
 			</Grid>
-			<Grid>
+			<Grid item xs={6} className={classes.grid}>
 				<Card>
 					<CardMedia>
-						<img alt="" src="/img/pages/P7Izanigeru/dosya.png" style={{ maxWidth: "40%", height: "auto" }}/>
+						<img alt="" src="/img/pages/P7Izanigeru/dosya.png" style={{ maxWidth: "100%", height: "auto" }}/>
 					</CardMedia>
 					<CardContent>
 						土砂の時は…<br></br>
