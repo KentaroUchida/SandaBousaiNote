@@ -1,10 +1,7 @@
 import React from "react";
 import {
-  Card,
-  CardContent,
   Paper,
   Typography,
-  CardMedia,
   makeStyles,
   Grid,
 } from "@material-ui/core";
@@ -33,7 +30,7 @@ const useStyles = makeStyles((theme) => ({
   paper: {
     padding: theme.spacing(2),
     margin: 'auto',
-    maxWidth: 500,
+    maxWidth: 800,
   },
   image: {
     width: 128,
