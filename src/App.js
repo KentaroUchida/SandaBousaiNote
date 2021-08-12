@@ -16,6 +16,7 @@ import { P11KikenSouzou } from "./pages/P11KikenSouzou";
 import { P12KikenJissai } from "./pages/P12KikenJissai";
 import { P14Daijobu } from './pages/P14Daijobu'
 import { P13Toilet } from "./pages/P13Toilet";
+import  P15Bousaikaigi from "./pages/P15Bousaikaigi";
 
 const paths = [
   "/form",
@@ -31,6 +32,7 @@ const paths = [
   "/jissai",
   "/daijobu",
   "/toilet",
+  "/bousaikaigi"
 ];
 
 const pages = [
@@ -47,6 +49,7 @@ const pages = [
   <P12KikenJissai />,
   <P14Daijobu />,
   <P13Toilet />,
+  <P15Bousaikaigi />,
 ];
 
 function App() {
