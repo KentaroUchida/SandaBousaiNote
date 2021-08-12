@@ -5,18 +5,18 @@ import Home from "./pages/Home";
 
 import P0Form from "./pages/P0Form";
 import Menu from "./components/Menu";
-import P3Jishin from "./pages/P3Jishin";
+import {P3Jishin} from "./pages/P3Jishin";
 import P4Yurega  from "./pages/P4Yurega";
-import P5Taiken from "./pages/P5Taiken";
+import {P5Taiken} from "./pages/P5Taiken";
 import P6Mada from './pages/P6Mada';
-import P7Izanigeru from "./pages/P7Izanigeru";
+import {P7Izanigeru} from "./pages/P7Izanigeru";
 import P8Goods from "./pages/P8Goods";
 // import P9Food from "./pages/P9Food";
-import P10TaikenPapa from "./pages/P10TaikenPapa";
-import P11KikenSouzou from "./pages/P11KikenSouzou";
-import P12KikenJissai from "./pages/P12KikenJissai";
-import P13Toilet from "./pages/P13Toilet";
-import P14Daijobu from './pages/P14Daijobu';
+import {P10TaikenPapa} from "./pages/P10TaikenPapa";
+import {P11KikenSouzou} from "./pages/P11KikenSouzou";
+import {P12KikenJissai} from "./pages/P12KikenJissai";
+import {P13Toilet} from "./pages/P13Toilet";
+import {P14Daijobu} from './pages/P14Daijobu';
 // import P15BousaiKaigi from "/pages/P15BousaiKaigi";
 
 
@@ -65,13 +65,13 @@ const titles = [
   "まだ大丈夫は危険!",
   "いざ逃げる!",
   "防災グッズ",
-  "食べ物がない!?",
+  //"食べ物がない!?",
   "パパの体験談",
   "どんな危険が起こる？",
   "落ちる! 倒れる! 動く!",
   "トイレが大変!",
   "私は大丈夫って思ってない?",
-  "家族で防災カイギ",
+  //"家族で防災カイギ",
 ];
 
 function App() {
