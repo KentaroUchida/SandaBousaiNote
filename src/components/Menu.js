@@ -85,20 +85,56 @@ export default function ResponsiveDrawer(props) {
     <DirectionsRunSharpIcon />,
     <DirectionsRunSharpIcon />,
     <WarningIcon />,
+    <HomeIcon />,
+    <WarningIcon />,
+    <DirectionsRunSharpIcon />,
+    <DirectionsRunSharpIcon />,
+    <WarningIcon />,
+    <HomeIcon />,
+    <WarningIcon />,
+    <DirectionsRunSharpIcon />,
+    <DirectionsRunSharpIcon />,
+    <WarningIcon />,
   ];
 
-  const links = ["/", "/jishin", "/jishin","/izanigeru", "/form"];
+  const links = [
+    "/form",
+    "/", 
+    "/jishin", 
+    "/koudouChart",
+    "/Taiken",
+    "/mada",
+    "/izanigeru",
+    "/bousaiGoods",
+    "/food",
+    "/papaTaiken",
+    "/souzou",
+    "/otiru",
+    "/toilet",
+    "/daijobu",
+    "/bousaiKaigi",
+  ];
 
   const drawer = (
     <div>
       <div className={classes.toolbar} />
       <List>
         {[
+          "緊急時のわがやの情報",
           "Home",
           "グラっと地震が来たら！いのちを守る！できるだけケガをせず生き残る！",
           "揺れがおさまったら",
-          "いざ逃げる！",
-          "緊急時のわがやの情報",
+          "ほくせつママ＆パパの体験談",
+          "まだ大丈夫は危険!",
+          "いざ逃げる!",
+          "防災グッズ",
+          "食べ物がない!?",
+          "パパの体験談",
+          "どんな危険が起こる？",
+          "落ちる! 倒れる! 動く!",
+          "トイレが大変!",
+          "私は大丈夫って思ってない?",
+          "家族で防災カイギ",
         ].map((text, index) => (
           <Link to={links[index]} key={index} style={{ textDecoration: 'none' }} >
             <Divider />
