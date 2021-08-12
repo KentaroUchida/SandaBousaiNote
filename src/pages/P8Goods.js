@@ -5,12 +5,13 @@ import CardContent from '@material-ui/core/CardContent';
 import CardHeader from '@material-ui/core/CardHeader';
 import CardMedia from '@material-ui/core/CardMedia';
 import Checkbox from '@material-ui/core/Checkbox';
+import Divider from '@material-ui/core/Divider';
 import FormControlLabel from '@material-ui/core/FormControlLabel';
 import FormGroup from '@material-ui/core/FormGroup';
 import GridList from '@material-ui/core/GridList';
 import Typography from '@material-ui/core/Typography';
 
-const normally_items = [
+const normallyItems = [
   {
     name: "飲料水",
     path: "water",
@@ -61,7 +62,7 @@ const normally_items = [
   }
 ];
 
-const hyakkin_items = [
+const hyakkinItems = [
   {
     name: "レジャーシート",
     sub: "着替え時、目隠し",
@@ -129,7 +130,7 @@ const hyakkin_items = [
   }
 ];
 
-const more_items = [
+const moreItems = [
   {
     name: "子供が好きなもの",
     message: "「これさえあれば子どもがご機嫌！」という、お菓子やおもちゃなど、子どもの心がほぐれるグッズ。",
@@ -187,8 +188,7 @@ function Checkbox2lines(props) {
 }
 
 function Normally(props) {
-  // TODO:スネークケースの変数名をなくす
-  const items = normally_items.map(item => {item["checked"] = props.checkList[item.path]; return item;});
+  const items = normallyItems.map(item => {item["checked"] = props.checkList[item.path]; return item;});
 
   return (
     <Card>
@@ -204,7 +204,7 @@ function Normally(props) {
 }
 
 function Hyakkin(props) {
-  const items = hyakkin_items.map(item => {item["checked"] = props.checkList[item.path]; return item;});
+  const items = hyakkinItems.map(item => {item["checked"] = props.checkList[item.path]; return item;});
 
   return (
     <Card>
@@ -220,7 +220,7 @@ function Hyakkin(props) {
 }
 
 function More(props) {
-  const items = more_items.map(item => {item["checked"] = props.checkList[item.path]; return item;});
+  const items = moreItems.map(item => {item["checked"] = props.checkList[item.path]; return item;});
 
   return (
     <Card>
@@ -294,6 +294,13 @@ class P8Goods extends React.Component {
 
   render() {
     return (<>
+    <Typography variant="h6">
+      非常時にホントに役立つ！
+    </Typography>
+    <Typography variant="h5">
+      防災グッズ
+    </Typography>
+    <Divider/>
     <Normally checkList={this.state.checkList} handleChange={this.handleChange}/>
     <Hyakkin checkList={this.state.checkList} handleChange={this.handleChange}/>
     <More checkList={this.state.checkList} handleChange={this.handleChange}/>
