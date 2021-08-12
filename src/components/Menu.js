@@ -106,7 +106,7 @@ export default function ResponsiveDrawer(props) {
     "/mada",
     "/izanigeru",
     "/bousaiGoods",
-    "/food",
+    "/foods",
     "/papaTaiken",
     "/souzou",
     "/otiru",
