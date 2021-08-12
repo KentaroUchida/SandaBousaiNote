@@ -114,7 +114,6 @@ class Form extends React.Component {
       relatives: relative,
       facilities: facility,
     };
-
     this.addFamily = this.addFamily.bind(this);
     this.addRelative = this.addRelative.bind(this);
     this.addFacility = this.addFacility.bind(this);
@@ -255,6 +254,7 @@ class Form extends React.Component {
       </div>
     );
   }
+
 }
 
 export default Form;

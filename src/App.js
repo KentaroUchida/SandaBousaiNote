@@ -3,47 +3,75 @@ import { useSwipeable } from "react-swipeable";
 
 import Home from "./pages/Home";
 
-import Form from "./pages/P0Form";
+import P0Form from "./pages/P0Form";
 import Menu from "./components/Menu";
-import { Jishin } from "./pages/P3Jishin";
+import {P3Jishin} from "./pages/P3Jishin";
 import P4Yurega  from "./pages/P4Yurega";
-import { Taiken } from "./pages/P5Taiken";
+import {P5Taiken} from "./pages/P5Taiken";
 import P6Mada from './pages/P6Mada';
+import {P7Izanigeru} from "./pages/P7Izanigeru";
 import P8Goods from "./pages/P8Goods";
-import { P10TaikenPapa } from "./pages/P10TaikenPapa";
-import { P11KikenSouzou } from "./pages/P11KikenSouzou";
-import { P12KikenJissai } from "./pages/P12KikenJissai";
-import { P14Daijobu } from './pages/P14Daijobu'
-import { P13Toilet } from "./pages/P13Toilet";
+// import P9Food from "./pages/P9Food";
+import {P10TaikenPapa} from "./pages/P10TaikenPapa";
+import {P11KikenSouzou} from "./pages/P11KikenSouzou";
+import {P12KikenJissai} from "./pages/P12KikenJissai";
+import {P13Toilet} from "./pages/P13Toilet";
+import {P14Daijobu} from './pages/P14Daijobu';
+// import P15BousaiKaigi from "/pages/P15BousaiKaigi";
+
 
 const paths = [
   "/form",
-  "/",
-  "/jishin",
-  "/yurega",
-  "/taiken",
+  "/", 
+  "/jishin", 
+  "/koudouChart",
+  "/Taiken",
   "/mada",
-  "/goods",
-  "/taikenPapa",
+  "/izanigeru",
+  "/bousaiGoods",
+  // "/food",
+  "/papaTaiken",
   "/souzou",
-  "/jissai",
-  "/daijobu",
+  "/otiru",
   "/toilet",
+  "/daijobu",
+  // "/bousaiKaigi",
 ];
 
 const pages = [
-  <Form />,
+  <P0Form />,
   <Home />,
-  <Jishin />,
+  <P3Jishin />,
   <P4Yurega />,
-  <Taiken />,
+  <P5Taiken />,
   <P6Mada />,
+  <P7Izanigeru />,
   <P8Goods />,
+  // <P9Food />,
   <P10TaikenPapa />,
   <P11KikenSouzou />,
   <P12KikenJissai />,
-  <P14Daijobu />,
   <P13Toilet />,
+  <P14Daijobu />,
+  // <P15bousaiKaigi />,
+];
+
+const titles = [
+  "緊急時のわがやの情報",
+  "Home",
+  "グラっと地震が来たら！",
+  "揺れがおさまったら",
+  "ほくせつママ＆パパの体験談",
+  "まだ大丈夫は危険!",
+  "いざ逃げる!",
+  "防災グッズ",
+  //"食べ物がない!?",
+  "パパの体験談",
+  "どんな危険が起こる？",
+  "落ちる! 倒れる! 動く!",
+  "トイレが大変!",
+  "私は大丈夫って思ってない?",
+  //"家族で防災カイギ",
 ];
 
 function App() {
@@ -70,7 +98,9 @@ function App() {
     );
     return (
       <Route exact path={paths[index]} key={index}>
-        <div {...handleSwipe}>{pages[index]}</div>
+        <Menu title = {titles[index]}>
+          <div {...handleSwipe}>{pages[index]}</div>
+        </Menu>
       </Route>
     );
   };
@@ -105,11 +135,9 @@ function App() {
       //   </Menu>
       // </BrowserRouter>
     <BrowserRouter>
-      <Menu title="Home">
-        {pages.map((_, i) => (
-          <ContentPage index={i} />
-        ))}
-      </Menu>
+      {pages.map((_, i) => (
+        <ContentPage index={i} />
+      ))}
     </BrowserRouter>
   );
 }
