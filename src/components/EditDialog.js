@@ -7,7 +7,7 @@ import DialogContent from "@material-ui/core/DialogContent";
 import DialogContentText from "@material-ui/core/DialogContentText";
 import DialogTitle from "@material-ui/core/DialogTitle";
 import IconButton from "@material-ui/core/IconButton";
-import AddCircleIcon from "@material-ui/icons/AddCircle";
+import EditIcon from "@material-ui/icons/Edit";
 
 const categoryTextList = {
   family: "家族",
@@ -15,8 +15,8 @@ const categoryTextList = {
   facility: "保育園・幼稚園・学校",
 };
 
-const FormRegisterDialog = ({ category, submit }) => {
-  const [member, setMember] = useState({});
+const FormEditDialog = ({ category, edit, remove, defaultMember }) => {
+  const [member, setMember] = useState(defaultMember);
   const [open, setOpen] = useState(false);
 
   const handleClickOpen = () => setOpen(true);
@@ -30,16 +30,22 @@ const FormRegisterDialog = ({ category, submit }) => {
       return nextMember;
     });
 
-  const handleSubmit = () => {
-    submit(category,member);
+  const handleEdit = () => {
+    edit(category,member);
     handleClose();
   };
+
+  const handleRemove = () => {
+    remove(category, member);
+    handleClose();
+  }
 
   const AddressTextField = ({
     id,
     label,
     type,
     helperText,
+    defaultValue,
     required = false,
   }) => {
     return (
@@ -49,6 +55,7 @@ const FormRegisterDialog = ({ category, submit }) => {
         label={label}
         type={type}
         helperText={helperText}
+        defaultValue={defaultValue}
         fullWidth
         required={required}
         onChange={handleMemberUpdate}
@@ -63,6 +70,7 @@ const FormRegisterDialog = ({ category, submit }) => {
         label="名前"
         type="name"
         helperText="家族の名前を入力してください。"
+        defaultValue={member.name}
         required={true}
       />
       <AddressTextField
@@ -70,18 +78,21 @@ const FormRegisterDialog = ({ category, submit }) => {
         label="電話番号"
         type="text"
         helperText="家族の電話番号を入力してください。"
+        defaultValue={member.phoneNumber}
       />
       <AddressTextField
         id="insuranceId"
         label="保険証番号"
         type="text"
         helperText="家族の保険証番号を入力してください。"
+        defaultValue={member.insuranceId}
       />
       <AddressTextField
         id="illness"
         label="病気・アレルギー"
         type="text"
         helperText="家族の病気・アレルギーを入力してください。"
+        defaultValue={member.illness}
       />
     </div>
   );
@@ -93,6 +104,7 @@ const FormRegisterDialog = ({ category, submit }) => {
         label="名前"
         type="name"
         helperText="親戚・知人の名前を入力してください。"
+        defaultValue={member.name}
         required={true}
       />
       <AddressTextField
@@ -100,6 +112,7 @@ const FormRegisterDialog = ({ category, submit }) => {
         label="電話番号"
         type="text"
         helperText="親戚・知人の電話番号を入力してください。"
+        defaultValue={member.phoneNumber}
       />
     </div>
   );
@@ -111,6 +124,7 @@ const FormRegisterDialog = ({ category, submit }) => {
         label="施設名"
         type="name"
         helperText="施設名を入力してください。"
+        defaultValue={member.name}
         required={true}
       />
       <AddressTextField
@@ -118,6 +132,7 @@ const FormRegisterDialog = ({ category, submit }) => {
         label="電話番号"
         type="text"
         helperText="施設の電話番号を入力してください。"
+        defaultValue={member.phoneNumber}
       />
     </div>
   );
@@ -135,7 +150,7 @@ const FormRegisterDialog = ({ category, submit }) => {
         aria-label="create form"
         onClick={handleClickOpen}
       >
-        <AddCircleIcon />
+        <EditIcon />
       </IconButton>
       <Dialog
         open={open}
@@ -143,11 +158,11 @@ const FormRegisterDialog = ({ category, submit }) => {
         aria-labelledby="form-dialog-title"
       >
         <DialogTitle id="form-dialog-title">
-          {categoryTextList[category]}の連絡先追加
+          {categoryTextList[category]}の連絡先編集
         </DialogTitle>
         <DialogContent>
           <DialogContentText>
-            {categoryTextList[category]}の情報を入力してください。
+            {categoryTextList[category]}の情報に変更があれば入力してください。
           </DialogContentText>
           {textFieldList[category]}
         </DialogContent>
@@ -155,8 +170,11 @@ const FormRegisterDialog = ({ category, submit }) => {
           <Button onClick={handleClose} color="primary">
             キャンセル
           </Button>
-          <Button onClick={handleSubmit} color="primary">
-            追加
+          <Button onClick={handleEdit} color="primary">
+            編集
+          </Button>
+          <Button onClick={handleRemove} color="primary">
+            削除
           </Button>
         </DialogActions>
       </Dialog>
@@ -164,4 +182,4 @@ const FormRegisterDialog = ({ category, submit }) => {
   );
 };
 
-export default FormRegisterDialog;
+export default FormEditDialog;
