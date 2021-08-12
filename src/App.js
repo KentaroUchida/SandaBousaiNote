@@ -11,7 +11,7 @@ import {P5Taiken} from "./pages/P5Taiken";
 import P6Mada from './pages/P6Mada';
 import {P7Izanigeru} from "./pages/P7Izanigeru";
 import P8Goods from "./pages/P8Goods";
-// import P9Food from "./pages/P9Food";
+import P9Foods from "./pages/P9Foods";
 import {P10TaikenPapa} from "./pages/P10TaikenPapa";
 import {P11KikenSouzou} from "./pages/P11KikenSouzou";
 import {P12KikenJissai} from "./pages/P12KikenJissai";
@@ -29,7 +29,7 @@ const paths = [
   "/mada",
   "/izanigeru",
   "/bousaiGoods",
-  // "/food",
+  "/foods",
   "/papaTaiken",
   "/souzou",
   "/otiru",
@@ -47,7 +47,7 @@ const pages = [
   <P6Mada />,
   <P7Izanigeru />,
   <P8Goods />,
-  // <P9Food />,
+  <P9Foods />,
   <P10TaikenPapa />,
   <P11KikenSouzou />,
   <P12KikenJissai />,
@@ -65,7 +65,7 @@ const titles = [
   "まだ大丈夫は危険!",
   "いざ逃げる!",
   "防災グッズ",
-  //"食べ物がない!?",
+  "食べ物がない!?",
   "パパの体験談",
   "どんな危険が起こる？",
   "落ちる! 倒れる! 動く!",
