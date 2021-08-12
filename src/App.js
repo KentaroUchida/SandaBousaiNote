@@ -3,52 +3,56 @@ import { useSwipeable } from "react-swipeable";
 
 import Home from "./pages/Home";
 
-import Form from "./pages/P0Form";
+import P0Form from "./pages/P0Form";
 import Menu from "./components/Menu";
-import { Jishin } from "./pages/P3Jishin";
+import {P3Jishin} from "./pages/P3Jishin";
 import P4Yurega  from "./pages/P4Yurega";
-import { Taiken } from "./pages/P5Taiken";
+import {P5Taiken} from "./pages/P5Taiken";
 import P6Mada from './pages/P6Mada';
-import { P7Izanigeru } from "./pages/P7Izanigeru";
+import {P7Izanigeru} from "./pages/P7Izanigeru";
 import P8Goods from "./pages/P8Goods";
-import { P10TaikenPapa } from "./pages/P10TaikenPapa";
-import { P11KikenSouzou } from "./pages/P11KikenSouzou";
-import { P12KikenJissai } from "./pages/P12KikenJissai";
-import { P14Daijobu } from './pages/P14Daijobu'
-import { P13Toilet } from "./pages/P13Toilet";
-import  P15Bousaikaigi from "./pages/P15Bousaikaigi";
+// import P9Food from "./pages/P9Food";
+import {P10TaikenPapa} from "./pages/P10TaikenPapa";
+import {P11KikenSouzou} from "./pages/P11KikenSouzou";
+import {P12KikenJissai} from "./pages/P12KikenJissai";
+import {P13Toilet} from "./pages/P13Toilet";
+import {P14Daijobu} from './pages/P14Daijobu';
+import P15Bousaikaigi from "./pages/P15Bousaikaigi";
+
 
 const paths = [
   "/form",
-  "/",
-  "/jishin",
-  "/yurega",
-  "/taiken",
+  "/", 
+  "/jishin", 
+  "/koudouChart",
+  "/Taiken",
   "/mada",
   "/izanigeru",
-  "/goods",
-  "/taikenPapa",
+  "/bousaiGoods",
+  // "/food",
+  "/papaTaiken",
   "/souzou",
-  "/jissai",
-  "/daijobu",
+  "/otiru",
   "/toilet",
-  "/bousaikaigi"
+  "/daijobu",
+  "/bousaikaigi",
 ];
 
 const pages = [
-  <Form />,
+  <P0Form />,
   <Home />,
-  <Jishin />,
+  <P3Jishin />,
   <P4Yurega />,
-  <Taiken />,
+  <P5Taiken />,
   <P6Mada />,
   <P7Izanigeru />,
   <P8Goods />,
+  // <P9Food />,
   <P10TaikenPapa />,
   <P11KikenSouzou />,
   <P12KikenJissai />,
-  <P14Daijobu />,
   <P13Toilet />,
+  <P14Daijobu />,
   <P15Bousaikaigi />,
 ];
 

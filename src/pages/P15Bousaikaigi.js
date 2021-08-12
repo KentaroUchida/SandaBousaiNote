@@ -18,6 +18,10 @@ import StepLabel from '@material-ui/core/StepLabel';
 import Typography from '@material-ui/core/Typography';
 import FiberManualRecordIcon from '@material-ui/icons/FiberManualRecord';
 import Checkbox from '@material-ui/core/Checkbox';
+import FormGroup  from '@material-ui/core/FormGroup';
+import FormControlLabel  from '@material-ui/core/FormControlLabel';
+import TextField  from '@material-ui/core/TextField';
+
 const useStyles = makeStyles({
     root: {
       minWidth: '100%',
@@ -66,13 +70,115 @@ function CheckList(){
                 titleTypographyProps={{ align: 'center' }}
                 style={{backgroundColor: "#6699ff"}}
                 />
+
               <CardContent>
-              <Checkbox
-            checked={state.checkedB}
+            <FormControlLabel
+            control = {<Checkbox
+            checked={state.checkedBasyo}
             onChange={handleChange}
-            name="checkedB"
+            name="checkedBasyo"
+            color="primary"/>}
+           label = "避難場所について家族で場所の確認などをしましたか？"
+           />
+            
+        <FormGroup row>
+           <FormControlLabel
+           control = {
+            <table border = "1"　align="center">
+                <tbody>
+            <tr>
+            <td>地震の場合</td>
+            <td><TextField id="standard-basic"/></td>
+            </tr>
+            <tr>
+            <td>水害の場合</td>
+            <td><TextField id="standard-basic"/></td>
+            </tr>
+          </tbody>
+          </table>
+           }
+           />          
+        </FormGroup>
+
+        <FormControlLabel
+            control = {<Checkbox
+            checked={state.checkedBasyo}
+            onChange={handleChange}
+            name="checkedBasyo"
+            color="primary"/>}
+           label = "家族の集合場所は決めましたか？"
+           />
+　　　　　　<FormGroup row>
+           <FormControlLabel
+           control = {
+            <table border = "1"　align="center">
+                <tbody>
+            <tr>
+            <td>家族の集合場所</td>
+            <td><TextField id="standard-basic"/></td>
+            </tr>
+          </tbody>
+          </table>
+           }
+           />          
+        　</FormGroup>
+
+        <FormControlLabel
+            control = {<Checkbox
+            checked={state.checkedBasyo}
+            onChange={handleChange}
+            name="checkedBasyo"
+            color="primary"/>}
+           label = "家の中の安全対策はできていますか？"
+           />
+
+        <FormGroup row>
+        <FormControlLabel
+        control={
+          <Checkbox
+            checked={state.checkedKaguKotei}
+            onChange={handleChange}
+            name="checkedKaguKotei"
             color="primary"
           />
+        }
+        label="家具の固定"
+      />
+      <FormControlLabel
+        control={
+          <Checkbox
+            checked={state.checkedGarasuHisan}
+            onChange={handleChange}
+            name="checkedGarasuHisan"
+            color="primary"
+          />
+        }
+        label="ガラス飛散防止"
+      />
+      <FormControlLabel
+        control={
+          <Checkbox
+            checked={state.checkedSyuno}
+            onChange={handleChange}
+            name="checkedSyuno"
+            color="primary"
+          />
+        }
+        label="収納"
+      />
+      <FormControlLabel
+        control={
+          <Checkbox
+            checked={state.checkedKaguHaiti}
+            onChange={handleChange}
+            name="checkedKaguHaiti"
+            color="primary"
+          />
+        }
+        label="家具の配置"
+      />
+        </FormGroup>
+
 
               </CardContent>
             </Card>
