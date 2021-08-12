@@ -163,7 +163,7 @@ export default function ResponsiveDrawer(props) {
       >
         <Toolbar>
           <Grid justify="space-between" alignItems="center" container>
-            <div style={{ display: "inline-flex" }}>
+            <div style={{ display: "inline-flex", alignItems: "center" }}>
               <IconButton
                 color="inherit"
                 aria-label="open drawer"
@@ -173,7 +173,7 @@ export default function ResponsiveDrawer(props) {
               >
                 <ListIcon />
               </IconButton>
-              <Typography variant="h6" noWrap style={{ marginTop: "8px" }}>
+              <Typography variant="h6" noWrap style={{}}>
                 {props.title}
               </Typography>
             </div>
