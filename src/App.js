@@ -17,7 +17,7 @@ import {P11KikenSouzou} from "./pages/P11KikenSouzou";
 import {P12KikenJissai} from "./pages/P12KikenJissai";
 import {P13Toilet} from "./pages/P13Toilet";
 import {P14Daijobu} from './pages/P14Daijobu';
-// import P15BousaiKaigi from "/pages/P15BousaiKaigi";
+import P15Bousaikaigi from "./pages/P15Bousaikaigi";
 
 
 const paths = [
@@ -35,7 +35,7 @@ const paths = [
   "/otiru",
   "/toilet",
   "/daijobu",
-  // "/bousaiKaigi",
+  "/bousaikaigi",
 ];
 
 const pages = [
@@ -53,7 +53,7 @@ const pages = [
   <P12KikenJissai />,
   <P13Toilet />,
   <P14Daijobu />,
-  // <P15bousaiKaigi />,
+  <P15Bousaikaigi />,
 ];
 
 const titles = [
