@@ -100,7 +100,7 @@ export default function ResponsiveDrawer(props) {
           "いざ逃げる！",
           "緊急時のわがやの情報",
         ].map((text, index) => (
-          <Link to={links[index]} key={index} style={{ textDecoration: 'none' }}>
+          <Link to={links[index]} key={index} style={{ textDecoration: 'none' }} >
             <Divider />
             <ListItem button onClick={handleDrawerClose}>
               <ListItemIcon>{icons[index]}</ListItemIcon>

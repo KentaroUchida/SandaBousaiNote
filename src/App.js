@@ -16,6 +16,7 @@ import { P11KikenSouzou } from "./pages/P11KikenSouzou";
 import { P12KikenJissai } from "./pages/P12KikenJissai";
 import { P14Daijobu } from './pages/P14Daijobu'
 import { P13Toilet } from "./pages/P13Toilet";
+import { PinDropSharp } from "@material-ui/icons";
 
 const paths = [
   "/form",
@@ -49,6 +50,22 @@ const pages = [
   <P13Toilet />,
 ];
 
+const titles = [
+  "入力フォーム",
+  "Home",
+  "地震が来たら！",
+  "a",
+  "a",
+  "a",
+  "a",
+  "a",
+  "a",
+  "a",
+  "a",
+  "a",
+  "a",
+];
+
 function App() {
   const ContentPage = ({ index }) => {
     const history = useHistory();
@@ -73,7 +90,9 @@ function App() {
     );
     return (
       <Route exact path={paths[index]} key={index}>
-        <div {...handleSwipe}>{pages[index]}</div>
+        <Menu title = {titles[index]}>
+          <div {...handleSwipe}>{pages[index]}</div>
+        </Menu>
       </Route>
     );
   };
@@ -108,11 +127,9 @@ function App() {
       //   </Menu>
       // </BrowserRouter>
     <BrowserRouter>
-      <Menu title="Home">
-        {pages.map((_, i) => (
-          <ContentPage index={i} />
-        ))}
-      </Menu>
+      {pages.map((_, i) => (
+        <ContentPage index={i} />
+      ))}
     </BrowserRouter>
   );
 }
