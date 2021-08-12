@@ -14,7 +14,6 @@ import {
     responsiveFontSizes,
     ThemeProvider,
   } from '@material-ui/core/styles';
-import { render } from '@testing-library/react';
 
 let theme = createTheme();
 theme = responsiveFontSizes(theme);
@@ -32,67 +31,6 @@ const Title = () => {
             </ResponsiveFontProvider>
         </ThemeProvider>
         );
-}
-
-const Shelter1 = () => {
-    return(
-        <Card>
-            <CardContent>
-                広域避難所・一次避難所
-            </CardContent>
-            <CardMedia>
-            <img 
-                src="/img/pages/P7Izanigeru/tatemono_kouen.png"
-                style={{ height: 300 }}
-            />
-            </CardMedia>
-            <CardContent>
-                火災などの際に、一時的に逃げる場所。<br></br>
-                公園などが指定されている。
-            </CardContent>
-        </Card>
-    )
-}
-
-const Shelter2 = () => {
-    return(
-        <Card>
-            <CardContent>
-                避難所
-            </CardContent>
-            <CardMedia>
-            <img 
-                src="/img/pages/P7Izanigeru/hinanjo_seikatsu_family_smile.png"
-                style={{ height: 300 }}
-            />
-            
-            </CardMedia>
-            <CardContent>
-               自宅が被災した際に生活をする場。<br></br>
-               小・中学校や公民館など。
-            </CardContent>
-        </Card>
-    )
-}
-
-const Shelter3 = () => {
-    return(
-        <Card>
-            <CardContent>
-                福祉避難所
-            </CardContent>
-            <CardMedia>
-            <img 
-                src="/img/pages/P7Izanigeru/tatemono_kaigo_shisetsu.png"
-                style={{ height: 300 }}
-            />
-            
-            </CardMedia>
-            <CardContent>
-                障がいや介護など、特別な支援が必要な人のための避難所。<br></br>
-            </CardContent>
-        </Card>
-    )
 }
 
 const measureStyles = makeStyles((theme) => ({
@@ -177,7 +115,7 @@ const Sitteta = () => {
 
 const CheckPlace = () =>{
 	return(<>
-		<img src="/img/pages/P7Izanigeru/pict.png" style={{ maxWidth: "100%", height: "auto" }}/>
+		<img alt="" src="/img/pages/P7Izanigeru/pict.png" style={{ maxWidth: "100%", height: "auto" }}/>
 		</>
 	);
 };
@@ -188,7 +126,7 @@ const Notokiha = () =>{
 			<Grid>
 				<Card>
 					<CardMedia>
-						<img src="/img/pages/P7Izanigeru/kouzui.png" style={{ maxWidth: "40%", height: "auto" }}/>
+						<img alt="" src="/img/pages/P7Izanigeru/kouzui.png" style={{ maxWidth: "40%", height: "auto" }}/>
 					</CardMedia>
 					<CardContent>
 						洪水・津波の時は…<br></br>
@@ -200,7 +138,7 @@ const Notokiha = () =>{
 			<Grid>
 				<Card>
 					<CardMedia>
-						<img src="/img/pages/P7Izanigeru/dosya.png" style={{ maxWidth: "40%", height: "auto" }}/>
+						<img alt="" src="/img/pages/P7Izanigeru/dosya.png" style={{ maxWidth: "40%", height: "auto" }}/>
 					</CardMedia>
 					<CardContent>
 						土砂の時は…<br></br>
@@ -222,7 +160,7 @@ const HinanCard = () =>{
 				</Typography>
 			</ResponsiveFontProvider>
 			<p>水害、土砂、地震、火災など災害によって複数の逃げる場所を持つことが大切です。</p>
-			<img src="/img/pages/P7Izanigeru/bousaiMap.png" style={{ maxWidth: "80%", height: "auto"}}/>
+			<img alt="" src="/img/pages/P7Izanigeru/bousaiMap.png" style={{ maxWidth: "80%", height: "auto"}}/>
 		</Card>
 	</>)
 }
@@ -240,14 +178,14 @@ class ShelterInformation extends React.Component {
 		this.setState({[event.target.id]:event.target.value});
 	}
 	setValues(){
-		if(this.state.suigai1!=undefined) localStorage.setItem('suigai1',this.state.suigai1);
-		if(this.state.suigai2!=undefined) localStorage.setItem('suigai2',this.state.suigai2);
-		if(this.state.dosya1!=undefined)  localStorage.setItem('dosya1',this.state.dosya1);
-		if(this.state.dosya2!=undefined) localStorage.setItem('dosya2',this.state.dosya2);
-		if(this.state.jishin1!=undefined) localStorage.setItem('jishin1',this.state.jishin1);
-		if(this.state.jishin2!=undefined) localStorage.setItem('jishin2',this.state.jishin2);
-		if(this.state.kasai1!=undefined) localStorage.setItem('kasai1',this.state.kasai1);
-		if(this.state.kasai2!=undefined) localStorage.setItem('kasai2',this.state.kasai2);
+		if(this.state.suigai1!==undefined) localStorage.setItem('suigai1',this.state.suigai1);
+		if(this.state.suigai2!==undefined) localStorage.setItem('suigai2',this.state.suigai2);
+		if(this.state.dosya1!==undefined)  localStorage.setItem('dosya1',this.state.dosya1);
+		if(this.state.dosya2!==undefined) localStorage.setItem('dosya2',this.state.dosya2);
+		if(this.state.jishin1!==undefined) localStorage.setItem('jishin1',this.state.jishin1);
+		if(this.state.jishin2!==undefined) localStorage.setItem('jishin2',this.state.jishin2);
+		if(this.state.kasai1!==undefined) localStorage.setItem('kasai1',this.state.kasai1);
+		if(this.state.kasai2!==undefined) localStorage.setItem('kasai2',this.state.kasai2);
 		alert("避難先情報を保存しました")
 	}
 	render(){
