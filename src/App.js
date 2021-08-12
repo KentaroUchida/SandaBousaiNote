@@ -56,6 +56,24 @@ const pages = [
   // <P15bousaiKaigi />,
 ];
 
+const titles = [
+  "緊急時のわがやの情報",
+  "Home",
+  "グラっと地震が来たら！",
+  "揺れがおさまったら",
+  "ほくせつママ＆パパの体験談",
+  "まだ大丈夫は危険!",
+  "いざ逃げる!",
+  "防災グッズ",
+  //"食べ物がない!?",
+  "パパの体験談",
+  "どんな危険が起こる？",
+  "落ちる! 倒れる! 動く!",
+  "トイレが大変!",
+  "私は大丈夫って思ってない?",
+  //"家族で防災カイギ",
+];
+
 function App() {
   const ContentPage = ({ index }) => {
     const history = useHistory();
@@ -80,7 +98,9 @@ function App() {
     );
     return (
       <Route exact path={paths[index]} key={index}>
-        <div {...handleSwipe}>{pages[index]}</div>
+        <Menu title = {titles[index]}>
+          <div {...handleSwipe}>{pages[index]}</div>
+        </Menu>
       </Route>
     );
   };
@@ -115,11 +135,9 @@ function App() {
       //   </Menu>
       // </BrowserRouter>
     <BrowserRouter>
-      <Menu title="Home">
-        {pages.map((_, i) => (
-          <ContentPage index={i} />
-        ))}
-      </Menu>
+      {pages.map((_, i) => (
+        <ContentPage index={i} />
+      ))}
     </BrowserRouter>
   );
 }

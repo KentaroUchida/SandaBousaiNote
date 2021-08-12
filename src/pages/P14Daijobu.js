@@ -50,41 +50,6 @@ const useStyles = makeStyles((theme) => ({
   }
 }));
 
-// const HeartPhoto = ({ image }) => {
-//   return (
-//     <img src={image} alt="" style={{ maxWidth: "30%", height: "auto" }}/>
-//   );
-// }
-
-// const FlexImage = ({ image }) => {
-//   return (
-//     <img src={image} alt="" style={{ maxWidth: "100%", height: "auto" }} />
-//   );
-// };
-
-// const Photo = ({ image1, image2, text1 ,text2 }) => {
-//   const classes = useStyles();
-//   return (
-//     <Card className={classes.card}>
-//       <CardMedia>
-//         <div className={classes.flex}>
-//           <img src={image1} alt="" style={{ maxWidth: "30%", height: "auto"}}/>
-//           <CardContent>
-//             <Paper elevation={3} className={classes.cardTitle}>
-//               <Typography variant="h5">{text1}</Typography>
-//             </Paper>
-//             {text2}
-//             <br/>
-//             <div className={classes.img2}>
-//               <img src={image2} alt="" style={{ maxWidth: "100%" ,height: "200px"}}/>
-//             </div>
-//           </CardContent>
-//         </div>
-//       </CardMedia>
-//     </Card>
-//   );
-//};
-
 const Photo = ({ image1, image2, text1 ,text2 }) => {
   const classes = useStyles();
   return (
