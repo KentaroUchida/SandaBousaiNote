@@ -5,13 +5,13 @@ import CardContent from '@material-ui/core/CardContent';
 import CardHeader from '@material-ui/core/CardHeader';
 import CardMedia from '@material-ui/core/CardMedia';
 import Checkbox from '@material-ui/core/Checkbox';
+import Divider from '@material-ui/core/Divider';
 import FormControlLabel from '@material-ui/core/FormControlLabel';
 import FormGroup from '@material-ui/core/FormGroup';
-import Grid from '@material-ui/core/Grid';
 import GridList from '@material-ui/core/GridList';
 import Typography from '@material-ui/core/Typography';
 
-const normally_items = [
+const normallyItems = [
   {
     name: "飲料水",
     path: "water",
@@ -62,7 +62,7 @@ const normally_items = [
   }
 ];
 
-const hyakkin_items = [
+const hyakkinItems = [
   {
     name: "レジャーシート",
     sub: "着替え時、目隠し",
@@ -130,7 +130,7 @@ const hyakkin_items = [
   }
 ];
 
-const more_items = [
+const moreItems = [
   {
     name: "子供が好きなもの",
     message: "「これさえあれば子どもがご機嫌！」という、お菓子やおもちゃなど、子どもの心がほぐれるグッズ。",
@@ -152,14 +152,14 @@ function Checkbox2lines(props) {
   return (
     <FormGroup row>
       <GridList cols={2} cellHeight="auto">
-        {props.items.map((item, i) => {
+        {props.items.map((item) => {
           return (
-            <Card>
+            <Card key={item.path}>
               <CardActionArea>
                 <FormControlLabel
                   control={
                     <Checkbox
-                      checked={item.checked} onChange={props.handleChange} name={item.name}
+                      checked={item.checked} onChange={props.onChange} name={item.path}
                     />
                   }
                   label={item.name}
@@ -187,14 +187,8 @@ function Checkbox2lines(props) {
   );
 }
 
-function Normally() {
-  const [state, setState] = React.useState(
-    Array(normally_items.length).fill(false)
-  );
-
-  const handleChange = (event) => {
-    setState({ ...state, [event.target.name]: event.target.checked });
-  }
+function Normally(props) {
+  const items = normallyItems.map(item => {item["checked"] = props.checkList[item.path]; return item;});
 
   return (
     <Card>
@@ -203,13 +197,15 @@ function Normally() {
         titleTypographyProps={{ align: "center" }}
       />
       <CardContent>
-        <Checkbox2lines items={normally_items} handleChange={handleChange}/>
+        <Checkbox2lines items={items} onChange={props.handleChange}/>
       </CardContent>
     </Card>
   );
 }
 
-function Hyakkin() {
+function Hyakkin(props) {
+  const items = hyakkinItems.map(item => {item["checked"] = props.checkList[item.path]; return item;});
+
   return (
     <Card>
       <CardHeader
@@ -217,13 +213,15 @@ function Hyakkin() {
         titleTypographyProps={{ align: "center" }}
       />
       <CardContent>
-        <Checkbox2lines items={hyakkin_items}/>
+        <Checkbox2lines items={items} onChange={props.handleChange}/>
       </CardContent>
     </Card>
   );
 }
 
-function More() {
+function More(props) {
+  const items = moreItems.map(item => {item["checked"] = props.checkList[item.path]; return item;});
+
   return (
     <Card>
       <CardHeader
@@ -231,14 +229,14 @@ function More() {
         titleTypographyProps={{ align: "center" }}
       />
       <CardContent>
-        {more_items.map((item, i) => {
+        {items.map((item) => {
           return (
-            <Card>
+            <Card key={item.path}>
               <CardActionArea>
                 <FormControlLabel
                   control={
                     <Checkbox
-                      checked={item.checked} name={item.name}
+                      checked={item.checked} name={item.path} onChange={props.handleChange}
                     />
                   }
                   label={item.name}
@@ -264,11 +262,48 @@ function More() {
 }
 
 class P8Goods extends React.Component {
+  constructor() {
+    super();
+    let storedCL = JSON.parse(localStorage.getItem("checkList"));
+    if(storedCL) {
+      for(let k in storedCL) {
+        storedCL[k] = storedCL[k] === "1" ? true : false;
+      }
+    }
+    this.state = {
+      checkList: storedCL ? storedCL : {},
+    }
+
+    this.handleChange = this.handleChange.bind(this);
+    this.storeLocalStorage = this.storeLocalStorage.bind(this);
+  }
+
+  handleChange(event) {
+    const checkList = this.state.checkList;
+    checkList[event.target.name] = event.target.checked;
+    this.storeLocalStorage(checkList);
+    this.setState({"checkList": checkList});
+  }
+
+  storeLocalStorage(checkList) {
+    for(let k in checkList) {
+      checkList[k] = checkList[k] ? "1" : "0";
+    }
+    localStorage.setItem("checkList", JSON.stringify(checkList));
+  }
+
   render() {
     return (<>
-    <Normally/>
-    <Hyakkin/>
-    <More/>
+    <Typography variant="h6">
+      非常時にホントに役立つ！
+    </Typography>
+    <Typography variant="h5">
+      防災グッズ
+    </Typography>
+    <Divider/>
+    <Normally checkList={this.state.checkList} handleChange={this.handleChange}/>
+    <Hyakkin checkList={this.state.checkList} handleChange={this.handleChange}/>
+    <More checkList={this.state.checkList} handleChange={this.handleChange}/>
     </>);
   }
 }
