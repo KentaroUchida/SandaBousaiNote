@@ -8,7 +8,7 @@ import Checkbox from '@material-ui/core/Checkbox';
 import Divider from '@material-ui/core/Divider';
 import FormControlLabel from '@material-ui/core/FormControlLabel';
 import FormGroup from '@material-ui/core/FormGroup';
-import GridList from '@material-ui/core/GridList';
+import ImageList from '@material-ui/core/ImageList';
 import Typography from '@material-ui/core/Typography';
 
 const preparation = [
@@ -42,40 +42,43 @@ function getPath(str) {
   return "/img/pages/P9Foods/" + str + ".png";
 }
 
-function Checkbox2lines(props) {
+function Checkbox2Lines(props) {
+  const items = props.items;
   return (
     <FormGroup row>
-      <GridList cols={2} cellHeight="auto">
-        {props.items.map((item) => {
+      <ImageList cols={2} rowHeight="auto">
+        {Object.keys(items).map(key => {
           return (
-            <Card key={item.path}>
-              <CardActionArea>
+            <Card key={key}>
+              <CardActionArea onClick={event => {
+                event.target.name = key;
+                event.target.checked = !items[key].checked
+                props.onChange(event);
+              }}>
                 <FormControlLabel
                   control={
                     <Checkbox
-                      checked={item.checked} onChange={props.onChange} name={item.path}
+                      checked={items[key].checked} onChange={props.onChange} name={key}
                     />
                   }
-                  label={item.name}
+                  label={items[key].name}
                 />
                 <CardMedia
                   component="img"
-                  alt={item.path}
-                  image={getPath(item.path)}
-                  title={item.name}
+                  alt={items[key].name}
+                  image={props.getPath(key)}
+                  title={items[key].name}
                 />
               </CardActionArea>
             </Card>
           );
         })}
-      </GridList>
+      </ImageList>
     </FormGroup>
   );
 }
 
 function Preparation(props) {
-  const items = preparation.map(item => {item["checked"] = props.foodList[item.path]; return item;});
-
   return (
     <Card>
       <CardHeader
@@ -83,7 +86,7 @@ function Preparation(props) {
         titleTypographyProps={{ align: "center" }}
       />
       <CardContent>
-        <Checkbox2lines items={items} onChange={props.handleChange}/>
+        <Checkbox2Lines items={props.items} onChange={props.handleChange} getPath={getPath}/>
       </CardContent>
     </Card>
   );
@@ -92,7 +95,7 @@ function Preparation(props) {
 function Info() {
   return (
     <FormGroup row>
-      <GridList cols={2} cellHeight="auto">
+      <ImageList cols={2} rowHeight="auto">
         <Card>
           <CardContent>
             <CardMedia
@@ -119,7 +122,7 @@ function Info() {
             </Typography>
           </CardContent>
         </Card>
-      </GridList>
+      </ImageList>
     </FormGroup>
   );
 }
@@ -178,32 +181,33 @@ function Store() {
 class P9Foods extends React.Component {
   constructor() {
     super();
-    let storedFL = JSON.parse(localStorage.getItem("foodList"));
-    if(storedFL) {
-      for(let k in storedFL) {
-        storedFL[k] = storedFL[k] === "1" ? true : false;
-      }
-    }
-    this.state = {
-      foodList: storedFL ? storedFL : {},
+    const storedFLStr = localStorage.getItem("foodList");
+    let foodList = {};
+    if(storedFLStr !== null) {
+      const storedFL = JSON.parse(storedFLStr);
+      foodList = preparation.reduce((obj, el) => ({...obj, [el.path]: {
+        name: el.name, checked: storedFL[el.path] ? true : false
+      }}), {});
+    } else {
+      foodList = preparation.reduce((obj, el) => ({...obj, [el.path]: {
+        name: el.name, checked: false
+      }}), {});
     }
 
+    this.state = {foodList: foodList};
     this.handleChange = this.handleChange.bind(this);
-    this.storeLocalStorage = this.storeLocalStorage.bind(this);
   }
 
   handleChange(event) {
     const foodList = this.state.foodList;
-    foodList[event.target.name] = event.target.checked;
-    this.storeLocalStorage(foodList);
+    foodList[event.target.name].checked = event.target.checked;
     this.setState({"foodList": foodList});
-  }
 
-  storeLocalStorage(foodList) {
-    for(let k in foodList) {
-      foodList[k] = foodList[k] ? "1" : "0";
-    }
-    localStorage.setItem("foodList", JSON.stringify(foodList));
+    localStorage.setItem("foodList", JSON.stringify(
+      Object.keys(foodList).reduce((obj, key) => ({...obj,
+        [key]: foodList[key].checked
+      }), {})
+    ));
   }
 
   render() {
@@ -222,7 +226,7 @@ class P9Foods extends React.Component {
       さらにアレルギー対応食や幼児用の食事は手に入りません!
     </Typography>
     <Divider/>
-    <Preparation foodList={this.state.foodList} handleChange={this.handleChange}/>
+    <Preparation items={this.state.foodList} handleChange={this.handleChange}/>
     <Divider/>
     <Info/>
     <br/>
