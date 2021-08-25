@@ -162,7 +162,7 @@ export default function ResponsiveDrawer(props) {
         })}
       >
         <Toolbar>
-          <Grid justify="space-between" alignItems="center" container>
+          <Grid justifyContent="space-between" alignItems="center" container>
             <div style={{ display: "inline-flex", alignItems: "center" }}>
               <IconButton
                 color="inherit"
@@ -229,7 +229,7 @@ export default function ResponsiveDrawer(props) {
       </nav>
       <main className={classes.content}>
         <div className={classes.toolbar} />
-        <Typography paragraph>{props.children}</Typography>
+        {props.children}
       </main>
     </div>
   );
