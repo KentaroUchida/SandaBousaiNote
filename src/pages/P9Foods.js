@@ -1,15 +1,13 @@
 import React from 'react';
 import Card from '@material-ui/core/Card';
-import CardActionArea from '@material-ui/core/CardActionArea';
 import CardContent from '@material-ui/core/CardContent';
 import CardHeader from '@material-ui/core/CardHeader';
 import CardMedia from '@material-ui/core/CardMedia';
-import Checkbox from '@material-ui/core/Checkbox';
 import Divider from '@material-ui/core/Divider';
-import FormControlLabel from '@material-ui/core/FormControlLabel';
 import FormGroup from '@material-ui/core/FormGroup';
 import ImageList from '@material-ui/core/ImageList';
 import Typography from '@material-ui/core/Typography';
+import Checkbox2Lines from '../components/Checkbox2Lines';
 
 const preparation = [
   {
@@ -42,42 +40,6 @@ function getPath(str) {
   return "/img/pages/P9Foods/" + str + ".png";
 }
 
-function Checkbox2Lines(props) {
-  const items = props.items;
-  return (
-    <FormGroup row>
-      <ImageList cols={2} rowHeight="auto">
-        {Object.keys(items).map(key => {
-          return (
-            <Card key={key}>
-              <CardActionArea onClick={event => {
-                event.target.name = key;
-                event.target.checked = !items[key].checked
-                props.onChange(event);
-              }}>
-                <FormControlLabel
-                  control={
-                    <Checkbox
-                      checked={items[key].checked} onChange={props.onChange} name={key}
-                    />
-                  }
-                  label={items[key].name}
-                />
-                <CardMedia
-                  component="img"
-                  alt={key}
-                  image={getPath(key)}
-                  title={items[key].name}
-                />
-              </CardActionArea>
-            </Card>
-          );
-        })}
-      </ImageList>
-    </FormGroup>
-  );
-}
-
 function Preparation(props) {
   return (
     <Card>
@@ -86,7 +48,7 @@ function Preparation(props) {
         titleTypographyProps={{ align: "center" }}
       />
       <CardContent>
-        <Checkbox2Lines items={props.items} onChange={props.handleChange}/>
+        <Checkbox2Lines items={props.items} onChange={props.handleChange} getPath={getPath}/>
       </CardContent>
     </Card>
   );
