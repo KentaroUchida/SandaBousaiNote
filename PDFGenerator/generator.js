@@ -33,11 +33,26 @@ const params = {
     temporary: "下関市テスト会館テスト号室",
     disaster: "下関市テスト会館テスト号室",
     tsunami: "下関市テスト会館テスト号室",
-  }
+  },
+  card: {
+    flood: { evacuation: "テストテスト", shelter: "テストテストテスト" },
+    sediment: { evacuation: "テストテスト", shelter: "テストテストテスト" },
+    earthquake: { evacuation: "テストテスト", shelter: "テストテストテスト" },
+    fire: { evacuation: "テストテスト", shelter: "テストテストテスト" },
+  },
+  goods: {
+  },
+  foods: {
+  },
+  checkList: {
+    earthquake: "テストテストテストテスト",
+    flood: "テストテストテストテスト",
+    place: "テストテストテストテスト",
+  },
 }
 
 // 1ページ目:緊急時のわがやの情報
-const pageModifier = new hummus.PDFPageModifier(pdfWriter,0);
+let pageModifier = new hummus.PDFPageModifier(pdfWriter,0);
 const options = {
   font:font,
   size:10,
@@ -50,7 +65,7 @@ const phoneOptions = {
   colorspace:'gray',
   color:0x00
 };
-const context = pageModifier.startContext().getContext()
+let context = pageModifier.startContext().getContext()
 
 params.form.family.slice(0,5).forEach((el,i) => { // 5人までしか書き込めない
   context.writeText(
@@ -86,6 +101,38 @@ context.writeText(params.form.home,276,231,phoneOptions);
 context.writeText(params.form.temporary,128,180,options);
 context.writeText(params.form.disaster,128,163,options);
 context.writeText(params.form.tsunami,128,146,options);
+
+pageModifier.endContext().writePage();
+
+// 4ページ目:わがやの災害避難カードを作ろう!
+pageModifier = new hummus.PDFPageModifier(pdfWriter,3);
+cardOptions = {
+  font:font,
+  size:6,
+  colorspace:'gray',
+  color:0x00
+}
+context = pageModifier.startContext().getContext()
+const disasters = ["flood", "sediment", "earthquake", "fire"];
+disasters.forEach((name,i) => {
+  context.writeText(params.card[name].evacuation,645,143-i*11,cardOptions);
+  context.writeText(params.card[name].shelter,702,143-i*11,cardOptions);
+});
+
+pageModifier.endContext().writePage();
+
+// 11ページ目:チェックリスト
+pageModifier = new hummus.PDFPageModifier(pdfWriter,7);
+const checkListOptions = {
+  font:font,
+  size:8,
+  colorspace:'gray',
+  color:0x00
+}
+context = pageModifier.startContext().getContext()
+context.writeText(params.checkList.earthquake,570,302,checkListOptions);
+context.writeText(params.checkList.flood,570,285,checkListOptions);
+context.writeText(params.checkList.place,520,250,checkListOptions);
 
 pageModifier.endContext().writePage();
 
