@@ -172,11 +172,11 @@ const FormEditDialog = ({ category, edit, remove, defaultMember }) => {
           <Button onClick={handleClose} color="primary">
             キャンセル
           </Button>
-          <Button onClick={handleEdit} color="primary">
-            編集
-          </Button>
-          <Button onClick={handleRemove} color="primary">
+          <Button onClick={handleRemove} color="secondary">
             削除
+          </Button>
+          <Button onClick={handleEdit} color="primary">
+            更新
           </Button>
         </DialogActions>
       </Dialog>
