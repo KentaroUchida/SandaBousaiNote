@@ -1,6 +1,15 @@
 import React, { useState } from "react";
-import {Button, TextField, Dialog, DialogActions, DialogContent, DialogContentText, DialogTitle, IconButton} from "@material-ui/core";
-import {Edit as EditIcon} from "@material-ui/icons";
+import {
+  Button,
+  TextField,
+  Dialog,
+  DialogActions,
+  DialogContent,
+  DialogContentText,
+  DialogTitle,
+  IconButton,
+} from "@material-ui/core";
+import { Edit as EditIcon } from "@material-ui/icons";
 
 const categoryTextList = {
   family: "家族",
@@ -24,14 +33,14 @@ const FormEditDialog = ({ category, edit, remove, defaultMember }) => {
     });
 
   const handleEdit = () => {
-    edit(category,member);
+    edit(category, member);
     handleClose();
   };
 
   const handleRemove = () => {
     remove(category, member);
     handleClose();
-  }
+  };
 
   const AddressTextField = ({
     id,

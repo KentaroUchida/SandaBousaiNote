@@ -1,6 +1,14 @@
 import React, { useState } from "react";
-import {Accordion, AccordionSummary, AccordionDetails, Typography, TextField, Grid, Button} from "@material-ui/core";
-import {ExpandMore as ExpandMoreIcon} from "@material-ui/icons";
+import {
+  Accordion,
+  AccordionSummary,
+  AccordionDetails,
+  Typography,
+  TextField,
+  Grid,
+  Button,
+} from "@material-ui/core";
+import { ExpandMore as ExpandMoreIcon } from "@material-ui/icons";
 import FormRegisterDialog from "../components/RegisterDialog";
 import FormEditDialog from "../components/EditDialog";
 
@@ -82,7 +90,7 @@ const Form = () => {
   }) => (
     <Accordion>
       <AccordionSummary
-        expandIcon={<ExpandMoreIcon fontSize="large"/>}
+        expandIcon={<ExpandMoreIcon fontSize="large" />}
         aria-controls="panel1a-content"
         id="panel1a-header"
       >
@@ -113,7 +121,7 @@ const Form = () => {
   const PrintRelativeInformation = ({ name, phoneNumber, index }) => (
     <Accordion>
       <AccordionSummary
-        expandIcon={<ExpandMoreIcon fontSize="large"/>}
+        expandIcon={<ExpandMoreIcon fontSize="large" />}
         aria-controls="panel1a-content"
         id="panel1a-header"
       >
@@ -142,7 +150,7 @@ const Form = () => {
   const PrintFacilityInformation = ({ name, phoneNumber, index }) => (
     <Accordion>
       <AccordionSummary
-        expandIcon={<ExpandMoreIcon fontSize="large"/>}
+        expandIcon={<ExpandMoreIcon fontSize="large" />}
         aria-controls="panel1a-content"
         id="panel1a-header"
       >

@@ -1,6 +1,15 @@
 import React, { useState } from "react";
-import {Button, TextField, Dialog, DialogActions, DialogContent, DialogContentText, DialogTitle, IconButton} from "@material-ui/core";
-import {AddCircle as AddCircleIcon} from "@material-ui/icons";
+import {
+  Button,
+  TextField,
+  Dialog,
+  DialogActions,
+  DialogContent,
+  DialogContentText,
+  DialogTitle,
+  IconButton,
+} from "@material-ui/core";
+import { AddCircle as AddCircleIcon } from "@material-ui/icons";
 
 const categoryTextList = {
   family: "家族",
@@ -24,7 +33,7 @@ const FormRegisterDialog = ({ category, submit }) => {
     });
 
   const handleSubmit = () => {
-    submit(category,member);
+    submit(category, member);
     handleClose();
   };
 
