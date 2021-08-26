@@ -91,6 +91,7 @@ const Form = () => {
     <Accordion>
       <AccordionSummary
         expandIcon={<ExpandMoreIcon fontSize="large" />}
+        aria-label="Expand"
         aria-controls="panel1a-content"
         id="panel1a-header"
       >
@@ -122,6 +123,7 @@ const Form = () => {
     <Accordion>
       <AccordionSummary
         expandIcon={<ExpandMoreIcon fontSize="large" />}
+        aria-label="Expand"
         aria-controls="panel1a-content"
         id="panel1a-header"
       >
@@ -151,6 +153,7 @@ const Form = () => {
     <Accordion>
       <AccordionSummary
         expandIcon={<ExpandMoreIcon fontSize="large" />}
+        aria-label="Expand"
         aria-controls="panel1a-content"
         id="panel1a-header"
       >

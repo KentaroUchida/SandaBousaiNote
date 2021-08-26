@@ -20,10 +20,18 @@ const categoryTextList = {
 const FormEditDialog = ({ category, edit, remove, defaultMember }) => {
   const [member, setMember] = useState(defaultMember);
   const [open, setOpen] = useState(false);
+  const [deleteConfirmOpen, setDeleteConfirmOpen] = useState(false);
 
   const handleClickOpen = () => setOpen(true);
 
   const handleClose = () => setOpen(false);
+
+  const handleSwitchConfirmDialog = () => {
+    handleClose();
+    setDeleteConfirmOpen(true);
+  };
+
+  const handleDeleteConfirmClose = () => setDeleteConfirmOpen(false);
 
   const handleMemberUpdate = (event) =>
     setMember((member) => {
@@ -39,7 +47,7 @@ const FormEditDialog = ({ category, edit, remove, defaultMember }) => {
 
   const handleRemove = () => {
     remove(category, member);
-    handleClose();
+    handleDeleteConfirmClose();
   };
 
   const AddressTextField = ({
@@ -146,7 +154,11 @@ const FormEditDialog = ({ category, edit, remove, defaultMember }) => {
   };
 
   return (
-    <>
+    <div
+      arial-label="Dialog"
+      onClick={(event) => event.stopPropagation()}
+      onFocus={(event) => event.stopPropagation()}
+    >
       <IconButton
         aria-label="create form"
         onClick={handleClickOpen}
@@ -172,7 +184,7 @@ const FormEditDialog = ({ category, edit, remove, defaultMember }) => {
           <Button onClick={handleClose} color="primary">
             キャンセル
           </Button>
-          <Button onClick={handleRemove} color="secondary">
+          <Button onClick={handleSwitchConfirmDialog} color="secondary">
             削除
           </Button>
           <Button onClick={handleEdit} color="primary">
@@ -180,7 +192,28 @@ const FormEditDialog = ({ category, edit, remove, defaultMember }) => {
           </Button>
         </DialogActions>
       </Dialog>
-    </>
+      <Dialog
+        open={deleteConfirmOpen}
+        onClose={handleDeleteConfirmClose}
+        aria-labelledby="delete-confirm-dialog-title"
+      >
+        <DialogTitle id="delete-confirm-dialog-title">
+          連絡先を削除してよろしいですか？
+        </DialogTitle>
+        <DialogActions>
+          <Button
+            onClick={handleDeleteConfirmClose}
+            variant="contained"
+            color="primary"
+          >
+            キャンセル
+          </Button>
+          <Button onClick={handleRemove} color="secondary">
+            削除
+          </Button>
+        </DialogActions>
+      </Dialog>
+    </div>
   );
 };
 
