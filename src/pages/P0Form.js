@@ -88,7 +88,7 @@ const Form = () => {
   }) => (
     <Accordion>
       <AccordionSummary
-        expandIcon={<ExpandMoreIcon />}
+        expandIcon={<ExpandMoreIcon fontSize="large"/>}
         aria-controls="panel1a-content"
         id="panel1a-header"
       >
@@ -119,7 +119,7 @@ const Form = () => {
   const PrintRelativeInformation = ({ name, phoneNumber, index }) => (
     <Accordion>
       <AccordionSummary
-        expandIcon={<ExpandMoreIcon />}
+        expandIcon={<ExpandMoreIcon fontSize="large"/>}
         aria-controls="panel1a-content"
         id="panel1a-header"
       >
@@ -148,7 +148,7 @@ const Form = () => {
   const PrintFacilityInformation = ({ name, phoneNumber, index }) => (
     <Accordion>
       <AccordionSummary
-        expandIcon={<ExpandMoreIcon />}
+        expandIcon={<ExpandMoreIcon fontSize="large"/>}
         aria-controls="panel1a-content"
         id="panel1a-header"
       >
