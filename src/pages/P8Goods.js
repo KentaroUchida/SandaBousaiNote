@@ -164,10 +164,13 @@ function Checkbox2Lines(props) {
                 <FormControlLabel
                   control={
                     <Checkbox
-                      checked={items[key].checked} onChange={props.onChange} name={key}
+                      checked={items[key].checked} name={key} onChange={props.onChange}
                     />
                   }
                   label={items[key].name}
+                  onClick={event => {
+                    event.stopPropagation(); // CardActionAreaのonClickを無効化
+                  }}
                 />
                 <CardMedia
                   component="img"
@@ -342,6 +345,9 @@ class More extends React.Component {
                       />
                     }
                     label={items[key].name}
+                    onClick={event => {
+                      event.stopPropagation(); // CardActionAreaのonClickを無効化
+                    }}
                   />
                   <CardMedia
                     component="img"
