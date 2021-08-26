@@ -22,38 +22,24 @@ import {
 let theme = createTheme();
 theme = responsiveFontSizes(theme);
 
-
-const HinanCard = () =>{
-	return(<>
-	<Card>
-			<ResponsiveFontProvider>
-				<Typography variant="h3" gutterBottom>
-					わがやの災害避難カードを作ろう！
-				</Typography>
-			</ResponsiveFontProvider>
-			<p>水害、土砂、地震、火災など災害によって複数の逃げる場所を持つことが大切です。</p>
-			<img alt="" src="/img/pages/P7Izanigeru/bousaiMap.png" style={{ maxWidth: "80%", height: "auto"}}/>
-		</Card>
-	</>)
-}
-
 const instructionText = [
-    "a",
-    "i",
+    "左上の三本線をタップするとメニューが出てきます",
+    "メニューからそれぞれのページへ遷移することができます",
+    "右上の印刷ボタンを押すとPDFの作成ができます(作成中)",
+    "左にスワイプすると前のページ，右にスワイプすると次のページに移動します",
+    "入力した情報は保存され，次回以降も見ることができます",
+    "保存した情報は消えてしまう可能性があります，あらかじめご了承ください",
 ];
 
 export default function Instruction(){
 	return(<>
-		<h2>三田防災ノートの使い方</h2>
+    <Grid container alignItems="center" justify="center">
+        <h2>さんだ防災ノートの使い方</h2>
+    </Grid>
+    {instructionText.map((_,i) => (
         <ul>
-            <li>左上の三本線をタップするとメニューが出てきます</li>
-            <li>保存したデータは消えてしまうことがあります，あらかじめご了承ください</li>
+            <li>{instructionText[i]}</li>
         </ul>
-        <List>
-            <ListItemText>左上の三本線をタップするとメニューが出てきます</ListItemText>
-            <ListItemText>保存したデータは消えてしまうことがあります，あらかじめご了承ください</ListItemText>
-            <ListItemText>左にスワイプすると次のページ，右にスワイプすると前のページに移動します</ListItemText>
-            
-        </List>
+    ))}
 	</>);
 }
