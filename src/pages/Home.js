@@ -61,19 +61,19 @@ function DownloadLinks() {
         <br></br>
 
         <Grid container spacing={2} alignContent="center">
-          <Grid item style={{width: "50%"}}>
+          <Grid container item style={{width: "50%"}}>
             <Typography>ひょうご防災ネット</Typography>
             <img src="/img/pages/Home/hyogo_bousai_icon.png" alt="ひょうご防災ネット アプリアイコン" style={{width: "160px"}}/>
           </Grid>
 
-          <Grid item alignContent="center" style={{width: "50%"}}>
+          <Grid container item alignContent="center" style={{width: "50%"}}>
             <Container fixed>
             <Grid item>
               <Link href="https://play.google.com/store/apps/details?id=net.bosai.appli&hl=ja&gl=US">
                 <img src="/img/pages/Home/hyogo_bousai_google_play_badge.png" alt="Google Playリンク" style={{width: "160px", margin: "-10px"}}/>
               </Link>
             </Grid>
-            <Grid item>
+            <Grid container item>
               <Link href="https://apps.apple.com/us/app/%E3%81%B2%E3%82%87%E3%81%86%E3%81%94%E9%98%B2%E7%81%BD%E3%83%8D%E3%83%83%E3%83%88/id1458839848?itsct=apps_box_link&itscg=30200">
                 <img src="/img/pages/Home/hyogo_bousai_app_store_black.svg" alt="App Storeリンク" style={{width: "140px"}}/>
               </Link>
