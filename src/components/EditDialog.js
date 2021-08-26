@@ -144,11 +144,11 @@ const FormEditDialog = ({ category, edit, remove, defaultMember }) => {
   };
 
   return (
-    <div className="FormDialog">
+    <>
       <IconButton
-        color="primary"
         aria-label="create form"
         onClick={handleClickOpen}
+        size="small"
       >
         <EditIcon />
       </IconButton>
@@ -178,7 +178,7 @@ const FormEditDialog = ({ category, edit, remove, defaultMember }) => {
           </Button>
         </DialogActions>
       </Dialog>
-    </div>
+    </>
   );
 };
 

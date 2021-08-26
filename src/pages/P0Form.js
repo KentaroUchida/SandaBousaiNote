@@ -92,13 +92,19 @@ const Form = () => {
         aria-controls="panel1a-content"
         id="panel1a-header"
       >
-        <Typography>名前:{name}</Typography>
-        <FormEditDialog
-          category="family"
-          edit={editAddress(index)}
-          remove={removeAddress(index)}
-          defaultMember={familyList[index]}
-        />
+        <Grid container justify="space-between" alignItems="center">
+          <Grid item>
+            <Typography>名前:{name}</Typography>
+          </Grid>
+          <Grid item>
+            <FormEditDialog
+              category="family"
+              edit={editAddress(index)}
+              remove={removeAddress(index)}
+              defaultMember={familyList[index]}
+            />
+          </Grid>
+        </Grid>
       </AccordionSummary>
       <AccordionDetails>
         <Typography>
@@ -117,13 +123,19 @@ const Form = () => {
         aria-controls="panel1a-content"
         id="panel1a-header"
       >
-        <Typography>名前:{name}</Typography>
-        <FormEditDialog
-          category="relative"
-          edit={editAddress(index)}
-          remove={removeAddress(index)}
-          defaultMember={relativeList[index]}
-        />
+        <Grid container justify="space-between" alignItems="center">
+          <Grid item>
+            <Typography>名前:{name}</Typography>
+          </Grid>
+          <Grid item>
+            <FormEditDialog
+              category="relative"
+              edit={editAddress(index)}
+              remove={removeAddress(index)}
+              defaultMember={relativeList[index]}
+            />
+          </Grid>
+        </Grid>
       </AccordionSummary>
       <AccordionDetails>
         <Typography>
@@ -140,13 +152,19 @@ const Form = () => {
         aria-controls="panel1a-content"
         id="panel1a-header"
       >
-        <Typography>施設名:{name}</Typography>
-        <FormEditDialog
-          category="facility"
-          edit={editAddress(index)}
-          remove={removeAddress(index)}
-          defaultMember={facilityList[index]}
-        />
+        <Grid container justify="space-between" alignItems="center">
+          <Grid item>
+            <Typography>施設名:{name}</Typography>
+          </Grid>
+          <Grid item>
+            <FormEditDialog
+              category="facility"
+              edit={editAddress(index)}
+              remove={removeAddress(index)}
+              defaultMember={facilityList[index]}
+            />
+          </Grid>
+        </Grid>
       </AccordionSummary>
       <AccordionDetails>
         <Typography>
