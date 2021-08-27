@@ -22,6 +22,7 @@ import {
 let theme = createTheme();
 theme = responsiveFontSizes(theme);
 
+
 const instructionText = [
     "左上の三本線をタップするとメニューが出てきます",
     "メニューからそれぞれのページへ遷移することができます",
