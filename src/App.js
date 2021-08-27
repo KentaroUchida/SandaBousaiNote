@@ -2,7 +2,7 @@ import { BrowserRouter, Route, useHistory } from "react-router-dom";
 import { useSwipeable } from "react-swipeable";
 
 import Home from "./pages/Home";
-
+import Instruction from "./pages/Instruction";
 import P0Form from "./pages/P0Form";
 import Menu from "./components/Menu";
 import {P3Jishin} from "./pages/P3Jishin";
@@ -24,6 +24,7 @@ import { Top } from "./pages/Top";
 const paths = [
   "/form",
   "/", 
+  "/instruction",
   "/jishin", 
   "/koudouChart",
   "/Taiken",
@@ -43,6 +44,7 @@ const paths = [
 const pages = [
   <P0Form />,
   <Top />,
+  <Instruction/>,
   <P3Jishin />,
   <P4Yurega />,
   <P5Taiken />,
@@ -62,6 +64,7 @@ const pages = [
 const titles = [
   "緊急時のわがやの情報",
   "トップ",
+  "使い方",
   "グラっと地震が来たら！",
   "揺れがおさまったら",
   "ほくせつママ＆パパの体験談",
