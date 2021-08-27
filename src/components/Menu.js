@@ -82,6 +82,7 @@ export default function ResponsiveDrawer(props) {
   const icons = [
     <HomeIcon />,
     <WarningIcon />,
+    <WarningIcon />,
     <DirectionsRunSharpIcon />,
     <DirectionsRunSharpIcon />,
     <WarningIcon />,
@@ -100,6 +101,7 @@ export default function ResponsiveDrawer(props) {
   const links = [
     "/form",
     "/", 
+    "/instruction",
     "/jishin", 
     "/koudouChart",
     "/Taiken",
@@ -122,6 +124,7 @@ export default function ResponsiveDrawer(props) {
         {[
           "緊急時のわがやの情報",
           "Home",
+          "使い方",
           "グラっと地震が来たら！いのちを守る！できるだけケガをせず生き残る！",
           "揺れがおさまったら",
           "ほくせつママ＆パパの体験談",
