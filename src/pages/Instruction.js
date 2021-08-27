@@ -26,21 +26,41 @@ theme = responsiveFontSizes(theme);
 const instructionText = [
     "左上の三本線をタップするとメニューが出てきます",
     "メニューからそれぞれのページへ遷移することができます",
+    "各ページから場面に応じた防災情報を確認できます",
     "右上の印刷ボタンを押すとPDFの作成ができます(作成中)",
     "左にスワイプすると前のページ，右にスワイプすると次のページに移動します",
     "入力した情報は保存され，次回以降も見ることができます",
     "保存した情報は消えてしまう可能性があります，あらかじめご了承ください",
 ];
 
+class Title extends React.Component{
+    render(){
+        return(
+            <div>
+                <Grid container alignItems="center" justify="center">
+                    <h2>さんだ防災ノートの使い方</h2>
+                </Grid>
+            </div>
+        );
+    }
+}
+class Content extends React.Component{
+    render(){
+        return(
+            <div>
+                {instructionText.map((_,i) => (
+                    <ul>
+                        <li>{instructionText[i]}</li>
+                    </ul>
+                ))}
+            </div>
+        );
+    }
+}
+
 export default function Instruction(){
 	return(<>
-    <Grid container alignItems="center" justify="center">
-        <h2>さんだ防災ノートの使い方</h2>
-    </Grid>
-    {instructionText.map((_,i) => (
-        <ul>
-            <li>{instructionText[i]}</li>
-        </ul>
-    ))}
+        <Title/>
+        <Content/>
 	</>);
 }
