@@ -23,7 +23,7 @@ const useStyles = makeStyles((theme) => ({
     textAlign: "center",
   },
   image: {
-    //margin: theme.spacing(1),
+    margin: theme.spacing(1),
   }
 }));
 
@@ -60,7 +60,9 @@ export const Top = () => {
   return (
     <ResponsiveFontProvider>
       <FlexImage image="/img/pages/Top/top.png" className={classes.image}/>
-      <Typography textAlign="center"　variant="h8" className={classes.text}>三田市様・ミラクルウィッシュ様・神戸大学協力のもと、本アプリは現在開発段階です。</Typography>
+      <div>
+          <Typography variant="h8">三田市様・ミラクルウィッシュ様・神戸大学協力のもと、本アプリは現在開発段階です。</Typography>
+      </div>
     </ResponsiveFontProvider>
   );
 };
