@@ -95,6 +95,7 @@ export default function ResponsiveDrawer(props) {
     <DirectionsRunSharpIcon />,
     <DirectionsRunSharpIcon />,
     <WarningIcon />,
+    <WarningIcon />,
   ];
 
   const links = [
@@ -113,6 +114,7 @@ export default function ResponsiveDrawer(props) {
     "/toilet",
     "/daijobu",
     "/bousaiKaigi",
+    "/oshirase",
   ];
 
   const drawer = (
@@ -121,7 +123,7 @@ export default function ResponsiveDrawer(props) {
       <List>
         {[
           "緊急時のわがやの情報",
-          "Home",
+          "トップ",
           "グラっと地震が来たら！いのちを守る！できるだけケガをせず生き残る！",
           "揺れがおさまったら",
           "ほくせつママ＆パパの体験談",
@@ -135,6 +137,7 @@ export default function ResponsiveDrawer(props) {
           "トイレが大変!",
           "私は大丈夫って思ってない?",
           "家族で防災カイギ",
+          "お知らせ",
         ].map((text, index) => (
           <Link to={links[index]} key={index} style={{ textDecoration: 'none' }} >
             <Divider />

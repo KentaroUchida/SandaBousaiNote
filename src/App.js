@@ -18,6 +18,7 @@ import {P12KikenJissai} from "./pages/P12KikenJissai";
 import {P13Toilet} from "./pages/P13Toilet";
 import {P14Daijobu} from './pages/P14Daijobu';
 import P15Bousaikaigi from "./pages/P15Bousaikaigi";
+import { Top } from "./pages/Top";
 
 
 const paths = [
@@ -36,11 +37,12 @@ const paths = [
   "/toilet",
   "/daijobu",
   "/bousaikaigi",
+  "/oshirase",
 ];
 
 const pages = [
   <P0Form />,
-  <Home />,
+  <Top />,
   <P3Jishin />,
   <P4Yurega />,
   <P5Taiken />,
@@ -54,11 +56,12 @@ const pages = [
   <P13Toilet />,
   <P14Daijobu />,
   <P15Bousaikaigi />,
+  <Home />
 ];
 
 const titles = [
   "緊急時のわがやの情報",
-  "Home",
+  "トップ",
   "グラっと地震が来たら！",
   "揺れがおさまったら",
   "ほくせつママ＆パパの体験談",
@@ -71,7 +74,8 @@ const titles = [
   "落ちる! 倒れる! 動く!",
   "トイレが大変!",
   "私は大丈夫って思ってない?",
-  //"家族で防災カイギ",
+  "家族で防災カイギ",
+  "お知らせ",
 ];
 
 function App() {
