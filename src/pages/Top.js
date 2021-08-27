@@ -2,23 +2,14 @@ import React from "react";
 import {
   Card,
   CardContent,
-  Paper,
   Typography,
   CardMedia,
   makeStyles,
   Grid,
-  Link,
 } from "@material-ui/core";
 import { ResponsiveFontProvider } from "../components/ResponsiveFontProvider";
 
 const useStyles = makeStyles((theme) => ({
-  card: {
-    //margin: theme.spacing(2),
-  },
-  subtitle: {
-    //backgroundColor: "#99cc00",
-    //margin: theme.spacing(1),
-  },
   text:{
     textAlign: "center",
   },
@@ -30,28 +21,6 @@ const useStyles = makeStyles((theme) => ({
 const FlexImage = ({ image }) => {
   return (
     <img src={image} alt="" style={{ maxWidth: "100%", height: "auto" }} />
-  );
-};
-
-const Photo = ({ image, texts }) => {
-  const classes = useStyles();
-  return (
-    <Card className={classes.card}>
-      <CardMedia>
-        <Grid container justify="center">
-          <img
-            src={image}
-            alt=""
-            style={{ maxWidth: "100%", height: "auto" }}
-          />
-        </Grid>
-      </CardMedia>
-      <CardContent>
-        {texts.map((text) => (
-          <Typography variant="h6">{text}</Typography>
-        ))}
-      </CardContent>
-    </Card>
   );
 };
 
