@@ -82,10 +82,6 @@ export default function ResponsiveDrawer(props) {
   const icons = [
     <HomeIcon />,
     <WarningIcon />,
-    <DirectionsRunSharpIcon />,
-    <DirectionsRunSharpIcon />,
-    <WarningIcon />,
-    <HomeIcon />,
     <WarningIcon />,
     <DirectionsRunSharpIcon />,
     <DirectionsRunSharpIcon />,
@@ -94,12 +90,19 @@ export default function ResponsiveDrawer(props) {
     <WarningIcon />,
     <DirectionsRunSharpIcon />,
     <DirectionsRunSharpIcon />,
+    <WarningIcon />,
+    <HomeIcon />,
+    <WarningIcon />,
+    <DirectionsRunSharpIcon />,
+    <DirectionsRunSharpIcon />,
+    <WarningIcon />,
     <WarningIcon />,
   ];
 
   const links = [
     "/form",
     "/", 
+    "/instruction",
     "/jishin", 
     "/koudouChart",
     "/Taiken",
@@ -113,6 +116,7 @@ export default function ResponsiveDrawer(props) {
     "/toilet",
     "/daijobu",
     "/bousaiKaigi",
+    "/oshirase",
   ];
 
   const drawer = (
@@ -121,7 +125,8 @@ export default function ResponsiveDrawer(props) {
       <List>
         {[
           "緊急時のわがやの情報",
-          "Home",
+          "トップ",
+          "使い方",
           "グラっと地震が来たら！いのちを守る！できるだけケガをせず生き残る！",
           "揺れがおさまったら",
           "ほくせつママ＆パパの体験談",
@@ -135,6 +140,7 @@ export default function ResponsiveDrawer(props) {
           "トイレが大変!",
           "私は大丈夫って思ってない?",
           "家族で防災カイギ",
+          "お知らせ",
         ].map((text, index) => (
           <Link to={links[index]} key={index} style={{ textDecoration: 'none' }} >
             <Divider />
@@ -162,7 +168,7 @@ export default function ResponsiveDrawer(props) {
         })}
       >
         <Toolbar>
-          <Grid justify="space-between" alignItems="center" container>
+          <Grid justifyContent="space-between" alignItems="center" container>
             <div style={{ display: "inline-flex", alignItems: "center" }}>
               <IconButton
                 color="inherit"
@@ -229,7 +235,7 @@ export default function ResponsiveDrawer(props) {
       </nav>
       <main className={classes.content}>
         <div className={classes.toolbar} />
-        <Typography paragraph>{props.children}</Typography>
+        {props.children}
       </main>
     </div>
   );
