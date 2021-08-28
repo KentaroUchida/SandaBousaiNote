@@ -1,13 +1,12 @@
 {
-  "name": "pdfgenerator",
+  "name": "pdf_generator",
   "version": "1.0.0",
   "description": "",
   "main": "app.js",
   "author": "machimachida",
   "license": "",
   "dependencies": {
-    "axios": "^0.21.1",
-    "hummus": "^1.0.110"
+    "hummus": "^1.0.110",
   },
   "scripts": {
     "test": "mocha tests/unit/"
