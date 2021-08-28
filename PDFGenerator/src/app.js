@@ -1,4 +1,5 @@
 let response;
+const fs = require('fs');
 const hummus = require('hummus');
 
 exports.lambdaHandler = async (event, context) => {
@@ -141,11 +142,15 @@ exports.lambdaHandler = async (event, context) => {
 
     pdfWriter.end();
 
+    const contents = fs.readFileSync('/tmp/output.pdf', {encoding: 'base64'});
+
     response = {
       'statusCode': 200,
-      'body': JSON.stringify({
-        message: 'hello world',
-      })
+      'header': {
+        'Content-Type': 'application/pdf'
+      },
+      'body': contents,
+      'isBase64Encoded': true
     }
   } catch(err) {
     console.log(err);

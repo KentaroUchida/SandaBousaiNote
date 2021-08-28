@@ -10,6 +10,13 @@ Globals:
     Timeout: 20
 
 Resources:
+  PDFGeneratorApi:
+    Type: AWS::Serverless::Api
+    Properties:
+      BinaryMediaTypes:
+        - application/pdf
+      StageName: Prod
+
   PDFGeneratorFunction:
     Type: AWS::Serverless::Function
     Properties:

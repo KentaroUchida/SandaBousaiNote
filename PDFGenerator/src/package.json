@@ -6,7 +6,8 @@
   "author": "machimachida",
   "license": "",
   "dependencies": {
-    "hummus": "^1.0.110",
+    "fs": "0.0.1-security",
+    "hummus": "^1.0.110"
   },
   "scripts": {
     "test": "mocha tests/unit/"
