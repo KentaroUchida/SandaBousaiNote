@@ -1,207 +1,337 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import makeStyles from '@material-ui/core/styles/makeStyles';
-import Button from '@material-ui/core/Button';
 import Card from '@material-ui/core/Card';
 import CardContent from '@material-ui/core/CardContent';
-import CardActions from '@material-ui/core/CardActions';
 import CardHeader from '@material-ui/core/CardHeader';
 import CardMedia from '@material-ui/core/CardMedia';
-import Divider from '@material-ui/core/Divider';
-import Grid from '@material-ui/core/Grid';
-import List from '@material-ui/core/List';
-import ListItem from '@material-ui/core/ListItem';
-import ListItemIcon from '@material-ui/core/ListItemIcon';
-import ListItemText from '@material-ui/core/ListItemText';
-import Stepper from '@material-ui/core/Stepper';
-import Step from '@material-ui/core/Step';
-import StepLabel from '@material-ui/core/StepLabel';
-import Typography from '@material-ui/core/Typography';
-import FiberManualRecordIcon from '@material-ui/icons/FiberManualRecord';
 import Checkbox from '@material-ui/core/Checkbox';
+import Container from '@material-ui/core/Container';
 import FormGroup  from '@material-ui/core/FormGroup';
 import FormControlLabel  from '@material-ui/core/FormControlLabel';
+import Grid from '@material-ui/core/Grid';
+import Link from '@material-ui/core/Link';
+import Typography from '@material-ui/core/Typography';
 import TextField  from '@material-ui/core/TextField';
 
 const useStyles = makeStyles({
-    root: {
-      minWidth: '100%',
-    },
-    bullet: {
-      display: 'inline-block',
-      margin: '0 2px',
-      transform: 'scale(0.8)',
-    },
-    title: {
-      fontSize: 14,
-    },
-    pos: {
-      marginBottom: 12,
-    },
-  });
-  
-function Notice() {
+  card: {
+    marginBottom: 12,
+  },
+  cardHeaderMain: {
+  },
+  cardHeaderCheckList: {
+    backgroundColor: "#e0ffff",
+  },
+  cardHeaderCheck: {
+    backgroundColor: "#ffd700",
+  },
+  cardHeaderRecommend: {
+    background: "repeating-linear-gradient(45deg, #e0ffff, #e0ffff 12px, #ffffff 12px, #ffffff 24px)",
+  },
+  child: {
+    marginLeft: 32,
+  },
+  parentCheckbox: {
+    pointerEvents: "none",
+  },
+});
+
+function Main() {
+  const classes = useStyles();
+
   return (
-  <Card raised>
-    <CardHeader
-      title="家族で防災カイギ"
-      titleTypographyProps={{ align: 'center' }}
-      style={{backgroundColor: "#6699ff"}}
-    />
-    <CardContent>
-      <Typography>
-        いざという時のために「今」できること
-      </Typography>
-    </CardContent>
-  </Card>
+    <Card className={classes.card}>
+      <CardHeader
+        title="家族で防災カイギ"
+        titleTypographyProps={{ align: 'center' }}
+        subheader="いざという時のために「今」できること"
+        subheaderTypographyProps={{ align: 'center' }}
+      />
+      <CardContent>
+        <Typography paragraph>
+          大地震が起きたとき、家族が別の場所にいて、離ればなれになることも。<br/>
+          避難場所にはたくさんの人が集まり、すぐに会えるとはかぎりません。<br/>
+          集合場所は時間と場所をピンポイントできめておきましょう。
+        </Typography>
+        <Typography color='textSecondary'>
+          （例えば）○○小学校の運動場の鉄棒の前 10時と15時に30分間待つ。
+        </Typography>
+      </CardContent>
+    </Card>
   );
 }
 
-function CheckList(){
-    const classes = useStyles();
- 　 const bull = <span className={classes.bullet}>•</span>;
- 　 const [state, setState] = React.useState(false);
-    const handleChange = (event) => {
-    setState({ ...state, [event.target.name]: event.target.checked });
-  };
-    return(
-            <Card className={classes.root}>
-                <CardHeader
-                title="ーーチェックリストーー"
-                titleTypographyProps={{ align: 'center' }}
-                style={{backgroundColor: "#6699ff"}}
-                />
+function CheckList() {
+  const classes = useStyles();
 
-              <CardContent>
-            <FormControlLabel
-            control = {<Checkbox
-            checked={state.checkedBasyo}
-            onChange={handleChange}
-            name="checkedBasyo"
-            color="primary"/>}
-           label = "避難場所について家族で場所の確認などをしましたか？"
-           />
-            
-        <FormGroup row>
-           <FormControlLabel
-           control = {
-            <table border = "1"　align="center">
-                <tbody>
-            <tr>
-            <td>地震の場合</td>
-            <td><TextField id="standard-basic"/></td>
-            </tr>
-            <tr>
-            <td>水害の場合</td>
-            <td><TextField id="standard-basic"/></td>
-            </tr>
-          </tbody>
-          </table>
-           }
-           />          
+  let tmp = localStorage.getItem("P15Earthquake");
+  const [earthquake, setEarthquake] = useState(
+    tmp !== null ? tmp : "");
+  useEffect(() => localStorage.setItem("P15Earthquake", earthquake));
+  const handleChangeEarthquake = event => setEarthquake(event.target.value);
+
+
+  tmp = localStorage.getItem("P15Flood");
+  const [flood, setFlood] = useState(
+    tmp !== null ? tmp : "");
+  useEffect(() => localStorage.setItem("P15Flood", flood));
+  const handleChangeFlood = event => setFlood(event.target.value);
+  const shelter = earthquake !== "" && flood !== ""
+
+  tmp = localStorage.getItem("P15Place");
+  const [place, setPlace] = useState(
+    tmp !== null ? tmp : "");
+  useEffect(() => localStorage.setItem("P15Place", place));
+  const handleChangePlace = event => setPlace(event.target.value);
+  const filledPlace = place !== "";
+
+  tmp = localStorage.getItem("P15Home");
+  const [home, setHome] = useState(
+    tmp !== null ? JSON.parse(tmp)
+    : {
+      fixFurniture: false,
+      glass: false,
+      storage: false,
+      arrangeFurniture: false,
+  });
+  useEffect(() => localStorage.setItem("P15Home", JSON.stringify(home)));
+  const handleChangeHome = event =>
+    setHome({...home, [event.target.name]: event.target.checked});
+  const { fixFurniture, glass, storage, arrangeFurniture } = home;
+  const homeAll = fixFurniture && glass && storage && arrangeFurniture;
+
+  tmp = localStorage.getItem("P15Stock");
+  const [stock, setStock] = useState(
+    tmp !== null ? JSON.parse(tmp)
+    : {
+      meal: false,
+      water: false,
+      stove: false,
+      gas: false,
+      toilet: false,
+  });
+  useEffect(() => localStorage.setItem("P15Stock", JSON.stringify(stock)));
+  const handleChangeStock = event =>
+    setStock({...stock, [event.target.name]: event.target.checked});
+  const { meal, water, stove, gas, toilet } = stock;
+  const stockAll = meal && water && stove && gas && toilet;
+
+  return(
+    <Card className={classes.card}>
+      <CardHeader
+        className={classes.cardHeaderCheckList}
+        title="チェックリスト"
+        titleTypographyProps={{ align: 'center' }}
+      />
+      <CardContent>
+        <FormControlLabel
+          control={<Checkbox checked={shelter} name="shelter" className={classes.parentCheckbox}/>}
+          label = "避難場所について家族で場所の確認などをしましたか？"
+        />
+        <div className={classes.child}>
+          <TextField label="地震の場合" id="earthquake" value={earthquake} onChange={handleChangeEarthquake}/>
+          <TextField label="水害の場合" id="flood" value={flood} onChange={handleChangeFlood}/>
+        </div>
+
+        <FormControlLabel
+          control = {<Checkbox checked={filledPlace} name="place" className={classes.parentCheckbox}/>}
+          label = "家族の集合場所は決めましたか？"
+        />
+        <TextField label="集合場所" id="place" value={place} onChange={handleChangePlace} className={classes.child}/>
+
+        <FormControlLabel
+          control = {<Checkbox checked={homeAll} name="home" className={classes.parentCheckbox}/>}
+          label = "家の中の安全対策はできていますか？"
+        />
+        <FormGroup className={classes.child}>
+          <FormControlLabel
+            control={
+              <Checkbox
+                checked={fixFurniture} onChange={handleChangeHome} name="fixFurniture"
+              />
+            }
+            label="家具の固定"
+          />
+          <FormControlLabel
+            control={
+              <Checkbox
+                checked={glass} onChange={handleChangeHome} name="glass"
+              />
+            }
+            label="ガラス飛散防止"
+          />
+          <FormControlLabel
+            control={
+              <Checkbox
+                checked={storage} onChange={handleChangeHome} name="storage"
+              />
+            }
+            label="収納"
+          />
+          <FormControlLabel
+            control={
+              <Checkbox
+                checked={arrangeFurniture} onChange={handleChangeHome} name="arrangeFurniture"
+              />
+            }
+            label="家具の配置"
+          />
         </FormGroup>
 
         <FormControlLabel
-            control = {<Checkbox
-            checked={state.checkedBasyo}
-            onChange={handleChange}
-            name="checkedBasyo"
-            color="primary"/>}
-           label = "家族の集合場所は決めましたか？"
-           />
-　　　　　　<FormGroup row>
-           <FormControlLabel
-           control = {
-            <table border = "1"　align="center">
-                <tbody>
-            <tr>
-            <td>家族の集合場所</td>
-            <td><TextField id="standard-basic"/></td>
-            </tr>
-          </tbody>
-          </table>
-           }
-           />          
-        　</FormGroup>
-
-        <FormControlLabel
-            control = {<Checkbox
-            checked={state.checkedBasyo}
-            onChange={handleChange}
-            name="checkedBasyo"
-            color="primary"/>}
-           label = "家の中の安全対策はできていますか？"
-           />
-
-        <FormGroup row>
-        <FormControlLabel
-        control={
-          <Checkbox
-            checked={state.checkedKaguKotei}
-            onChange={handleChange}
-            name="checkedKaguKotei"
-            color="primary"
+          control = {<Checkbox checked={stockAll} name="home" className={classes.parentCheckbox}/>}
+          label = "食料・トイレの備蓄はできていますか？"
+        />
+        <FormGroup className={classes.child}>
+          <FormControlLabel
+            control={
+              <Checkbox
+                checked={meal} onChange={handleChangeStock} name="meal"
+              />
+            }
+            label="食料"
           />
-        }
-        label="家具の固定"
-      />
-      <FormControlLabel
-        control={
-          <Checkbox
-            checked={state.checkedGarasuHisan}
-            onChange={handleChange}
-            name="checkedGarasuHisan"
-            color="primary"
+          <FormControlLabel
+            control={
+              <Checkbox
+                checked={water} onChange={handleChangeStock} name="water"
+              />
+            }
+            label="飲料水"
           />
-        }
-        label="ガラス飛散防止"
-      />
-      <FormControlLabel
-        control={
-          <Checkbox
-            checked={state.checkedSyuno}
-            onChange={handleChange}
-            name="checkedSyuno"
-            color="primary"
+          <FormControlLabel
+            control={
+              <Checkbox
+                checked={stove} onChange={handleChangeStock} name="stove"
+              />
+            }
+            label="カセットコンロ"
           />
-        }
-        label="収納"
-      />
-      <FormControlLabel
-        control={
-          <Checkbox
-            checked={state.checkedKaguHaiti}
-            onChange={handleChange}
-            name="checkedKaguHaiti"
-            color="primary"
+          <FormControlLabel
+            control={
+              <Checkbox
+                checked={gas} onChange={handleChangeStock} name="gas"
+              />
+            }
+            label="カセットコンロ用ボンベ"
           />
-        }
-        label="家具の配置"
-      />
+          <FormControlLabel
+            control={
+              <Checkbox
+                checked={toilet} onChange={handleChangeStock} name="toilet"
+              />
+            }
+            label="トイレ"
+          />
         </FormGroup>
-
-
-              </CardContent>
-            </Card>
-          );
+      </CardContent>
+    </Card>
+  );
 }
-　
 
+function Check() {
+  const classes = useStyles();
+
+  return (
+    <Card className={classes.card}>
+      <CardHeader
+        className={classes.cardHeaderCheck}
+        title="要確認"
+        titleTypographyProps={{ align: 'center' }}
+      />
+      <CardContent>
+        <Typography paragraph>
+          災害時には、携帯は繋がりにくい場合があります。<br/>
+          災害用伝言ダイヤルやデータ通信によるLINEやTwitter、
+          Facebookなどの複数のSNSの連絡手段も覚えておきましょう。
+        </Typography>
+        <Grid
+          container
+          justifyContent="space-around"
+          alignItems="center"
+        >
+          <Typography align="center">
+            NTT災害ダイヤル
+          </Typography>
+          <Typography variant="h5">
+            171
+          </Typography>
+        </Grid>
+      </CardContent>
+    </Card>
+  );
+}
+
+function Recommend() {
+  const classes = useStyles();
+  const apps = [
+    {
+      "name": "Yahoo!防災速報",
+      "text": "災害の情報をいち早くお知らせ",
+      "icon": "/img/pages/P15Bousaikaigi/yahoo.png",
+      "googlePlay": "https://play.google.com/store/apps/details?id=jp.co.yahoo.android.emg",
+      "appStore": "https://apps.apple.com/jp/app/id481914139",
+    },
+    {
+      "name": "eお薬手帳",
+      "text": "いつでもどこでも確かなお薬情報を",
+      "icon": "/img/pages/P15Bousaikaigi/e.png",
+      "googlePlay": "https://play.google.com/store/apps/details?id=jp.co.nichiyaku.okusuri&hl=ja&gl=US",
+      "appStore": "https://apps.apple.com/jp/app/e%E3%81%8A%E8%96%AC%E6%89%8B%E5%B8%B3/id1488714856?itsct=apps_box_link&itscg=30200",
+    }
+  ];
+
+  return (
+    <Card>
+      <CardHeader
+        className={classes.cardHeaderRecommend}
+        title="防災おすすめアプリ"
+        titleTypographyProps={{ align: 'center' }}
+      />
+      {apps.map((app,i) => {
+        return (<React.Fragment key={i.toString()}>
+          <Grid
+            container
+            justifyContent="center"
+            alignItems="center"
+          >
+            <Grid item xs>
+              <CardMedia
+                alt={app.name}
+                component="img"
+                image={app.icon}
+              />
+            </Grid>
+            <Grid item xs>
+              <Container fixed>
+                <Grid item>
+                  <Link href={app.googlePlay}>
+                    <img src="/img/pages/Home/hyogo_bousai_google_play_badge.png" alt="Google Playリンク" style={{width: "160px", margin: "-10px"}}/>
+                  </Link>
+                </Grid>
+                <Grid item>
+                  <Link href={app.appStore}>
+                    <img src="/img/pages/Home/hyogo_bousai_app_store_black.svg" alt="App Storeリンク" style={{width: "140px"}}/>
+                  </Link>
+                </Grid>
+              </Container>
+            </Grid>
+          </Grid>
+          <CardContent>
+            <Typography variant="h5">{app.name}</Typography>
+            <Typography variant="body2">{app.text}</Typography>
+          </CardContent>
+        </React.Fragment>);
+      })}
+    </Card>
+  );
+}
 
 export default function P15Bousaikaigi() {
   return (<>
-    <Notice/>
-    <br/>
-    <Typography>
-        大地震が起きたとき、家族が別の場所にいて、離ればなれになることも。
-        避難場所にはたくさんの人が集まり、すぐに会えるとはかぎりません。
-        集合場所は時間と場所をピンポイントできめておきましょう。
-    </Typography>
-    <Typography　style={{color: "blue"}}　>
-        （例えば）三田小学校の運動場の鉄棒の前　10時と15時に30分だけ待つ。
-    </Typography>
-    <br/>
+    <Main/>
     <CheckList/>
-
- 
+    <Check/>
+    <Recommend/>
   </>);
 }

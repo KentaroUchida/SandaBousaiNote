@@ -1,31 +1,31 @@
-import { BrowserRouter, Route, useHistory } from "react-router-dom";
+import { useEffect } from "react";
+import { BrowserRouter, Route, useHistory, useLocation } from "react-router-dom";
 import { useSwipeable } from "react-swipeable";
 
 import Home from "./pages/Home";
 import Instruction from "./pages/Instruction";
 import P0Form from "./pages/P0Form";
 import Menu from "./components/Menu";
-import {P3Jishin} from "./pages/P3Jishin";
-import P4Yurega  from "./pages/P4Yurega";
-import {P5Taiken} from "./pages/P5Taiken";
-import P6Mada from './pages/P6Mada';
-import {P7Izanigeru} from "./pages/P7Izanigeru";
+import { P3Jishin } from "./pages/P3Jishin";
+import P4Yurega from "./pages/P4Yurega";
+import { P5Taiken } from "./pages/P5Taiken";
+import P6Mada from "./pages/P6Mada";
+import { P7Izanigeru } from "./pages/P7Izanigeru";
 import P8Goods from "./pages/P8Goods";
 import P9Foods from "./pages/P9Foods";
-import {P10TaikenPapa} from "./pages/P10TaikenPapa";
-import {P11KikenSouzou} from "./pages/P11KikenSouzou";
-import {P12KikenJissai} from "./pages/P12KikenJissai";
-import {P13Toilet} from "./pages/P13Toilet";
-import {P14Daijobu} from './pages/P14Daijobu';
+import { P10TaikenPapa } from "./pages/P10TaikenPapa";
+import { P11KikenSouzou } from "./pages/P11KikenSouzou";
+import { P12KikenJissai } from "./pages/P12KikenJissai";
+import { P13Toilet } from "./pages/P13Toilet";
+import { P14Daijobu } from "./pages/P14Daijobu";
 import P15Bousaikaigi from "./pages/P15Bousaikaigi";
 import { Top } from "./pages/Top";
 
-
 const paths = [
   "/form",
-  "/", 
+  "/",
   "/instruction",
-  "/jishin", 
+  "/jishin",
   "/koudouChart",
   "/Taiken",
   "/mada",
@@ -44,7 +44,7 @@ const paths = [
 const pages = [
   <P0Form />,
   <Top />,
-  <Instruction/>,
+  <Instruction />,
   <P3Jishin />,
   <P4Yurega />,
   <P5Taiken />,
@@ -58,7 +58,7 @@ const pages = [
   <P13Toilet />,
   <P14Daijobu />,
   <P15Bousaikaigi />,
-  <Home />
+  <Home />,
 ];
 
 const titles = [
@@ -105,45 +105,56 @@ function App() {
     );
     return (
       <Route exact path={paths[index]} key={index}>
-        <Menu title = {titles[index]}>
+        <Menu title={titles[index]}>
           <div {...handleSwipe}>{pages[index]}</div>
         </Menu>
       </Route>
     );
   };
 
+  const ScrollToTop = () =>{
+    const { pathname } = useLocation()
+
+    useEffect(()=>{
+      window.scrollTo(0,0)
+    }, [pathname])
+
+    return null
+  }
+
   return (
-      // <BrowserRouter>
-      //   <Menu title="Home">
-      //     <Route exact path='/'>
-      //       <Home/>
-      //     </Route>
-      //     <Route exact path='/jishin'>
-      //       <Jishin/>
-      //     </Route>
-      //     <Route exact path='/taiken'>
-      //       <Taiken/>
-      //     </Route>
-      //     <Route exact path='/taikenPapa'>
-      //       <P10TaikenPapa/>
-      //     </Route>
-      //     <Route exact path='/form'>
-      //       <Form/>
-      //     </Route>
-      //     <Route exact path='/souzou'>
-      //       <P11KikenSouzou/>
-      //     </Route>
-      //     <Route exact path="/jissai">
-      //       <P12KikenJissai/>
-      //     </Route>
-      //     <Route exact path='/daijobu'>
-      //       <P14Daijobu/>
-      //     </Route>
-      //   </Menu>
-      // </BrowserRouter>
+    // <BrowserRouter>
+    //   <Menu title="Home">
+    //     <Route exact path='/'>
+    //       <Home/>
+    //     </Route>
+    //     <Route exact path='/jishin'>
+    //       <Jishin/>
+    //     </Route>
+    //     <Route exact path='/taiken'>
+    //       <Taiken/>
+    //     </Route>
+    //     <Route exact path='/taikenPapa'>
+    //       <P10TaikenPapa/>
+    //     </Route>
+    //     <Route exact path='/form'>
+    //       <Form/>
+    //     </Route>
+    //     <Route exact path='/souzou'>
+    //       <P11KikenSouzou/>
+    //     </Route>
+    //     <Route exact path="/jissai">
+    //       <P12KikenJissai/>
+    //     </Route>
+    //     <Route exact path='/daijobu'>
+    //       <P14Daijobu/>
+    //     </Route>
+    //   </Menu>
+    // </BrowserRouter>
     <BrowserRouter>
+      <ScrollToTop/>
       {pages.map((_, i) => (
-        <ContentPage index={i} />
+        <ContentPage index={i} key={i.toString()}/>
       ))}
     </BrowserRouter>
   );
