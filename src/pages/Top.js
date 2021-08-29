@@ -1,11 +1,7 @@
 import React from "react";
 import {
-  Card,
-  CardContent,
   Typography,
-  CardMedia,
   makeStyles,
-  Grid,
 } from "@material-ui/core";
 import { ResponsiveFontProvider } from "../components/ResponsiveFontProvider";
 

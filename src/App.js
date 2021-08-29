@@ -143,7 +143,7 @@ function App() {
       // </BrowserRouter>
     <BrowserRouter>
       {pages.map((_, i) => (
-        <ContentPage index={i} />
+        <ContentPage index={i} key={i.toString()}/>
       ))}
     </BrowserRouter>
   );
