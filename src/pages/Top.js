@@ -8,7 +8,6 @@ import {
   Grid,
 } from "@material-ui/core";
 import { ResponsiveFontProvider } from "../components/ResponsiveFontProvider";
-import {SwipeNotifier} from '../components/SwipeNotifier'
 
 const useStyles = makeStyles((theme) => ({
   text:{
@@ -29,7 +28,6 @@ export const Top = () => {
   const classes = useStyles();
   return (
     <ResponsiveFontProvider>
-      <SwipeNotifier/>
       <FlexImage image="/img/pages/Top/top.png" className={classes.image}/>
       <div>
           <Typography variant="h8">三田市様・ミラクルウィッシュ様・神戸大学協力のもと、本アプリは現在開発段階です。</Typography>

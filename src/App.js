@@ -1,6 +1,7 @@
 import { useEffect } from "react";
 import { BrowserRouter, Route, useHistory, useLocation } from "react-router-dom";
 import { useSwipeable } from "react-swipeable";
+import {useMediaQuery} from "@material-ui/core";
 
 import Home from "./pages/Home";
 import Instruction from "./pages/Instruction";
@@ -20,6 +21,7 @@ import { P13Toilet } from "./pages/P13Toilet";
 import { P14Daijobu } from "./pages/P14Daijobu";
 import P15Bousaikaigi from "./pages/P15Bousaikaigi";
 import { Top } from "./pages/Top";
+import {SwipeNotifier} from './components/SwipeNotifier'
 
 const paths = [
   "/form",
@@ -103,8 +105,12 @@ function App() {
       },
       [history]
     );
+    const matches = useMediaQuery('(max-width:600px)')
     return (
       <Route exact path={paths[index]} key={index}>
+        {
+          index === 1 && matches && <SwipeNotifier/>
+        }
         <Menu title={titles[index]}>
           <div {...handleSwipe}>{pages[index]}</div>
         </Menu>
