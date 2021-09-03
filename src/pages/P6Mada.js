@@ -63,9 +63,9 @@ function getStepContent(step) {
     return (<>
       <Typography style={{color: caution}}>{texts[step].title}</Typography>
       <List component="nav" aria-label="main">
-        {texts[step].items.map(item => {
+        {texts[step].items.map((item,i) => {
           return (
-            <ListItem>
+            <ListItem key={i}>
               <ListItemIcon>
                 <FiberManualRecordIcon/>
               </ListItemIcon>

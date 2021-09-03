@@ -126,10 +126,11 @@ export const P5Taiken = () => {
           title={taikenTitles[i]}
           text={taikenTexts[i]}
           image={taikenImages[i]}
+          key={i}
         />
       ))}
       {photoImages.map((_, i) => (
-        <Photo image={photoImages[i]} text={photoTexts[i]} />
+        <Photo image={photoImages[i]} text={photoTexts[i]} key={i}/>
       ))}
     </>
   );

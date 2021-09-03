@@ -1,12 +1,12 @@
 import React from 'react';
 import Grid from '@material-ui/core/Grid';
-import {
-    createTheme,
-    responsiveFontSizes,
-} from '@material-ui/core/styles';
+// import {
+//     createTheme,
+//     responsiveFontSizes,
+// } from '@material-ui/core/styles';
 
-let theme = createTheme();
-theme = responsiveFontSizes(theme);
+// let theme = createTheme();
+// theme = responsiveFontSizes(theme);
 
 
 const instructionText = [

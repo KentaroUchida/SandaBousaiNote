@@ -121,10 +121,11 @@ export const P10TaikenPapa = () => {
           title={taikenTitles[i]}
           text={taikenTexts[i]}
           image={taikenImages[i]}
+          key={i}
         />
       ))}
       {photoImages.map((_, i) => (
-        <Photo image={photoImages[i]} />
+        <Photo image={photoImages[i]} key={i}/>
       ))}
     </>
   );

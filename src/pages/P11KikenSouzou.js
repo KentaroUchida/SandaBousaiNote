@@ -63,7 +63,7 @@ export const P11KikenSouzou = (index) => {
       <FlexImage image={imgPath + "madori.png"} />
       <Grid container>
         {images.map((_, i) => (
-          <Grid item xs={6} className={classes.grid}>
+          <Grid item xs={6} className={classes.grid} key={i}>
             <Photo image={imgPath + images[i]} text={texts[i]} />
           </Grid>
         ))}
