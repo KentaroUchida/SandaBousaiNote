@@ -169,7 +169,7 @@ function CautionStep() {
 function C1_4() {
   const texts = [
     { title: "①自分の状況確認", items: ["怪我をしていないかチェック", "何が起こったのか正しい情報をチェック", "土砂災害の危険性がある時\n※迷わず避難行動！！", "救急要請が必要な時\n※物をたたき、音を出して救助を要請"] },
-    { title: "②周囲の状況4を確認", items: ["足を怪我しないように室内でも靴かスリッパをはく", "被害がないとき\n※（不在家族への安否確認）家族との連絡方法は決まっていますか？", "火災が発生した時\n※周囲に呼びかけながら避難します"] },
+    { title: "②周囲の状況を確認", items: ["足を怪我しないように室内でも靴かスリッパをはく", "被害がないとき\n※（不在家族への安否確認）家族との連絡方法は決まっていますか？", "火災が発生した時\n※周囲に呼びかけながら避難します"] },
     { title: "③家族の安否確認", items: ["誰も怪我をしていないかを確認しよう", "近隣の被害確認\n建物の被害状況\n隣人の安否確認・救助\n状況によっては支援を開始", "情報収集\n※地域や自治体の状況を確認"] },
     { title: "④室内の被害確認", items: ["ライフライン、ドアの開閉の確認", "家具の被害、通信状況を確認"] },
   ];
@@ -182,8 +182,11 @@ function C1_4() {
               <CardHeader
                 title={text.title}
                 titleTypographyProps={{ align: 'center' }}
+                style={{ backgroundColor: "#ffc0cb" }}
               />
-              <CardContent>
+              <CardContent
+                style={{ backgroundColor: "#fff0f5" }}
+              >
                 {text.items.map(text => {
                   return (
                     <div>
@@ -225,8 +228,11 @@ function C5() {
               <CardHeader
                 title={text.title}
                 titleTypographyProps={{ align: 'center' }}
+                style={{ backgroundColor: "#ffc0cb" }}
               />
-              <CardContent>
+              <CardContent
+                style={{ backgroundColor: "#fff0f5" }}
+              >
                 {text.items.map(text => {
                   return (
                     <div>
