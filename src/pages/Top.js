@@ -26,7 +26,7 @@ export const Top = () => {
     <ResponsiveFontProvider>
       <FlexImage image="/img/pages/Top/top.png" className={classes.image}/>
       <div>
-          <Typography variant="h8">三田市様・ミラクルウィッシュ様・神戸大学協力のもと、本アプリは現在開発段階です。</Typography>
+          <Typography variant="subtitle1">三田市様・ミラクルウィッシュ様・神戸大学協力のもと、本アプリは現在開発段階です。</Typography>
       </div>
     </ResponsiveFontProvider>
   );

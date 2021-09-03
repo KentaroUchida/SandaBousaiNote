@@ -63,9 +63,9 @@ function getStepContent(step) {
     return (<>
       <Typography style={{color: caution}}>{texts[step].title}</Typography>
       <List component="nav" aria-label="main">
-        {texts[step].items.map(item => {
+        {texts[step].items.map((item,i) => {
           return (
-            <ListItem>
+            <ListItem key={i}>
               <ListItemIcon>
                 <FiberManualRecordIcon/>
               </ListItemIcon>
@@ -141,9 +141,9 @@ function Check() {
     }
   ];
   return (<>
-  {checks.map(check => {
+  {checks.map((check,index) => {
     return (
-      <Card raised>
+      <Card raised key={index}>
         <CardHeader
           title="チェック！"
           titleTypographyProps={{ align: 'center' }}

@@ -66,22 +66,22 @@ const Shelter = () => {
 	const classes = measureStyles();
 	return (
 		<>
-			<Grid container direction="row" alignItems="center" justify="center" spacing={3}>
-				<Grid item xs={13} className={classes.grid}>
+			<Grid container direction="row" alignItems="center" justifyContent="center" spacing={3}>
+				<Grid item xs={12} className={classes.grid}>
 					<Measure
 						title="広域避難所・一次避難所"
 						image="/img/pages/P7Izanigeru/tatemono_kouen.png"
 						text="火災などの際に、一時的に逃げる場所。公園などが指定されている。"
 					/>
 				</Grid>
-				<Grid item xs={13} className={classes.grid}>
+				<Grid item xs={12} className={classes.grid}>
 					<Measure
 						title="避難所"
 						image="/img/pages/P7Izanigeru/hinanjo_seikatsu_family_smile.png"
 						text="自宅が被災した際に生活をする場。小・中学校や公民館など。"
 					/>
 				</Grid>
-				<Grid item xs={13} className={classes.grid}>
+				<Grid item xs={12} className={classes.grid}>
 					<Measure
 						title="福祉避難所"
 						image="/img/pages/P7Izanigeru/tatemono_kaigo_shisetsu.png"

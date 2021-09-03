@@ -102,9 +102,9 @@ function getStepContent(step) {
     return (<>
       <Typography style={{ color: caution }}>{texts[step].title}</Typography>
       <List component="nav" aria-label="main">
-        {texts[step].items.map(item => {
+        {texts[step].items.map((item,i) => {
           return (
-            <ListItem>
+            <ListItem key={i}>
               <ListItemIcon>
                 <FiberManualRecordIcon />
               </ListItemIcon>
@@ -133,11 +133,11 @@ function CautionStep() {
   return (
     <div className={classes.root}>
       <Stepper activeStep={activeStep} >
-        {steps.map((label) => {
+        {steps.map((label,i) => {
           const stepProps = {};
           const labelProps = {};
           return (
-            <Step key={label} {...stepProps}>
+            <Step key={i} {...stepProps}>
               <StepLabel {...labelProps}>{label}</StepLabel>
             </Step>
           );
