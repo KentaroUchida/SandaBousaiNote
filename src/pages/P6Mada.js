@@ -165,6 +165,16 @@ function Check() {
   </>);
 }
 
+function WarningLevel(){
+  return(
+    <div>
+      <img 
+        src="/img/pages/P6Mada/warning-levels.png"
+        style={{ maxWidth: "100%", height: "auto" }}
+      />
+    </div>
+  )
+}
 function Ask() {
   return (
     <Card raised>
@@ -212,6 +222,7 @@ export default function P3Mada() {
   return (<>
     <Notice/>
     <CautionStep/>
+    <WarningLevel/>
     <br/>
     <Divider/>
     <br/>
