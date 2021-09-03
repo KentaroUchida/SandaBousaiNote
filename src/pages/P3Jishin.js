@@ -11,10 +11,10 @@ import { ResponsiveFontProvider } from "../components/ResponsiveFontProvider";
 const Title = () => {
   return (
     <ResponsiveFontProvider>
-      <Typography variant="h1" gutterBottom>
+      <Typography variant="h1" gutterbottom="true">
         グラッと地震がきたら！
       </Typography>
-      <Typography variant="h3" gutterBottom>
+      <Typography variant="h3" gutterbottom="true">
         いのちを守る！できるだけケガをせず生き残る！
       </Typography>
     </ResponsiveFontProvider>
@@ -45,7 +45,7 @@ const precautionStyles = makeStyles({
 const PrecautionList1 = () => {
   const classes = precautionStyles();
   return (
-    <Card className={classes.root} gutterBottom>
+    <Card className={classes.root} gutterbottom="true">
       <CardMedia>
         <img
           src="/img/pages/Jishin/jishin_tsukue.png"
@@ -127,7 +127,7 @@ const SafetyMeasures = () => {
   const classes = measureStyles();
   return (
     <>
-      <Typography variant="h3" gutterBottom>
+      <Typography variant="h3" gutterbottom="true">
         たいせつな家族の命を守る「安全対策」の例
       </Typography>
       <Grid container spacing={3}>

@@ -31,7 +31,7 @@ const Photo = ({ image, text }) => {
   return (
     <Card className={classes.card}>
       <CardMedia>
-        <Grid container justify="center">
+        <Grid container justifyContent="center">
           <img
             src={image}
             alt=""
@@ -48,10 +48,10 @@ const images = ["tosyokan.png", "rouka.png", "genkan.png", "undoujou.png"];
 
 const texts = ["図書館", "ろうか", "げんかん(下足場)", "運動場"];
 
-export const P11KikenSouzou = () => {
+export const P11KikenSouzou = (index) => {
   const classes = useStyles();
   return (
-    <>
+    <div key={index}>
       <ResponsiveFontProvider>
         <Typography variant="h3" gutterBottom>
           もし地震がおきたら
@@ -78,6 +78,6 @@ export const P11KikenSouzou = () => {
       </ResponsiveFontProvider>
       <FlexImage image={imgPath + "mokumoku.png"} />
       <FlexImage image={imgPath + "hatena.png"} />
-    </>
+    </div>
   );
 };

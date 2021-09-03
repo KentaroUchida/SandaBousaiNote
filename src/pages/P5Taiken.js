@@ -37,7 +37,7 @@ const Taikendan = ({ title, text, image }) => {
         {text}
       </CardContent>
       <CardMedia>
-        <Grid container justify="center">
+        <Grid container justifyContent="center">
           <img
             src={image}
             alt=""
@@ -54,7 +54,7 @@ const Photo = ({ image, text }) => {
   return (
     <Card className={classes.card}>
       <CardMedia>
-        <Grid container justify="center">
+        <Grid container justifyContent="center">
           <img
             src={image}
             alt=""

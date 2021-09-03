@@ -141,9 +141,9 @@ function Check() {
     }
   ];
   return (<>
-  {checks.map(check => {
+  {checks.map((check,index) => {
     return (
-      <Card raised>
+      <Card raised key={index}>
         <CardHeader
           title="チェック！"
           titleTypographyProps={{ align: 'center' }}

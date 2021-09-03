@@ -52,7 +52,7 @@ const Photo = ({ image1, image2, text1 ,text2 }) => {
   return (
     <div className={classes.root}>
       <Paper className={classes.paper}>
-        <Grid container xs={12}spacing={2}>
+        <Grid container spacing={2}>
           <Grid item xs={3}>
             <div>
               <img className={classes.img1} src={image1} alt="complex" />
@@ -117,17 +117,17 @@ export const P14Daijobu = () => {
 
         <Grid container>
           {heartImages.map((_, i) => (
-            <Grid item xs={40} className={classes.grid}>
+            <Grid item xs={12} className={classes.grid} key={i.toString()}>
               <Photo image1={imgPath + heartImages[i]} image2={imgPath + subImages[i]} text1={illustTexts1[i]} text2={illustTexts2[i]} />
             </Grid>
           ))}
         </Grid>
 
         <Grid container>
-          <Grid item xs={40} className={classes.grid}>
+          <Grid item xs={12} className={classes.grid}>
             <div className={classes.root}>
               <Paper className={classes.paper}>
-                <Grid container xs={12}spacing={2}>
+                <Grid container spacing={2}>
                   <Grid item xs={3}>
                     <div>
                       <img className={classes.img1} src={imgPath + "heart3.png"} alt="complex" />

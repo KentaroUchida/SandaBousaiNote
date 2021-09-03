@@ -35,7 +35,7 @@ const Photo = ({ image, texts }) => {
   return (
     <Card className={classes.card}>
       <CardMedia>
-        <Grid container justify="center">
+        <Grid container justifyContent="center">
           <img
             src={image}
             alt=""

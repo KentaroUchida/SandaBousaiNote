@@ -23,7 +23,7 @@ class Title extends React.Component{
     render(){
         return(
             <div>
-                <Grid container alignItems="center" justify="center">
+                <Grid container alignItems="center" justifyContent="center">
                     <h2>さんだ防災ノートの使い方</h2>
                 </Grid>
             </div>
@@ -35,7 +35,7 @@ class Content extends React.Component{
         return(
             <div>
                 {instructionText.map((_,i) => (
-                    <ul>
+                    <ul key={i.toString()}>
                         <li>{instructionText[i]}</li>
                     </ul>
                 ))}

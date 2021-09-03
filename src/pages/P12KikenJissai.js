@@ -31,7 +31,7 @@ const Photo = ({ image, text }) => {
   return (
     <Card className={classes.card}>
       <CardMedia>
-        <Grid container justify="center">
+        <Grid container justifyContent="center">
           <img
             src={image}
             alt=""
@@ -69,10 +69,10 @@ const mamoruTexts = [
   "割れものがいっぱい",
 ];
 
-export const P12KikenJissai = () => {
+export const P12KikenJissai = (index) => {
   const classes = useStyles();
   return (
-    <>
+    <div key={index}>
       <ResponsiveFontProvider>
         <Typography variant="h3" gutterBottom>
           実際に地震がおきるとキケンなものが
@@ -84,7 +84,7 @@ export const P12KikenJissai = () => {
       <FlexImage image={imgPath + "madori.png"} />
       <Grid container>
         {illustImages.map((_, i) => (
-          <Grid item xs={6} className={classes.grid}>
+          <Grid item xs={6} className={classes.grid} key={i.toString()}>
             <Photo image={imgPath + illustImages[i]} text={illustTexts[i]} />
           </Grid>
         ))}
@@ -101,11 +101,11 @@ export const P12KikenJissai = () => {
       </ResponsiveFontProvider>
       <Grid container>
         {mamoruImages.map((_, i) => (
-          <Grid item xs={6} className={classes.grid}>
+          <Grid item xs={6} className={classes.grid} key={i.toString()}>
             <Photo image={imgPath + mamoruImages[i]} text={mamoruTexts[i]} />
           </Grid>
         ))}
       </Grid>
-    </>
+    </div>
   );
 };

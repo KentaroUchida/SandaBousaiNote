@@ -8,7 +8,7 @@ import Checkbox from '@material-ui/core/Checkbox';
 import Divider from '@material-ui/core/Divider';
 import FormControlLabel from '@material-ui/core/FormControlLabel';
 import FormGroup from '@material-ui/core/FormGroup';
-import GridList from '@material-ui/core/GridList';
+import ImageList from '@material-ui/core/ImageList';
 import Typography from '@material-ui/core/Typography';
 
 const normallyItems = [
@@ -152,7 +152,7 @@ function Checkbox2Lines(props) {
   const items = props.items;
   return (
     <FormGroup row>
-      <GridList cols={2} cellHeight="auto">
+      <ImageList cols={2} rowHeight="auto">
         {Object.keys(items).map(key => {
           return (
             <Card key={key}>
@@ -179,7 +179,7 @@ function Checkbox2Lines(props) {
                   title={items[key].name}
                 />
                 <CardContent>
-                  <Typography variant="body2" color="red">
+                  <Typography variant="body2">
                     {items[key].emphasis}
                   </Typography>
                   <Typography variant="body2">
@@ -190,7 +190,7 @@ function Checkbox2Lines(props) {
             </Card>
           );
         })}
-      </GridList>
+      </ImageList>
     </FormGroup>
   );
 }
