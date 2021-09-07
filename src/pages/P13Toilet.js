@@ -35,7 +35,7 @@ const Photo = ({ image, texts }) => {
   return (
     <Card className={classes.card}>
       <CardMedia>
-        <Grid container justify="center">
+        <Grid container justifyContent="center">
           <img
             src={image}
             alt=""
@@ -44,8 +44,8 @@ const Photo = ({ image, texts }) => {
         </Grid>
       </CardMedia>
       <CardContent>
-        {texts.map((text) => (
-          <Typography variant="h6">{text}</Typography>
+        {texts.map((text,i) => (
+          <Typography variant="h6" key={i}>{text}</Typography>
         ))}
       </CardContent>
     </Card>

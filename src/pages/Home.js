@@ -38,7 +38,7 @@ function NotificationList(props) {
       >
         {props.notifications.map((n,i) => {
           return (
-            <div>
+            <div key={i}>
               <Link href={n.url}>
                 <ListItem>{n.title}</ListItem>
               </Link>

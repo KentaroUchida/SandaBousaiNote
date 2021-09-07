@@ -95,7 +95,7 @@ const Form = () => {
         aria-controls="panel1a-content"
         id="panel1a-header"
       >
-        <Grid container justify="space-between" alignItems="center">
+        <Grid container justifyContent="space-between" alignItems="center">
           <Grid item>
             <Typography>名前:{name}</Typography>
           </Grid>
@@ -127,7 +127,7 @@ const Form = () => {
         aria-controls="panel1a-content"
         id="panel1a-header"
       >
-        <Grid container justify="space-between" alignItems="center">
+        <Grid container justifyContent="space-between" alignItems="center">
           <Grid item>
             <Typography>名前:{name}</Typography>
           </Grid>
@@ -157,7 +157,7 @@ const Form = () => {
         aria-controls="panel1a-content"
         id="panel1a-header"
       >
-        <Grid container justify="space-between" alignItems="center">
+        <Grid container justifyContent="space-between" alignItems="center">
           <Grid item>
             <Typography>施設名:{name}</Typography>
           </Grid>
@@ -181,7 +181,7 @@ const Form = () => {
 
   return (
     <div>
-      <Grid justify="space-between" alignItems="center" container>
+      <Grid justifyContent="space-between" alignItems="center" container>
         <h2>・家族の連絡先</h2>
         {<FormRegisterDialog category="family" submit={addAddress} />}
       </Grid>
@@ -194,7 +194,7 @@ const Form = () => {
           index={index}
         />
       ))}
-      <Grid justify="space-between" alignItems="center" container>
+      <Grid justifyContent="space-between" alignItems="center" container>
         <h2>・親戚、知人の連絡先</h2>
         {<FormRegisterDialog category="relative" submit={addAddress} />}
       </Grid>
@@ -206,7 +206,7 @@ const Form = () => {
         />
       ))}
 
-      <Grid justify="space-between" alignItems="center" container>
+      <Grid justifyContent="space-between" alignItems="center" container>
         <h2>・保育園、幼稚園、学校の連絡先</h2>
         {<FormRegisterDialog category="facility" submit={addAddress} />}
       </Grid>

@@ -37,7 +37,7 @@ const Taikendan = ({ title, text, image }) => {
         {text}
       </CardContent>
       <CardMedia>
-        <Grid container justify="center">
+        <Grid container justifyContent="center">
           <img
             src={image}
             alt=""
@@ -54,7 +54,7 @@ const Photo = ({ image }) => {
   return (
     <Card className={classes.card}>
       <CardMedia>
-        <Grid container justify="center">
+        <Grid container justifyContent="center">
           <img
             src={image}
             alt=""
@@ -121,10 +121,11 @@ export const P10TaikenPapa = () => {
           title={taikenTitles[i]}
           text={taikenTexts[i]}
           image={taikenImages[i]}
+          key={i}
         />
       ))}
       {photoImages.map((_, i) => (
-        <Photo image={photoImages[i]} />
+        <Photo image={photoImages[i]} key={i}/>
       ))}
     </>
   );
