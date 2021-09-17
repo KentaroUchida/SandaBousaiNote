@@ -146,7 +146,7 @@ exports.lambdaHandler = async (event, context) => {
 
     response = {
       'statusCode': 200,
-      'header': {
+      'headers': {
         'Content-Type': 'application/pdf'
       },
       'body': contents,

@@ -30,9 +30,10 @@ Resources:
             Path: /pdf
             Method: get
 
+
 Outputs:
   PDFGeneratorApi:
-    Description: "API Gateway endpoint URL for Prod stage for PDF Generator function"
+    Description: "API Gateway endpoint URL for Prod stage for PDF Generator Function"
     Value: !Sub "https://${ServerlessRestApi}.execute-api.${AWS::Region}.amazonaws.com/Prod/pdf/"
   PDFGeneratorFunction:
     Description: "PDF Generator Lambda Function ARN"
