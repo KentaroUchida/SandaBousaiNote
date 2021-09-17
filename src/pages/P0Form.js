@@ -68,7 +68,10 @@ const Form = () => {
     switchCategory(category, JSON.parse(localStorage.getItem(listName)) || []);
   };
 
-  const handlePhoneNumberChange = (event) => setPhoneNumber(event.target.value);
+  const handlePhoneNumberChange = (event) => {
+
+    setPhoneNumber(event.target.value);
+  }
   const handleIchijiChange = (event) => setIchiji(event.target.value);
   const handleSaigaiChange = (event) => setSaigai(event.target.value);
   const handleTsunamiChange = (event) => setTsunami(event.target.value);
@@ -179,6 +182,26 @@ const Form = () => {
     </Accordion>
   );
 
+  const phoneValidation = (phone) => {
+    if(!phone) return '電話番号を入力してください'
+    const regex=/^[0-9０-９-]+$/;
+    if(!regex.test(phone)) return '正しい形式で電話番号を入力してください';
+    return '';
+  }
+  const shelterValidation = (ichiji,saigai,tsunami) => {
+    if(!ichiji || !saigai || !tsunami) return '避難所を入力してください';
+    return '';
+  }
+  const canSubmit = (phoneNumber,ichiji,saigai,tsunami) => {
+    const regex=/^[0-9０-９-]+$/;
+    const validPhoneNumber = regex.test(phoneNumber);
+    const validIchiji = ichiji.length !== 0;
+    const validSaigai = saigai.length !== 0;
+    const validTsunami = tsunami.length !== 0;
+    
+    return validPhoneNumber && validIchiji && validSaigai && validTsunami;
+  }
+  
   return (
     <div>
       <Grid justifyContent="space-between" alignItems="center" container>
@@ -241,6 +264,9 @@ const Form = () => {
           </tr>
         </tbody>
       </table>
+      {phoneValidation(phoneNumber) && (
+        <p style={{color:'red'}}>{phoneValidation(phoneNumber)}</p>
+      )}
       <h2>・避難所</h2>
       <table border="1">
         <tbody>
@@ -276,8 +302,11 @@ const Form = () => {
           </tr>
         </tbody>
       </table>
+      {shelterValidation(ichiji,saigai,tsunami) && (
+        <p style={{color:'red'}}>{shelterValidation(ichiji,saigai,tsunami)}</p>
+      )}
       <br></br>
-      <Button onClick={setValues} variant="contained" color="primary">
+      <Button disabled={!canSubmit(phoneNumber,ichiji,saigai,tsunami)} onClick={setValues} variant="contained" color="primary">
         保存
       </Button>
     </div>

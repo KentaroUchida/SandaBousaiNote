@@ -171,6 +171,7 @@ function WarningLevel(){
       <img 
         src="/img/pages/P6Mada/warning-levels.png"
         style={{ maxWidth: "100%", height: "auto" }}
+        alt=""
       />
     </div>
   )
