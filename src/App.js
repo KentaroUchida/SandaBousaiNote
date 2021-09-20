@@ -111,7 +111,7 @@ function App() {
         {
           index === 1 && matches && <SwipeNotifier/>
         }
-        <Menu title={titles[index]}>
+        <Menu title={titles[index]} now_index = {index}>
           <div {...handleSwipe}>{pages[index]}</div>
         </Menu>
       </Route>

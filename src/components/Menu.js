@@ -24,6 +24,9 @@ import { makeStyles, useTheme } from "@material-ui/core/styles";
 import { Link } from "react-router-dom";
 import Grid from "@material-ui/core/Grid";
 
+
+
+
 const drawerWidth = 350;
 
 const useStyles = makeStyles((theme) => ({
@@ -55,6 +58,8 @@ const useStyles = makeStyles((theme) => ({
   toolbar: theme.mixins.toolbar,
   drawerPaper: {
     width: drawerWidth,
+    //backgroundColor: 'white !important',
+    //activeBackgroundColor: 'white !important',
   },
   content: {
     flexGrow: 1,
@@ -62,11 +67,19 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
+
+
+
 export default function ResponsiveDrawer(props) {
   const { window } = props;
   const classes = useStyles();
   const theme = useTheme();
   const [mobileOpen, setMobileOpen] = React.useState(false);
+  const [selectedIndex,setSelectedIndex] = React.useState(props.now_index);
+  const handleListItemClick = (event, index) => {
+    setSelectedIndex(index);
+  };
+
   const handleDrawerOpen = () => {
     setMobileOpen(true);
   };
@@ -118,11 +131,10 @@ export default function ResponsiveDrawer(props) {
     "/bousaiKaigi",
     "/oshirase",
   ];
-
   const drawer = (
     <div>
       <div className={classes.toolbar} />
-      <List>
+      <List component="nav">
         {[
           "緊急時のわがやの情報",
           "トップ",
@@ -142,11 +154,12 @@ export default function ResponsiveDrawer(props) {
           "家族で防災カイギ",
           "お知らせ",
         ].map((text, index) => (
-          <Link to={links[index]} key={index} style={{ textDecoration: 'none' }} >
+          <Link   to={links[index]} key={index} style={{ textDecoration: 'none' }}  >
             <Divider />
-            <ListItem button onClick={handleDrawerClose}>
+            <ListItem button selected={selectedIndex === index}  onClick={(event) => handleListItemClick(event,index)} handleDrawerClose >
               <ListItemIcon>{icons[index]}</ListItemIcon>
               <ListItemText primary={text} />
+
             </ListItem>
           </Link>
         ))}
