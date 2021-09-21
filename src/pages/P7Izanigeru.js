@@ -38,7 +38,7 @@ const measureStyles = makeStyles((theme) => ({
 		display: "flex",
 	},
 	cardTitle: {
-		backgroundColor: "#ffc0cb",
+		backgroundColor: theme.palette.tertiary.main,
 		margin: theme.spacing(1),
 	},
 }));

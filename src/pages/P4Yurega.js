@@ -14,6 +14,7 @@ import Step from '@material-ui/core/Step';
 import StepLabel from '@material-ui/core/StepLabel';
 import Typography from '@material-ui/core/Typography';
 import FiberManualRecordIcon from '@material-ui/icons/FiberManualRecord';
+import {useTheme} from "@material-ui/core"
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -45,12 +46,13 @@ function transitionButton(step) {
 }
 
 function Notice() {
+  const theme = useTheme()
   return (
     <Card raised>
       <CardHeader
         title="ゆれがおさまったら"
         titleTypographyProps={{ align: 'center' }}
-        style={{ backgroundColor: "#ffff33" }}
+        style={{ backgroundColor: theme.palette.warning.main }}
       />
       <CardContent>
         <Typography>
@@ -62,12 +64,13 @@ function Notice() {
 }
 
 function DontReturn() {
+  const theme = useTheme()
   return (
     <Card raised>
       <CardHeader
         title="会社から帰ってこれないかも！？"
         titleTypographyProps={{ align: 'center' }}
-        style={{ backgroundColor: "#ffff33" }}
+        style={{ backgroundColor: theme.palette.warning.main }}
       />
       <CardContent>
         <Typography>
@@ -166,6 +169,7 @@ function CautionStep() {
   );
 }
 function C1_5() {
+  const theme = useTheme()
   const texts = [
     { title: "①自分の状況確認", items: ["怪我をしていないかチェック", "何が起こったのか正しい情報をチェック", "土砂災害の危険性がある時\n※迷わず避難行動！！", "救急要請が必要な時\n※物をたたき、音を出して救助を要請"] },
     { title: "②周囲の状況を確認", items: ["足を怪我しないように室内でも靴かスリッパをはく", "被害がないとき\n※（不在家族への安否確認）家族との連絡方法は決まっていますか？", "火災が発生した時\n※周囲に呼びかけながら避難します"] },
@@ -182,10 +186,10 @@ function C1_5() {
               <CardHeader
                 title={text.title}
                 titleTypographyProps={{ align: 'center' }}
-                style={{ backgroundColor: "#ffc0cb" }}
+                style={{ backgroundColor: theme.palette.tertiary.main }}
               />
               <CardContent
-                style={{ backgroundColor: "#fff0f5" }}
+                style={{ backgroundColor: theme.palette.tertiary.light }}
               >
                 {text.items.map(text => {
                   return (

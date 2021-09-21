@@ -16,6 +16,7 @@ import Step from '@material-ui/core/Step';
 import StepLabel from '@material-ui/core/StepLabel';
 import Typography from '@material-ui/core/Typography';
 import FiberManualRecordIcon from '@material-ui/icons/FiberManualRecord';
+import {useTheme} from "@material-ui/core"
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -27,12 +28,13 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 function Notice() {
+  const theme = useTheme()
   return (
   <Card raised>
     <CardHeader
       title="避難情報を常に確認！！"
       titleTypographyProps={{ align: 'center' }}
-      style={{backgroundColor: "#ffff33"}}
+      style={{backgroundColor: theme.palette.warning.main}}
     />
     <CardContent>
       <Typography>
@@ -129,6 +131,7 @@ function CautionStep() {
 }
 
 function Check() {
+  const theme = useTheme()
   const checks = [
     {
       message: "あなたが住んでいる地区の危険性を確認しよう！",
@@ -147,7 +150,7 @@ function Check() {
         <CardHeader
           title="チェック！"
           titleTypographyProps={{ align: 'center' }}
-          style={{backgroundColor: "#90ee90"}}
+          style={{backgroundColor: theme.palette.success.main}}
         />
         <CardMedia
           component="img"
@@ -177,12 +180,13 @@ function WarningLevel(){
   )
 }
 function Ask() {
+  const theme = useTheme()
   return (
     <Card raised>
       <CardHeader
         title="知ってた？"
         titleTypographyProps={{ align: 'center' }}
-        style={{backgroundColor: "#ffc0cb"}}
+        style={{backgroundColor: theme.palette.tertiary.main}}
       />
       <CardContent>
         <Grid container>

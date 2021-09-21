@@ -1,7 +1,13 @@
 import { useEffect } from "react";
-import { BrowserRouter, Route, useHistory, useLocation } from "react-router-dom";
+import {
+  BrowserRouter,
+  Route,
+  useHistory,
+  useLocation,
+} from "react-router-dom";
 import { useSwipeable } from "react-swipeable";
-import {useMediaQuery} from "@material-ui/core";
+import { useMediaQuery } from "@material-ui/core";
+import { ThemeProvider } from "@material-ui/core/styles";
 
 import Home from "./pages/Home";
 import Instruction from "./pages/Instruction";
@@ -21,7 +27,8 @@ import { P13Toilet } from "./pages/P13Toilet";
 import { P14Daijobu } from "./pages/P14Daijobu";
 import P15Bousaikaigi from "./pages/P15Bousaikaigi";
 import { Top } from "./pages/Top";
-import {SwipeNotifier} from './components/SwipeNotifier'
+import { SwipeNotifier } from "./components/SwipeNotifier";
+import { CustomThemeA } from "./components/Theme";
 
 const paths = [
   "/form",
@@ -105,7 +112,7 @@ function App() {
       },
       [history]
     );
-    const matches = useMediaQuery('(max-width:600px)')
+    const matches = useMediaQuery("(max-width:600px)");
     return (
       <Route exact path={paths[index]} key={index}>
         {
@@ -118,15 +125,15 @@ function App() {
     );
   };
 
-  const ScrollToTop = () =>{
-    const { pathname } = useLocation()
+  const ScrollToTop = () => {
+    const { pathname } = useLocation();
 
-    useEffect(()=>{
-      window.scrollTo(0,0)
-    }, [pathname])
+    useEffect(() => {
+      window.scrollTo(0, 0);
+    }, [pathname]);
 
-    return null
-  }
+    return null;
+  };
 
   return (
     // <BrowserRouter>
@@ -157,12 +164,14 @@ function App() {
     //     </Route>
     //   </Menu>
     // </BrowserRouter>
-    <BrowserRouter>
-      <ScrollToTop/>
-      {pages.map((_, i) => (
-        <ContentPage index={i} key={i.toString()}/>
-      ))}
-    </BrowserRouter>
+    <ThemeProvider theme={CustomThemeA}>
+      <BrowserRouter>
+        <ScrollToTop />
+        {pages.map((_, i) => (
+          <ContentPage index={i} key={i.toString()} />
+        ))}
+      </BrowserRouter>
+    </ThemeProvider>
   );
 }
 
