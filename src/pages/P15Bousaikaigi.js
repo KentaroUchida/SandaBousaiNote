@@ -13,20 +13,20 @@ import Link from '@material-ui/core/Link';
 import Typography from '@material-ui/core/Typography';
 import TextField  from '@material-ui/core/TextField';
 
-const useStyles = makeStyles({
+const useStyles = makeStyles((theme)=>({
   card: {
     marginBottom: 12,
   },
   cardHeaderMain: {
   },
   cardHeaderCheckList: {
-    backgroundColor: "#e0ffff",
+    backgroundColor: theme.palette.primary.light,
   },
   cardHeaderCheck: {
-    backgroundColor: "#ffd700",
+    backgroundColor: theme.palette.secondary.light,
   },
   cardHeaderRecommend: {
-    background: "repeating-linear-gradient(45deg, #e0ffff, #e0ffff 12px, #ffffff 12px, #ffffff 24px)",
+    background: theme.palette.app,
   },
   child: {
     marginLeft: 32,
@@ -34,7 +34,7 @@ const useStyles = makeStyles({
   parentCheckbox: {
     pointerEvents: "none",
   },
-});
+}));
 
 function Main() {
   const classes = useStyles();

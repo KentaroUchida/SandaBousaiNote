@@ -32,15 +32,15 @@ const ActionList = () => {
   );
 };
 
-const precautionStyles = makeStyles({
+const precautionStyles = makeStyles((theme)=>({
   root: {
     width: "100%",
-    backgroundColor: "#ffcc66",
+    backgroundColor: theme.palette.secondary.light,
   },
   media: {
     height: "100%",
   },
-});
+}));
 
 const PrecautionList1 = () => {
   const classes = precautionStyles();
@@ -101,7 +101,7 @@ const measureStyles = makeStyles((theme) => ({
     display: "flex",
   },
   cardTitle: {
-    backgroundColor: "#ffc0cb",
+    backgroundColor: theme.palette.secondary.main,
     margin: theme.spacing(1),
   },
 }));
