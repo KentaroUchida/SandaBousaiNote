@@ -23,6 +23,7 @@ import DirectionsRunSharpIcon from "@material-ui/icons/DirectionsRunSharp";
 import { makeStyles, useTheme } from "@material-ui/core/styles";
 import { Link } from "react-router-dom";
 import Grid from "@material-ui/core/Grid";
+import { Button } from "@material-ui/core";
 
 const drawerWidth = 350;
 
@@ -170,15 +171,21 @@ export default function ResponsiveDrawer(props) {
         <Toolbar>
           <Grid justifyContent="space-between" alignItems="center" container>
             <div style={{ display: "inline-flex", alignItems: "center" }}>
-              <IconButton
-                color="inherit"
+              <Button
+                color= "inherit"
+                style={{
+                  backgroundColor: "white",
+                  textShadow: "1px 1px 100px rgba(255, 255, 255, 0.66)",
+                  boxShadow: "inset 0 100px 0 rgba(255,255,255,0.5), 0 2px 2px rgba(0, 0, 0, 0.19)",
+                  borderBottom: "solid 2px #b5b5b5"
+              }}
                 aria-label="open drawer"
-                edge="start"
                 onClick={handleDrawerOpen}
                 className={clsx(classes.menuButton, mobileOpen && classes.hide)}
+
               >
-                <ListIcon />
-              </IconButton>
+                目次
+              </Button>
               <Typography variant="h6" noWrap style={{}}>
                 {props.title}
               </Typography>
