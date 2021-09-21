@@ -16,7 +16,7 @@ const useStyles = makeStyles((theme) => ({
     margin: theme.spacing(2),
   },
   subtitle: {
-    backgroundColor: "#99cc00",
+    backgroundColor: theme.palette.success.main,
     margin: theme.spacing(1),
   },
   image: {
