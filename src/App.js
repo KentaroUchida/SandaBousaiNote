@@ -115,8 +115,10 @@ function App() {
     const matches = useMediaQuery("(max-width:600px)");
     return (
       <Route exact path={paths[index]} key={index}>
-        {index === 1 && matches && <SwipeNotifier />}
-        <Menu title={titles[index]}>
+        {
+          index === 1 && matches && <SwipeNotifier/>
+        }
+        <Menu title={titles[index]} now_index = {index}>
           <div {...handleSwipe}>{pages[index]}</div>
         </Menu>
       </Route>
