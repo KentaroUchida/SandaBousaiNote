@@ -23,6 +23,10 @@ import DirectionsRunSharpIcon from "@material-ui/icons/DirectionsRunSharp";
 import { makeStyles, useTheme } from "@material-ui/core/styles";
 import { Link } from "react-router-dom";
 import Grid from "@material-ui/core/Grid";
+import { Button } from "@material-ui/core";
+
+
+
 
 const drawerWidth = 350;
 
@@ -55,6 +59,8 @@ const useStyles = makeStyles((theme) => ({
   toolbar: theme.mixins.toolbar,
   drawerPaper: {
     width: drawerWidth,
+    //backgroundColor: 'white !important',
+    //activeBackgroundColor: 'white !important',
   },
   content: {
     flexGrow: 1,
@@ -62,11 +68,19 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
+
+
+
 export default function ResponsiveDrawer(props) {
   const { window } = props;
   const classes = useStyles();
   const theme = useTheme();
   const [mobileOpen, setMobileOpen] = React.useState(false);
+  const [selectedIndex,setSelectedIndex] = React.useState(props.now_index);
+  const handleListItemClick = (event, index) => {
+    setSelectedIndex(index);
+  };
+
   const handleDrawerOpen = () => {
     setMobileOpen(true);
   };
@@ -118,11 +132,10 @@ export default function ResponsiveDrawer(props) {
     "/bousaiKaigi",
     "/oshirase",
   ];
-
   const drawer = (
     <div>
       <div className={classes.toolbar} />
-      <List>
+      <List component="nav">
         {[
           "緊急時のわがやの情報",
           "トップ",
@@ -142,11 +155,12 @@ export default function ResponsiveDrawer(props) {
           "家族で防災カイギ",
           "お知らせ",
         ].map((text, index) => (
-          <Link to={links[index]} key={index} style={{ textDecoration: 'none' }} >
+          <Link   to={links[index]} key={index} style={{ textDecoration: 'none' }}  >
             <Divider />
-            <ListItem button onClick={handleDrawerClose}>
+            <ListItem button selected={selectedIndex === index}  onClick={(event) => handleListItemClick(event,index)} handleDrawerClose >
               <ListItemIcon>{icons[index]}</ListItemIcon>
               <ListItemText primary={text} />
+
             </ListItem>
           </Link>
         ))}
@@ -170,15 +184,21 @@ export default function ResponsiveDrawer(props) {
         <Toolbar>
           <Grid justifyContent="space-between" alignItems="center" container>
             <div style={{ display: "inline-flex", alignItems: "center" }}>
-              <IconButton
-                color="inherit"
+              <Button
+                color= "inherit"
+                style={{
+                  backgroundColor: "white",
+                  textShadow: "1px 1px 100px rgba(255, 255, 255, 0.66)",
+                  boxShadow: "inset 0 100px 0 rgba(255,255,255,0.5), 0 2px 2px rgba(0, 0, 0, 0.19)",
+                  borderBottom: "solid 2px #b5b5b5"
+              }}
                 aria-label="open drawer"
-                edge="start"
                 onClick={handleDrawerOpen}
                 className={clsx(classes.menuButton, mobileOpen && classes.hide)}
+
               >
-                <ListIcon />
-              </IconButton>
+                目次
+              </Button>
               <Typography variant="h6" noWrap style={{}}>
                 {props.title}
               </Typography>

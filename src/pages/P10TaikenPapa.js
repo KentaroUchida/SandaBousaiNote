@@ -15,7 +15,7 @@ const useStyles = makeStyles((theme) => ({
     margin: theme.spacing(2),
   },
   cardTitle: {
-    backgroundColor: "#ffc0cb",
+    backgroundColor: theme.palette.tertiary.main,
     margin: theme.spacing(1),
   },
 }));

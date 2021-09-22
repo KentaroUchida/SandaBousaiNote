@@ -14,7 +14,7 @@ import Step from '@material-ui/core/Step';
 import StepLabel from '@material-ui/core/StepLabel';
 import Typography from '@material-ui/core/Typography';
 import FiberManualRecordIcon from '@material-ui/icons/FiberManualRecord';
-import { Textsms } from '@material-ui/icons';
+import {useTheme} from "@material-ui/core"
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -46,12 +46,13 @@ function transitionButton(step) {
 }
 
 function Notice() {
+  const theme = useTheme()
   return (
     <Card raised>
       <CardHeader
         title="ゆれがおさまったら"
         titleTypographyProps={{ align: 'center' }}
-        style={{ backgroundColor: "#ffff33" }}
+        style={{ backgroundColor: theme.palette.warning.main }}
       />
       <CardContent>
         <Typography>
@@ -63,12 +64,13 @@ function Notice() {
 }
 
 function DontReturn() {
+  const theme = useTheme()
   return (
     <Card raised>
       <CardHeader
         title="会社から帰ってこれないかも！？"
         titleTypographyProps={{ align: 'center' }}
-        style={{ backgroundColor: "#ffff33" }}
+        style={{ backgroundColor: theme.palette.warning.main }}
       />
       <CardContent>
         <Typography>
@@ -166,72 +168,28 @@ function CautionStep() {
     </div>
   );
 }
-function C1_4() {
+function C1_5() {
+  const theme = useTheme()
   const texts = [
     { title: "①自分の状況確認", items: ["怪我をしていないかチェック", "何が起こったのか正しい情報をチェック", "土砂災害の危険性がある時\n※迷わず避難行動！！", "救急要請が必要な時\n※物をたたき、音を出して救助を要請"] },
     { title: "②周囲の状況を確認", items: ["足を怪我しないように室内でも靴かスリッパをはく", "被害がないとき\n※（不在家族への安否確認）家族との連絡方法は決まっていますか？", "火災が発生した時\n※周囲に呼びかけながら避難します"] },
     { title: "③家族の安否確認", items: ["誰も怪我をしていないかを確認しよう", "近隣の被害確認\n建物の被害状況\n隣人の安否確認・救助\n状況によっては支援を開始", "情報収集\n※地域や自治体の状況を確認"] },
     { title: "④室内の被害確認", items: ["ライフライン、ドアの開閉の確認", "家具の被害、通信状況を確認"] },
-  ];
-  return (
-    <div>
-      {texts.map(text => {
-        return (
-          <div>
-            <Card>
-              <CardHeader
-                title={text.title}
-                titleTypographyProps={{ align: 'center' }}
-                style={{ backgroundColor: "#ffc0cb" }}
-              />
-              <CardContent
-                style={{ backgroundColor: "#fff0f5" }}
-              >
-                {text.items.map(text => {
-                  return (
-                    <div>
-                      <Typography>
-                        <ListItem>
-                          <ListItemIcon>
-                            <FiberManualRecordIcon />
-                          </ListItemIcon>
-                          <ListItemText primary={text} />
-                        </ListItem>
-                      </Typography>
-                    </div>
-                  )
-                })}
-              </CardContent>
-            </Card>
-            <br />
-            <Grid container alignItems="center" justify="center">
-              <img src="/img/pages/P4Yurega/arrow.png" />
-            </Grid>
-            <br />
-          </div>
-        )
-      })}
-    </div>
-  );
-}
-
-function C5() {
-  const texts = [
     { title: "⑤避難の判断", items: ["自宅で待機するか、避難所にいくか、各自で判断する"] },
   ];
   return (
     <div>
-      {texts.map((text, index) => {
+      {texts.map((text,index) => {
         return (
           <div>
             <Card>
               <CardHeader
                 title={text.title}
                 titleTypographyProps={{ align: 'center' }}
-                style={{ backgroundColor: "#ffc0cb" }}
+                style={{ backgroundColor: theme.palette.tertiary.main }}
               />
               <CardContent
-                style={{ backgroundColor: "#fff0f5" }}
+                style={{ backgroundColor: theme.palette.tertiary.light }}
               >
                 {text.items.map(text => {
                   return (
@@ -249,6 +207,14 @@ function C5() {
                 })}
               </CardContent>
             </Card>
+            <br />
+            {
+              index!==4 && 
+              <Grid container alignItems="center" justify="center">
+                <img src="/img/pages/P4Yurega/arrow.png" alt=""/>
+              </Grid>
+            }
+            <br />
           </div>
         )
       })}
@@ -260,8 +226,7 @@ export default function P4Yurega() {
   return (<>
     <Notice />
     <br /><br />
-    <C1_4 />
-    <C5 />
+    <C1_5 />
     <br />
     <DontReturn />
     <br />
