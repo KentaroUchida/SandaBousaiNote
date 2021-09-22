@@ -8,8 +8,8 @@ import {
   DialogContentText,
   DialogTitle,
   IconButton,
-} from "@material-ui/core";
-import { AddCircle as AddCircleIcon } from "@material-ui/icons";
+} from "@mui/material";
+import { AddCircle as AddCircleIcon } from "@mui/icons-material";
 
 const categoryTextList = {
   family: "家族",

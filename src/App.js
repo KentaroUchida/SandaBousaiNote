@@ -6,8 +6,8 @@ import {
   useLocation,
 } from "react-router-dom";
 import { useSwipeable } from "react-swipeable";
-import { useMediaQuery } from "@material-ui/core";
-import { ThemeProvider } from "@material-ui/core/styles";
+import { useMediaQuery } from "@mui/material";
+import { ThemeProvider } from "@mui/styles";
 
 import Home from "./pages/Home";
 import Instruction from "./pages/Instruction";

@@ -5,9 +5,9 @@ import {
   Paper,
   Typography,
   CardMedia,
-  makeStyles,
   Grid,
-} from "@material-ui/core";
+} from "@mui/material";
+import {makeStyles} from "@mui/styles"
 import { ResponsiveFontProvider } from "../components/ResponsiveFontProvider";
 
 const useStyles = makeStyles((theme) => ({

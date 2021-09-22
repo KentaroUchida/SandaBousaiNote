@@ -1,11 +1,11 @@
-import { createTheme } from "@material-ui/core";
+import { createTheme } from "@mui/material";
 import {
   lightBlue,
   orange,
   yellow,
   pink,
   lightGreen,
-} from "@material-ui/core/colors";
+} from "@mui/material/colors";
 
 export const CustomThemeA = createTheme({
   palette: {

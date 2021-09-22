@@ -5,9 +5,9 @@ import {
   Paper,
   Typography,
   CardMedia,
-  makeStyles,
   Grid,
-} from "@material-ui/core";
+} from "@mui/material";
+import { makeStyles } from "@mui/styles";
 import { ResponsiveFontProvider } from "../components/ResponsiveFontProvider";
 
 const useStyles = makeStyles((theme) => ({
@@ -130,7 +130,7 @@ export const P5Taiken = () => {
         />
       ))}
       {photoImages.map((_, i) => (
-        <Photo image={photoImages[i]} text={photoTexts[i]} key={i}/>
+        <Photo image={photoImages[i]} text={photoTexts[i]} key={i} />
       ))}
     </>
   );

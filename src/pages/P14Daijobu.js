@@ -2,9 +2,9 @@ import React from "react";
 import {
   Paper,
   Typography,
-  makeStyles,
   Grid,
-} from "@material-ui/core";
+} from "@mui/material";
+import { makeStyles } from "@mui/styles"
 import { ResponsiveFontProvider } from "../components/ResponsiveFontProvider";
 
 const imgPath = "/img/pages/P14Daijobu/";
