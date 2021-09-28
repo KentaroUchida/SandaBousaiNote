@@ -116,7 +116,6 @@ function CautionStep() {
 
             <Button
               variant="contained"
-              color="primary"
               onClick={handleNext}
               className={classes.button}
               disabled={activeStep >= steps.length - 1}

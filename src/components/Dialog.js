@@ -99,10 +99,10 @@ class FormDialog extends React.Component {
                             <FacilityTextField func={this.setMember}/>}
                     </DialogContent>
                     <DialogActions>
-                        <Button onClick={this.handleClose} color="primary">
+                        <Button onClick={this.handleClose}>
                             キャンセル
                         </Button>
-                        <Button onClick={this.handleSubmit} color="primary">
+                        <Button onClick={this.handleSubmit}>
                             追加
                         </Button>
                     </DialogActions>
@@ -142,6 +142,7 @@ class FamilyTextField extends React.Component {
                     helperText="家族の名前を入力してください。"
                     fullWidth
                     required
+                    variant="standard"
                     onChange={this.handleChange}
                 />
                 <TextField
@@ -151,6 +152,7 @@ class FamilyTextField extends React.Component {
                     type="text"
                     helperText="家族の電話番号を入力してください。"
                     fullWidth
+                    variant="standard"
                     onChange={this.handleChange}
                 />
                 <TextField
@@ -160,6 +162,7 @@ class FamilyTextField extends React.Component {
                     type="text"
                     helperText="家族の保険証番号を入力してください。"
                     fullWidth
+                    variant="standard"
                     onChange={this.handleChange}
                 />
                 <TextField
@@ -169,6 +172,7 @@ class FamilyTextField extends React.Component {
                     type="text"
                     helperText="家族の病気・アレルギーを入力してください。"
                     fullWidth
+                    variant="standard"
                     onChange={this.handleChange}
                 />
             </div>
@@ -204,6 +208,7 @@ class RelativeTextField extends React.Component {
                     helperText="親戚・知人の名前を入力してください。"
                     fullWidth
                     required
+                    variant="standard"
                     onChange={this.handleChange}
                 />
                 <TextField
@@ -213,6 +218,7 @@ class RelativeTextField extends React.Component {
                     type="text"
                     helperText="親戚・知人の電話番号を入力してください。"
                     fullWidth
+                    variant="standard"
                     onChange={this.handleChange}
                 />
             </div>
@@ -248,6 +254,7 @@ class FacilityTextField extends React.Component {
                     helperText="施設名を入力してください。"
                     fullWidth
                     required
+                    variant="standard"
                     onChange={this.handleChange}
                 />
                 <TextField
@@ -257,6 +264,7 @@ class FacilityTextField extends React.Component {
                     type="text"
                     helperText="施設の電話番号を入力してください。"
                     fullWidth
+                    variant="standard"
                     onChange={this.handleChange}
                 />
             </div>

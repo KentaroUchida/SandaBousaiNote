@@ -259,6 +259,7 @@ const Form = () => {
                 onChange={handlePhoneNumberChange}
                 id="phone"
                 defaultValue={phoneNumber}
+                variant="standard"
               />
             </td>
           </tr>
@@ -277,6 +278,7 @@ const Form = () => {
                 onChange={handleIchijiChange}
                 id="ichiji"
                 defaultValue={ichiji}
+                variant="standard"
               />
             </td>
           </tr>
@@ -287,6 +289,7 @@ const Form = () => {
                 onChange={handleSaigaiChange}
                 id="saigai"
                 defaultValue={saigai}
+                variant="standard"
               />
             </td>
           </tr>
@@ -297,6 +300,7 @@ const Form = () => {
                 onChange={handleTsunamiChange}
                 id="tsunami"
                 defaultValue={tsunami}
+                variant="standard"
               />
             </td>
           </tr>
@@ -306,7 +310,7 @@ const Form = () => {
         <p style={{color:'red'}}>{shelterValidation(ichiji,saigai,tsunami)}</p>
       )}
       <br></br>
-      <Button disabled={!canSubmit(phoneNumber,ichiji,saigai,tsunami)} onClick={setValues} variant="contained" color="primary">
+      <Button disabled={!canSubmit(phoneNumber,ichiji,saigai,tsunami)} onClick={setValues} variant="contained">
         保存
       </Button>
     </div>

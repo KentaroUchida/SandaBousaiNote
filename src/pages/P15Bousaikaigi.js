@@ -129,15 +129,15 @@ function CheckList() {
           label = "避難場所について家族で場所の確認などをしましたか？"
         />
         <div className={classes.child}>
-          <TextField label="地震の場合" id="earthquake" value={earthquake} onChange={handleChangeEarthquake}/>
-          <TextField label="水害の場合" id="flood" value={flood} onChange={handleChangeFlood}/>
+          <TextField label="地震の場合" id="earthquake" value={earthquake} onChange={handleChangeEarthquake} variant="standard"/>
+          <TextField label="水害の場合" id="flood" value={flood} onChange={handleChangeFlood} variant="standard"/>
         </div>
 
         <FormControlLabel
           control = {<Checkbox checked={filledPlace} name="place" className={classes.parentCheckbox}/>}
           label = "家族の集合場所は決めましたか？"
         />
-        <TextField label="集合場所" id="place" value={place} onChange={handleChangePlace} className={classes.child}/>
+        <TextField label="集合場所" id="place" value={place} onChange={handleChangePlace} className={classes.child} variant="standard"/>
 
         <FormControlLabel
           control = {<Checkbox checked={homeAll} name="home" className={classes.parentCheckbox}/>}

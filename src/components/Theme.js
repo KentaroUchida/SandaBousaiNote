@@ -36,9 +36,11 @@ export const CustomThemeA = createTheme({
     },
     app: "repeating-linear-gradient(45deg, #e0ffff, #e0ffff 12px, #ffffff 12px, #ffffff 24px)",
   },
-  props: {
+  components: {
     MuiCheckbox: {
-      color: "secondary",
+      defaultProps:{
+        color: "secondary",
+      }
     },
   },
 });

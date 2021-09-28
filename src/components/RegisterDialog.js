@@ -53,6 +53,7 @@ const FormRegisterDialog = ({ category, submit }) => {
         helperText={helperText}
         fullWidth
         required={required}
+        variant="standard"
         onChange={handleMemberUpdate}
       />
     );
@@ -154,10 +155,10 @@ const FormRegisterDialog = ({ category, submit }) => {
           {textFieldList[category]}
         </DialogContent>
         <DialogActions>
-          <Button onClick={handleClose} color="primary">
+          <Button onClick={handleClose}>
             キャンセル
           </Button>
-          <Button onClick={handleSubmit} color="primary">
+          <Button onClick={handleSubmit}>
             追加
           </Button>
         </DialogActions>

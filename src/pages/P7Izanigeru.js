@@ -209,26 +209,26 @@ class ShelterInformation extends React.Component {
 					</tr>
 					<tr>
 						<th>水害</th>
-						<th><TextField onChange={this.handleChange} id="suigai1" defaultValue={suigai1} /></th>
-						<th><TextField onChange={this.handleChange} id="suigai2" defaultValue={suigai2} /></th>
+						<th><TextField onChange={this.handleChange} id="suigai1" defaultValue={suigai1} variant="standard" /></th>
+						<th><TextField onChange={this.handleChange} id="suigai2" defaultValue={suigai2} variant="standard" /></th>
 					</tr>
 					<tr>
 						<th>土砂</th>
-						<th><TextField onChange={this.handleChange} id="dosya1" defaultValue={dosya1} /></th>
-						<th><TextField onChange={this.handleChange} id="dosya2" defaultValue={dosya2} /></th>
+						<th><TextField onChange={this.handleChange} id="dosya1" defaultValue={dosya1} variant="standard" /></th>
+						<th><TextField onChange={this.handleChange} id="dosya2" defaultValue={dosya2} variant="standard" /></th>
 					</tr>
 					<tr>
 						<th>地震</th>
-						<th><TextField onChange={this.handleChange} id="jishin1" defaultValue={jishin1} /></th>
-						<th><TextField onChange={this.handleChange} id="jishin2" defaultValue={jishin2} /></th>
+						<th><TextField onChange={this.handleChange} id="jishin1" defaultValue={jishin1} variant="standard" /></th>
+						<th><TextField onChange={this.handleChange} id="jishin2" defaultValue={jishin2} variant="standard" /></th>
 					</tr>
 					<tr>
 						<th>火災</th>
-						<th><TextField onChange={this.handleChange} id="kasai1" defaultValue={kasai1} /></th>
-						<th><TextField onChange={this.handleChange} id="kasai2" defaultValue={kasai2} /></th>
+						<th><TextField onChange={this.handleChange} id="kasai1" defaultValue={kasai1} variant="standard" /></th>
+						<th><TextField onChange={this.handleChange} id="kasai2" defaultValue={kasai2} variant="standard" /></th>
 					</tr>
 				</table>
-				<Button onClick={this.setValues} variant="contained" color="primary">
+				<Button onClick={this.setValues} variant="contained">
 					保存
 				</Button>
 			</div>
