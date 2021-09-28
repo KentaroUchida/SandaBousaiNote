@@ -3,22 +3,22 @@ import {
   Paper,
   Typography,
   Grid,
+  Box
 } from "@mui/material";
-import { makeStyles } from "@mui/styles"
 import { ResponsiveFontProvider } from "../components/ResponsiveFontProvider";
 
 const imgPath = "/img/pages/P14Daijobu/";
 
-const useStyles = makeStyles((theme) => ({
+const styles = {
   grid: {
     display: "flex",
   },
   card: {
-    margin: theme.spacing(1),
+    margin: 1,
   },
   cardTitle: {
-    backgroundColor: theme.palette.tertiary.main,
-    margin: theme.spacing(1),
+    bgcolor: "tertiary.main",
+    margin: 1,
   },
   flex: {
     display: "flex",
@@ -28,7 +28,7 @@ const useStyles = makeStyles((theme) => ({
     flexGrow: 1,
   },
   paper: {
-    padding: theme.spacing(2),
+    padding: 2,
     margin: 'auto',
     maxWidth: 800,
   },
@@ -45,36 +45,35 @@ const useStyles = makeStyles((theme) => ({
   img2: {
     textAlign: "center",
   }
-}));
+};
 
 const Photo = ({ image1, image2, text1 ,text2 }) => {
-  const classes = useStyles();
   return (
-    <div className={classes.root}>
-      <Paper className={classes.paper}>
+    <Box sx={styles.root}>
+      <Paper sx={styles.paper}>
         <Grid container spacing={2}>
           <Grid item xs={3}>
-            <div>
-              <img className={classes.img1} src={image1} alt="complex" />
-            </div>
+            <Box sx={styles.img1}>
+              <img src={image1} alt="complex" />
+            </Box>
           </Grid>
           <Grid item xs={9} sm container>
             <Grid item xs container direction="column" spacing={2}>
               <Grid item xs>
-                <Paper elevation={3} className={classes.cardTitle}>
+                <Paper elevation={3} sx={styles.cardTitle}>
                   <Typography variant="h5">{text1}</Typography>
                 </Paper>
                 {text2}
-                <div className={classes.img2}>
+                <Box sx={styles.img2}>
                   <img src={image2} alt="" style={{ maxWidth: "100%" ,height: "200px"}}/>
-                </div>
+                </Box>
               </Grid>
             </Grid>
           </Grid>
         </Grid>
       </Paper>
       <br/>
-    </div>
+    </Box>
   );
 };
 
@@ -91,7 +90,6 @@ const subImages = ["pic1_1.png", "pic2_1.png"]
 
 
 export const P14Daijobu = () => {
-    const classes = useStyles();
     return (
       <>
         <ResponsiveFontProvider>
@@ -117,42 +115,42 @@ export const P14Daijobu = () => {
 
         <Grid container>
           {heartImages.map((_, i) => (
-            <Grid item xs={12} className={classes.grid} key={i.toString()}>
+            <Grid item xs={12} sx={styles.grid} key={i.toString()}>
               <Photo image1={imgPath + heartImages[i]} image2={imgPath + subImages[i]} text1={illustTexts1[i]} text2={illustTexts2[i]} />
             </Grid>
           ))}
         </Grid>
 
         <Grid container>
-          <Grid item xs={12} className={classes.grid}>
-            <div className={classes.root}>
-              <Paper className={classes.paper}>
+          <Grid item xs={12} sx={styles.grid}>
+            <Box sx={styles.root}>
+              <Paper sx={styles.paper}>
                 <Grid container spacing={2}>
                   <Grid item xs={3}>
-                    <div>
-                      <img className={classes.img1} src={imgPath + "heart3.png"} alt="complex" />
-                    </div>
+                    <Box sx={styles.img1}>
+                      <img src={imgPath + "heart3.png"} alt="complex" />
+                    </Box>
                   </Grid>
                   <Grid item xs={9} sm container>
                     <Grid item xs container direction="column" spacing={2}>
                       <Grid item xs>
-                        <Paper elevation={3} className={classes.cardTitle}>
+                        <Paper elevation={3} sx={styles.cardTitle}>
                           <Typography variant="h5">油断しないで、最善をつくす。</Typography>
                         </Paper>
                         自然災害は、想定していたものより、小さなもので済むことがあります。
                         でも、そのようなことが続いたとしても、油断しないで最善を尽くします。
                         自然災害は、想定していた以上の被害が生じることもあるからです。
-                        <div className={classes.img2}>
+                        <Box sx={styles.img2}>
                           <img src={imgPath + "pic3_1.png"} alt="" style={{ maxWidth: "100%" ,height: "auto"}}/>
                           <img src={imgPath + "pic3_2.png"} alt="" style={{ maxWidth: "50%" ,height: "auto"}}/>
                           <img src={imgPath + "pic3_3.png"} alt="" style={{ maxWidth: "50%" ,height: "auto"}}/>
-                        </div>
+                        </Box>
                       </Grid>
                     </Grid>
                   </Grid>
                 </Grid>
               </Paper>
-            </div>
+            </Box>
           </Grid>
         </Grid>
         

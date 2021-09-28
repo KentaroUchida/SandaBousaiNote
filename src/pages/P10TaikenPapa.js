@@ -7,18 +7,17 @@ import {
   CardMedia,
   Grid,
 } from "@mui/material";
-import {makeStyles} from "@mui/styles"
 import { ResponsiveFontProvider } from "../components/ResponsiveFontProvider";
 
-const useStyles = makeStyles((theme) => ({
+const styles = {
   card: {
-    margin: theme.spacing(2),
+    margin: 2,
   },
   cardTitle: {
-    backgroundColor: theme.palette.tertiary.main,
-    margin: theme.spacing(1),
+    bgcolor: "tertiary.main",
+    margin: 1,
   },
-}));
+};
 
 const FlexImage = ({ image }) => {
   return (
@@ -27,11 +26,10 @@ const FlexImage = ({ image }) => {
 };
 
 const Taikendan = ({ title, text, image }) => {
-  const classes = useStyles();
   return (
-    <Card className={classes.card}>
+    <Card sx={styles.card}>
       <CardContent>
-        <Paper elevation={3} className={classes.cardTitle}>
+        <Paper elevation={3} sx={styles.cardTitle}>
           <Typography variant="h5">{title}</Typography>
         </Paper>
         {text}
@@ -50,9 +48,8 @@ const Taikendan = ({ title, text, image }) => {
 };
 
 const Photo = ({ image }) => {
-  const classes = useStyles();
   return (
-    <Card className={classes.card}>
+    <Card sx={styles.card}>
       <CardMedia>
         <Grid container justifyContent="center">
           <img

@@ -6,19 +6,18 @@ import {
   CardMedia,
   Grid,
 } from "@mui/material";
-import { makeStyles } from "@mui/styles"
 import { ResponsiveFontProvider } from "../components/ResponsiveFontProvider";
 
 const imgPath = "/img/pages/P12KikenJissai/";
 
-const useStyles = makeStyles((theme) => ({
+const styles = {
   grid: {
     display: "flex",
   },
   card: {
-    margin: theme.spacing(1),
+    margin: 1,
   },
-}));
+};
 
 const FlexImage = ({ image }) => {
   return (
@@ -27,9 +26,8 @@ const FlexImage = ({ image }) => {
 };
 
 const Photo = ({ image, text }) => {
-  const classes = useStyles();
   return (
-    <Card className={classes.card}>
+    <Card sx={styles.card}>
       <CardMedia>
         <Grid container justifyContent="center">
           <img
@@ -70,7 +68,6 @@ const mamoruTexts = [
 ];
 
 export const P12KikenJissai = (index) => {
-  const classes = useStyles();
   return (
     <div key={index}>
       <ResponsiveFontProvider>
@@ -84,7 +81,7 @@ export const P12KikenJissai = (index) => {
       <FlexImage image={imgPath + "madori.png"} />
       <Grid container>
         {illustImages.map((_, i) => (
-          <Grid item xs={6} className={classes.grid} key={i.toString()}>
+          <Grid item xs={6} sx={styles.grid} key={i.toString()}>
             <Photo image={imgPath + illustImages[i]} text={illustTexts[i]} />
           </Grid>
         ))}
@@ -101,7 +98,7 @@ export const P12KikenJissai = (index) => {
       </ResponsiveFontProvider>
       <Grid container>
         {mamoruImages.map((_, i) => (
-          <Grid item xs={6} className={classes.grid} key={i.toString()}>
+          <Grid item xs={6} sx={styles.grid} key={i.toString()}>
             <Photo image={imgPath + mamoruImages[i]} text={mamoruTexts[i]} />
           </Grid>
         ))}

@@ -1,5 +1,4 @@
 import React from 'react';
-import {makeStyles} from '@mui/styles';
 import Button from '@mui/material/Button';
 import Card from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';
@@ -16,14 +15,14 @@ import Typography from '@mui/material/Typography';
 import FiberManualRecordIcon from '@mui/icons-material/FiberManualRecord';
 import {useTheme} from "@mui/material/styles"
 
-const useStyles = makeStyles((theme) => ({
+const styles = {
   root: {
     width: '100%',
   },
   button: {
-    marginRight: theme.spacing(1),
+    marginRight: 1,
   },
-}));
+};
 
 function transitionButton(step) {
   switch (step) {
@@ -120,7 +119,6 @@ function getStepContent(step) {
 }
 
 function CautionStep() {
-  const classes = useStyles();
   const [activeStep, setActiveStep] = React.useState(0);
   const steps = getSteps();
 
@@ -133,7 +131,7 @@ function CautionStep() {
   };
 
   return (
-    <div className={classes.root}>
+    <div sx={styles.root}>
       <Stepper activeStep={activeStep} >
         {steps.map((label,i) => {
           const stepProps = {};
@@ -149,14 +147,14 @@ function CautionStep() {
         <div>
           {getStepContent(activeStep)}
           <Grid container justifyContent="flex-start">
-            <Button disabled={activeStep === 0} onClick={handleBack} className={classes.button}>
+            <Button disabled={activeStep === 0} onClick={handleBack} sx={styles.button}>
               戻る
             </Button>
 
             <Button
               variant="contained"
               onClick={handleNext}
-              className={classes.button}
+              sx={styles.button}
               disabled={activeStep >= steps.length - 1}
             >
               {transitionButton(activeStep)}

@@ -1,5 +1,4 @@
 import React from "react";
-import {makeStyles} from "@mui/styles";
 import Card from "@mui/material/Card";
 import CardMedia from "@mui/material/CardMedia";
 import CardContent from "@mui/material/CardContent";
@@ -32,20 +31,26 @@ const ActionList = () => {
   );
 };
 
-const precautionStyles = makeStyles((theme)=>({
+const styles ={
   root: {
     width: "100%",
-    backgroundColor: theme.palette.secondary.light,
+    bgcolor: "secondary.light",
   },
   media: {
     height: "100%",
   },
-}));
+  grid: {
+    display: "flex",
+  },
+  cardTitle: {
+    bgcolor: "secondary.main",
+    margin: 1,
+  },
+};
 
 const PrecautionList1 = () => {
-  const classes = precautionStyles();
   return (
-    <Card className={classes.root} gutterbottom="true">
+    <Card sx={styles.root} gutterbottom="true">
       <CardMedia>
         <img
           src="/img/pages/Jishin/jishin_tsukue.png"
@@ -61,9 +66,8 @@ const PrecautionList1 = () => {
 };
 
 const PrecautionList2 = () => {
-  const classes = precautionStyles();
   return (
-    <Card className={classes.root}>
+    <Card sx={styles.root}>
       <CardMedia>
         <img
           src="/img/pages/Jishin/gomi_waremono.png"
@@ -79,9 +83,8 @@ const PrecautionList2 = () => {
 };
 
 const PrecautionList3 = () => {
-  const classes = precautionStyles();
   return (
-    <Card className={classes.root}>
+    <Card sx={styles.root}>
       <CardMedia>
         <img
           src="/img/pages/Jishin/jiko_jishin_himoto.png"
@@ -96,22 +99,11 @@ const PrecautionList3 = () => {
   );
 };
 
-const measureStyles = makeStyles((theme) => ({
-  grid: {
-    display: "flex",
-  },
-  cardTitle: {
-    backgroundColor: theme.palette.secondary.main,
-    margin: theme.spacing(1),
-  },
-}));
-
 const Measure = ({ title, text, image }) => {
-  const classes = measureStyles();
   return (
     <Card>
       <CardContent>
-        <Paper elevation={3} className={classes.cardTitle}>
+        <Paper elevation={3} sx={styles.cardTitle}>
           <Typography variant="h5">{title}</Typography>
         </Paper>
         {text}
@@ -124,35 +116,34 @@ const Measure = ({ title, text, image }) => {
 };
 
 const SafetyMeasures = () => {
-  const classes = measureStyles();
   return (
     <>
       <Typography variant="h3" gutterbottom="true">
         たいせつな家族の命を守る「安全対策」の例
       </Typography>
       <Grid container spacing={3}>
-        <Grid item xs={6} className={classes.grid}>
+        <Grid item xs={6} sx={styles.grid}>
           <Measure
             title="家具の固定"
             text="L字金具などで固定する。2段重ねの家具は、つなぎ目を金具で連結させる。"
             image="/img/pages/Jishin/shijin_taishin1.png"
           />
         </Grid>
-        <Grid item xs={6} className={classes.grid}>
+        <Grid item xs={6} sx={styles.grid}>
           <Measure
             title="家具の配置を工夫"
             text="(特に子どもや高齢者の部屋)倒れても下敷きにならない家具の配置にする。寝室にスリッパや靴を置いておく。"
             image="/img/pages/Jishin/kagu_haiti.png"
           />
         </Grid>
-        <Grid item xs={6} className={classes.grid}>
+        <Grid item xs={6} sx={styles.grid}>
           <Measure
             title="ガラスの飛散防止"
             text="窓ガラスに飛散防止フィルムをはる。または、強化ガラスに替える。食器棚のガラスにも飛散防止フィルムをはる。"
             image="/img/pages/Jishin/curtain_pink.png"
           />
         </Grid>
-        <Grid item xs={6} className={classes.grid}>
+        <Grid item xs={6} sx={styles.grid}>
           <Measure
             title="収納"
             text="家具の上など、高いところに重いものを置かない。重いものは家具の下部に、軽いものは上部に収納する。"
