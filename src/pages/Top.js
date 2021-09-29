@@ -2,17 +2,16 @@ import React from "react";
 import {
   Typography,
 } from "@mui/material";
-import { makeStyles } from "@mui/styles"
 import { ResponsiveFontProvider } from "../components/ResponsiveFontProvider";
 
-const useStyles = makeStyles((theme) => ({
+const styles = {
   text:{
     textAlign: "center",
   },
   image: {
-    margin: theme.spacing(1),
+    margin: 1,
   }
-}));
+};
 
 const FlexImage = ({ image }) => {
   return (
@@ -21,10 +20,9 @@ const FlexImage = ({ image }) => {
 };
 
 export const Top = () => {
-  const classes = useStyles();
   return (
     <ResponsiveFontProvider>
-      <FlexImage image="/img/pages/Top/top.png" className={classes.image}/>
+      <FlexImage image="/img/pages/Top/top.png" sx={styles.image}/>
       <div>
           <Typography variant="subtitle1">三田市様・ミラクルウィッシュ様・神戸大学協力のもと、本アプリは現在開発段階です。</Typography>
       </div>

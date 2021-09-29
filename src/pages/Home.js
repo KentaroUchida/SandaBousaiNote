@@ -6,23 +6,20 @@ import Divider from '@mui/material/Divider';
 import List from '@mui/material/List';
 import ListItem from '@mui/material/ListItem';
 import Link from '@mui/material/Link';
-import {makeStyles} from '@mui/styles';
 import Typography from '@mui/material/Typography';
 import { ListSubheader } from '@mui/material';
 
-const useStyles = makeStyles((theme) => ({
+const styles = {
   root: {
     width: '100%',
-    backgroundColor: "#eeeeff",//theme.palette.background.paper,
+    bgcolor: "#eeeeff",//theme.palette.background.paper,
     position: 'relative',
     overflow: 'auto',
     maxHeight: 300,
   },
-}));
+};
 
 function NotificationList(props) {
-  const classes = useStyles();
-
   //const lastIndex = props.notifications.size-1;
   return (
     <Paper spacing={2} elevation={2}>
@@ -34,7 +31,7 @@ function NotificationList(props) {
             三田市からのお知らせ
           </ListSubheader>
         }
-        className={classes.root}
+        sx={styles.root}
       >
         {props.notifications.map((n,i) => {
           return (
