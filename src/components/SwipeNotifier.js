@@ -1,6 +1,6 @@
-import { Box } from "@material-ui/core";
-import { ArrowBackIos, ArrowForwardIos } from "@material-ui/icons"
-import blueGrey from "@material-ui/core/colors/blueGrey"
+import { Box } from "@mui/material";
+import { ArrowBackIos, ArrowForwardIos } from "@mui/icons-material"
+import blueGrey from "@mui/material/colors/blueGrey"
 
 export const SwipeNotifier = () => (
   <>

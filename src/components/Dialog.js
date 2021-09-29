@@ -1,13 +1,13 @@
 import React from 'react';
-import Button from '@material-ui/core/Button';
-import TextField from '@material-ui/core/TextField';
-import Dialog from '@material-ui/core/Dialog';
-import DialogActions from '@material-ui/core/DialogActions';
-import DialogContent from '@material-ui/core/DialogContent';
-import DialogContentText from '@material-ui/core/DialogContentText';
-import DialogTitle from '@material-ui/core/DialogTitle';
-import IconButton from '@material-ui/core/IconButton';
-import AddCircleIcon from '@material-ui/icons/AddCircle';
+import Button from '@mui/material/Button';
+import TextField from '@mui/material/TextField';
+import Dialog from '@mui/material/Dialog';
+import DialogActions from '@mui/material/DialogActions';
+import DialogContent from '@mui/material/DialogContent';
+import DialogContentText from '@mui/material/DialogContentText';
+import DialogTitle from '@mui/material/DialogTitle';
+import IconButton from '@mui/material/IconButton';
+import AddCircleIcon from '@mui/icons-material/AddCircle';
 
 class FormDialog extends React.Component {
     constructor(props) {
@@ -99,10 +99,10 @@ class FormDialog extends React.Component {
                             <FacilityTextField func={this.setMember}/>}
                     </DialogContent>
                     <DialogActions>
-                        <Button onClick={this.handleClose} color="primary">
+                        <Button onClick={this.handleClose}>
                             キャンセル
                         </Button>
-                        <Button onClick={this.handleSubmit} color="primary">
+                        <Button onClick={this.handleSubmit}>
                             追加
                         </Button>
                     </DialogActions>
@@ -142,6 +142,7 @@ class FamilyTextField extends React.Component {
                     helperText="家族の名前を入力してください。"
                     fullWidth
                     required
+                    variant="standard"
                     onChange={this.handleChange}
                 />
                 <TextField
@@ -151,6 +152,7 @@ class FamilyTextField extends React.Component {
                     type="text"
                     helperText="家族の電話番号を入力してください。"
                     fullWidth
+                    variant="standard"
                     onChange={this.handleChange}
                 />
                 <TextField
@@ -160,6 +162,7 @@ class FamilyTextField extends React.Component {
                     type="text"
                     helperText="家族の保険証番号を入力してください。"
                     fullWidth
+                    variant="standard"
                     onChange={this.handleChange}
                 />
                 <TextField
@@ -169,6 +172,7 @@ class FamilyTextField extends React.Component {
                     type="text"
                     helperText="家族の病気・アレルギーを入力してください。"
                     fullWidth
+                    variant="standard"
                     onChange={this.handleChange}
                 />
             </div>
@@ -204,6 +208,7 @@ class RelativeTextField extends React.Component {
                     helperText="親戚・知人の名前を入力してください。"
                     fullWidth
                     required
+                    variant="standard"
                     onChange={this.handleChange}
                 />
                 <TextField
@@ -213,6 +218,7 @@ class RelativeTextField extends React.Component {
                     type="text"
                     helperText="親戚・知人の電話番号を入力してください。"
                     fullWidth
+                    variant="standard"
                     onChange={this.handleChange}
                 />
             </div>
@@ -248,6 +254,7 @@ class FacilityTextField extends React.Component {
                     helperText="施設名を入力してください。"
                     fullWidth
                     required
+                    variant="standard"
                     onChange={this.handleChange}
                 />
                 <TextField
@@ -257,6 +264,7 @@ class FacilityTextField extends React.Component {
                     type="text"
                     helperText="施設の電話番号を入力してください。"
                     fullWidth
+                    variant="standard"
                     onChange={this.handleChange}
                 />
             </div>

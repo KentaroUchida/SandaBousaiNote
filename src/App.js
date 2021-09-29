@@ -6,8 +6,9 @@ import {
   useLocation,
 } from "react-router-dom";
 import { useSwipeable } from "react-swipeable";
-import { useMediaQuery } from "@material-ui/core";
-import { ThemeProvider } from "@material-ui/core/styles";
+import { useMediaQuery } from "@mui/material";
+import { ThemeProvider } from "@mui/styles";
+import { ThemeProvider as EmotionThemeProvider } from "@emotion/react";
 
 import Home from "./pages/Home";
 import Instruction from "./pages/Instruction";
@@ -115,10 +116,8 @@ function App() {
     const matches = useMediaQuery("(max-width:600px)");
     return (
       <Route exact path={paths[index]} key={index}>
-        {
-          index === 1 && matches && <SwipeNotifier/>
-        }
-        <Menu title={titles[index]} now_index = {index}>
+        {index === 1 && matches && <SwipeNotifier />}
+        <Menu title={titles[index]} now_index={index}>
           <div {...handleSwipe}>{pages[index]}</div>
         </Menu>
       </Route>
@@ -164,14 +163,16 @@ function App() {
     //     </Route>
     //   </Menu>
     // </BrowserRouter>
-    <ThemeProvider theme={CustomThemeA}>
-      <BrowserRouter>
-        <ScrollToTop />
-        {pages.map((_, i) => (
-          <ContentPage index={i} key={i.toString()} />
-        ))}
-      </BrowserRouter>
-    </ThemeProvider>
+    <EmotionThemeProvider theme={CustomThemeA}>
+      <ThemeProvider theme={CustomThemeA}>
+        <BrowserRouter>
+          <ScrollToTop />
+          {pages.map((_, i) => (
+            <ContentPage index={i} key={i.toString()} />
+          ))}
+        </BrowserRouter>
+      </ThemeProvider>
+    </EmotionThemeProvider>
   );
 }
 

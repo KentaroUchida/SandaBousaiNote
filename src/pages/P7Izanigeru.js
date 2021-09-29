@@ -1,19 +1,18 @@
 import React from 'react';
-import makeStyles from '@material-ui/core/styles/makeStyles';
-import Card from '@material-ui/core/Card';
-import CardMedia from '@material-ui/core/CardMedia';
-import CardContent from '@material-ui/core/CardContent';
-import Grid from '@material-ui/core/Grid';
-import TextField from '@material-ui/core/TextField';
-import Paper from '@material-ui/core/Paper';
-import Typography from '@material-ui/core/Typography';
+import Card from '@mui/material/Card';
+import CardMedia from '@mui/material/CardMedia';
+import CardContent from '@mui/material/CardContent';
+import Grid from '@mui/material/Grid';
+import TextField from '@mui/material/TextField';
+import Paper from '@mui/material/Paper';
+import Typography from '@mui/material/Typography';
 import { ResponsiveFontProvider } from "../components/ResponsiveFontProvider"
-import Button from '@material-ui/core/Button';
+import Button from '@mui/material/Button';
 import {
 	createTheme,
 	responsiveFontSizes,
 	ThemeProvider,
-} from '@material-ui/core/styles';
+} from '@mui/material/styles';
 
 let theme = createTheme();
 theme = responsiveFontSizes(theme);
@@ -33,22 +32,21 @@ const Title = () => {
 	);
 }
 
-const measureStyles = makeStyles((theme) => ({
+const styles = {
 	grid: {
 		display: "flex",
 	},
 	cardTitle: {
-		backgroundColor: theme.palette.tertiary.main,
-		margin: theme.spacing(1),
+		bgcolor: "tertiary.main",
+		margin: 1,
 	},
-}));
+};
 
 const Measure = ({ title, image, text }) => {
-	const classes = measureStyles();
 	return (
 		<Card>
 			<CardContent>
-				<Paper elevation={3} className={classes.cardTitle}>
+				<Paper elevation={3} sx={styles.cardTitle}>
 					<Typography variant="h5">{title}</Typography>
 				</Paper>
 			</CardContent>
@@ -63,25 +61,24 @@ const Measure = ({ title, image, text }) => {
 };
 
 const Shelter = () => {
-	const classes = measureStyles();
 	return (
 		<>
 			<Grid container direction="row" alignItems="center" justifyContent="center" spacing={3}>
-				<Grid item xs={12} className={classes.grid}>
+				<Grid item xs={12} sx={styles.grid}>
 					<Measure
 						title="広域避難所・一次避難所"
 						image="/img/pages/P7Izanigeru/tatemono_kouen.png"
 						text="火災などの際に、一時的に逃げる場所。公園などが指定されている。"
 					/>
 				</Grid>
-				<Grid item xs={12} className={classes.grid}>
+				<Grid item xs={12} sx={styles.grid}>
 					<Measure
 						title="避難所"
 						image="/img/pages/P7Izanigeru/hinanjo_seikatsu_family_smile.png"
 						text="自宅が被災した際に生活をする場。小・中学校や公民館など。"
 					/>
 				</Grid>
-				<Grid item xs={12} className={classes.grid}>
+				<Grid item xs={12} sx={styles.grid}>
 					<Measure
 						title="福祉避難所"
 						image="/img/pages/P7Izanigeru/tatemono_kaigo_shisetsu.png"
@@ -121,10 +118,9 @@ const CheckPlace = () => {
 };
 
 const Notokiha = () => {
-	const classes = measureStyles();
 	return (<>
 		<Grid container spacing={3} direction="row">
-			<Grid item xs={6} className={classes.grid}>
+			<Grid item xs={6} sx={styles.grid}>
 				<Card>
 					<CardMedia>
 						<img alt="" src="/img/pages/P7Izanigeru/kouzui.png" style={{ maxWidth: "100%", height: "auto" }} />
@@ -136,7 +132,7 @@ const Notokiha = () => {
 					</CardContent>
 				</Card>
 			</Grid>
-			<Grid item xs={6} className={classes.grid}>
+			<Grid item xs={6} sx={styles.grid}>
 				<Card>
 					<CardMedia>
 						<img alt="" src="/img/pages/P7Izanigeru/dosya.png" style={{ maxWidth: "100%", height: "auto" }} />
@@ -209,26 +205,26 @@ class ShelterInformation extends React.Component {
 					</tr>
 					<tr>
 						<th>水害</th>
-						<th><TextField onChange={this.handleChange} id="suigai1" defaultValue={suigai1} /></th>
-						<th><TextField onChange={this.handleChange} id="suigai2" defaultValue={suigai2} /></th>
+						<th><TextField onChange={this.handleChange} id="suigai1" defaultValue={suigai1} variant="standard" /></th>
+						<th><TextField onChange={this.handleChange} id="suigai2" defaultValue={suigai2} variant="standard" /></th>
 					</tr>
 					<tr>
 						<th>土砂</th>
-						<th><TextField onChange={this.handleChange} id="dosya1" defaultValue={dosya1} /></th>
-						<th><TextField onChange={this.handleChange} id="dosya2" defaultValue={dosya2} /></th>
+						<th><TextField onChange={this.handleChange} id="dosya1" defaultValue={dosya1} variant="standard" /></th>
+						<th><TextField onChange={this.handleChange} id="dosya2" defaultValue={dosya2} variant="standard" /></th>
 					</tr>
 					<tr>
 						<th>地震</th>
-						<th><TextField onChange={this.handleChange} id="jishin1" defaultValue={jishin1} /></th>
-						<th><TextField onChange={this.handleChange} id="jishin2" defaultValue={jishin2} /></th>
+						<th><TextField onChange={this.handleChange} id="jishin1" defaultValue={jishin1} variant="standard" /></th>
+						<th><TextField onChange={this.handleChange} id="jishin2" defaultValue={jishin2} variant="standard" /></th>
 					</tr>
 					<tr>
 						<th>火災</th>
-						<th><TextField onChange={this.handleChange} id="kasai1" defaultValue={kasai1} /></th>
-						<th><TextField onChange={this.handleChange} id="kasai2" defaultValue={kasai2} /></th>
+						<th><TextField onChange={this.handleChange} id="kasai1" defaultValue={kasai1} variant="standard" /></th>
+						<th><TextField onChange={this.handleChange} id="kasai2" defaultValue={kasai2} variant="standard" /></th>
 					</tr>
 				</table>
-				<Button onClick={this.setValues} variant="contained" color="primary">
+				<Button onClick={this.setValues} variant="contained">
 					保存
 				</Button>
 			</div>

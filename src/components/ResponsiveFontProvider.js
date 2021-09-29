@@ -1,12 +1,10 @@
 import {
-  createTheme,
+  useTheme,
   responsiveFontSizes,
   ThemeProvider,
-} from "@material-ui/core/styles";
-
-let theme = createTheme();
-theme = responsiveFontSizes(theme);
+} from "@mui/material/styles";
 
 export const ResponsiveFontProvider = ({ children }) => {
+  const theme = responsiveFontSizes(useTheme());
   return <ThemeProvider theme={theme}>{children}</ThemeProvider>;
 };

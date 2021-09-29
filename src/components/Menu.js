@@ -1,82 +1,64 @@
 import React from "react";
-import clsx from "clsx";
 import PropTypes from "prop-types";
-import AppBar from "@material-ui/core/AppBar";
-import CssBaseline from "@material-ui/core/CssBaseline";
-import Divider from "@material-ui/core/Divider";
-import Drawer from "@material-ui/core/Drawer";
-import Hidden from "@material-ui/core/Hidden";
-import IconButton from "@material-ui/core/IconButton";
-import List from "@material-ui/core/List";
-import ListItem from "@material-ui/core/ListItem";
-import ListItemIcon from "@material-ui/core/ListItemIcon";
-import ListItemText from "@material-ui/core/ListItemText";
-import ListIcon from "@material-ui/icons/List";
-import ChevronLeftIcon from "@material-ui/icons/ChevronLeft";
-import ChevronRightIcon from "@material-ui/icons/ChevronRight";
-import Toolbar from "@material-ui/core/Toolbar";
-import Typography from "@material-ui/core/Typography";
-import PrintIcon from "@material-ui/icons/Print";
-import WarningIcon from "@material-ui/icons/WarningSharp";
-import HomeIcon from "@material-ui/icons/HomeSharp";
-import DirectionsRunSharpIcon from "@material-ui/icons/DirectionsRunSharp";
-import { makeStyles, useTheme } from "@material-ui/core/styles";
+import AppBar from "@mui/material/AppBar";
+import CssBaseline from "@mui/material/CssBaseline";
+import Divider from "@mui/material/Divider";
+import Drawer from "@mui/material/Drawer";
+import IconButton from "@mui/material/IconButton";
+import List from "@mui/material/List";
+import ListItem from "@mui/material/ListItem";
+import ListItemIcon from "@mui/material/ListItemIcon";
+import ListItemText from "@mui/material/ListItemText";
+import ChevronLeftIcon from "@mui/icons-material/ChevronLeft";
+import ChevronRightIcon from "@mui/icons-material/ChevronRight";
+import Toolbar from "@mui/material/Toolbar";
+import Typography from "@mui/material/Typography";
+import PrintIcon from "@mui/icons-material/Print";
+import WarningIcon from "@mui/icons-material/WarningSharp";
+import HomeIcon from "@mui/icons-material/HomeSharp";
+import DirectionsRunSharpIcon from "@mui/icons-material/DirectionsRunSharp";
+import { useTheme } from "@mui/material/styles";
 import { Link } from "react-router-dom";
-import Grid from "@material-ui/core/Grid";
-import { Button } from "@material-ui/core";
-
-
-
+import Grid from "@mui/material/Grid";
+import { Button } from "@mui/material";
+import Box from "@mui/material/Box";
 
 const drawerWidth = 350;
 
-const useStyles = makeStyles((theme) => ({
+const styles = {
   root: {
     display: "flex",
   },
   drawer: {
-    [theme.breakpoints.up("sm")]: {
-      width: drawerWidth,
-      flexShrink: 0,
-    },
+    width: { sm: drawerWidth },
+    flexShrink: { sm: 0 },
   },
   appBar: {
-    [theme.breakpoints.up("sm")]: {
-      width: `calc(100% - ${drawerWidth}px)`,
-      marginLeft: drawerWidth,
-    },
+    width: { sm: `calc(100% - ${drawerWidth}px)` },
+    marginLeft: { sm: `${drawerWidth}px` },
   },
   menuButton: {
-    marginRight: theme.spacing(2),
-    [theme.breakpoints.up("sm")]: {
-      display: "none",
-    },
+    marginRight: 1,
+    display: { xs: "block", sm: "none" },
   },
   hide: {
     display: "none",
   },
-  // necessary for content to be below app bar
-  toolbar: theme.mixins.toolbar,
   drawerPaper: {
     width: drawerWidth,
-    //backgroundColor: 'white !important',
-    //activeBackgroundColor: 'white !important',
+    boxSizing: "border-box",
   },
   content: {
     flexGrow: 1,
-    padding: theme.spacing(3),
+    p: 3,
   },
-}));
-
-
-
+};
 
 export default function ResponsiveDrawer(props) {
   const { window } = props;
-  const classes = useStyles();
   const theme = useTheme();
   const [mobileOpen, setMobileOpen] = React.useState(false);
-  const [selectedIndex,setSelectedIndex] = React.useState(props.now_index);
+  const [selectedIndex, setSelectedIndex] = React.useState(props.now_index);
   const handleListItemClick = (event, index) => {
     setSelectedIndex(index);
   };
@@ -115,9 +97,9 @@ export default function ResponsiveDrawer(props) {
 
   const links = [
     "/form",
-    "/", 
+    "/",
     "/instruction",
-    "/jishin", 
+    "/jishin",
     "/koudouChart",
     "/Taiken",
     "/mada",
@@ -134,7 +116,7 @@ export default function ResponsiveDrawer(props) {
   ];
   const drawer = (
     <div>
-      <div className={classes.toolbar} />
+      <Toolbar />
       <List component="nav">
         {[
           "緊急時のわがやの情報",
@@ -155,12 +137,20 @@ export default function ResponsiveDrawer(props) {
           "家族で防災カイギ",
           "お知らせ",
         ].map((text, index) => (
-          <Link   to={links[index]} key={index} style={{ textDecoration: 'none' }}  >
+          <Link
+            to={links[index]}
+            key={index}
+            style={{ textDecoration: "none" }}
+          >
             <Divider />
-            <ListItem button selected={selectedIndex === index}  onClick={(event) => handleListItemClick(event,index)} handleDrawerClose >
+            <ListItem
+              button
+              selected={selectedIndex === index}
+              onClick={(event) => handleListItemClick(event, index)}
+              handleDrawerClose
+            >
               <ListItemIcon>{icons[index]}</ListItemIcon>
               <ListItemText primary={text} />
-
             </ListItem>
           </Link>
         ))}
@@ -173,29 +163,23 @@ export default function ResponsiveDrawer(props) {
     window !== undefined ? () => window().document.body : undefined;
 
   return (
-    <div className={classes.root}>
+    <Box sx={styles.root}>
       <CssBaseline />
-      <AppBar
-        position="fixed"
-        className={clsx(classes.appBar, {
-          [classes.appBarShift]: mobileOpen,
-        })}
-      >
+      <AppBar position="fixed" sx={styles.appBar}>
         <Toolbar>
           <Grid justifyContent="space-between" alignItems="center" container>
             <div style={{ display: "inline-flex", alignItems: "center" }}>
               <Button
-                color= "inherit"
                 style={{
                   backgroundColor: "white",
                   textShadow: "1px 1px 100px rgba(255, 255, 255, 0.66)",
-                  boxShadow: "inset 0 100px 0 rgba(255,255,255,0.5), 0 2px 2px rgba(0, 0, 0, 0.19)",
-                  borderBottom: "solid 2px #b5b5b5"
-              }}
+                  boxShadow:
+                    "inset 0 100px 0 rgba(255,255,255,0.5), 0 2px 2px rgba(0, 0, 0, 0.19)",
+                  borderBottom: "solid 2px #b5b5b5",
+                }}
                 aria-label="open drawer"
                 onClick={handleDrawerOpen}
-                className={clsx(classes.menuButton, mobileOpen && classes.hide)}
-
+                sx={styles.menuButton}
               >
                 目次
               </Button>
@@ -213,51 +197,49 @@ export default function ResponsiveDrawer(props) {
           </Grid>
         </Toolbar>
       </AppBar>
-      <nav className={classes.drawer} aria-label="mailbox folders">
+      <Box component="nav" sx={styles.drawer} aria-label="mailbox folders">
         {/* The implementation can be swapped with js to avoid SEO duplication of links. */}
-        <Hidden smUp implementation="css">
-          <Drawer
-            container={container}
-            variant="temporary"
-            anchor={theme.direction === "rtl" ? "right" : "left"}
-            open={mobileOpen}
-            onClose={handleDrawerToggle}
-            classes={{
-              paper: classes.drawerPaper,
-            }}
-            ModalProps={{
-              keepMounted: true, // Better open performance on mobile.
-            }}
-          >
-            <div className={classes.drawerHeader}>
-              <IconButton onClick={handleDrawerClose}>
-                {theme.direction === "ltr" ? (
-                  <ChevronLeftIcon />
-                ) : (
-                  <ChevronRightIcon />
-                )}
-              </IconButton>
-            </div>
-            {drawer}
-          </Drawer>
-        </Hidden>
-        <Hidden xsDown implementation="css">
-          <Drawer
-            classes={{
-              paper: classes.drawerPaper,
-            }}
-            variant="permanent"
-            //open
-          >
-            {drawer}
-          </Drawer>
-        </Hidden>
-      </nav>
-      <main className={classes.content}>
-        <div className={classes.toolbar} />
+        <Drawer
+          container={container}
+          variant="temporary"
+          anchor={theme.direction === "rtl" ? "right" : "left"}
+          open={mobileOpen}
+          onClose={handleDrawerToggle}
+          sx={{
+            display: { xs: "block", sm: "none" },
+            "& .MuiDrawer-paper": styles.drawerPaper,
+          }}
+          ModalProps={{
+            keepMounted: true, // Better open performance on mobile.
+          }}
+        >
+          <Box sx={styles.drawerHeader}>
+            <IconButton onClick={handleDrawerClose}>
+              {theme.direction === "ltr" ? (
+                <ChevronLeftIcon />
+              ) : (
+                <ChevronRightIcon />
+              )}
+            </IconButton>
+          </Box>
+          {drawer}
+        </Drawer>
+        <Drawer
+          sx={{
+            display: { xs: "none", sm: "block" },
+            "& .MuiDrawer-paper": styles.drawerPaper,
+          }}
+          variant="permanent"
+          //open
+        >
+          {drawer}
+        </Drawer>
+      </Box>
+      <Box component="main" sx={styles.content}>
+        <Toolbar />
         {props.children}
-      </main>
-    </div>
+      </Box>
+    </Box>
   );
 }
 
