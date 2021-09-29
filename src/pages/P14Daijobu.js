@@ -3,7 +3,8 @@ import {
   Paper,
   Typography,
   Grid,
-  Box
+  Box,
+  CardMedia
 } from "@mui/material";
 import { ResponsiveFontProvider } from "../components/ResponsiveFontProvider";
 
@@ -44,7 +45,7 @@ const styles = {
   },
   img2: {
     textAlign: "center",
-  }
+  },
 };
 
 const Photo = ({ image1, image2, text1 ,text2 }) => {
@@ -53,20 +54,16 @@ const Photo = ({ image1, image2, text1 ,text2 }) => {
       <Paper sx={styles.paper}>
         <Grid container spacing={2}>
           <Grid item xs={3}>
-            <Box sx={styles.img1}>
-              <img src={image1} alt="complex" />
-            </Box>
+            <CardMedia component="img" sx={styles.img1} image={image1} alt="complex"/>
           </Grid>
-          <Grid item xs={9} sm container>
+          <Grid item xs={9} md container>
             <Grid item xs container direction="column" spacing={2}>
               <Grid item xs>
                 <Paper elevation={3} sx={styles.cardTitle}>
                   <Typography variant="h5">{text1}</Typography>
                 </Paper>
                 {text2}
-                <Box sx={styles.img2}>
-                  <img src={image2} alt="" style={{ maxWidth: "100%" ,height: "200px"}}/>
-                </Box>
+                <CardMedia component="img" sx={styles.img2} image={image2} alt="" style={{ maxWidth: "100%" }}/>
               </Grid>
             </Grid>
           </Grid>
@@ -127,9 +124,7 @@ export const P14Daijobu = () => {
               <Paper sx={styles.paper}>
                 <Grid container spacing={2}>
                   <Grid item xs={3}>
-                    <Box sx={styles.img1}>
-                      <img src={imgPath + "heart3.png"} alt="complex" />
-                    </Box>
+                    <CardMedia component="img" sx={styles.img1} image={imgPath + "heart3.png"} alt="complex" />
                   </Grid>
                   <Grid item xs={9} sm container>
                     <Grid item xs container direction="column" spacing={2}>
@@ -141,9 +136,9 @@ export const P14Daijobu = () => {
                         でも、そのようなことが続いたとしても、油断しないで最善を尽くします。
                         自然災害は、想定していた以上の被害が生じることもあるからです。
                         <Box sx={styles.img2}>
-                          <img src={imgPath + "pic3_1.png"} alt="" style={{ maxWidth: "100%" ,height: "auto"}}/>
-                          <img src={imgPath + "pic3_2.png"} alt="" style={{ maxWidth: "50%" ,height: "auto"}}/>
-                          <img src={imgPath + "pic3_3.png"} alt="" style={{ maxWidth: "50%" ,height: "auto"}}/>
+                          <CardMedia component="img" image={imgPath + "pic3_1.png"} alt="" style={{ maxWidth: "100%" ,height: "auto"}}/>
+                          <CardMedia component="img" image={imgPath + "pic3_2.png"} alt="" style={{ maxWidth: "50%" ,height: "auto"}}/>
+                          <CardMedia component="img" image={imgPath + "pic3_3.png"} alt="" style={{ maxWidth: "50%" ,height: "auto"}}/>
                         </Box>
                       </Grid>
                     </Grid>

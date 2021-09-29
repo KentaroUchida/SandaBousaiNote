@@ -27,12 +27,13 @@ function NotificationList(props) {
         component="nav"
         aria-label="main"
         subheader={
-          <ListSubheader component="div">
-            三田市からのお知らせ
-          </ListSubheader>
+          <li/>
         }
         sx={styles.root}
       >
+          <ListSubheader sx={{bgcolor: "#eeeeff"}}>
+            三田市からのお知らせ
+          </ListSubheader>
         {props.notifications.map((n,i) => {
           return (
             <div key={i}>

@@ -26,10 +26,10 @@ const styles = {
     bgcolor: "secondary.light",
   },
   cardHeaderRecommend: {
-    bgcolor: "app",
+    bgcolor: "repeating-linear-gradient(45deg, #e0ffff, #e0ffff 12px, #ffffff 12px, #ffffff 24px)",
   },
   child: {
-    marginLeft: 32,
+    marginLeft: 3,
   },
   parentCheckbox: {
     pointerEvents: "none",
@@ -277,7 +277,7 @@ function Recommend() {
   return (
     <Card>
       <CardHeader
-        sx={styles.cardHeaderRecommend}
+        style={{backgroundImage: styles.cardHeaderRecommend.bgcolor}}
         title="防災おすすめアプリ"
         titleTypographyProps={{ align: 'center' }}
       />
