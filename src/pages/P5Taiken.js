@@ -1,68 +1,13 @@
 import React from "react";
 import {
-  Card,
-  CardContent,
-  Paper,
   Typography,
-  CardMedia,
-  Grid,
 } from "@mui/material";
 import { ResponsiveFontProvider } from "../components/ResponsiveFontProvider";
-
-const styles = {
-  card: {
-    margin: 2,
-  },
-  cardTitle: {
-    bgcolor: "tertiary.main",
-    margin: 1,
-  },
-};
-
-const FlexImage = ({ image }) => {
-  return (
-    <img src={image} alt="" style={{ maxWidth: "100%", height: "auto" }} />
-  );
-};
-
-const Taikendan = ({ title, text, image }) => {
-  return (
-    <Card sx={styles.card}>
-      <CardContent>
-        <Paper elevation={3} sx={styles.cardTitle}>
-          <Typography variant="h5">{title}</Typography>
-        </Paper>
-        {text}
-      </CardContent>
-      <CardMedia>
-        <Grid container justifyContent="center">
-          <img
-            src={image}
-            alt=""
-            style={{ maxWidth: "100%", height: "auto" }}
-          />
-        </Grid>
-      </CardMedia>
-    </Card>
-  );
-};
-
-const Photo = ({ image, text }) => {
-  return (
-    <Card sx={styles.card}>
-      <CardMedia>
-        <Grid container justifyContent="center">
-          <img
-            src={image}
-            alt=""
-            style={{ maxWidth: "100%", height: "auto" }}
-          />
-        </Grid>
-      </CardMedia>
-      <CardContent>{text}</CardContent>
-    </Card>
-  );
-};
+import {
+  ImageCard,
+  ImageTextCard,
+  TitleTextImageCard,
+} from "../components/CardContents";
 
 const taikenTitles = [
   "つながりの大事さを実感！",
@@ -112,14 +57,14 @@ const photoTexts = [
 export const P5Taiken = () => {
   return (
     <>
-      <FlexImage image="img/pages/Taiken/title.png" />
+      <ImageCard image="img/pages/Taiken/title.png" />
       <ResponsiveFontProvider>
         <Typography variant="h3">
           大阪北部地震・台風21号を体験してほくせつママ&amp;パパの声をご紹介します。
         </Typography>
       </ResponsiveFontProvider>
       {taikenTitles.map((_, i) => (
-        <Taikendan
+        <TitleTextImageCard
           title={taikenTitles[i]}
           text={taikenTexts[i]}
           image={taikenImages[i]}
@@ -127,7 +72,7 @@ export const P5Taiken = () => {
         />
       ))}
       {photoImages.map((_, i) => (
-        <Photo image={photoImages[i]} text={photoTexts[i]} key={i} />
+        <ImageTextCard image={photoImages[i]} text={photoTexts[i]} key={i} />
       ))}
     </>
   );
