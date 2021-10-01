@@ -4,21 +4,20 @@ import {
   CardContent,
   Typography,
   CardMedia,
-  makeStyles,
   Grid,
-} from "@material-ui/core";
+} from "@mui/material";
 import { ResponsiveFontProvider } from "../components/ResponsiveFontProvider";
 
 const imgPath = "/img/pages/P11KikenSouzou/";
 
-const useStyles = makeStyles((theme) => ({
+const styles = {
   grid: {
     display: "flex",
   },
   card: {
-    margin: theme.spacing(1),
+    margin: 1,
   },
-}));
+};
 
 const FlexImage = ({ image }) => {
   return (
@@ -27,11 +26,10 @@ const FlexImage = ({ image }) => {
 };
 
 const Photo = ({ image, text }) => {
-  const classes = useStyles();
   return (
-    <Card className={classes.card}>
+    <Card sx={styles.card}>
       <CardMedia>
-        <Grid container justify="center">
+        <Grid container justifyContent="center">
           <img
             src={image}
             alt=""
@@ -48,10 +46,9 @@ const images = ["tosyokan.png", "rouka.png", "genkan.png", "undoujou.png"];
 
 const texts = ["図書館", "ろうか", "げんかん(下足場)", "運動場"];
 
-export const P11KikenSouzou = () => {
-  const classes = useStyles();
+export const P11KikenSouzou = (index) => {
   return (
-    <>
+    <div key={index}>
       <ResponsiveFontProvider>
         <Typography variant="h3" gutterBottom>
           もし地震がおきたら
@@ -63,7 +60,7 @@ export const P11KikenSouzou = () => {
       <FlexImage image={imgPath + "madori.png"} />
       <Grid container>
         {images.map((_, i) => (
-          <Grid item xs={6} className={classes.grid}>
+          <Grid item xs={6} sx={styles.grid} key={i}>
             <Photo image={imgPath + images[i]} text={texts[i]} />
           </Grid>
         ))}
@@ -78,6 +75,6 @@ export const P11KikenSouzou = () => {
       </ResponsiveFontProvider>
       <FlexImage image={imgPath + "mokumoku.png"} />
       <FlexImage image={imgPath + "hatena.png"} />
-    </>
+    </div>
   );
 };

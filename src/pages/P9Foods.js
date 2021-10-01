@@ -1,15 +1,16 @@
 import React from 'react';
-import Card from '@material-ui/core/Card';
-import CardActionArea from '@material-ui/core/CardActionArea';
-import CardContent from '@material-ui/core/CardContent';
-import CardHeader from '@material-ui/core/CardHeader';
-import CardMedia from '@material-ui/core/CardMedia';
-import Checkbox from '@material-ui/core/Checkbox';
-import Divider from '@material-ui/core/Divider';
-import FormControlLabel from '@material-ui/core/FormControlLabel';
-import FormGroup from '@material-ui/core/FormGroup';
-import ImageList from '@material-ui/core/ImageList';
-import Typography from '@material-ui/core/Typography';
+import Card from '@mui/material/Card';
+import CardActionArea from '@mui/material/CardActionArea';
+import CardContent from '@mui/material/CardContent';
+import CardHeader from '@mui/material/CardHeader';
+import CardMedia from '@mui/material/CardMedia';
+import Checkbox from '@mui/material/Checkbox';
+import Divider from '@mui/material/Divider';
+import FormControlLabel from '@mui/material/FormControlLabel';
+import FormGroup from '@mui/material/FormGroup';
+import ImageList from '@mui/material/ImageList';
+import Typography from '@mui/material/Typography';
+import {useTheme} from "@mui/material/styles"
 
 const preparation = [
   {
@@ -132,6 +133,7 @@ function Info() {
 }
 
 function Store() {
+  const theme = useTheme()
   return (<>
     <Card>
       <CardHeader
@@ -139,7 +141,7 @@ function Store() {
         titleTypographyProps={{ align: "center" }}
         subheader="冷蔵庫やバントリーがいつもいっぱい!それも備蓄です!"
         subheaderTypographyProps={{ align: "center" }}
-        style={{backgroundColor: "yellow"}}
+        style={{backgroundColor: theme.palette.warning.main}}
       />
       <CardContent>
         <CardMedia
@@ -159,7 +161,7 @@ function Store() {
         titleTypographyProps={{ align: "center" }}
         subheader="美味しい備蓄を多めに用意し、食べたら買い足す「ローリングストック」をぜひ習慣に!"
         subheaderTypographyProps={{ align: "center" }}
-        style={{backgroundColor: "orange"}}
+        style={{backgroundColor: theme.palette.secondary.main}}
       />
       <CardContent>
         <CardMedia

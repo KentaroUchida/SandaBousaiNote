@@ -4,21 +4,20 @@ import {
   CardContent,
   Typography,
   CardMedia,
-  makeStyles,
   Grid,
-} from "@material-ui/core";
+} from "@mui/material";
 import { ResponsiveFontProvider } from "../components/ResponsiveFontProvider";
 
 const imgPath = "/img/pages/P12KikenJissai/";
 
-const useStyles = makeStyles((theme) => ({
+const styles = {
   grid: {
     display: "flex",
   },
   card: {
-    margin: theme.spacing(1),
+    margin: 1,
   },
-}));
+};
 
 const FlexImage = ({ image }) => {
   return (
@@ -27,11 +26,10 @@ const FlexImage = ({ image }) => {
 };
 
 const Photo = ({ image, text }) => {
-  const classes = useStyles();
   return (
-    <Card className={classes.card}>
+    <Card sx={styles.card}>
       <CardMedia>
-        <Grid container justify="center">
+        <Grid container justifyContent="center">
           <img
             src={image}
             alt=""
@@ -69,10 +67,9 @@ const mamoruTexts = [
   "割れものがいっぱい",
 ];
 
-export const P12KikenJissai = () => {
-  const classes = useStyles();
+export const P12KikenJissai = (index) => {
   return (
-    <>
+    <div key={index}>
       <ResponsiveFontProvider>
         <Typography variant="h3" gutterBottom>
           実際に地震がおきるとキケンなものが
@@ -84,7 +81,7 @@ export const P12KikenJissai = () => {
       <FlexImage image={imgPath + "madori.png"} />
       <Grid container>
         {illustImages.map((_, i) => (
-          <Grid item xs={6} className={classes.grid}>
+          <Grid item xs={6} sx={styles.grid} key={i.toString()}>
             <Photo image={imgPath + illustImages[i]} text={illustTexts[i]} />
           </Grid>
         ))}
@@ -101,11 +98,11 @@ export const P12KikenJissai = () => {
       </ResponsiveFontProvider>
       <Grid container>
         {mamoruImages.map((_, i) => (
-          <Grid item xs={6} className={classes.grid}>
+          <Grid item xs={6} sx={styles.grid} key={i.toString()}>
             <Photo image={imgPath + mamoruImages[i]} text={mamoruTexts[i]} />
           </Grid>
         ))}
       </Grid>
-    </>
+    </div>
   );
 };

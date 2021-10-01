@@ -5,20 +5,19 @@ import {
   Paper,
   Typography,
   CardMedia,
-  makeStyles,
   Grid,
-} from "@material-ui/core";
+} from "@mui/material";
 import { ResponsiveFontProvider } from "../components/ResponsiveFontProvider";
 
-const useStyles = makeStyles((theme) => ({
+const styles = {
   card: {
-    margin: theme.spacing(2),
+    margin: 2,
   },
   cardTitle: {
-    backgroundColor: "#ffc0cb",
-    margin: theme.spacing(1),
+    bgcolor: "tertiary.main",
+    margin: 1,
   },
-}));
+};
 
 const FlexImage = ({ image }) => {
   return (
@@ -27,17 +26,16 @@ const FlexImage = ({ image }) => {
 };
 
 const Taikendan = ({ title, text, image }) => {
-  const classes = useStyles();
   return (
-    <Card className={classes.card}>
+    <Card sx={styles.card}>
       <CardContent>
-        <Paper elevation={3} className={classes.cardTitle}>
+        <Paper elevation={3} sx={styles.cardTitle}>
           <Typography variant="h5">{title}</Typography>
         </Paper>
         {text}
       </CardContent>
       <CardMedia>
-        <Grid container justify="center">
+        <Grid container justifyContent="center">
           <img
             src={image}
             alt=""
@@ -50,11 +48,10 @@ const Taikendan = ({ title, text, image }) => {
 };
 
 const Photo = ({ image }) => {
-  const classes = useStyles();
   return (
-    <Card className={classes.card}>
+    <Card sx={styles.card}>
       <CardMedia>
-        <Grid container justify="center">
+        <Grid container justifyContent="center">
           <img
             src={image}
             alt=""
@@ -121,10 +118,11 @@ export const P10TaikenPapa = () => {
           title={taikenTitles[i]}
           text={taikenTexts[i]}
           image={taikenImages[i]}
+          key={i}
         />
       ))}
       {photoImages.map((_, i) => (
-        <Photo image={photoImages[i]} />
+        <Photo image={photoImages[i]} key={i}/>
       ))}
     </>
   );

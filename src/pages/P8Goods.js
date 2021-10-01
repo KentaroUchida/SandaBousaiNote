@@ -1,15 +1,15 @@
 import React from 'react';
-import Card from '@material-ui/core/Card';
-import CardActionArea from '@material-ui/core/CardActionArea';
-import CardContent from '@material-ui/core/CardContent';
-import CardHeader from '@material-ui/core/CardHeader';
-import CardMedia from '@material-ui/core/CardMedia';
-import Checkbox from '@material-ui/core/Checkbox';
-import Divider from '@material-ui/core/Divider';
-import FormControlLabel from '@material-ui/core/FormControlLabel';
-import FormGroup from '@material-ui/core/FormGroup';
-import GridList from '@material-ui/core/GridList';
-import Typography from '@material-ui/core/Typography';
+import Card from '@mui/material/Card';
+import CardActionArea from '@mui/material/CardActionArea';
+import CardContent from '@mui/material/CardContent';
+import CardHeader from '@mui/material/CardHeader';
+import CardMedia from '@mui/material/CardMedia';
+import Checkbox from '@mui/material/Checkbox';
+import Divider from '@mui/material/Divider';
+import FormControlLabel from '@mui/material/FormControlLabel';
+import FormGroup from '@mui/material/FormGroup';
+import ImageList from '@mui/material/ImageList';
+import Typography from '@mui/material/Typography';
 
 const normallyItems = [
   {
@@ -152,7 +152,7 @@ function Checkbox2Lines(props) {
   const items = props.items;
   return (
     <FormGroup row>
-      <GridList cols={2} cellHeight="auto">
+      <ImageList cols={2} rowHeight="auto">
         {Object.keys(items).map(key => {
           return (
             <Card key={key}>
@@ -179,7 +179,7 @@ function Checkbox2Lines(props) {
                   title={items[key].name}
                 />
                 <CardContent>
-                  <Typography variant="body2" color="red">
+                  <Typography variant="body2">
                     {items[key].emphasis}
                   </Typography>
                   <Typography variant="body2">
@@ -190,7 +190,7 @@ function Checkbox2Lines(props) {
             </Card>
           );
         })}
-      </GridList>
+      </ImageList>
     </FormGroup>
   );
 }

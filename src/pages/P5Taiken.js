@@ -1,71 +1,13 @@
 import React from "react";
 import {
-  Card,
-  CardContent,
-  Paper,
   Typography,
-  CardMedia,
-  makeStyles,
-  Grid,
-} from "@material-ui/core";
+} from "@mui/material";
 import { ResponsiveFontProvider } from "../components/ResponsiveFontProvider";
-
-const useStyles = makeStyles((theme) => ({
-  card: {
-    margin: theme.spacing(2),
-  },
-  cardTitle: {
-    backgroundColor: "#ffc0cb",
-    margin: theme.spacing(1),
-  },
-}));
-
-const FlexImage = ({ image }) => {
-  return (
-    <img src={image} alt="" style={{ maxWidth: "100%", height: "auto" }} />
-  );
-};
-
-const Taikendan = ({ title, text, image }) => {
-  const classes = useStyles();
-  return (
-    <Card className={classes.card}>
-      <CardContent>
-        <Paper elevation={3} className={classes.cardTitle}>
-          <Typography variant="h5">{title}</Typography>
-        </Paper>
-        {text}
-      </CardContent>
-      <CardMedia>
-        <Grid container justify="center">
-          <img
-            src={image}
-            alt=""
-            style={{ maxWidth: "100%", height: "auto" }}
-          />
-        </Grid>
-      </CardMedia>
-    </Card>
-  );
-};
-
-const Photo = ({ image, text }) => {
-  const classes = useStyles();
-  return (
-    <Card className={classes.card}>
-      <CardMedia>
-        <Grid container justify="center">
-          <img
-            src={image}
-            alt=""
-            style={{ maxWidth: "100%", height: "auto" }}
-          />
-        </Grid>
-      </CardMedia>
-      <CardContent>{text}</CardContent>
-    </Card>
-  );
-};
+import {
+  ImageCard,
+  ImageTextCard,
+  TitleTextImageCard,
+} from "../components/CardContents";
 
 const taikenTitles = [
   "つながりの大事さを実感！",
@@ -115,21 +57,22 @@ const photoTexts = [
 export const P5Taiken = () => {
   return (
     <>
-      <FlexImage image="img/pages/Taiken/title.png" />
+      <ImageCard image="img/pages/Taiken/title.png" />
       <ResponsiveFontProvider>
         <Typography variant="h3">
           大阪北部地震・台風21号を体験してほくせつママ&amp;パパの声をご紹介します。
         </Typography>
       </ResponsiveFontProvider>
       {taikenTitles.map((_, i) => (
-        <Taikendan
+        <TitleTextImageCard
           title={taikenTitles[i]}
           text={taikenTexts[i]}
           image={taikenImages[i]}
+          key={i}
         />
       ))}
       {photoImages.map((_, i) => (
-        <Photo image={photoImages[i]} text={photoTexts[i]} />
+        <ImageTextCard image={photoImages[i]} text={photoTexts[i]} key={i} />
       ))}
     </>
   );

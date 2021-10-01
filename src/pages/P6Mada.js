@@ -1,38 +1,40 @@
 import React from 'react';
-import makeStyles from '@material-ui/core/styles/makeStyles';
-import Button from '@material-ui/core/Button';
-import Card from '@material-ui/core/Card';
-import CardContent from '@material-ui/core/CardContent';
-import CardHeader from '@material-ui/core/CardHeader';
-import CardMedia from '@material-ui/core/CardMedia';
-import Divider from '@material-ui/core/Divider';
-import Grid from '@material-ui/core/Grid';
-import List from '@material-ui/core/List';
-import ListItem from '@material-ui/core/ListItem';
-import ListItemIcon from '@material-ui/core/ListItemIcon';
-import ListItemText from '@material-ui/core/ListItemText';
-import Stepper from '@material-ui/core/Stepper';
-import Step from '@material-ui/core/Step';
-import StepLabel from '@material-ui/core/StepLabel';
-import Typography from '@material-ui/core/Typography';
-import FiberManualRecordIcon from '@material-ui/icons/FiberManualRecord';
+import Button from '@mui/material/Button';
+import Card from '@mui/material/Card';
+import CardContent from '@mui/material/CardContent';
+import CardHeader from '@mui/material/CardHeader';
+import CardMedia from '@mui/material/CardMedia';
+import Divider from '@mui/material/Divider';
+import Grid from '@mui/material/Grid';
+import List from '@mui/material/List';
+import ListItem from '@mui/material/ListItem';
+import ListItemIcon from '@mui/material/ListItemIcon';
+import ListItemText from '@mui/material/ListItemText';
+import Stepper from '@mui/material/Stepper';
+import Step from '@mui/material/Step';
+import StepLabel from '@mui/material/StepLabel';
+import Typography from '@mui/material/Typography';
+import {Box} from "@mui/material"
+import FiberManualRecordIcon from '@mui/icons-material/FiberManualRecord';
+import {useTheme} from "@mui/material/styles"
 
-const useStyles = makeStyles((theme) => ({
+const styles = {
   root: {
     width: '100%',
   },
   button: {
-    marginRight: theme.spacing(1),
+    marginRight: 1,
   },
-}));
+};
 
 function Notice() {
+  const theme = useTheme()
   return (
   <Card raised>
     <CardHeader
       title="避難情報を常に確認！！"
       titleTypographyProps={{ align: 'center' }}
-      style={{backgroundColor: "#ffff33"}}
+      style={{backgroundColor: theme.palette.warning.main}}
     />
     <CardContent>
       <Typography>
@@ -63,9 +65,9 @@ function getStepContent(step) {
     return (<>
       <Typography style={{color: caution}}>{texts[step].title}</Typography>
       <List component="nav" aria-label="main">
-        {texts[step].items.map(item => {
+        {texts[step].items.map((item,i) => {
           return (
-            <ListItem>
+            <ListItem key={i}>
               <ListItemIcon>
                 <FiberManualRecordIcon/>
               </ListItemIcon>
@@ -79,7 +81,6 @@ function getStepContent(step) {
 }
 
 function CautionStep() {
-  const classes = useStyles();
   const [activeStep, setActiveStep] = React.useState(0);
   const steps = getSteps();
 
@@ -92,7 +93,7 @@ function CautionStep() {
   };
 
   return (
-    <div className={classes.root}>
+    <Box sx={styles.root}>
       <Stepper activeStep={activeStep}>
         {steps.map((label) => {
           const stepProps = {};
@@ -108,15 +109,14 @@ function CautionStep() {
         <div>
           {getStepContent(activeStep)}
           <Grid container justifyContent="flex-start">
-            <Button disabled={activeStep === 0} onClick={handleBack} className={classes.button}>
+            <Button disabled={activeStep === 0} onClick={handleBack} sx={styles.button}>
               戻る
             </Button>
 
             <Button
               variant="contained"
-              color="primary"
               onClick={handleNext}
-              className={classes.button}
+              sx={styles.button}
               disabled={activeStep >= steps.length - 1}
             >
               {activeStep < steps.length - 1 ? "危険度上昇" : "こうなるともう遅い…"}
@@ -124,11 +124,12 @@ function CautionStep() {
           </Grid>
         </div>
       </div>
-    </div>
+    </Box>
   );
 }
 
 function Check() {
+  const theme = useTheme()
   const checks = [
     {
       message: "あなたが住んでいる地区の危険性を確認しよう！",
@@ -141,13 +142,13 @@ function Check() {
     }
   ];
   return (<>
-  {checks.map(check => {
+  {checks.map((check,index) => {
     return (
-      <Card raised>
+      <Card raised key={index}>
         <CardHeader
           title="チェック！"
           titleTypographyProps={{ align: 'center' }}
-          style={{backgroundColor: "#90ee90"}}
+          style={{backgroundColor: theme.palette.success.main}}
         />
         <CardMedia
           component="img"
@@ -165,13 +166,25 @@ function Check() {
   </>);
 }
 
+function WarningLevel(){
+  return(
+    <div>
+      <img 
+        src="/img/pages/P6Mada/warning-levels.png"
+        style={{ maxWidth: "100%", height: "auto" }}
+        alt=""
+      />
+    </div>
+  )
+}
 function Ask() {
+  const theme = useTheme()
   return (
     <Card raised>
       <CardHeader
         title="知ってた？"
         titleTypographyProps={{ align: 'center' }}
-        style={{backgroundColor: "#ffc0cb"}}
+        style={{backgroundColor: theme.palette.tertiary.main}}
       />
       <CardContent>
         <Grid container>
@@ -212,6 +225,7 @@ export default function P3Mada() {
   return (<>
     <Notice/>
     <CautionStep/>
+    <WarningLevel/>
     <br/>
     <Divider/>
     <br/>

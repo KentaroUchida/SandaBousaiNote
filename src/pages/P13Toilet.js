@@ -5,24 +5,23 @@ import {
   Paper,
   Typography,
   CardMedia,
-  makeStyles,
   Grid,
   Link,
-} from "@material-ui/core";
+} from "@mui/material";
 import { ResponsiveFontProvider } from "../components/ResponsiveFontProvider";
 
-const useStyles = makeStyles((theme) => ({
+const styles = {
   card: {
-    margin: theme.spacing(2),
+    margin: 2,
   },
   subtitle: {
-    backgroundColor: "#99cc00",
-    margin: theme.spacing(1),
+    bgcolor: "success.main",
+    margin: 1,
   },
   image: {
-    margin: theme.spacing(1),
+    margin: 1,
   }
-}));
+};
 
 const FlexImage = ({ image }) => {
   return (
@@ -31,11 +30,10 @@ const FlexImage = ({ image }) => {
 };
 
 const Photo = ({ image, texts }) => {
-  const classes = useStyles();
   return (
-    <Card className={classes.card}>
+    <Card sx={styles.card}>
       <CardMedia>
-        <Grid container justify="center">
+        <Grid container justifyContent="center">
           <img
             src={image}
             alt=""
@@ -44,8 +42,8 @@ const Photo = ({ image, texts }) => {
         </Grid>
       </CardMedia>
       <CardContent>
-        {texts.map((text) => (
-          <Typography variant="h6">{text}</Typography>
+        {texts.map((text,i) => (
+          <Typography variant="h6" key={i}>{text}</Typography>
         ))}
       </CardContent>
     </Card>
@@ -53,12 +51,11 @@ const Photo = ({ image, texts }) => {
 };
 
 export const P13Toilet = () => {
-  const classes = useStyles();
   return (
     <ResponsiveFontProvider>
       <Typography variant="h3">いちばん困る！ストレスになる！</Typography>
       <Typography variant="h1">トイレが大変!!</Typography>
-      <FlexImage image="/img/pages/P13Toilet/toilet1.png" className={classes.image}/>
+      <FlexImage image="/img/pages/P13Toilet/toilet1.png" sx={styles.image}/>
       <Typography variant="h6">
         東日本震災が起きてから9時間以内にトイレに行きたくなった人は78%(調査:日本トイレ研究所)。
         でも安易に水を流すのは待って！マンションのトイレの配管は、上下の部屋とつながっていて破損したら使えません！
@@ -90,7 +87,7 @@ export const P13Toilet = () => {
           災害用トイレ製品一覧(日本トイレ研究所)
         </Link>
       </Typography>
-      <Paper elevation={3} className={classes.subtitle}>
+      <Paper elevation={3} sx={styles.subtitle}>
         <Typography variant="h3">緊急用トイレの作り方</Typography>
       </Paper>
       <Photo
