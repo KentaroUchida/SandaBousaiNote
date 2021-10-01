@@ -30,6 +30,7 @@ import P15Bousaikaigi from "./pages/P15Bousaikaigi";
 import { Top } from "./pages/Top";
 import { SwipeNotifier } from "./components/SwipeNotifier";
 import { CustomThemeA } from "./components/Theme";
+import {titles} from "./components/Title";
 
 const paths = [
   "/form",
@@ -69,26 +70,6 @@ const pages = [
   <P14Daijobu />,
   <P15Bousaikaigi />,
   <Home />,
-];
-
-const titles = [
-  "緊急時のわがやの情報",
-  "トップ",
-  "使い方",
-  "グラっと地震が来たら！",
-  "揺れがおさまったら",
-  "ほくせつママ＆パパの体験談",
-  "まだ大丈夫は危険!",
-  "いざ逃げる!",
-  "防災グッズ",
-  "食べ物がない!?",
-  "パパの体験談",
-  "どんな危険が起こる？",
-  "落ちる! 倒れる! 動く!",
-  "トイレが大変!",
-  "私は大丈夫って思ってない?",
-  "家族で防災カイギ",
-  "お知らせ",
 ];
 
 function App() {
