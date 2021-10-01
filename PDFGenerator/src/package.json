@@ -1,12 +1,13 @@
 {
   "name": "pdf_generator",
   "version": "1.0.0",
-  "description": "",
+  "description": "PDF Generator for SandaBousaiNote",
   "main": "app.js",
+  "repository": "https://github.com/KentaroUchida/SandaBousaiNote",
   "author": "machimachida",
-  "license": "",
+  "license": "MIT",
   "dependencies": {
-    "fs": "0.0.1-security",
+    "axios": "^0.21.1",
     "hummus": "^1.0.110"
   },
   "scripts": {

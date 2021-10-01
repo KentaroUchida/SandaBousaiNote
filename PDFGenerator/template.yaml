@@ -2,21 +2,14 @@ AWSTemplateFormatVersion: '2010-09-09'
 Transform: AWS::Serverless-2016-10-31
 Description: >
   PDFGenerator
-
-  Sample SAM Template for PDFGenerator
   
 Globals:
   Function:
-    Timeout: 20
+    Timeout: 60  # sam local invokeなどのローカルでの実行時になぜか約30sかかるため。本番環境では6s程度で動作する
+  Api:
+    OpenApiVersion: 3.0.3 # これを記述しないと、不要な"Stage"ステージが作成される
 
 Resources:
-  PDFGeneratorApi:
-    Type: AWS::Serverless::Api
-    Properties:
-      BinaryMediaTypes:
-        - application/pdf
-      StageName: Prod
-
   PDFGeneratorFunction:
     Type: AWS::Serverless::Function
     Properties:
@@ -27,9 +20,32 @@ Resources:
         GeneratePDF:
           Type: Api
           Properties:
-            Path: /pdf
-            Method: get
+            Path: /create
+            Method: post
+      Policies:
+      - Statement:
+        - Sid: PdfGeneratorS3ObjectPolicy
+          Effect: Allow
+          Action:
+          - s3:PutObject
+          - s3:GetObject
+          Resource: 'arn:aws:s3:::sanda-bousai-note-pdf-generator-temporary-bucket/*'
+      MemorySize: 256
 
+  PdfBucket:
+    Type: AWS::S3::Bucket
+    Properties:
+      BucketName: sanda-bousai-note-pdf-generator-temporary-bucket
+      LifecycleConfiguration:
+        Rules:
+          - Id: PdfGeneratorRule
+            Status: Enabled
+            ExpirationInDays: 1
+      PublicAccessBlockConfiguration:
+        BlockPublicAcls: true
+        BlockPublicPolicy: true
+        IgnorePublicAcls: true
+        RestrictPublicBuckets: true
 
 Outputs:
   PDFGeneratorApi:
@@ -41,3 +57,6 @@ Outputs:
   PDFGeneratorFunctionIamRole:
     Description: "Implicit IAM Role created for PDF Generator function"
     Value: !GetAtt PDFGeneratorFunctionRole.Arn
+  PdfBucket:
+    Description: "PDF S3 Bucket for temporary PDF files"
+    Value: !Ref PdfBucket

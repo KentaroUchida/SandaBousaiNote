@@ -1,11 +1,72 @@
+const AWS = require('aws-sdk');
+const s3 = new AWS.S3({apiVersion: '2006-03-01'});
 const fs = require('fs');
 const hummus = require('hummus');
+const BUCKET_NAME = 'sanda-bousai-note-pdf-generator-temporary-bucket';
+const FONT_TTF_PATH = 'GenShinGothic-P-Normal.ttf';
+const FILE_OUTPUT_PATH = '/tmp/output.pdf';
 
-async function generatePDF(params) {
+exports.lambdaHandler = async (event, context) => {
+  try {
+    // TODO: このあたり、Promiseで囲んでやらないとエラーになる可能性が高い。event.bodyが正しい入力ならエラーは出ないが要修正
+    const body = event.body ? JSON.parse(event.body) : {};
+    // undefinedな値を定義
+    if(body.form === undefined) body.form = {};
+    ['family', 'relatives', 'facilities'].forEach(key => {
+      if(body.form[key] === undefined) body.form[key] = [];
+    });
+    ['home', 'temporary', 'disaster', 'tsunami'].forEach(key => {
+      if(body.form[key] === undefined) body.form[key] = "";
+    });
+    if(body.card === undefined) body.card = {};
+    ['flood', 'sediment', 'earthquake', 'fire'].forEach(key => {
+      if(body.card[key] === undefined) body.card[key] = {};
+    });
+    if(body.goods === undefined) body.goods = {};
+    if(body.foods === undefined) body.foods = {};
+    if(body.checkList === undefined) body.checkList = {};
+
+    await generatePDF(body);
+
+    const fileStream = fs.createReadStream(FILE_OUTPUT_PATH);
+    const uploadParams = {
+      Bucket: BUCKET_NAME,
+      Key: 'output.pdf',
+      Body: fileStream,
+    };
+
+    await (() => new Promise((resolve, reject) => {
+      s3.upload(uploadParams, (err, data) => {
+        if(err) reject(err);
+        else resolve(data);
+      });
+    }))();
+
+    const getUrlParams = {
+      Bucket: BUCKET_NAME,
+      Key: 'output.pdf',
+      Expires: 60,
+    }
+
+    const url = await s3.getSignedUrl('getObject', getUrlParams);
+    return {
+      statusCode: 200,
+      body: url,
+    };
+  } catch (err) {
+    console.log(err);
+    return {
+      statusCode: 400,
+      body: 'Error occured',
+    };
+  }
+};
+
+async function generatePDF(params, res) {
   const pdfWriter = hummus.createWriterToModify('1015_Bousai_A4.pdf', {
-    modifiedFilePath: '/tmp/output.pdf'
+    modifiedFilePath: FILE_OUTPUT_PATH
   });
-  const font = pdfWriter.getFontForFile('GenShinGothic-P-Normal.ttf');
+  const font = pdfWriter.getFontForFile(FONT_TTF_PATH);
 
   // 1ページ目:緊急時のわがやの情報
   let pageModifier = new hummus.PDFPageModifier(pdfWriter,0);
@@ -155,127 +216,7 @@ async function generatePDF(params) {
   if(params.checkList.stove) context.writeText('✓',514,178,checkOptions);
   if(params.checkList.gas) context.writeText('✓',577,178,checkOptions);
   if(params.checkList.toilet) context.writeText('✓',514,168,checkOptions);
-
   pageModifier.endContext().writePage();
+  // pdfWrite.end()の処理に時間がかかる。ローカルのAWS SAMだと20秒かかる。通常のNodeだと1秒以内に終わるのでなんらかのチューニングをおこなえば改善するか。 <- 本番環境だと3秒くらいで終わるので緊急性は低い
   pdfWriter.end();
-}
-
-const event = {
-  params: {
-    form: {
-      family: [
-        { name: '伊藤博文', phone: '000-0000-0000', insurance: '00000000', illness: 'テストデータ' },
-        { name: '伊藤博文', phone: '000-0000-0000', insurance: '00000000', illness: 'テストデータ' },
-        { name: '伊藤博文', phone: '000-0000-0000', insurance: '00000000', illness: 'テストデータ' },
-        { name: '伊藤博文', phone: '000-0000-0000', insurance: '00000000', illness: 'テストデータ' },
-        { name: '伊藤博文', phone: '000-0000-0000', insurance: '00000000', illness: 'テストデータ' },
-      ],
-      relatives: [
-        { name: '伊藤博文', phone: '000-0000-0000' },
-        { name: '伊藤博文', phone: '000-0000-0000' },
-        { name: '伊藤博文', phone: '000-0000-0000' },
-        { name: '伊藤博文', phone: '000-0000-0000' },
-        { name: '伊藤博文', phone: '000-0000-0000' }
-      ],
-      facilities: [
-        { name: '国会議事堂', phone: '000-0000-0000' },
-        { name: '国会議事堂', phone: '000-0000-0000' },
-        { name: '国会議事堂', phone: '000-0000-0000' },
-        { name: '国会議事堂', phone: '000-0000-0000' },
-        { name: '国会議事堂', phone: '000-0000-0000' }
-      ],
-      home: '000-0000-0000',
-      temporary: '下関市テスト会館テスト号室',
-      disaster: '下関市テスト会館テスト号室',
-      tsunami: '下関市テスト会館テスト号室'
-    },
-    card: {
-      flood: { evacuation: 'テストテスト', shelter: 'テストテストテスト' },
-      sediment: { evacuation: 'テストテスト', shelter: 'テストテストテスト' },
-      earthquake: { evacuation: 'テストテスト', shelter: 'テストテストテスト' },
-      fire: { evacuation: 'テストテスト', shelter: 'テストテストテスト' },
-    },
-    goods: {
-      water: true,
-      coin: true,
-      chocolate_and_candy: true,
-      battery: true,
-      handkerchief: true,
-      whistle: true,
-      aid: true,
-      diapers: true,
-      address: true,
-      poli: true,
-      pin: true,
-      picnic_sheet: true,
-      mask: true,
-      dentifrice_sheet: true,
-      socks: true,
-      scissor: true,
-      bandage: true,
-      whistle2: true,
-      wrap: true,
-      toilet: true,
-      tape: true,
-      pillow: true,
-      glasses: true,
-      wet_tissue: true,
-      light: true,
-      for_children: true,
-      essential_oil: true,
-    },
-    foods: {
-      water: true,
-      can: true,
-      soup: true,
-      dryfood: true,
-      stove: true,
-      poli: true,
-    },
-    checkList: {
-      earthquake: 'テストテストテストテスト',
-      flood: 'テストテストテストテスト',
-      place: 'テストテストテストテスト',
-      fixFurniture: true,
-      glass: true,
-      storage: true,
-      arrangeFurniture: true,
-      meal: true,
-      water: true,
-      stove: true,
-      gas: true,
-      toilet: true,
-    },
-  },
-}
-
-exports.lambdaHandler = async (event) => {
-  const params = event.params ? event.params : {};
-  // undefinedな値を定義
-  if(params.form === undefined) params.form = {};
-  ['family', 'relatives', 'facilities'].forEach(key => {
-    if(params.form[key] === undefined) params.form[key] = [];
-  });
-  ['home', 'temporary', 'disaster', 'tsunami'].forEach(key => {
-    if(params.form[key] === undefined) params.form[key] = "";
-  });
-  if(params.card === undefined) params.card = {};
-  ['flood', 'sediment', 'earthquake', 'fire'].forEach(key => {
-    if(params.card[key] === undefined) params.card[key] = {};
-  });
-  if(params.goods === undefined) params.goods = {};
-  if(params.foods === undefined) params.foods = {};
-  if(params.checkList === undefined) params.checkList = {};
-
-  await generatePDF(params);
-
-  const contents = fs.readFileSync('/tmp/output.pdf', {encoding: 'base64'});
-  return {
-    'statusCode': 200,
-    'headers': {
-      'Content-Type': 'application/pdf'
-    },
-    'body': contents,
-    'isBase64Encoded': true
-  };
 }
