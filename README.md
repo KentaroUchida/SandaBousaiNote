@@ -6,12 +6,12 @@
 
 | Key | Value | File |
 | - | - | - |
-| familyCounter | (int) | Dialog.js |
-| family+(int) | (object) | Dialog.js |
-| relativeCounter | (int) | Dialog.js |
-| relative+(int) | (object) | Dialog.js |
-| facilityCounter | (int) | Dialog.js |
-| facility+(int) | (object) | Dialog.js |
+| familyCounter | 使っていなさそう(int) | Dialog.js |
+| family+(int) | 使っていなさそう(object) | Dialog.js |
+| relativeCounter | 使っていなさそう(int) | Dialog.js |
+| relative+(int) | 使っていなさそう(object) | Dialog.js |
+| facilityCounter | 使っていなさそう(int) | Dialog.js |
+| facility+(int) | 使っていなさそう(object) | Dialog.js |
 | familyList | 家族の一覧(array) | P0Form.js |
 | relativeList | 親戚の一覧(array) | P0Form.js |
 | facilityList | 施設の一覧(array) | P0Form.js |

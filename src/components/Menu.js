@@ -162,6 +162,101 @@ export default function ResponsiveDrawer(props) {
   const container =
     window !== undefined ? () => window().document.body : undefined;
 
+  const downloadPDF = async () => {
+    const body = {
+      form: {
+        family: [],
+        relatives: [],
+        facilities: [],
+        home: '',
+        temporary: '',
+        disaster: '',
+        tsunami: '',
+      },
+      card: {
+        flood:      {evacuation: '', shelter: ''},
+        sediment:   {evacuation: '', shelter: ''},
+        earthquake: {evacuation: '', shelter: ''},
+        fire:       {evacuation: '', shelter: ''}
+      },
+      goods: {
+        water: false,
+        coin: false,
+        chocolate_and_candy: false,
+        battery: false,
+        handkerchief: false,
+        whistle: false,
+        aid: false,
+        diapers: false,
+        address: false,
+        poli: false,
+        pin: false,
+        picnic_sheet: false,
+        mask: false,
+        dentifrice_sheet: false,
+        socks: false,
+        scissor: false,
+        bandage: false,
+        whistle2: false,
+        wrap: false,
+        toilet: false,
+        tape: false,
+        pillow: false,
+        glasses: false,
+        wet_tissue: false,
+        light: false,
+        for_children: false,
+        essential_oil: false,
+      },
+      foods: {
+        water: false,
+        can: false,
+        soup: false,
+        dryfood: false,
+        stove: false,
+        poli: false,
+      },
+      checkList: {
+        earthquake: '',
+        flood: '',
+        place: '',
+        fixFurniture: false,
+        glass: false,
+        storage: false,
+        arrangeFurniture: false,
+        meal: false,
+        water: false,
+        stove: false,
+        gas: false,
+        toilet: false,
+      },
+    };
+    await (() => new Promise((resolve, reject) => {
+      try {
+        const faml = localStorage.getItem('familyList');
+        if(faml) body.form.family = JSON.parse(faml);
+        const rl = localStorage.getItem('relativeList');
+        if(rl) body.form.family = JSON.parse(rl);
+        const facl = localStorage.getItem('facilityList');
+        if(facl) body.form.family = JSON.parse(facl);
+        const home = localStorage.getItem('phone');
+        if(home) body.form.home = home;
+        const temporary = localStorage.getItem('ichiji');
+        if(temporary) body.form.temporary = temporary;
+        const disaster = localStorage.getItem('saigai');
+        if(disaster) body.form.disaster = disaster;
+        const tsunami = localStorage.getItem('tsunami');
+        if(tsunami) body.form.tsunami = tsunami;
+
+        // TODONOW
+        ['suigai', 'dosya', 'jishin', 'kasai'].forEach(key => {
+        });
+      } catch(err) {
+        reject(err);
+      }
+    }));
+  };
+
   return (
     <Box sx={styles.root}>
       <CssBaseline />
