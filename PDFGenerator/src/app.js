@@ -29,9 +29,10 @@ exports.lambdaHandler = async (event, context) => {
     await generatePDF(body);
 
     const fileStream = fs.createReadStream(FILE_OUTPUT_PATH);
+    const key = Math.random().toString(32).substring(2) + ".pdf";
     const uploadParams = {
       Bucket: BUCKET_NAME,
-      Key: 'output.pdf',
+      Key: key,
       Body: fileStream,
     };
 
@@ -44,19 +45,27 @@ exports.lambdaHandler = async (event, context) => {
 
     const getUrlParams = {
       Bucket: BUCKET_NAME,
-      Key: 'output.pdf',
+      Key: key,
       Expires: 60,
-    }
+    };
 
     const url = await s3.getSignedUrl('getObject', getUrlParams);
     return {
       statusCode: 200,
+      headers: {
+        'Access-Control-Allow-Origin': '*',
+        'Access-Control-Allow-Headers': '*',
+      },
       body: url,
     };
   } catch (err) {
     console.log(err);
     return {
       statusCode: 400,
+      headers: {
+        'Access-Control-Allow-Origin': '*',
+        'Access-Control-Allow-Headers': '*',
+      },
       body: 'Error occured',
     };
   }
@@ -82,7 +91,7 @@ async function generatePDF(params, res) {
     colorspace:'gray',
     color:0x00
   };
-  let context = pageModifier.startContext().getContext()
+  let context = pageModifier.startContext().getContext();
 
   params.form.family.slice(0,5).forEach((el,i) => { // 5人までしか書き込めない
     if(el.name) context.writeText(el.name,59,466-i*17,options);
@@ -115,8 +124,8 @@ async function generatePDF(params, res) {
     size:6,
     colorspace:'gray',
     color:0x00
-  }
-  context = pageModifier.startContext().getContext()
+  };
+  context = pageModifier.startContext().getContext();
   const disasters = ['flood', 'sediment', 'earthquake', 'fire'];
   disasters.forEach((name,i) => {
     if(params.card[name].evacuation) context.writeText(params.card[name].evacuation,645,143-i*11,cardOptions);
@@ -132,8 +141,8 @@ async function generatePDF(params, res) {
     size:14,
     colorspace:'rgb',
     color:0xdd1111
-  }
-  context = pageModifier.startContext().getContext()
+  };
+  context = pageModifier.startContext().getContext();
   if(params.goods.water) context.writeText('✓',50,373,checkOptions);
   if(params.goods.coin) context.writeText('✓',119,373,checkOptions);
   if(params.goods.chocolate_and_candy) context.writeText('✓',180,373,checkOptions);
@@ -182,8 +191,8 @@ async function generatePDF(params, res) {
     size:8,
     colorspace:'gray',
     color:0x00
-  }
-  context = pageModifier.startContext().getContext()
+  };
+  context = pageModifier.startContext().getContext();
   if(params.checkList.earthquake) {
     context.writeText('✓',515,301,checkOptions);
     context.writeText(params.checkList.earthquake,570,302,checkListOptions);

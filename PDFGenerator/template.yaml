@@ -7,6 +7,10 @@ Globals:
   Function:
     Timeout: 60  # sam local invokeなどのローカルでの実行時になぜか約30sかかるため。本番環境では6s程度で動作する
   Api:
+    Cors:
+      AllowMethods: "'POST'"
+      AllowHeaders: "'*'"
+      AllowOrigin: "'*'"
     OpenApiVersion: 3.0.3 # これを記述しないと、不要な"Stage"ステージが作成される
 
 Resources:
@@ -36,6 +40,14 @@ Resources:
     Type: AWS::S3::Bucket
     Properties:
       BucketName: sanda-bousai-note-pdf-generator-temporary-bucket
+      CorsConfiguration:
+        CorsRules:
+        - AllowedHeaders:
+            - '*'
+          AllowedMethods:
+            - GET
+          AllowedOrigins:
+            - '*'
       LifecycleConfiguration:
         Rules:
           - Id: PdfGeneratorRule
@@ -50,7 +62,7 @@ Resources:
 Outputs:
   PDFGeneratorApi:
     Description: "API Gateway endpoint URL for Prod stage for PDF Generator Function"
-    Value: !Sub "https://${ServerlessRestApi}.execute-api.${AWS::Region}.amazonaws.com/Prod/pdf/"
+    Value: !Sub "https://${ServerlessRestApi}.execute-api.${AWS::Region}.amazonaws.com/Prod/"
   PDFGeneratorFunction:
     Description: "PDF Generator Lambda Function ARN"
     Value: !GetAtt PDFGeneratorFunction.Arn
