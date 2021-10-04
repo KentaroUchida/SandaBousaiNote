@@ -1,0 +1,146 @@
+{
+  "body": "{\"form\": {\"family\": [{ \"name\": \"テスト太郎\", \"phone\": \"000-0000-0000\", \"insurance\": \"00000000\", \"illness\": \"テストデータ\" },{ \"name\": \"テスト太郎\", \"phone\": \"000-0000-0000\", \"insurance\": \"00000000\", \"illness\": \"テストデータ\" }],\"relatives\": [{ \"name\": \"テスト太郎\", \"phone\": \"000-0000-0000\" },{ \"name\": \"テスト太郎\", \"phone\": \"000-0000-0000\" },{ \"name\": \"テスト太郎\", \"phone\": \"000-0000-0000\" },{ \"name\": \"テスト太郎\", \"phone\": \"000-0000-0000\" },{ \"name\": \"テスト太郎\", \"phone\": \"000-0000-0000\" }],\"facilities\": [{ \"name\": \"テスト会館\", \"phone\": \"000-0000-0000\" },{ \"name\": \"テスト会館\", \"phone\": \"000-0000-0000\" },{ \"name\": \"テスト会館\", \"phone\": \"000-0000-0000\" },{ \"name\": \"テスト会館\", \"phone\": \"000-0000-0000\" },{ \"name\": \"テスト会館\", \"phone\": \"000-0000-0000\" }],\"home\": \"000-0000-0000\",\"temporary\": \"三田市テスト会館テスト号室\",\"disaster\": \"三田市テスト会館テスト号室\",\"tsunami\": \"三田市テスト会館テスト号室\"},\"card\": {\"flood\": { \"evacuation\": \"テストテスト\", \"shelter\": \"テストテストテスト\" },\"sediment\": { \"evacuation\": \"テストテスト\", \"shelter\": \"テストテストテスト\" },\"earthquake\": { \"evacuation\": \"テストテスト\", \"shelter\": \"テストテストテスト\" },\"fire\": { \"evacuation\": \"テストテスト\", \"shelter\": \"テストテストテスト\" }},\"goods\": {\"water\": true,\"coin\": true,\"chocolate_and_candy\": true,\"battery\": true,\"handkerchief\": true,\"whistle\": true,\"aid\": true,\"diapers\": true,\"address\": true,\"poli\": true,\"pin\": true,\"picnic_sheet\": true,\"mask\": true,\"dentifrice_sheet\": true,\"socks\": true,\"scissor\": true,\"bandage\": true,\"whistle2\": true,\"wrap\": true,\"toilet\": true,\"tape\": true,\"pillow\": true,\"glasses\": true,\"wet_tissue\": true,\"light\": true,\"for_children\": true,\"essential_oil\": true},\"foods\": {\"water\": true,\"can\": true,\"soup\": true,\"dryfood\": true,\"stove\": true,\"poli\": true},\"checkList\": {\"earthquake\": \"テストテストテストテスト\",\"flood\": \"テストテストテストテスト\",\"place\": \"テストテストテストテスト\",\"fixFurniture\": true,\"glass\": true,\"storage\": true,\"arrangeFurniture\": true,\"meal\": true,\"water\": true,\"stove\": true,\"gas\": true,\"toilet\": true}}",
+  "_parsedBody": {
+    "_comment": "_parsedBodyはコメントの代わりです。本当のBodyはstringですが、可読性が低いので同じ内容を_parsedBodyとしてobject形式で置いています。Lambdaで利用しないでください。",
+    "form": {
+      "family": [
+        { "name": "テスト太郎", "phone": "000-0000-0000", "insurance": "00000000", "illness": "テストデータ" },
+        { "name": "テスト太郎", "phone": "000-0000-0000", "insurance": "00000000", "illness": "テストデータ" }
+      ],
+      "relatives": [
+        { "name": "テスト太郎", "phone": "000-0000-0000" },
+        { "name": "テスト太郎", "phone": "000-0000-0000" },
+        { "name": "テスト太郎", "phone": "000-0000-0000" },
+        { "name": "テスト太郎", "phone": "000-0000-0000" },
+        { "name": "テスト太郎", "phone": "000-0000-0000" }
+      ],
+      "facilities": [
+        { "name": "テスト会館", "phone": "000-0000-0000" },
+        { "name": "テスト会館", "phone": "000-0000-0000" },
+        { "name": "テスト会館", "phone": "000-0000-0000" },
+        { "name": "テスト会館", "phone": "000-0000-0000" },
+        { "name": "テスト会館", "phone": "000-0000-0000" }
+      ],
+      "home": "000-0000-0000",
+      "temporary": "三田市テスト会館テスト号室",
+      "disaster": "三田市テスト会館テスト号室",
+      "tsunami": "三田市テスト会館テスト号室"
+    },
+    "card": {
+      "flood":      { "evacuation": "テストテスト", "shelter": "テストテストテスト" },
+      "sediment":   { "evacuation": "テストテスト", "shelter": "テストテストテスト" },
+      "earthquake": { "evacuation": "テストテスト", "shelter": "テストテストテスト" },
+      "fire":       { "evacuation": "テストテスト", "shelter": "テストテストテスト" }
+    },
+    "goods": {
+      "water": true,
+      "coin": true,
+      "chocolate_and_candy": true,
+      "battery": true,
+      "handkerchief": true,
+      "whistle": true,
+      "aid": true,
+      "diapers": true,
+      "address": true,
+      "poli": true,
+      "pin": true,
+      "picnic_sheet": true,
+      "mask": true,
+      "dentifrice_sheet": true,
+      "socks": true,
+      "scissor": true,
+      "bandage": true,
+      "whistle2": true,
+      "wrap": true,
+      "toilet": true,
+      "tape": true,
+      "pillow": true,
+      "glasses": true,
+      "wet_tissue": true,
+      "light": true,
+      "for_children": true,
+      "essential_oil": true
+    },
+    "foods": {
+      "water": true,
+      "can": true,
+      "soup": true,
+      "dryfood": true,
+      "stove": true,
+      "poli": true
+    },
+    "checkList": {
+      "earthquake": "テストテストテストテスト",
+      "flood": "テストテストテストテスト",
+      "place": "テストテストテストテスト",
+      "fixFurniture": true,
+      "glass": true,
+      "storage": true,
+      "arrangeFurniture": true,
+      "meal": true,
+      "water": true,
+      "stove": true,
+      "gas": true,
+      "toilet": true
+    }
+  },
+  "resource": "/{proxy+}",
+  "path": "/path/to/resource",
+  "httpMethod": "POST",
+  "isBase64Encoded": false,
+  "queryStringParameters": {
+    "foo": "bar"
+  },
+  "pathParameters": {
+    "proxy": "/path/to/resource"
+  },
+  "stageVariables": {
+    "baz": "qux"
+  },
+  "headers": {
+    "Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8",
+    "Accept-Encoding": "gzip, deflate, sdch",
+    "Accept-Language": "en-US,en;q=0.8",
+    "Cache-Control": "max-age=0",
+    "CloudFront-Forwarded-Proto": "https",
+    "CloudFront-Is-Desktop-Viewer": "true",
+    "CloudFront-Is-Mobile-Viewer": "false",
+    "CloudFront-Is-SmartTV-Viewer": "false",
+    "CloudFront-Is-Tablet-Viewer": "false",
+    "CloudFront-Viewer-Country": "US",
+    "Host": "1234567890.execute-api.us-east-1.amazonaws.com",
+    "Upgrade-Insecure-Requests": "1",
+    "User-Agent": "Custom User Agent String",
+    "Via": "1.1 08f323deadbeefa7af34d5feb414ce27.cloudfront.net (CloudFront)",
+    "X-Amz-Cf-Id": "cDehVQoZnx43VYQb9j2-nvCh-9z396Uhbp027Y2JvkCPNLmGJHqlaA==",
+    "X-Forwarded-For": "127.0.0.1, 127.0.0.2",
+    "X-Forwarded-Port": "443",
+    "X-Forwarded-Proto": "https"
+  },
+  "requestContext": {
+    "accountId": "123456789012",
+    "resourceId": "123456",
+    "stage": "prod",
+    "requestId": "c6af9ac6-7b61-11e6-9a41-93e8deadbeef",
+    "requestTime": "09/Apr/2015:12:34:56 +0000",
+    "requestTimeEpoch": 1428582896000,
+    "identity": {
+      "cognitoIdentityPoolId": null,
+      "accountId": null,
+      "cognitoIdentityId": null,
+      "caller": null,
+      "accessKey": null,
+      "sourceIp": "127.0.0.1",
+      "cognitoAuthenticationType": null,
+      "cognitoAuthenticationProvider": null,
+      "userArn": null,
+      "userAgent": "Custom User Agent String",
+      "user": null
+    },
+    "path": "/prod/path/to/resource",
+    "resourcePath": "/{proxy+}",
+    "httpMethod": "POST",
+    "apiId": "1234567890",
+    "protocol": "HTTP/1.1"
+  }
+}

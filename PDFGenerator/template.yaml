@@ -1,0 +1,74 @@
+AWSTemplateFormatVersion: '2010-09-09'
+Transform: AWS::Serverless-2016-10-31
+Description: >
+  PDFGenerator
+  
+Globals:
+  Function:
+    Timeout: 60  # sam local invokeなどのローカルでの実行時になぜか約30sかかるため。本番環境では6s程度で動作する
+  Api:
+    Cors:
+      AllowMethods: "'POST'"
+      AllowHeaders: "'*'"
+      AllowOrigin: "'*'"
+    OpenApiVersion: 3.0.3 # これを記述しないと、不要な"Stage"ステージが作成される
+
+Resources:
+  PDFGeneratorFunction:
+    Type: AWS::Serverless::Function
+    Properties:
+      CodeUri: src/
+      Handler: app.lambdaHandler
+      Runtime: nodejs14.x
+      Events:
+        GeneratePDF:
+          Type: Api
+          Properties:
+            Path: /create
+            Method: post
+      Policies:
+      - Statement:
+        - Sid: PdfGeneratorS3ObjectPolicy
+          Effect: Allow
+          Action:
+          - s3:PutObject
+          - s3:GetObject
+          Resource: 'arn:aws:s3:::sanda-bousai-note-pdf-generator-temporary-bucket/*'
+      MemorySize: 256
+
+  PdfBucket:
+    Type: AWS::S3::Bucket
+    Properties:
+      BucketName: sanda-bousai-note-pdf-generator-temporary-bucket
+      CorsConfiguration:
+        CorsRules:
+        - AllowedHeaders:
+            - '*'
+          AllowedMethods:
+            - GET
+          AllowedOrigins:
+            - '*'
+      LifecycleConfiguration:
+        Rules:
+          - Id: PdfGeneratorRule
+            Status: Enabled
+            ExpirationInDays: 1
+      PublicAccessBlockConfiguration:
+        BlockPublicAcls: true
+        BlockPublicPolicy: true
+        IgnorePublicAcls: true
+        RestrictPublicBuckets: true
+
+Outputs:
+  PDFGeneratorApi:
+    Description: "API Gateway endpoint URL for Prod stage for PDF Generator Function"
+    Value: !Sub "https://${ServerlessRestApi}.execute-api.${AWS::Region}.amazonaws.com/Prod/"
+  PDFGeneratorFunction:
+    Description: "PDF Generator Lambda Function ARN"
+    Value: !GetAtt PDFGeneratorFunction.Arn
+  PDFGeneratorFunctionIamRole:
+    Description: "Implicit IAM Role created for PDF Generator function"
+    Value: !GetAtt PDFGeneratorFunctionRole.Arn
+  PdfBucket:
+    Description: "PDF S3 Bucket for temporary PDF files"
+    Value: !Ref PdfBucket
