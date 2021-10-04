@@ -22,6 +22,7 @@ import { Link } from "react-router-dom";
 import Grid from "@mui/material/Grid";
 import { Button } from "@mui/material";
 import Box from "@mui/material/Box";
+import axios from "axios";
 
 const drawerWidth = 350;
 
@@ -147,7 +148,6 @@ export default function ResponsiveDrawer(props) {
               button
               selected={selectedIndex === index}
               onClick={(event) => handleListItemClick(event, index)}
-              handleDrawerClose
             >
               <ListItemIcon>{icons[index]}</ListItemIcon>
               <ListItemText primary={text} />
@@ -231,7 +231,8 @@ export default function ResponsiveDrawer(props) {
         toilet: false,
       },
     };
-    await (() => new Promise((resolve, reject) => {
+    // コードが汚い
+    const data = await (() => new Promise((resolve, reject) => {
       try {
         const faml = localStorage.getItem('familyList');
         if(faml) body.form.family = JSON.parse(faml);
@@ -248,13 +249,74 @@ export default function ResponsiveDrawer(props) {
         const tsunami = localStorage.getItem('tsunami');
         if(tsunami) body.form.tsunami = tsunami;
 
-        // TODONOW
-        ['suigai', 'dosya', 'jishin', 'kasai'].forEach(key => {
+        const floodE = localStorage.getItem('suigai1');
+        if(floodE) body.card.flood.evacuation = floodE;
+        const floodS = localStorage.getItem('suigai2');
+        if(floodS) body.card.flood.shelter = floodS;
+        const sedimentE = localStorage.getItem('dosha1');
+        if(sedimentE) body.card.sediment.evacuation = sedimentE;
+        const sedimentS = localStorage.getItem('dosha2');
+        if(sedimentS) body.card.sediment.shelter = sedimentS;
+        const earthquakeE = localStorage.getItem('jishin1');
+        if(earthquakeE) body.card.earthquake.evacuation = earthquakeE;
+        const earthquakeS = localStorage.getItem('jishin2');
+        if(earthquakeS) body.card.earthquake.shelter = earthquakeS;
+        const fireE = localStorage.getItem('kasai1');
+        if(fireE) body.card.fire.evacuation = fireE;
+        const fireS = localStorage.getItem('kasai2');
+        if(fireS) body.card.fire.shelter = fireS;
+
+        const clm = localStorage.getItem('checkListMore');
+        if(clm) Object.assign(body.goods, JSON.parse(clm));
+        const clh = localStorage.getItem('checkListHyakkin');
+        if(clh) {
+          const tmp = JSON.parse(clh);
+          if(tmp.whistle) body.goods.whistle2 = true;
+          Object.assign(body.goods, tmp);
+        }
+        const cln = localStorage.getItem('checkListNormally');
+        if(cln) Object.assign(body.goods, JSON.parse(cln));
+
+        const fl = localStorage.getItem('foodList');
+        if(fl) Object.assign(body.foods, JSON.parse(fl));
+
+        const cleq = localStorage.getItem('P15Earthquake');
+        if(cleq) body.checkList.earthquake = cleq;
+        const clfl = localStorage.getItem('P15Flood');
+        if(clfl) body.checkList.flood = clfl;
+        const clpl = localStorage.getItem('P15Place');
+        if(clpl) body.checkList.place = clpl;
+        const clhm = localStorage.getItem('P15Home');
+        if(clhm) Object.assign(body.checkList, JSON.parse(clhm));
+        const clst = localStorage.getItem('P15Stock');
+        if(clst) Object.assign(body.checkList, JSON.parse(clst));
+        console.log(body);
+        axios.post('https://mfdxebawsi.execute-api.us-east-1.amazonaws.com/Prod/create', body).then(res => {
+          console.log(res.data);
+          axios.get(res.data, {
+            responseType: 'blob',
+            dataType: 'binary',
+          }).then(res => {
+            console.log(res);
+            resolve(res.data);
+          });
+        }).catch(err => {
+          console.log(err);
         });
       } catch(err) {
         reject(err);
       }
-    }));
+    }))();
+
+    const url = URL.createObjectURL(new Blob([data]));
+    const link = document.createElement('a');
+    link.href = url;
+    link.setAttribute(
+        'download',
+        'bousai_note.pdf'
+    );
+    document.body.appendChild(link);
+    link.click();
   };
 
   return (
@@ -285,7 +347,7 @@ export default function ResponsiveDrawer(props) {
             <IconButton
               color="inherit"
               edge="end"
-              // onClick={handleDrawerOpen}
+              onClick={downloadPDF}
             >
               <PrintIcon />
             </IconButton>
