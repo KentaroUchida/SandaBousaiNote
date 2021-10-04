@@ -13,12 +13,8 @@ const styles = {
     my: 2,
   },
   cardTitle: {
-    bgcolor: "tertiary.main",
     my: 1,
     p: 1,
-  },
-  cardHeader: {
-    bgcolor: "success.main",
   },
   image: {
     maxWidth: "100%",
@@ -32,17 +28,21 @@ export const ImageCardPart = ({ image }) => (
   <CardMedia component="img" image={image} alt="" sx={styles.image} />
 );
 
-export const TitleCardPart = ({ title }) => (
-  <Paper elevation={3} sx={styles.cardTitle}>
-    <Typography variant="h5">{title}</Typography>
+export const TitleCardPart = ({ title, color = "tertiary.main", variant="h5" }) => (
+  <Paper elevation={3} sx={{...styles.cardTitle, bgcolor: color}}>
+    <Typography variant={variant}>{title}</Typography>
   </Paper>
 );
 
-export const HeaderCardPart = ({ title }) => (
+export const TextCardPart = ({text, variant="h6"}) => (
+  <Typography variant={variant}>{text}</Typography>
+)
+
+export const HeaderCardPart = ({ title, color = "success.main" }) => (
   <CardHeader
     title={title}
     titleTypographyProps={{ align: "center" }}
-    sx={styles.cardHeader}
+    sx={{bgcolor: color}}
   />
 );
 
@@ -58,17 +58,19 @@ export const ImageTextCard = ({ image, text }) => {
   return (
     <CardBase>
       <ImageCardPart image={image} />
-      <CardContent>{text}</CardContent>
+      <CardContent>
+        <TextCardPart text={text}/>
+      </CardContent>
     </CardBase>
   );
 };
 
-export const TitleTextImageCard = ({ title, text, image }) => {
+export const TitleTextImageCard = ({ title, text, image, color="tertiary.main" }) => {
   return (
     <CardBase>
       <CardContent>
-        <TitleCardPart title={title} />
-        {text}
+        <TitleCardPart title={title} color={color} />
+        <TextCardPart text={text}/>
       </CardContent>
       <ImageCardPart image={image} />
     </CardBase>
