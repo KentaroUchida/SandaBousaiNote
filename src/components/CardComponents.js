@@ -4,8 +4,11 @@ import {
   CardContent,
   CardHeader,
   Paper,
-  Typography,
 } from "@mui/material";
+
+import {
+  BodyText, CardTitle
+} from "./TitleComponents"
 
 const styles = {
   card: {
@@ -13,7 +16,7 @@ const styles = {
     my: 2,
   },
   cardTitle: {
-    my: 1,
+    mb: 2,
     p: 1,
   },
   image: {
@@ -22,29 +25,35 @@ const styles = {
   },
 };
 
-const CardBase = ({ children }) => <Card sx={styles.card}>{children}</Card>;
+// カードの部品
+
+export const CardBase = ({ children }) => (
+  <Card sx={styles.card}>{children}</Card>
+);
 
 export const ImageCardPart = ({ image }) => (
   <CardMedia component="img" image={image} alt="" sx={styles.image} />
 );
 
-export const TitleCardPart = ({ title, color = "tertiary.main", variant="h5" }) => (
-  <Paper elevation={3} sx={{...styles.cardTitle, bgcolor: color}}>
-    <Typography variant={variant}>{title}</Typography>
+export const TitleCardPart = ({
+  title,
+  color = "tertiary.main",
+  variant = "h5",
+}) => (
+  <Paper elevation={3} sx={{ ...styles.cardTitle, bgcolor: color }}>
+    <CardTitle variant={variant}>{title}</CardTitle>
   </Paper>
 );
-
-export const TextCardPart = ({text, variant="h6"}) => (
-  <Typography variant={variant}>{text}</Typography>
-)
 
 export const HeaderCardPart = ({ title, color = "success.main" }) => (
   <CardHeader
     title={title}
     titleTypographyProps={{ align: "center" }}
-    sx={{bgcolor: color}}
+    sx={{ bgcolor: color }}
   />
 );
+
+// 組み合わせ例
 
 export const ImageCard = ({ image }) => {
   return (
@@ -54,23 +63,28 @@ export const ImageCard = ({ image }) => {
   );
 };
 
-export const ImageTextCard = ({ image, text }) => {
+export const ImageTextCard = ({ image, children }) => {
   return (
     <CardBase>
       <ImageCardPart image={image} />
       <CardContent>
-        <TextCardPart text={text}/>
+        <BodyText>{children}</BodyText>
       </CardContent>
     </CardBase>
   );
 };
 
-export const TitleTextImageCard = ({ title, text, image, color="tertiary.main" }) => {
+export const TitleTextImageCard = ({
+  title,
+  image,
+  color = "tertiary.main",
+  children,
+}) => {
   return (
     <CardBase>
       <CardContent>
         <TitleCardPart title={title} color={color} />
-        <TextCardPart text={text}/>
+        <BodyText>{children}</BodyText>
       </CardContent>
       <ImageCardPart image={image} />
     </CardBase>

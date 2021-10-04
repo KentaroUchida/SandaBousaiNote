@@ -1,13 +1,10 @@
 import React from "react";
 import {
-  Typography,
-} from "@mui/material";
-import { ResponsiveFontProvider } from "../components/ResponsiveFontProvider";
-import {
   ImageCard,
   ImageTextCard,
   TitleTextImageCard,
-} from "../components/CardContents";
+} from "../components/CardComponents";
+import { SubTitle } from "../components/TitleComponents";
 
 const taikenTitles = [
   "つながりの大事さを実感！",
@@ -58,21 +55,22 @@ export const P5Taiken = () => {
   return (
     <>
       <ImageCard image="img/pages/Taiken/title.png" />
-      <ResponsiveFontProvider>
-        <Typography variant="h3">
-          大阪北部地震・台風21号を体験してほくせつママ&amp;パパの声をご紹介します。
-        </Typography>
-      </ResponsiveFontProvider>
+      <SubTitle>
+        大阪北部地震・台風21号を体験してほくせつママ&amp;パパの声をご紹介します。
+      </SubTitle>
       {taikenTitles.map((_, i) => (
         <TitleTextImageCard
           title={taikenTitles[i]}
-          text={taikenTexts[i]}
           image={taikenImages[i]}
           key={i}
-        />
+        >
+          {taikenTexts[i]}
+        </TitleTextImageCard>
       ))}
       {photoImages.map((_, i) => (
-        <ImageTextCard image={photoImages[i]} text={photoTexts[i]} key={i} />
+        <ImageTextCard image={photoImages[i]} key={i}>
+          {photoTexts[i]}
+        </ImageTextCard>
       ))}
     </>
   );
