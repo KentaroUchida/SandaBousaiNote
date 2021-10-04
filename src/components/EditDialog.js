@@ -8,8 +8,8 @@ import {
   DialogContentText,
   DialogTitle,
   IconButton,
-} from "@material-ui/core";
-import { Edit as EditIcon } from "@material-ui/icons";
+} from "@mui/material";
+import { Edit as EditIcon } from "@mui/icons-material";
 
 const categoryTextList = {
   family: "家族",
@@ -68,6 +68,7 @@ const FormEditDialog = ({ category, edit, remove, defaultMember }) => {
         defaultValue={defaultValue}
         fullWidth
         required={required}
+        variant="standard"
         onChange={handleMemberUpdate}
       />
     );
@@ -181,13 +182,13 @@ const FormEditDialog = ({ category, edit, remove, defaultMember }) => {
           {textFieldList[category]}
         </DialogContent>
         <DialogActions>
-          <Button onClick={handleClose} color="primary">
+          <Button onClick={handleClose}>
             キャンセル
           </Button>
           <Button onClick={handleSwitchConfirmDialog} color="secondary">
             削除
           </Button>
-          <Button onClick={handleEdit} color="primary">
+          <Button onClick={handleEdit}>
             更新
           </Button>
         </DialogActions>
@@ -204,7 +205,6 @@ const FormEditDialog = ({ category, edit, remove, defaultMember }) => {
           <Button
             onClick={handleDeleteConfirmClose}
             variant="contained"
-            color="primary"
           >
             キャンセル
           </Button>

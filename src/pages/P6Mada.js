@@ -1,31 +1,31 @@
 import React from 'react';
-import makeStyles from '@material-ui/core/styles/makeStyles';
-import Button from '@material-ui/core/Button';
-import Card from '@material-ui/core/Card';
-import CardContent from '@material-ui/core/CardContent';
-import CardHeader from '@material-ui/core/CardHeader';
-import CardMedia from '@material-ui/core/CardMedia';
-import Divider from '@material-ui/core/Divider';
-import Grid from '@material-ui/core/Grid';
-import List from '@material-ui/core/List';
-import ListItem from '@material-ui/core/ListItem';
-import ListItemIcon from '@material-ui/core/ListItemIcon';
-import ListItemText from '@material-ui/core/ListItemText';
-import Stepper from '@material-ui/core/Stepper';
-import Step from '@material-ui/core/Step';
-import StepLabel from '@material-ui/core/StepLabel';
-import Typography from '@material-ui/core/Typography';
-import FiberManualRecordIcon from '@material-ui/icons/FiberManualRecord';
-import {useTheme} from "@material-ui/core"
+import Button from '@mui/material/Button';
+import Card from '@mui/material/Card';
+import CardContent from '@mui/material/CardContent';
+import CardHeader from '@mui/material/CardHeader';
+import CardMedia from '@mui/material/CardMedia';
+import Divider from '@mui/material/Divider';
+import Grid from '@mui/material/Grid';
+import List from '@mui/material/List';
+import ListItem from '@mui/material/ListItem';
+import ListItemIcon from '@mui/material/ListItemIcon';
+import ListItemText from '@mui/material/ListItemText';
+import Stepper from '@mui/material/Stepper';
+import Step from '@mui/material/Step';
+import StepLabel from '@mui/material/StepLabel';
+import Typography from '@mui/material/Typography';
+import {Box} from "@mui/material"
+import FiberManualRecordIcon from '@mui/icons-material/FiberManualRecord';
+import {useTheme} from "@mui/material/styles"
 
-const useStyles = makeStyles((theme) => ({
+const styles = {
   root: {
     width: '100%',
   },
   button: {
-    marginRight: theme.spacing(1),
+    marginRight: 1,
   },
-}));
+};
 
 function Notice() {
   const theme = useTheme()
@@ -81,7 +81,6 @@ function getStepContent(step) {
 }
 
 function CautionStep() {
-  const classes = useStyles();
   const [activeStep, setActiveStep] = React.useState(0);
   const steps = getSteps();
 
@@ -94,7 +93,7 @@ function CautionStep() {
   };
 
   return (
-    <div className={classes.root}>
+    <Box sx={styles.root}>
       <Stepper activeStep={activeStep}>
         {steps.map((label) => {
           const stepProps = {};
@@ -110,15 +109,14 @@ function CautionStep() {
         <div>
           {getStepContent(activeStep)}
           <Grid container justifyContent="flex-start">
-            <Button disabled={activeStep === 0} onClick={handleBack} className={classes.button}>
+            <Button disabled={activeStep === 0} onClick={handleBack} sx={styles.button}>
               戻る
             </Button>
 
             <Button
               variant="contained"
-              color="primary"
               onClick={handleNext}
-              className={classes.button}
+              sx={styles.button}
               disabled={activeStep >= steps.length - 1}
             >
               {activeStep < steps.length - 1 ? "危険度上昇" : "こうなるともう遅い…"}
@@ -126,7 +124,7 @@ function CautionStep() {
           </Grid>
         </div>
       </div>
-    </div>
+    </Box>
   );
 }
 

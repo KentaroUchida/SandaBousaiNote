@@ -6,8 +6,9 @@ import {
   useLocation,
 } from "react-router-dom";
 import { useSwipeable } from "react-swipeable";
-import { useMediaQuery } from "@material-ui/core";
-import { ThemeProvider } from "@material-ui/core/styles";
+import { useMediaQuery } from "@mui/material";
+import { ThemeProvider } from "@mui/styles";
+import { ThemeProvider as EmotionThemeProvider } from "@emotion/react";
 
 import Home from "./pages/Home";
 import Instruction from "./pages/Instruction";
@@ -29,6 +30,7 @@ import P15Bousaikaigi from "./pages/P15Bousaikaigi";
 import { Top } from "./pages/Top";
 import { SwipeNotifier } from "./components/SwipeNotifier";
 import { CustomThemeA } from "./components/Theme";
+import {titles} from "./components/Title";
 
 const paths = [
   "/form",
@@ -70,26 +72,6 @@ const pages = [
   <Home />,
 ];
 
-const titles = [
-  "緊急時のわがやの情報",
-  "トップ",
-  "使い方",
-  "グラっと地震が来たら！",
-  "揺れがおさまったら",
-  "ほくせつママ＆パパの体験談",
-  "まだ大丈夫は危険!",
-  "いざ逃げる!",
-  "防災グッズ",
-  "食べ物がない!?",
-  "パパの体験談",
-  "どんな危険が起こる？",
-  "落ちる! 倒れる! 動く!",
-  "トイレが大変!",
-  "私は大丈夫って思ってない?",
-  "家族で防災カイギ",
-  "お知らせ",
-];
-
 function App() {
   const ContentPage = ({ index }) => {
     const history = useHistory();
@@ -115,10 +97,8 @@ function App() {
     const matches = useMediaQuery("(max-width:600px)");
     return (
       <Route exact path={paths[index]} key={index}>
-        {
-          index === 1 && matches && <SwipeNotifier/>
-        }
-        <Menu title={titles[index]} now_index = {index}>
+        {index === 1 && matches && <SwipeNotifier />}
+        <Menu title={titles[index]} now_index={index}>
           <div {...handleSwipe}>{pages[index]}</div>
         </Menu>
       </Route>
@@ -164,14 +144,16 @@ function App() {
     //     </Route>
     //   </Menu>
     // </BrowserRouter>
-    <ThemeProvider theme={CustomThemeA}>
-      <BrowserRouter>
-        <ScrollToTop />
-        {pages.map((_, i) => (
-          <ContentPage index={i} key={i.toString()} />
-        ))}
-      </BrowserRouter>
-    </ThemeProvider>
+    <EmotionThemeProvider theme={CustomThemeA}>
+      <ThemeProvider theme={CustomThemeA}>
+        <BrowserRouter>
+          <ScrollToTop />
+          {pages.map((_, i) => (
+            <ContentPage index={i} key={i.toString()} />
+          ))}
+        </BrowserRouter>
+      </ThemeProvider>
+    </EmotionThemeProvider>
   );
 }
 

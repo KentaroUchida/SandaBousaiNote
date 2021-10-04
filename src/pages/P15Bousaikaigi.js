@@ -1,46 +1,44 @@
 import React, { useState, useEffect } from 'react';
-import makeStyles from '@material-ui/core/styles/makeStyles';
-import Card from '@material-ui/core/Card';
-import CardContent from '@material-ui/core/CardContent';
-import CardHeader from '@material-ui/core/CardHeader';
-import CardMedia from '@material-ui/core/CardMedia';
-import Checkbox from '@material-ui/core/Checkbox';
-import Container from '@material-ui/core/Container';
-import FormGroup  from '@material-ui/core/FormGroup';
-import FormControlLabel  from '@material-ui/core/FormControlLabel';
-import Grid from '@material-ui/core/Grid';
-import Link from '@material-ui/core/Link';
-import Typography from '@material-ui/core/Typography';
-import TextField  from '@material-ui/core/TextField';
+import Card from '@mui/material/Card';
+import CardContent from '@mui/material/CardContent';
+import CardHeader from '@mui/material/CardHeader';
+import CardMedia from '@mui/material/CardMedia';
+import Checkbox from '@mui/material/Checkbox';
+import Container from '@mui/material/Container';
+import FormGroup  from '@mui/material/FormGroup';
+import FormControlLabel  from '@mui/material/FormControlLabel';
+import Grid from '@mui/material/Grid';
+import Link from '@mui/material/Link';
+import Typography from '@mui/material/Typography';
+import TextField  from '@mui/material/TextField';
+import Box from '@mui/material/Box'
 
-const useStyles = makeStyles((theme)=>({
+const styles = {
   card: {
     marginBottom: 12,
   },
   cardHeaderMain: {
   },
   cardHeaderCheckList: {
-    backgroundColor: theme.palette.primary.light,
+    bgcolor: "primary.light",
   },
   cardHeaderCheck: {
-    backgroundColor: theme.palette.secondary.light,
+    bgcolor: "secondary.light",
   },
   cardHeaderRecommend: {
-    background: theme.palette.app,
+    bgcolor: "repeating-linear-gradient(45deg, #e0ffff, #e0ffff 12px, #ffffff 12px, #ffffff 24px)",
   },
   child: {
-    marginLeft: 32,
+    marginLeft: 3,
   },
   parentCheckbox: {
     pointerEvents: "none",
   },
-}));
+};
 
 function Main() {
-  const classes = useStyles();
-
   return (
-    <Card className={classes.card}>
+    <Card sx={styles.card}>
       <CardHeader
         title="家族で防災カイギ"
         titleTypographyProps={{ align: 'center' }}
@@ -62,8 +60,6 @@ function Main() {
 }
 
 function CheckList() {
-  const classes = useStyles();
-
   let tmp = localStorage.getItem("P15Earthquake");
   const [earthquake, setEarthquake] = useState(
     tmp !== null ? tmp : "");
@@ -117,33 +113,33 @@ function CheckList() {
   const stockAll = meal && water && stove && gas && toilet;
 
   return(
-    <Card className={classes.card}>
+    <Card sx={styles.card}>
       <CardHeader
-        className={classes.cardHeaderCheckList}
+        sx={styles.cardHeaderCheckList}
         title="チェックリスト"
         titleTypographyProps={{ align: 'center' }}
       />
       <CardContent>
         <FormControlLabel
-          control={<Checkbox checked={shelter} name="shelter" className={classes.parentCheckbox}/>}
+          control={<Checkbox checked={shelter} name="shelter" sx={styles.parentCheckbox}/>}
           label = "避難場所について家族で場所の確認などをしましたか？"
         />
-        <div className={classes.child}>
-          <TextField label="地震の場合" id="earthquake" value={earthquake} onChange={handleChangeEarthquake}/>
-          <TextField label="水害の場合" id="flood" value={flood} onChange={handleChangeFlood}/>
-        </div>
+        <Box sx={styles.child}>
+          <TextField label="地震の場合" id="earthquake" value={earthquake} onChange={handleChangeEarthquake} variant="standard"/>
+          <TextField label="水害の場合" id="flood" value={flood} onChange={handleChangeFlood} variant="standard"/>
+        </Box>
 
         <FormControlLabel
-          control = {<Checkbox checked={filledPlace} name="place" className={classes.parentCheckbox}/>}
+          control = {<Checkbox checked={filledPlace} name="place" sx={styles.parentCheckbox}/>}
           label = "家族の集合場所は決めましたか？"
         />
-        <TextField label="集合場所" id="place" value={place} onChange={handleChangePlace} className={classes.child}/>
+        <TextField label="集合場所" id="place" value={place} onChange={handleChangePlace} sx={styles.child} variant="standard"/>
 
         <FormControlLabel
-          control = {<Checkbox checked={homeAll} name="home" className={classes.parentCheckbox}/>}
+          control = {<Checkbox checked={homeAll} name="home" sx={styles.parentCheckbox}/>}
           label = "家の中の安全対策はできていますか？"
         />
-        <FormGroup className={classes.child}>
+        <FormGroup sx={styles.child}>
           <FormControlLabel
             control={
               <Checkbox
@@ -179,10 +175,10 @@ function CheckList() {
         </FormGroup>
 
         <FormControlLabel
-          control = {<Checkbox checked={stockAll} name="home" className={classes.parentCheckbox}/>}
+          control = {<Checkbox checked={stockAll} name="home" sx={styles.parentCheckbox}/>}
           label = "食料・トイレの備蓄はできていますか？"
         />
-        <FormGroup className={classes.child}>
+        <FormGroup sx={styles.child}>
           <FormControlLabel
             control={
               <Checkbox
@@ -230,12 +226,10 @@ function CheckList() {
 }
 
 function Check() {
-  const classes = useStyles();
-
   return (
-    <Card className={classes.card}>
+    <Card sx={styles.card}>
       <CardHeader
-        className={classes.cardHeaderCheck}
+        sx={styles.cardHeaderCheck}
         title="要確認"
         titleTypographyProps={{ align: 'center' }}
       />
@@ -263,7 +257,6 @@ function Check() {
 }
 
 function Recommend() {
-  const classes = useStyles();
   const apps = [
     {
       "name": "Yahoo!防災速報",
@@ -284,7 +277,7 @@ function Recommend() {
   return (
     <Card>
       <CardHeader
-        className={classes.cardHeaderRecommend}
+        style={{backgroundImage: styles.cardHeaderRecommend.bgcolor}}
         title="防災おすすめアプリ"
         titleTypographyProps={{ align: 'center' }}
       />

@@ -1,11 +1,11 @@
-import { createTheme } from "@material-ui/core";
+import { createTheme } from "@mui/material";
 import {
   lightBlue,
   orange,
   yellow,
   pink,
   lightGreen,
-} from "@material-ui/core/colors";
+} from "@mui/material/colors";
 
 export const CustomThemeA = createTheme({
   palette: {
@@ -34,11 +34,12 @@ export const CustomThemeA = createTheme({
       main: lightGreen[500],
       dark: lightGreen[700],
     },
-    app: "repeating-linear-gradient(45deg, #e0ffff, #e0ffff 12px, #ffffff 12px, #ffffff 24px)",
   },
-  props: {
+  components: {
     MuiCheckbox: {
-      color: "secondary",
+      defaultProps:{
+        color: "secondary",
+      }
     },
   },
 });
