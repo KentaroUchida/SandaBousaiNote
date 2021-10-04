@@ -1,5 +1,6 @@
 import React from "react";
 import PropTypes from "prop-types";
+import axios from "axios";
 import AppBar from "@mui/material/AppBar";
 import CssBaseline from "@mui/material/CssBaseline";
 import Divider from "@mui/material/Divider";
@@ -22,7 +23,7 @@ import { Link } from "react-router-dom";
 import Grid from "@mui/material/Grid";
 import { Button } from "@mui/material";
 import Box from "@mui/material/Box";
-import axios from "axios";
+import {titles} from "../components/Title";
 
 const drawerWidth = 350;
 
@@ -54,6 +55,7 @@ const styles = {
     p: 3,
   },
 };
+
 
 export default function ResponsiveDrawer(props) {
   const { window } = props;
@@ -115,29 +117,12 @@ export default function ResponsiveDrawer(props) {
     "/bousaiKaigi",
     "/oshirase",
   ];
+
   const drawer = (
     <div>
       <Toolbar />
       <List component="nav">
-        {[
-          "緊急時のわがやの情報",
-          "トップ",
-          "使い方",
-          "グラっと地震が来たら！",
-          "揺れがおさまったら",
-          "ほくせつママ＆パパの体験談",
-          "まだ大丈夫は危険!",
-          "いざ逃げる!",
-          "防災グッズ",
-          "食べ物がない!?",
-          "パパの体験談",
-          "どんな危険が起こる？",
-          "落ちる! 倒れる! 動く!",
-          "トイレが大変!",
-          "私は大丈夫って思ってない?",
-          "家族で防災カイギ",
-          "お知らせ",
-        ].map((text, index) => (
+        {titles.map((text, index) => (
           <Link
             to={links[index]}
             key={index}
