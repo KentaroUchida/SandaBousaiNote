@@ -29,7 +29,7 @@
 | kasai1 | まず逃げるところ(string) | P7Izanigeru.js |
 | kasai2 | 家に帰れないときに過ごす場所(string) | P7Izanigeru.js |
 |↑ 修正しました | | |
-| P7Izanigeru | まず逃げる,帰れない時に過ごす場所 | P7Izanigeru.js |
+| P7Izanigeru | まず逃げる,帰れない時に過ごす場所(object) | P7Izanigeru.js |
 | checkListNormally | ちょい足し防災(object) | P8Goods.js |
 | checkListHyakkin | 百均でこれだけ揃う(object) | P8Goods.js |
 | checkListMore | さらにあると便利(object) | P8Goods.js |
