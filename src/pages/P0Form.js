@@ -6,7 +6,6 @@ import {
   Typography,
   TextField,
   Grid,
-  Button,
 } from "@mui/material";
 import { ExpandMore as ExpandMoreIcon } from "@mui/icons-material";
 import FormRegisterDialog from "../components/RegisterDialog";
@@ -85,13 +84,13 @@ const Form = () => {
     localStorage.setItem("tsunami", event.target.value);
   }
 
-  const setValues = () => {
-    localStorage.setItem("phone", phoneNumber);
-    localStorage.setItem("ichiji", ichiji);
-    localStorage.setItem("saigai", saigai);
-    localStorage.setItem("tsunami", tsunami);
-    alert("電話番号と避難先を保存しました");
-  };
+  // const setValues = () => {
+  //   localStorage.setItem("phone", phoneNumber);
+  //   localStorage.setItem("ichiji", ichiji);
+  //   localStorage.setItem("saigai", saigai);
+  //   localStorage.setItem("tsunami", tsunami);
+  //   alert("電話番号と避難先を保存しました");
+  // };
 
   const PrintFamilyInformation = ({
     name,
