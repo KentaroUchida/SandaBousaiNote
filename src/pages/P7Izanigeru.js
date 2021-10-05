@@ -123,7 +123,7 @@ const Notokiha = () => {
 			<Grid item xs={6} sx={styles.grid}>
 				<Card>
 					<CardMedia>
-						<img alt="" src="/img/pages/P7Izanigeru/kouzui.png" style={{ maxWidth: "100%", height: "auto" }} />
+						<img alt="津波災害" src="/img/pages/P7Izanigeru/kouzui.png" style={{ maxWidth: "100%", height: "auto" }} />
 					</CardMedia>
 					<CardContent>
 						洪水・津波の時は…<br></br>
@@ -135,7 +135,7 @@ const Notokiha = () => {
 			<Grid item xs={6} sx={styles.grid}>
 				<Card>
 					<CardMedia>
-						<img alt="" src="/img/pages/P7Izanigeru/dosya.png" style={{ maxWidth: "100%", height: "auto" }} />
+						<img alt="土砂災害" src="/img/pages/P7Izanigeru/dosya.png" style={{ maxWidth: "100%", height: "auto" }} />
 					</CardMedia>
 					<CardContent>
 						土砂の時は…<br></br>
@@ -157,79 +157,49 @@ const HinanCard = () => {
 				</Typography>
 			</ResponsiveFontProvider>
 			<p>水害、土砂、地震、火災など災害によって複数の逃げる場所を持つことが大切です。</p>
-			<img alt="" src="/img/pages/P7Izanigeru/bousaiMap.png" style={{ maxWidth: "80%", height: "auto" }} />
+			<img alt="防災マップ" src="/img/pages/P7Izanigeru/bousaiMap.png" style={{ maxWidth: "80%", height: "auto" }} />
 		</Card>
 	</>)
 }
 
-class ShelterInformation extends React.Component {
-	constructor() {
-		super();
-		this.state = {
-
-		}
-		this.setValues = this.setValues.bind(this);
-		this.handleChange = this.handleChange.bind(this);
-	}
-	handleChange(event) {
-		this.setState({ [event.target.id]: event.target.value });
-	}
-	setValues() {
-		if (this.state.suigai1 !== undefined) localStorage.setItem('suigai1', this.state.suigai1);
-		if (this.state.suigai2 !== undefined) localStorage.setItem('suigai2', this.state.suigai2);
-		if (this.state.dosya1 !== undefined) localStorage.setItem('dosya1', this.state.dosya1);
-		if (this.state.dosya2 !== undefined) localStorage.setItem('dosya2', this.state.dosya2);
-		if (this.state.jishin1 !== undefined) localStorage.setItem('jishin1', this.state.jishin1);
-		if (this.state.jishin2 !== undefined) localStorage.setItem('jishin2', this.state.jishin2);
-		if (this.state.kasai1 !== undefined) localStorage.setItem('kasai1', this.state.kasai1);
-		if (this.state.kasai2 !== undefined) localStorage.setItem('kasai2', this.state.kasai2);
-		alert("避難先情報を保存しました")
-	}
-	render() {
-		let suigai1 = localStorage.getItem('suigai1');
-		let suigai2 = localStorage.getItem('suigai2');
-		let dosya1 = localStorage.getItem('dosya1');
-		let dosya2 = localStorage.getItem('dosya2');
-		let jishin1 = localStorage.getItem('jishin1');
-		let jishin2 = localStorage.getItem('jishin2');
-		let kasai1 = localStorage.getItem('kasai1');
-		let kasai2 = localStorage.getItem('kasai2');
-
-		return (
-			<div>
-				<table border="1">
-					<tr>
-						<th></th>
-						<th>まず逃げるところ</th>
-						<th>家に帰れないときに過ごす場所</th>
-					</tr>
-					<tr>
-						<th>水害</th>
-						<th><TextField onChange={this.handleChange} id="suigai1" defaultValue={suigai1} variant="standard" /></th>
-						<th><TextField onChange={this.handleChange} id="suigai2" defaultValue={suigai2} variant="standard" /></th>
-					</tr>
-					<tr>
-						<th>土砂</th>
-						<th><TextField onChange={this.handleChange} id="dosya1" defaultValue={dosya1} variant="standard" /></th>
-						<th><TextField onChange={this.handleChange} id="dosya2" defaultValue={dosya2} variant="standard" /></th>
-					</tr>
-					<tr>
-						<th>地震</th>
-						<th><TextField onChange={this.handleChange} id="jishin1" defaultValue={jishin1} variant="standard" /></th>
-						<th><TextField onChange={this.handleChange} id="jishin2" defaultValue={jishin2} variant="standard" /></th>
-					</tr>
-					<tr>
-						<th>火災</th>
-						<th><TextField onChange={this.handleChange} id="kasai1" defaultValue={kasai1} variant="standard" /></th>
-						<th><TextField onChange={this.handleChange} id="kasai2" defaultValue={kasai2} variant="standard" /></th>
-					</tr>
-				</table>
-				<Button onClick={this.setValues} variant="contained">
-					保存
-				</Button>
-			</div>
-		)
-	}
+const ShelterInformation = () => {
+  const [shelters, setShelters] = React.useState(JSON.parse(localStorage.getItem("P17Izanigeru") || {}));
+	const handleChange = (event) => {
+    setShelters({...shelters, [event.target.id]: event.target.value});
+    localStorage.setItem("P17Izanigeru", JSON.stringify({...shelters, [event.target.id]: event.target.value}));
+  }
+  return (<>
+      <table border="1">
+        <tr>
+          <th></th>
+          <th>まず逃げるところ</th>
+          <th>家に帰れないときに過ごす場所</th>
+        </tr>
+        <tr>
+          <th>水害</th>
+          <th><TextField onChange={handleChange} id="suigai1" defaultValue={shelters.suigai1} variant="standard" /></th>
+          <th><TextField onChange={handleChange} id="suigai2" defaultValue={shelters.suigai2} variant="standard" /></th>
+        </tr>
+        <tr>
+          <th>土砂</th>
+          <th><TextField onChange={handleChange} id="dosya1" defaultValue={shelters.dosya1} variant="standard" /></th>
+          <th><TextField onChange={handleChange} id="dosya2" defaultValue={shelters.dosya2} variant="standard" /></th>
+        </tr>
+        <tr>
+          <th>地震</th>
+          <th><TextField onChange={handleChange} id="jishin1" defaultValue={shelters.jishin1} variant="standard" /></th>
+          <th><TextField onChange={handleChange} id="jishin2" defaultValue={shelters.jishin2} variant="standard" /></th>
+        </tr>
+        <tr>
+          <th>火災</th>
+          <th><TextField onChange={handleChange} id="kasai1" defaultValue={shelters.kasai1} variant="standard" /></th>
+          <th><TextField onChange={handleChange} id="kasai2" defaultValue={shelters.kasai2} variant="standard" /></th>
+        </tr>
+      </table>
+      {/* <Button onClick={this.setValues} variant="contained">
+        保存
+      </Button> */}
+  </>)
 }
 
 export const P7Izanigeru = () => {
