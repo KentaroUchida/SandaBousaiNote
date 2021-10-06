@@ -90,3 +90,26 @@ export const TitleTextImageCard = ({
     </CardBase>
   );
 };
+
+export const TitleImagesCard = ({
+  title,
+  image1,
+  image2,
+  image3,
+  image4,
+  image5,
+  color = "tertiary.main",
+}) => {
+  return (
+    <CardBase>
+      <CardContent>
+        <TitleCardPart title={title} color={color} />
+      </CardContent>
+      <ImageCardPart image={image1} />
+      <ImageCardPart image={image2} />
+      <ImageCardPart image={image3} />
+      <ImageCardPart image={image4} />
+      <ImageCardPart image={image5} />
+    </CardBase>
+  );
+};
