@@ -23,7 +23,7 @@ import { Link } from "react-router-dom";
 import Grid from "@mui/material/Grid";
 import { Button } from "@mui/material";
 import Box from "@mui/material/Box";
-import {titles} from "../components/Title";
+import {titles} from "../components/Titles";
 
 const drawerWidth = 350;
 

@@ -30,7 +30,7 @@ import P15Bousaikaigi from "./pages/P15Bousaikaigi";
 import { Top } from "./pages/Top";
 import { SwipeNotifier } from "./components/SwipeNotifier";
 import { CustomThemeA } from "./components/Theme";
-import {titles} from "./components/Title";
+import {titles} from "./components/Titles";
 
 const paths = [
   "/form",
