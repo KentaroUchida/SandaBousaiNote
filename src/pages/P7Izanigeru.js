@@ -163,7 +163,7 @@ const HinanCard = () => {
 }
 
 const ShelterInformation = () => {
-  const [shelters, setShelters] = useState(JSON.parse(localStorage.getItem("P17Izanigeru") || {}));
+  const [shelters, setShelters] = useState(JSON.parse(localStorage.getItem("P17Izanigeru")) || {});
 	const handleChange = (event) => {
     setShelters({...shelters, [event.target.id]: event.target.value});
     localStorage.setItem("P17Izanigeru", JSON.stringify({...shelters, [event.target.id]: event.target.value}));
