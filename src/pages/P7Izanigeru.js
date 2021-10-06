@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState} from 'react';
 import Card from '@mui/material/Card';
 import CardMedia from '@mui/material/CardMedia';
 import CardContent from '@mui/material/CardContent';
@@ -7,7 +7,7 @@ import TextField from '@mui/material/TextField';
 import Paper from '@mui/material/Paper';
 import Typography from '@mui/material/Typography';
 import { ResponsiveFontProvider } from "../components/ResponsiveFontProvider"
-import Button from '@mui/material/Button';
+// import Button from '@mui/material/Button';
 import {
 	createTheme,
 	responsiveFontSizes,
@@ -163,7 +163,7 @@ const HinanCard = () => {
 }
 
 const ShelterInformation = () => {
-  const [shelters, setShelters] = React.useState(JSON.parse(localStorage.getItem("P17Izanigeru") || {}));
+  const [shelters, setShelters] = useState(JSON.parse(localStorage.getItem("P17Izanigeru") || {}));
 	const handleChange = (event) => {
     setShelters({...shelters, [event.target.id]: event.target.value});
     localStorage.setItem("P17Izanigeru", JSON.stringify({...shelters, [event.target.id]: event.target.value}));
