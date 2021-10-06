@@ -24,9 +24,8 @@ const Form = () => {
   const [phoneNumber, setPhoneNumber] = useState(
     localStorage.getItem("phone") || ""
   );
-  const [ichiji, setIchiji] = useState(localStorage.getItem("ichiji") || "");
-  const [saigai, setSaigai] = useState(localStorage.getItem("saigai") || "");
-  const [tsunami, setTsunami] = useState(localStorage.getItem("tsunami") || "");
+  const [hinanbasyo, setHinanbasyo] = useState(localStorage.getItem("P0Hinanbasyo") || "");
+  const [shishitei, setShishitei] = useState(localStorage.getItem("P0Shishitei") || "");
 
   const switchCategory = (category, func) => {
     switch (category) {
@@ -71,17 +70,13 @@ const Form = () => {
     setPhoneNumber(event.target.value);
     localStorage.setItem("phone", event.target.value);
   }
-  const handleIchijiChange = (event) => {
-    setIchiji(event.target.value);
-    localStorage.setItem("ichiji", event.target.value);
+  const handleHinanbasyoChange = (event) => {
+    setHinanbasyo(event.target.value);
+    localStorage.setItem("P0Hinanbasyo", event.target.value);
   }
-  const handleSaigaiChange = (event) => {
-    setSaigai(event.target.value);
-    localStorage.setItem("saigai", event.target.value);
-  }
-  const handleTsunamiChange = (event) => {
-    setTsunami(event.target.value);
-    localStorage.setItem("tsunami", event.target.value);
+  const handleShishiteiChange = (event) => {
+    setShishitei(event.target.value);
+    localStorage.setItem("P0Shishitei", event.target.value);
   }
 
   // const setValues = () => {
@@ -282,34 +277,23 @@ const Form = () => {
       <table border="1">
         <tbody>
           <tr>
-            <td>一時避難所</td>
+            <td>避難場所</td>
             <td>
               <TextField
-                onChange={handleIchijiChange}
-                id="ichiji"
-                defaultValue={ichiji}
+                onChange={handleHinanbasyoChange}
+                id="P0Hinanbasyo"
+                defaultValue={hinanbasyo}
                 variant="standard"
               />
             </td>
           </tr>
           <tr>
-            <td>災害避難所</td>
+            <td>市指定避難場所</td>
             <td>
               <TextField
-                onChange={handleSaigaiChange}
-                id="saigai"
-                defaultValue={saigai}
-                variant="standard"
-              />
-            </td>
-          </tr>
-          <tr>
-            <td>津波避難所</td>
-            <td>
-              <TextField
-                onChange={handleTsunamiChange}
-                id="tsunami"
-                defaultValue={tsunami}
+                onChange={handleShishiteiChange}
+                id="shishitei"
+                defaultValue={shishitei}
                 variant="standard"
               />
             </td>
