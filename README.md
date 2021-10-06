@@ -16,19 +16,8 @@
 | relativeList | 親戚の一覧(array) | P0Form.js |
 | facilityList | 施設の一覧(array) | P0Form.js |
 | phone | 自宅の電話番号(string) | P0Form.js |
-| ichiji | 一時避難場所(string) | P0Form.js |
-| saigai | 災害避難場所(string) | P0Form.js |
-| tsunami | 津波避難場所(string) | P0Form.js |
-|↓ | | |
-| suigai1 | まず逃げるところ(string) | P7Izanigeru.js |
-| suigai2 | 家に帰れないときに過ごす場所(string) | P7Izanigeru.js |
-| dosya1 | まず逃げるところ(string) | P7Izanigeru.js |
-| dosya2 | 家に帰れないときに過ごす場所(string) | P7Izanigeru.js |
-| jishin1 | まず逃げるところ(string) | P7Izanigeru.js |
-| jishin2 | 家に帰れないときに過ごす場所(string) | P7Izanigeru.js |
-| kasai1 | まず逃げるところ(string) | P7Izanigeru.js |
-| kasai2 | 家に帰れないときに過ごす場所(string) | P7Izanigeru.js |
-|↑ 修正しました | | |
+| hinanbasyo | 避難場所(string) | P0Form.js |
+| shishitei | 市指定避難所(string) | P0Form.js |
 | P7Izanigeru | まず逃げる,帰れない時に過ごす場所(object) | P7Izanigeru.js |
 | checkListNormally | ちょい足し防災(object) | P8Goods.js |
 | checkListHyakkin | 百均でこれだけ揃う(object) | P8Goods.js |
