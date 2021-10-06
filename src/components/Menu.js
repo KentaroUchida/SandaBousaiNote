@@ -8,16 +8,12 @@ import Drawer from "@mui/material/Drawer";
 import IconButton from "@mui/material/IconButton";
 import List from "@mui/material/List";
 import ListItem from "@mui/material/ListItem";
-import ListItemIcon from "@mui/material/ListItemIcon";
 import ListItemText from "@mui/material/ListItemText";
 import ChevronLeftIcon from "@mui/icons-material/ChevronLeft";
 import ChevronRightIcon from "@mui/icons-material/ChevronRight";
 import Toolbar from "@mui/material/Toolbar";
 import Typography from "@mui/material/Typography";
 import PrintIcon from "@mui/icons-material/Print";
-import WarningIcon from "@mui/icons-material/WarningSharp";
-import HomeIcon from "@mui/icons-material/HomeSharp";
-import DirectionsRunSharpIcon from "@mui/icons-material/DirectionsRunSharp";
 import { useTheme } from "@mui/material/styles";
 import { Link } from "react-router-dom";
 import Grid from "@mui/material/Grid";
@@ -78,25 +74,6 @@ export default function ResponsiveDrawer(props) {
     setMobileOpen(!mobileOpen);
   };
 
-  const icons = [
-    <HomeIcon />,
-    <WarningIcon />,
-    <WarningIcon />,
-    <DirectionsRunSharpIcon />,
-    <DirectionsRunSharpIcon />,
-    <WarningIcon />,
-    <HomeIcon />,
-    <WarningIcon />,
-    <DirectionsRunSharpIcon />,
-    <DirectionsRunSharpIcon />,
-    <WarningIcon />,
-    <HomeIcon />,
-    <WarningIcon />,
-    <DirectionsRunSharpIcon />,
-    <DirectionsRunSharpIcon />,
-    <WarningIcon />,
-    <WarningIcon />,
-  ];
 
   const links = [
     "/form",
@@ -134,8 +111,7 @@ export default function ResponsiveDrawer(props) {
               selected={selectedIndex === index}
               onClick={(event) => handleListItemClick(event, index)}
             >
-              <ListItemIcon>{icons[index]}</ListItemIcon>
-              <ListItemText primary={text} />
+              <ListItemText primary={String("ページ")+String(index)+String(".")+String(text)} />
             </ListItem>
           </Link>
         ))}
@@ -326,7 +302,7 @@ export default function ResponsiveDrawer(props) {
                 目次
               </Button>
               <Typography variant="h6" noWrap style={{}}>
-                {props.title}
+                {"三田防災ノート.P"+String(props.now_index)}
               </Typography>
             </div>
             <IconButton
