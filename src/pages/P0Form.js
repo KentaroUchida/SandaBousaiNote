@@ -116,11 +116,9 @@ const Form = () => {
         </Grid>
       </AccordionSummary>
       <AccordionDetails>
-        <Typography>
-          <p>電話番号:{phoneNumber}</p>
-          <p>保険証番号:{insuranceId}</p>
-          <p>病気・アレルギー:{illness}</p>
-        </Typography>
+        <Typography>電話番号:{phoneNumber}</Typography>
+          <Typography>保険証番号:{insuranceId}</Typography>
+          <Typography>病気・アレルギー:{illness}</Typography>
       </AccordionDetails>
     </Accordion>
   );
@@ -149,7 +147,7 @@ const Form = () => {
       </AccordionSummary>
       <AccordionDetails>
         <Typography>
-          <p>電話番号:{phoneNumber}</p>
+          電話番号:{phoneNumber}
         </Typography>
       </AccordionDetails>
     </Accordion>
@@ -179,7 +177,7 @@ const Form = () => {
       </AccordionSummary>
       <AccordionDetails>
         <Typography>
-          <p>電話番号:{phoneNumber}</p>
+          電話番号:{phoneNumber}
         </Typography>
       </AccordionDetails>
     </Accordion>
@@ -218,6 +216,7 @@ const Form = () => {
           insuranceId={v.insuranceId}
           illness={v.illness}
           index={index}
+          key={index}
         />
       ))}
       <Grid justifyContent="space-between" alignItems="center" container>
@@ -229,6 +228,7 @@ const Form = () => {
           name={v.name}
           phoneNumber={v.phoneNumber}
           index={index}
+          key={index}
         />
       ))}
 
@@ -241,6 +241,7 @@ const Form = () => {
           name={v.name}
           phoneNumber={v.phoneNumber}
           index={index}
+          key={index}
         />
       ))}
       <br></br>
@@ -253,8 +254,8 @@ const Form = () => {
         </tbody>
       </table>
       <br></br>
-      <p>以下の電話番号・避難所情報は入力すると自動でブラウザ上に保存されます</p>
-      <p>入力した情報は収集等しておりませんので，安心してお使いください</p>
+      <Typography>以下の電話番号・避難所情報は入力すると自動でブラウザ上に保存されます</Typography>
+      <Typography>入力した情報は収集等しておりませんので，安心してお使いください</Typography>
       <table border="1">
         <tbody>
           <tr>
@@ -271,7 +272,7 @@ const Form = () => {
         </tbody>
       </table>
       {/* {phoneValidation(phoneNumber) && (
-        <p style={{color:'red'}}>{phoneValidation(phoneNumber)}</p>
+        <p style={{color:'red'}}>{phoneValidation(phoneNumber)}</Typography>
       )} */}
       <h2>・避難所</h2>
       <table border="1">
@@ -301,7 +302,7 @@ const Form = () => {
         </tbody>
       </table>
       {/* {shelterValidation(ichiji,saigai,tsunami) && (
-        <p style={{color:'red'}}>{shelterValidation(ichiji,saigai,tsunami)}</p>
+        <p style={{color:'red'}}>{shelterValidation(ichiji,saigai,tsunami)}</Typography>
       )} */}
       <br></br>
       {/* <Button disabled={!canSubmit(phoneNumber,ichiji,saigai,tsunami)} onClick={setValues} variant="contained">
