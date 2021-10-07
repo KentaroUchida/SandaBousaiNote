@@ -45,7 +45,8 @@ const taikenImages = [
 
 export const P7TaikenPapa = () => {
 
-  //文字列を改行
+  // 文字列を改行
+  // https://chaika.hatenablog.com/entry/2020/07/12/083000
   const texts=[];
   for(let i=0; i<8; i++){
     const text = taikenTexts[i].split(/(\n)/).map((item, index) => {
