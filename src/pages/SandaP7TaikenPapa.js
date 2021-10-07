@@ -43,7 +43,7 @@ const taikenImages = [
   "img/pages/P7TaikenPapa/food.png",
 ];
 
-export const P7TaikenPapa = () => {
+export const SandaP7TaikenPapa = () => {
 
   // 文字列を改行
   // https://chaika.hatenablog.com/entry/2020/07/12/083000
