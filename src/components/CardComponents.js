@@ -104,12 +104,12 @@ export const TitleImagesCard = ({
     <CardBase>
       <CardContent>
         <TitleCardPart title={title} color={color} />
+        <ImageCard image={image1} />
+        <ImageCard image={image2} />
+        <ImageCard image={image3} />
+        <ImageCard image={image4} />
+        <ImageCard image={image5} />
       </CardContent>
-      <ImageCardPart image={image1} />
-      <ImageCardPart image={image2} />
-      <ImageCardPart image={image3} />
-      <ImageCardPart image={image4} />
-      <ImageCardPart image={image5} />
     </CardBase>
   );
 };

@@ -23,6 +23,7 @@ import P8Goods from "./pages/P8Goods";
 import P9Foods from "./pages/P9Foods";
 import { P10TaikenPapa } from "./pages/P10TaikenPapa";
 import { SandaP7TaikenPapa } from "./pages/SandaP7TaikenPapa";
+import { SandaP11Daijobu } from "./pages/SandaP11Daijobu";
 import { P11KikenSouzou } from "./pages/P11KikenSouzou";
 import { P12KikenJissai } from "./pages/P12KikenJissai";
 import { P13Toilet } from "./pages/P13Toilet";
@@ -52,6 +53,7 @@ const paths = [
   "/bousaikaigi",
   "/oshirase",
   "/sandaTaiken",
+  "/sandaDaijobu",
 ];
 
 const pages = [
@@ -73,6 +75,7 @@ const pages = [
   <P15Bousaikaigi />,
   <Home />,
   <SandaP7TaikenPapa/>,
+  <SandaP11Daijobu/>,
 ];
 
 function App() {
