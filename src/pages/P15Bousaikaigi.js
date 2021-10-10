@@ -31,7 +31,7 @@ const styles = {
     bgcolor: "repeating-linear-gradient(45deg, #e0ffff, #e0ffff 12px, #ffffff 12px, #ffffff 24px)",
   },
   child: {
-    marginLeft: 3,
+    marginLeft: 4,
   },
   parentCheckbox: {
     pointerEvents: "none",
