@@ -218,14 +218,17 @@ ResponsiveDrawer.propTypes = {
 function DownloadDialog() {
   const [open, setOpen] = React.useState(false);
   const [downloading, setDownloading] = React.useState(false);
+  const [failed, setFailed] = React.useState(false);
   const handleClickOpen = () => {
     setOpen(true);
   };
   const handleClose = () => {
     setOpen(false);
+    if(failed) setFailed(false);
   };
   const downloadPDF = () => {
     setDownloading(true);
+    setFailed(false);
     const body = {form: {}, card: {}, goods: {}, checkList: {}};
     [['family', 'familyList'], ['relatives', 'relativeList'], ['facilities', 'facilityList']].forEach(keys => {
       const tmp = localStorage.getItem(keys[1]);
@@ -278,11 +281,12 @@ function DownloadDialog() {
       );
       document.body.appendChild(link);
       link.click();
-      setDownloading(false);
       handleClose();
     }).catch(err => {
       console.log(err);
-      // TODO ポップアップ
+      setFailed(true);
+    }).finally(() => {
+      setDownloading(false)
     });
   }
 
@@ -306,8 +310,8 @@ function DownloadDialog() {
       </DialogTitle>
       <DialogContent>
         <DialogContentText id="alert-dialog-description">
-          防災ノートをダウンロードすることができます。<br/>
-          PDFには、本Webアプリに保存された情報が書き込まれます。
+          防災ノートのPDF版をダウンロードすることができます。<br/>
+          PDFには、本Webアプリに保存された情報が書き込まれます。印刷したいときなどにご利用ください。
         </DialogContentText>
       </DialogContent>
       <DialogActions>
@@ -316,6 +320,13 @@ function DownloadDialog() {
           {downloading ? 'ダウンロード中' : 'ダウンロード'}
         </Button>
       </DialogActions>
+      {failed && <DialogContent>
+        <DialogContentText id="alert-dialog-description">
+          サーバエラーにより、ダウンロードに失敗しました。<br/>
+          お手数ですが、こちらのリンクからダウンロードしてください。<br/>
+          ** ここにさんだ防災ノートのURLが書かれます **
+        </DialogContentText>
+      </DialogContent>}
       {downloading && <LinearProgress/>}
     </Dialog>
   </>);
