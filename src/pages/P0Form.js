@@ -6,7 +6,6 @@ import {
   Typography,
   TextField,
   Grid,
-  Button,
 } from "@mui/material";
 import { ExpandMore as ExpandMoreIcon } from "@mui/icons-material";
 import FormRegisterDialog from "../components/RegisterDialog";
@@ -25,9 +24,8 @@ const Form = () => {
   const [phoneNumber, setPhoneNumber] = useState(
     localStorage.getItem("phone") || ""
   );
-  const [ichiji, setIchiji] = useState(localStorage.getItem("ichiji") || "");
-  const [saigai, setSaigai] = useState(localStorage.getItem("saigai") || "");
-  const [tsunami, setTsunami] = useState(localStorage.getItem("tsunami") || "");
+  const [hinanbasyo, setHinanbasyo] = useState(localStorage.getItem("P0Hinanbasyo") || "");
+  const [shishitei, setShishitei] = useState(localStorage.getItem("P0Shishitei") || "");
 
   const switchCategory = (category, func) => {
     switch (category) {
@@ -69,20 +67,25 @@ const Form = () => {
   };
 
   const handlePhoneNumberChange = (event) => {
-
     setPhoneNumber(event.target.value);
+    localStorage.setItem("phone", event.target.value);
   }
-  const handleIchijiChange = (event) => setIchiji(event.target.value);
-  const handleSaigaiChange = (event) => setSaigai(event.target.value);
-  const handleTsunamiChange = (event) => setTsunami(event.target.value);
+  const handleHinanbasyoChange = (event) => {
+    setHinanbasyo(event.target.value);
+    localStorage.setItem("P0Hinanbasyo", event.target.value);
+  }
+  const handleShishiteiChange = (event) => {
+    setShishitei(event.target.value);
+    localStorage.setItem("P0Shishitei", event.target.value);
+  }
 
-  const setValues = () => {
-    localStorage.setItem("phone", phoneNumber);
-    localStorage.setItem("ichiji", ichiji);
-    localStorage.setItem("saigai", saigai);
-    localStorage.setItem("tsunami", tsunami);
-    alert("電話番号と避難先を保存しました");
-  };
+  // const setValues = () => {
+  //   localStorage.setItem("phone", phoneNumber);
+  //   localStorage.setItem("ichiji", ichiji);
+  //   localStorage.setItem("saigai", saigai);
+  //   localStorage.setItem("tsunami", tsunami);
+  //   alert("電話番号と避難先を保存しました");
+  // };
 
   const PrintFamilyInformation = ({
     name,
@@ -113,11 +116,9 @@ const Form = () => {
         </Grid>
       </AccordionSummary>
       <AccordionDetails>
-        <Typography>
-          <p>電話番号:{phoneNumber}</p>
-          <p>保険証番号:{insuranceId}</p>
-          <p>病気・アレルギー:{illness}</p>
-        </Typography>
+        <Typography>電話番号:{phoneNumber}</Typography>
+          <Typography>保険証番号:{insuranceId}</Typography>
+          <Typography>病気・アレルギー:{illness}</Typography>
       </AccordionDetails>
     </Accordion>
   );
@@ -146,7 +147,7 @@ const Form = () => {
       </AccordionSummary>
       <AccordionDetails>
         <Typography>
-          <p>電話番号:{phoneNumber}</p>
+          電話番号:{phoneNumber}
         </Typography>
       </AccordionDetails>
     </Accordion>
@@ -176,31 +177,31 @@ const Form = () => {
       </AccordionSummary>
       <AccordionDetails>
         <Typography>
-          <p>電話番号:{phoneNumber}</p>
+          電話番号:{phoneNumber}
         </Typography>
       </AccordionDetails>
     </Accordion>
   );
 
-  const phoneValidation = (phone) => {
-    if(!phone) return '電話番号を入力してください'
-    const regex=/^[0-9０-９-]+$/;
-    if(!regex.test(phone)) return '正しい形式で電話番号を入力してください';
-    return '';
-  }
-  const shelterValidation = (ichiji,saigai,tsunami) => {
-    if(!ichiji || !saigai || !tsunami) return '避難所を入力してください';
-    return '';
-  }
-  const canSubmit = (phoneNumber,ichiji,saigai,tsunami) => {
-    const regex=/^[0-9０-９-]+$/;
-    const validPhoneNumber = regex.test(phoneNumber);
-    const validIchiji = ichiji.length !== 0;
-    const validSaigai = saigai.length !== 0;
-    const validTsunami = tsunami.length !== 0;
-    
-    return validPhoneNumber && validIchiji && validSaigai && validTsunami;
-  }
+  // const phoneValidation = (phone) => {
+  //   if(!phone) return '電話番号を入力してください'
+  //   const regex=/^[0-9０-９-]+$/;
+  //   if(!regex.test(phone)) return '正しい形式で電話番号を入力してください';
+  //   return '';
+  // }
+  // const shelterValidation = (ichiji,saigai,tsunami) => {
+  //   if(!ichiji || !saigai || !tsunami) return '避難所を入力してください';
+  //   return '';
+  // }
+
+  // const canSubmit = (phoneNumber,ichiji,saigai,tsunami) => {
+  //   const regex=/^[0-9０-９-]+$/;
+  //   const validPhoneNumber = regex.test(phoneNumber);
+  //   const validIchiji = ichiji.length !== 0;
+  //   const validSaigai = saigai.length !== 0;
+  //   const validTsunami = tsunami.length !== 0;
+  //   return validPhoneNumber && validIchiji && validSaigai && validTsunami;
+  // }
   
   return (
     <div>
@@ -215,6 +216,7 @@ const Form = () => {
           insuranceId={v.insuranceId}
           illness={v.illness}
           index={index}
+          key={index}
         />
       ))}
       <Grid justifyContent="space-between" alignItems="center" container>
@@ -226,6 +228,7 @@ const Form = () => {
           name={v.name}
           phoneNumber={v.phoneNumber}
           index={index}
+          key={index}
         />
       ))}
 
@@ -238,6 +241,7 @@ const Form = () => {
           name={v.name}
           phoneNumber={v.phoneNumber}
           index={index}
+          key={index}
         />
       ))}
       <br></br>
@@ -250,6 +254,8 @@ const Form = () => {
         </tbody>
       </table>
       <br></br>
+      <Typography>以下の電話番号・避難所情報は入力すると自動でブラウザ上に保存されます</Typography>
+      <Typography>入力した情報は収集等しておりませんので，安心してお使いください</Typography>
       <table border="1">
         <tbody>
           <tr>
@@ -265,54 +271,43 @@ const Form = () => {
           </tr>
         </tbody>
       </table>
-      {phoneValidation(phoneNumber) && (
-        <p style={{color:'red'}}>{phoneValidation(phoneNumber)}</p>
-      )}
+      {/* {phoneValidation(phoneNumber) && (
+        <p style={{color:'red'}}>{phoneValidation(phoneNumber)}</Typography>
+      )} */}
       <h2>・避難所</h2>
       <table border="1">
         <tbody>
           <tr>
-            <td>一時避難所</td>
+            <td>避難場所</td>
             <td>
               <TextField
-                onChange={handleIchijiChange}
-                id="ichiji"
-                defaultValue={ichiji}
+                onChange={handleHinanbasyoChange}
+                id="P0Hinanbasyo"
+                defaultValue={hinanbasyo}
                 variant="standard"
               />
             </td>
           </tr>
           <tr>
-            <td>災害避難所</td>
+            <td>市指定避難場所</td>
             <td>
               <TextField
-                onChange={handleSaigaiChange}
-                id="saigai"
-                defaultValue={saigai}
-                variant="standard"
-              />
-            </td>
-          </tr>
-          <tr>
-            <td>津波避難所</td>
-            <td>
-              <TextField
-                onChange={handleTsunamiChange}
-                id="tsunami"
-                defaultValue={tsunami}
+                onChange={handleShishiteiChange}
+                id="shishitei"
+                defaultValue={shishitei}
                 variant="standard"
               />
             </td>
           </tr>
         </tbody>
       </table>
-      {shelterValidation(ichiji,saigai,tsunami) && (
-        <p style={{color:'red'}}>{shelterValidation(ichiji,saigai,tsunami)}</p>
-      )}
+      {/* {shelterValidation(ichiji,saigai,tsunami) && (
+        <p style={{color:'red'}}>{shelterValidation(ichiji,saigai,tsunami)}</Typography>
+      )} */}
       <br></br>
-      <Button disabled={!canSubmit(phoneNumber,ichiji,saigai,tsunami)} onClick={setValues} variant="contained">
+      {/* <Button disabled={!canSubmit(phoneNumber,ichiji,saigai,tsunami)} onClick={setValues} variant="contained">
         保存
-      </Button>
+      </Button> */}
     </div>
   );
 };

@@ -12,6 +12,8 @@ import Link from '@mui/material/Link';
 import Typography from '@mui/material/Typography';
 import TextField  from '@mui/material/TextField';
 import Box from '@mui/material/Box'
+import CheckCircle from '@mui/icons-material/CheckCircle';
+import CircleOutlined from '@mui/icons-material/CircleOutlined';
 
 const styles = {
   card: {
@@ -29,7 +31,7 @@ const styles = {
     bgcolor: "repeating-linear-gradient(45deg, #e0ffff, #e0ffff 12px, #ffffff 12px, #ffffff 24px)",
   },
   child: {
-    marginLeft: 3,
+    marginLeft: 4,
   },
   parentCheckbox: {
     pointerEvents: "none",
@@ -121,7 +123,7 @@ function CheckList() {
       />
       <CardContent>
         <FormControlLabel
-          control={<Checkbox checked={shelter} name="shelter" sx={styles.parentCheckbox}/>}
+          control={<Checkbox checked={shelter} name="shelter" sx={styles.parentCheckbox} icon={<CircleOutlined/>} checkedIcon={<CheckCircle/>}/>}
           label = "避難場所について家族で場所の確認などをしましたか？"
         />
         <Box sx={styles.child}>
@@ -130,13 +132,13 @@ function CheckList() {
         </Box>
 
         <FormControlLabel
-          control = {<Checkbox checked={filledPlace} name="place" sx={styles.parentCheckbox}/>}
+          control = {<Checkbox checked={filledPlace} name="place" sx={styles.parentCheckbox} icon={<CircleOutlined/>} checkedIcon={<CheckCircle/>}/>}
           label = "家族の集合場所は決めましたか？"
         />
         <TextField label="集合場所" id="place" value={place} onChange={handleChangePlace} sx={styles.child} variant="standard"/>
 
         <FormControlLabel
-          control = {<Checkbox checked={homeAll} name="home" sx={styles.parentCheckbox}/>}
+          control = {<Checkbox checked={homeAll} name="home" sx={styles.parentCheckbox} icon={<CircleOutlined/>} checkedIcon={<CheckCircle/>}/>}
           label = "家の中の安全対策はできていますか？"
         />
         <FormGroup sx={styles.child}>
@@ -175,7 +177,7 @@ function CheckList() {
         </FormGroup>
 
         <FormControlLabel
-          control = {<Checkbox checked={stockAll} name="home" sx={styles.parentCheckbox}/>}
+          control = {<Checkbox checked={stockAll} name="home" sx={styles.parentCheckbox} icon={<CircleOutlined/>} checkedIcon={<CheckCircle/>}/>}
           label = "食料・トイレの備蓄はできていますか？"
         />
         <FormGroup sx={styles.child}>

@@ -1,5 +1,6 @@
 import React from "react";
 import PropTypes from "prop-types";
+import axios from "axios";
 import AppBar from "@mui/material/AppBar";
 import CssBaseline from "@mui/material/CssBaseline";
 import Divider from "@mui/material/Divider";
@@ -7,22 +8,24 @@ import Drawer from "@mui/material/Drawer";
 import IconButton from "@mui/material/IconButton";
 import List from "@mui/material/List";
 import ListItem from "@mui/material/ListItem";
-import ListItemIcon from "@mui/material/ListItemIcon";
 import ListItemText from "@mui/material/ListItemText";
 import ChevronLeftIcon from "@mui/icons-material/ChevronLeft";
 import ChevronRightIcon from "@mui/icons-material/ChevronRight";
 import Toolbar from "@mui/material/Toolbar";
 import Typography from "@mui/material/Typography";
 import PrintIcon from "@mui/icons-material/Print";
-import WarningIcon from "@mui/icons-material/WarningSharp";
-import HomeIcon from "@mui/icons-material/HomeSharp";
-import DirectionsRunSharpIcon from "@mui/icons-material/DirectionsRunSharp";
 import { useTheme } from "@mui/material/styles";
 import { Link } from "react-router-dom";
 import Grid from "@mui/material/Grid";
 import { Button } from "@mui/material";
 import Box from "@mui/material/Box";
-import {titles} from "../components/Title";
+import {titles} from "../components/Titles";
+import Dialog from "@mui/material/Dialog";
+import DialogTitle from "@mui/material/DialogTitle";
+import DialogContent from "@mui/material/DialogContent";
+import DialogContentText from "@mui/material/DialogContentText";
+import DialogActions from "@mui/material/DialogActions";
+import LinearProgress from "@mui/material/LinearProgress";
 
 const drawerWidth = 350;
 
@@ -77,25 +80,6 @@ export default function ResponsiveDrawer(props) {
     setMobileOpen(!mobileOpen);
   };
 
-  const icons = [
-    <HomeIcon />,
-    <WarningIcon />,
-    <WarningIcon />,
-    <DirectionsRunSharpIcon />,
-    <DirectionsRunSharpIcon />,
-    <WarningIcon />,
-    <HomeIcon />,
-    <WarningIcon />,
-    <DirectionsRunSharpIcon />,
-    <DirectionsRunSharpIcon />,
-    <WarningIcon />,
-    <HomeIcon />,
-    <WarningIcon />,
-    <DirectionsRunSharpIcon />,
-    <DirectionsRunSharpIcon />,
-    <WarningIcon />,
-    <WarningIcon />,
-  ];
 
   const links = [
     "/form",
@@ -115,6 +99,7 @@ export default function ResponsiveDrawer(props) {
     "/daijobu",
     "/bousaiKaigi",
     "/oshirase",
+    "/sandaTaiken"
   ];
 
   const drawer = (
@@ -132,10 +117,8 @@ export default function ResponsiveDrawer(props) {
               button
               selected={selectedIndex === index}
               onClick={(event) => handleListItemClick(event, index)}
-              handleDrawerClose
             >
-              <ListItemIcon>{icons[index]}</ListItemIcon>
-              <ListItemText primary={text} />
+              <ListItemText primary={String("ページ")+String(index)+String(".")+String(text)} />
             </ListItem>
           </Link>
         ))}
@@ -169,16 +152,10 @@ export default function ResponsiveDrawer(props) {
                 目次
               </Button>
               <Typography variant="h6" noWrap style={{}}>
-                {props.title}
+                {"三田防災ノート.P"+String(props.now_index)}
               </Typography>
             </div>
-            <IconButton
-              color="inherit"
-              edge="end"
-              // onClick={handleDrawerOpen}
-            >
-              <PrintIcon />
-            </IconButton>
+            <DownloadDialog/>
           </Grid>
         </Toolbar>
       </AppBar>
@@ -237,3 +214,120 @@ ResponsiveDrawer.propTypes = {
 };
 
 //export default ResponsiveDrawer;
+
+function DownloadDialog() {
+  const [open, setOpen] = React.useState(false);
+  const [downloading, setDownloading] = React.useState(false);
+  const [failed, setFailed] = React.useState(false);
+  const handleClickOpen = () => {
+    setOpen(true);
+  };
+  const handleClose = () => {
+    setOpen(false);
+    if(failed) setFailed(false);
+  };
+  const downloadPDF = () => {
+    setDownloading(true);
+    setFailed(false);
+    const body = {form: {}, card: {}, goods: {}, checkList: {}};
+    [['family', 'familyList'], ['relatives', 'relativeList'], ['facilities', 'facilityList']].forEach(keys => {
+      const tmp = localStorage.getItem(keys[1]);
+      body.form[keys[0]] = tmp ? JSON.parse(tmp) : [];
+    });
+    [['home', 'phone'], ['temporary', 'P0Hinanbasyo'], ['disaster', 'P0Shishitei']].forEach(keys => {
+      body.form[keys[0]] = localStorage.getItem(keys[1]);
+    });
+    const cardString = localStorage.getItem('P17Izanigeru');
+    const cardTmp = cardString ? JSON.parse(cardString) : {};
+    [['flood', 'suigai'], ['sediment', 'dosya'], ['earthquake', 'jishin'], ['fire', 'kasai']].forEach(keys => {
+      body.card[keys[0]] = {};
+      ['evacuation', 'shelter'].forEach((k, i) => body.card[keys[0]][k] = cardTmp[keys[1] + (i+1)]);
+    });
+    const clm = localStorage.getItem('checkListMore');
+    if(clm) Object.assign(body.goods, JSON.parse(clm));
+    const clh = localStorage.getItem('checkListHyakkin');
+    if(clh) {
+      const tmp = JSON.parse(clh);
+      if(tmp.whistle) body.goods.whistle2 = true;
+      Object.assign(body.goods, tmp);
+    }
+    const cln = localStorage.getItem('checkListNormally');
+    if(cln) Object.assign(body.goods, JSON.parse(cln));
+    const fl = localStorage.getItem('foodList');
+    body.foods = fl ? JSON.parse(fl) : {};
+
+    body.checkList.earthquake = localStorage.getItem('P15Earthquake');
+    body.checkList.flood = localStorage.getItem('P15Flood');
+    body.checkList.place = localStorage.getItem('P15Place');
+    const clhm = localStorage.getItem('P15Home');
+    if(clhm) Object.assign(body.checkList, JSON.parse(clhm));
+    const clst = localStorage.getItem('P15Stock');
+    if(clst) Object.assign(body.checkList, JSON.parse(clst));
+
+    console.log(body);
+    axios.post('https://mfdxebawsi.execute-api.us-east-1.amazonaws.com/Prod/create', body).then(res => {
+      console.log(res.data);
+      return axios.get(res.data, {
+        responseType: 'blob',
+        dataType: 'binary',
+      });
+    }).then(res => {
+      const url = URL.createObjectURL(new Blob([res.data]));
+      const link = document.createElement('a');
+      link.href = url;
+      link.setAttribute(
+        'download',
+        'bousai_note.pdf'
+      );
+      document.body.appendChild(link);
+      link.click();
+      handleClose();
+    }).catch(err => {
+      console.log(err);
+      setFailed(true);
+    }).finally(() => {
+      setDownloading(false)
+    });
+  }
+
+  return (<>
+    <IconButton
+      color="inherit"
+      edge="end"
+      onClick={handleClickOpen}
+    >
+      <PrintIcon />
+    </IconButton>
+    <Dialog
+      open={open}
+      onClose={handleClose}
+      aria-labelledby="alert-dialog-title"
+      aria-describedby="alert-dialog-description"
+    >
+      <DialogTitle id="alert-dialog-title">
+        さんだ防災ノート<br/>
+        PDFダウンロード
+      </DialogTitle>
+      <DialogContent>
+        <DialogContentText id="alert-dialog-description">
+          防災ノートのPDF版をダウンロードすることができます。<br/>
+          PDFには、本Webアプリに保存された情報が書き込まれます。印刷したいときなどにご利用ください。
+        </DialogContentText>
+      </DialogContent>
+      <DialogActions>
+        <Button onClick={handleClose}>キャンセル</Button>
+        <Button onClick={downloadPDF} autoFocus>
+          {downloading ? 'ダウンロード中' : 'ダウンロード'}
+        </Button>
+      </DialogActions>
+      {failed && <DialogContent>
+        <DialogContentText id="alert-dialog-description">
+          サーバエラーにより、ダウンロードに失敗しました。<br/>
+          お手数ですが、こちらのリンクからダウンロードしてください。<br/>
+          ** ここにさんだ防災ノートのURLが書かれます **
+        </DialogContentText>
+      </DialogContent>}
+      {downloading && <LinearProgress/>}
+    </Dialog>
+  </>);
+}

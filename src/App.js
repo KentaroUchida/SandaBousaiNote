@@ -22,6 +22,7 @@ import { P7Izanigeru } from "./pages/P7Izanigeru";
 import P8Goods from "./pages/P8Goods";
 import P9Foods from "./pages/P9Foods";
 import { P10TaikenPapa } from "./pages/P10TaikenPapa";
+import { SandaP7TaikenPapa } from "./pages/SandaP7TaikenPapa";
 import { P11KikenSouzou } from "./pages/P11KikenSouzou";
 import { P12KikenJissai } from "./pages/P12KikenJissai";
 import { P13Toilet } from "./pages/P13Toilet";
@@ -30,7 +31,7 @@ import P15Bousaikaigi from "./pages/P15Bousaikaigi";
 import { Top } from "./pages/Top";
 import { SwipeNotifier } from "./components/SwipeNotifier";
 import { CustomThemeA } from "./components/Theme";
-import {titles} from "./components/Title";
+import {titles} from "./components/Titles";
 
 const paths = [
   "/form",
@@ -50,6 +51,7 @@ const paths = [
   "/daijobu",
   "/bousaikaigi",
   "/oshirase",
+  "/sandaTaiken",
 ];
 
 const pages = [
@@ -70,6 +72,7 @@ const pages = [
   <P14Daijobu />,
   <P15Bousaikaigi />,
   <Home />,
+  <SandaP7TaikenPapa/>,
 ];
 
 function App() {
