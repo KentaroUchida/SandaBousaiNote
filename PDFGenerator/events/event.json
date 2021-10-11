@@ -1,25 +1,25 @@
 {
-  "body": "{\"form\": {\"family\": [{ \"name\": \"テスト太郎\", \"phone\": \"000-0000-0000\", \"insurance\": \"00000000\", \"illness\": \"テストデータ\" },{ \"name\": \"テスト太郎\", \"phone\": \"000-0000-0000\", \"insurance\": \"00000000\", \"illness\": \"テストデータ\" }],\"relatives\": [{ \"name\": \"テスト太郎\", \"phone\": \"000-0000-0000\" },{ \"name\": \"テスト太郎\", \"phone\": \"000-0000-0000\" },{ \"name\": \"テスト太郎\", \"phone\": \"000-0000-0000\" },{ \"name\": \"テスト太郎\", \"phone\": \"000-0000-0000\" },{ \"name\": \"テスト太郎\", \"phone\": \"000-0000-0000\" }],\"facilities\": [{ \"name\": \"テスト会館\", \"phone\": \"000-0000-0000\" },{ \"name\": \"テスト会館\", \"phone\": \"000-0000-0000\" },{ \"name\": \"テスト会館\", \"phone\": \"000-0000-0000\" },{ \"name\": \"テスト会館\", \"phone\": \"000-0000-0000\" },{ \"name\": \"テスト会館\", \"phone\": \"000-0000-0000\" }],\"home\": \"000-0000-0000\",\"temporary\": \"三田市テスト会館テスト号室\",\"disaster\": \"三田市テスト会館テスト号室\",\"tsunami\": \"三田市テスト会館テスト号室\"},\"card\": {\"flood\": { \"evacuation\": \"テストテスト\", \"shelter\": \"テストテストテスト\" },\"sediment\": { \"evacuation\": \"テストテスト\", \"shelter\": \"テストテストテスト\" },\"earthquake\": { \"evacuation\": \"テストテスト\", \"shelter\": \"テストテストテスト\" },\"fire\": { \"evacuation\": \"テストテスト\", \"shelter\": \"テストテストテスト\" }},\"goods\": {\"water\": true,\"coin\": true,\"chocolate_and_candy\": true,\"battery\": true,\"handkerchief\": true,\"whistle\": true,\"aid\": true,\"diapers\": true,\"address\": true,\"poli\": true,\"pin\": true,\"picnic_sheet\": true,\"mask\": true,\"dentifrice_sheet\": true,\"socks\": true,\"scissor\": true,\"bandage\": true,\"whistle2\": true,\"wrap\": true,\"toilet\": true,\"tape\": true,\"pillow\": true,\"glasses\": true,\"wet_tissue\": true,\"light\": true,\"for_children\": true,\"essential_oil\": true},\"foods\": {\"water\": true,\"can\": true,\"soup\": true,\"dryfood\": true,\"stove\": true,\"poli\": true},\"checkList\": {\"earthquake\": \"テストテストテストテスト\",\"flood\": \"テストテストテストテスト\",\"place\": \"テストテストテストテスト\",\"fixFurniture\": true,\"glass\": true,\"storage\": true,\"arrangeFurniture\": true,\"meal\": true,\"water\": true,\"stove\": true,\"gas\": true,\"toilet\": true}}",
+  "body": "{\"form\": {\"family\": [{ \"name\": \"テスト太郎\", \"phoneNumber\": \"000-0000-0000\", \"insuranceId\": \"00000000\", \"illness\": \"テストデータ\" },{ \"name\": \"テスト太郎\", \"phoneNumber\": \"000-0000-0000\", \"insuranceId\": \"00000000\", \"illness\": \"テストデータ\" }],\"relatives\": [{ \"name\": \"テスト太郎\", \"phoneNumber\": \"000-0000-0000\" },{ \"name\": \"テスト太郎\", \"phoneNumber\": \"000-0000-0000\" },{ \"name\": \"テスト太郎\", \"phoneNumber\": \"000-0000-0000\" },{ \"name\": \"テスト太郎\", \"phoneNumber\": \"000-0000-0000\" },{ \"name\": \"テスト太郎\", \"phoneNumber\": \"000-0000-0000\" }],\"facilities\": [{ \"name\": \"テスト会館\", \"phoneNumber\": \"000-0000-0000\" },{ \"name\": \"テスト会館\", \"phoneNumber\": \"000-0000-0000\" },{ \"name\": \"テスト会館\", \"phoneNumber\": \"000-0000-0000\" },{ \"name\": \"テスト会館\", \"phoneNumber\": \"000-0000-0000\" },{ \"name\": \"テスト会館\", \"phoneNumber\": \"000-0000-0000\" }],\"home\": \"000-0000-0000\",\"temporary\": \"三田市テスト会館テスト号室\",\"disaster\": \"三田市テスト会館テスト号室\",\"tsunami\": \"三田市テスト会館テスト号室\"},\"card\": {\"flood\": { \"evacuation\": \"テストテスト\", \"shelter\": \"テストテストテスト\" },\"sediment\": { \"evacuation\": \"テストテスト\", \"shelter\": \"テストテストテスト\" },\"earthquake\": { \"evacuation\": \"テストテスト\", \"shelter\": \"テストテストテスト\" },\"fire\": { \"evacuation\": \"テストテスト\", \"shelter\": \"テストテストテスト\" }},\"goods\": {\"water\": true,\"coin\": true,\"chocolate_and_candy\": true,\"battery\": true,\"handkerchief\": true,\"whistle\": true,\"aid\": true,\"diapers\": true,\"address\": true,\"poli\": true,\"pin\": true,\"picnic_sheet\": true,\"mask\": true,\"dentifrice_sheet\": true,\"socks\": true,\"scissor\": true,\"bandage\": true,\"whistle2\": true,\"wrap\": true,\"toilet\": true,\"tape\": true,\"pillow\": true,\"glasses\": true,\"wet_tissue\": true,\"light\": true,\"for_children\": true,\"essential_oil\": true},\"foods\": {\"water\": true,\"can\": true,\"soup\": true,\"dryfood\": true,\"stove\": true,\"poli\": true},\"checkList\": {\"earthquake\": \"テストテストテストテスト\",\"flood\": \"テストテストテストテスト\",\"place\": \"テストテストテストテスト\",\"fixFurniture\": true,\"glass\": true,\"storage\": true,\"arrangeFurniture\": true,\"meal\": true,\"water\": true,\"stove\": true,\"gas\": true,\"toilet\": true}}",
   "_parsedBody": {
     "_comment": "_parsedBodyはコメントの代わりです。本当のBodyはstringですが、可読性が低いので同じ内容を_parsedBodyとしてobject形式で置いています。Lambdaで利用しないでください。",
     "form": {
       "family": [
-        { "name": "テスト太郎", "phone": "000-0000-0000", "insurance": "00000000", "illness": "テストデータ" },
-        { "name": "テスト太郎", "phone": "000-0000-0000", "insurance": "00000000", "illness": "テストデータ" }
+        { "name": "テスト太郎", "phoneNumber": "000-0000-0000", "insuranceId": "00000000", "illness": "テストデータ" },
+        { "name": "テスト太郎", "phoneNumber": "000-0000-0000", "insuranceId": "00000000", "illness": "テストデータ" }
       ],
       "relatives": [
-        { "name": "テスト太郎", "phone": "000-0000-0000" },
-        { "name": "テスト太郎", "phone": "000-0000-0000" },
-        { "name": "テスト太郎", "phone": "000-0000-0000" },
-        { "name": "テスト太郎", "phone": "000-0000-0000" },
-        { "name": "テスト太郎", "phone": "000-0000-0000" }
+        { "name": "テスト太郎", "phoneNumber": "000-0000-0000" },
+        { "name": "テスト太郎", "phoneNumber": "000-0000-0000" },
+        { "name": "テスト太郎", "phoneNumber": "000-0000-0000" },
+        { "name": "テスト太郎", "phoneNumber": "000-0000-0000" },
+        { "name": "テスト太郎", "phoneNumber": "000-0000-0000" }
       ],
       "facilities": [
-        { "name": "テスト会館", "phone": "000-0000-0000" },
-        { "name": "テスト会館", "phone": "000-0000-0000" },
-        { "name": "テスト会館", "phone": "000-0000-0000" },
-        { "name": "テスト会館", "phone": "000-0000-0000" },
-        { "name": "テスト会館", "phone": "000-0000-0000" }
+        { "name": "テスト会館", "phoneNumber": "000-0000-0000" },
+        { "name": "テスト会館", "phoneNumber": "000-0000-0000" },
+        { "name": "テスト会館", "phoneNumber": "000-0000-0000" },
+        { "name": "テスト会館", "phoneNumber": "000-0000-0000" },
+        { "name": "テスト会館", "phoneNumber": "000-0000-0000" }
       ],
       "home": "000-0000-0000",
       "temporary": "三田市テスト会館テスト号室",

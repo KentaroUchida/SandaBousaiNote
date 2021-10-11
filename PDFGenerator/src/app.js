@@ -95,19 +95,19 @@ async function generatePDF(params, res) {
 
   params.form.family.slice(0,5).forEach((el,i) => { // 5人までしか書き込めない
     if(el.name) context.writeText(el.name,59,466-i*17,options);
-    if(el.phone) context.writeText(el.phone,130,466-i*17,phoneOptions);
-    if(el.insurance) context.writeText(el.insurance,210,466-i*17,options);
+    if(el.phoneNumber) context.writeText(el.phoneNumber,130,466-i*17,phoneOptions);
+    if(el.insuranceId) context.writeText(el.insuranceId,210,466-i*17,options);
     if(el.illness) context.writeText(el.illness,270,466-i*17,options);
   });
 
   params.form.relatives.slice(0,5).forEach((el,i) => { // 5人までしか書き込めない
     if(el.name) context.writeText(el.name,59,335-i*17, options);
-    if(el.phone) context.writeText(el.phone,128,335-i*17,phoneOptions);
+    if(el.phoneNumber) context.writeText(el.phoneNumber,128,335-i*17,phoneOptions);
   });
 
   params.form.facilities.slice(0,5).forEach((el,i) => { // 5つまでしか書き込めない
     if(el.name) context.writeText(el.name,210,335-i*17, options);
-    if(el.phone) context.writeText(el.phone,276,335-i*17,phoneOptions);
+    if(el.phoneNumber) context.writeText(el.phoneNumber,276,335-i*17,phoneOptions);
   });
 
   context.writeText(params.form.home,276,231,phoneOptions);

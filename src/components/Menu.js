@@ -20,6 +20,12 @@ import Grid from "@mui/material/Grid";
 import { Button } from "@mui/material";
 import Box from "@mui/material/Box";
 import {titles} from "../components/Titles";
+import Dialog from "@mui/material/Dialog";
+import DialogTitle from "@mui/material/DialogTitle";
+import DialogContent from "@mui/material/DialogContent";
+import DialogContentText from "@mui/material/DialogContentText";
+import DialogActions from "@mui/material/DialogActions";
+import LinearProgress from "@mui/material/LinearProgress";
 
 const drawerWidth = 350;
 
@@ -125,163 +131,6 @@ export default function ResponsiveDrawer(props) {
   const container =
     window !== undefined ? () => window().document.body : undefined;
 
-  const downloadPDF = async () => {
-    const body = {
-      form: {
-        family: [],
-        relatives: [],
-        facilities: [],
-        home: '',
-        temporary: '',
-        disaster: '',
-        tsunami: '',
-      },
-      card: {
-        flood:      {evacuation: '', shelter: ''},
-        sediment:   {evacuation: '', shelter: ''},
-        earthquake: {evacuation: '', shelter: ''},
-        fire:       {evacuation: '', shelter: ''}
-      },
-      goods: {
-        water: false,
-        coin: false,
-        chocolate_and_candy: false,
-        battery: false,
-        handkerchief: false,
-        whistle: false,
-        aid: false,
-        diapers: false,
-        address: false,
-        poli: false,
-        pin: false,
-        picnic_sheet: false,
-        mask: false,
-        dentifrice_sheet: false,
-        socks: false,
-        scissor: false,
-        bandage: false,
-        whistle2: false,
-        wrap: false,
-        toilet: false,
-        tape: false,
-        pillow: false,
-        glasses: false,
-        wet_tissue: false,
-        light: false,
-        for_children: false,
-        essential_oil: false,
-      },
-      foods: {
-        water: false,
-        can: false,
-        soup: false,
-        dryfood: false,
-        stove: false,
-        poli: false,
-      },
-      checkList: {
-        earthquake: '',
-        flood: '',
-        place: '',
-        fixFurniture: false,
-        glass: false,
-        storage: false,
-        arrangeFurniture: false,
-        meal: false,
-        water: false,
-        stove: false,
-        gas: false,
-        toilet: false,
-      },
-    };
-    // コードが汚い
-    const data = await (() => new Promise((resolve, reject) => {
-      try {
-        const faml = localStorage.getItem('familyList');
-        if(faml) body.form.family = JSON.parse(faml);
-        const rl = localStorage.getItem('relativeList');
-        if(rl) body.form.family = JSON.parse(rl);
-        const facl = localStorage.getItem('facilityList');
-        if(facl) body.form.family = JSON.parse(facl);
-        const home = localStorage.getItem('phone');
-        if(home) body.form.home = home;
-        const temporary = localStorage.getItem('ichiji');
-        if(temporary) body.form.temporary = temporary;
-        const disaster = localStorage.getItem('saigai');
-        if(disaster) body.form.disaster = disaster;
-        const tsunami = localStorage.getItem('tsunami');
-        if(tsunami) body.form.tsunami = tsunami;
-
-        const floodE = localStorage.getItem('suigai1');
-        if(floodE) body.card.flood.evacuation = floodE;
-        const floodS = localStorage.getItem('suigai2');
-        if(floodS) body.card.flood.shelter = floodS;
-        const sedimentE = localStorage.getItem('dosha1');
-        if(sedimentE) body.card.sediment.evacuation = sedimentE;
-        const sedimentS = localStorage.getItem('dosha2');
-        if(sedimentS) body.card.sediment.shelter = sedimentS;
-        const earthquakeE = localStorage.getItem('jishin1');
-        if(earthquakeE) body.card.earthquake.evacuation = earthquakeE;
-        const earthquakeS = localStorage.getItem('jishin2');
-        if(earthquakeS) body.card.earthquake.shelter = earthquakeS;
-        const fireE = localStorage.getItem('kasai1');
-        if(fireE) body.card.fire.evacuation = fireE;
-        const fireS = localStorage.getItem('kasai2');
-        if(fireS) body.card.fire.shelter = fireS;
-
-        const clm = localStorage.getItem('checkListMore');
-        if(clm) Object.assign(body.goods, JSON.parse(clm));
-        const clh = localStorage.getItem('checkListHyakkin');
-        if(clh) {
-          const tmp = JSON.parse(clh);
-          if(tmp.whistle) body.goods.whistle2 = true;
-          Object.assign(body.goods, tmp);
-        }
-        const cln = localStorage.getItem('checkListNormally');
-        if(cln) Object.assign(body.goods, JSON.parse(cln));
-
-        const fl = localStorage.getItem('foodList');
-        if(fl) Object.assign(body.foods, JSON.parse(fl));
-
-        const cleq = localStorage.getItem('P15Earthquake');
-        if(cleq) body.checkList.earthquake = cleq;
-        const clfl = localStorage.getItem('P15Flood');
-        if(clfl) body.checkList.flood = clfl;
-        const clpl = localStorage.getItem('P15Place');
-        if(clpl) body.checkList.place = clpl;
-        const clhm = localStorage.getItem('P15Home');
-        if(clhm) Object.assign(body.checkList, JSON.parse(clhm));
-        const clst = localStorage.getItem('P15Stock');
-        if(clst) Object.assign(body.checkList, JSON.parse(clst));
-        console.log(body);
-        axios.post('https://mfdxebawsi.execute-api.us-east-1.amazonaws.com/Prod/create', body).then(res => {
-          console.log(res.data);
-          axios.get(res.data, {
-            responseType: 'blob',
-            dataType: 'binary',
-          }).then(res => {
-            console.log(res);
-            resolve(res.data);
-          });
-        }).catch(err => {
-          console.log(err);
-        });
-      } catch(err) {
-        reject(err);
-      }
-    }))();
-
-    const url = URL.createObjectURL(new Blob([data]));
-    const link = document.createElement('a');
-    link.href = url;
-    link.setAttribute(
-        'download',
-        'bousai_note.pdf'
-    );
-    document.body.appendChild(link);
-    link.click();
-  };
-
   return (
     <Box sx={styles.root}>
       <CssBaseline />
@@ -307,13 +156,7 @@ export default function ResponsiveDrawer(props) {
                 {"三田防災ノート.P"+String(props.now_index)}
               </Typography>
             </div>
-            <IconButton
-              color="inherit"
-              edge="end"
-              onClick={downloadPDF}
-            >
-              <PrintIcon />
-            </IconButton>
+            <DownloadDialog/>
           </Grid>
         </Toolbar>
       </AppBar>
@@ -372,3 +215,120 @@ ResponsiveDrawer.propTypes = {
 };
 
 //export default ResponsiveDrawer;
+
+function DownloadDialog() {
+  const [open, setOpen] = React.useState(false);
+  const [downloading, setDownloading] = React.useState(false);
+  const [failed, setFailed] = React.useState(false);
+  const handleClickOpen = () => {
+    setOpen(true);
+  };
+  const handleClose = () => {
+    setOpen(false);
+    if(failed) setFailed(false);
+  };
+  const downloadPDF = () => {
+    setDownloading(true);
+    setFailed(false);
+    const body = {form: {}, card: {}, goods: {}, checkList: {}};
+    [['family', 'familyList'], ['relatives', 'relativeList'], ['facilities', 'facilityList']].forEach(keys => {
+      const tmp = localStorage.getItem(keys[1]);
+      body.form[keys[0]] = tmp ? JSON.parse(tmp) : [];
+    });
+    [['home', 'phone'], ['temporary', 'P0Hinanbasyo'], ['disaster', 'P0Shishitei']].forEach(keys => {
+      body.form[keys[0]] = localStorage.getItem(keys[1]);
+    });
+    const cardString = localStorage.getItem('P17Izanigeru');
+    const cardTmp = cardString ? JSON.parse(cardString) : {};
+    [['flood', 'suigai'], ['sediment', 'dosya'], ['earthquake', 'jishin'], ['fire', 'kasai']].forEach(keys => {
+      body.card[keys[0]] = {};
+      ['evacuation', 'shelter'].forEach((k, i) => body.card[keys[0]][k] = cardTmp[keys[1] + (i+1)]);
+    });
+    const clm = localStorage.getItem('checkListMore');
+    if(clm) Object.assign(body.goods, JSON.parse(clm));
+    const clh = localStorage.getItem('checkListHyakkin');
+    if(clh) {
+      const tmp = JSON.parse(clh);
+      if(tmp.whistle) body.goods.whistle2 = true;
+      Object.assign(body.goods, tmp);
+    }
+    const cln = localStorage.getItem('checkListNormally');
+    if(cln) Object.assign(body.goods, JSON.parse(cln));
+    const fl = localStorage.getItem('foodList');
+    body.foods = fl ? JSON.parse(fl) : {};
+
+    body.checkList.earthquake = localStorage.getItem('P15Earthquake');
+    body.checkList.flood = localStorage.getItem('P15Flood');
+    body.checkList.place = localStorage.getItem('P15Place');
+    const clhm = localStorage.getItem('P15Home');
+    if(clhm) Object.assign(body.checkList, JSON.parse(clhm));
+    const clst = localStorage.getItem('P15Stock');
+    if(clst) Object.assign(body.checkList, JSON.parse(clst));
+
+    console.log(body);
+    axios.post('https://mfdxebawsi.execute-api.us-east-1.amazonaws.com/Prod/create', body).then(res => {
+      console.log(res.data);
+      return axios.get(res.data, {
+        responseType: 'blob',
+        dataType: 'binary',
+      });
+    }).then(res => {
+      const url = URL.createObjectURL(new Blob([res.data]));
+      const link = document.createElement('a');
+      link.href = url;
+      link.setAttribute(
+        'download',
+        'bousai_note.pdf'
+      );
+      document.body.appendChild(link);
+      link.click();
+      handleClose();
+    }).catch(err => {
+      console.log(err);
+      setFailed(true);
+    }).finally(() => {
+      setDownloading(false)
+    });
+  }
+
+  return (<>
+    <IconButton
+      color="inherit"
+      edge="end"
+      onClick={handleClickOpen}
+    >
+      <PrintIcon />
+    </IconButton>
+    <Dialog
+      open={open}
+      onClose={handleClose}
+      aria-labelledby="alert-dialog-title"
+      aria-describedby="alert-dialog-description"
+    >
+      <DialogTitle id="alert-dialog-title">
+        さんだ防災ノート<br/>
+        PDFダウンロード
+      </DialogTitle>
+      <DialogContent>
+        <DialogContentText id="alert-dialog-description">
+          防災ノートのPDF版をダウンロードすることができます。<br/>
+          PDFには、本Webアプリに保存された情報が書き込まれます。印刷したいときなどにご利用ください。
+        </DialogContentText>
+      </DialogContent>
+      <DialogActions>
+        <Button onClick={handleClose}>キャンセル</Button>
+        <Button onClick={downloadPDF} autoFocus>
+          {downloading ? 'ダウンロード中' : 'ダウンロード'}
+        </Button>
+      </DialogActions>
+      {failed && <DialogContent>
+        <DialogContentText id="alert-dialog-description">
+          サーバエラーにより、ダウンロードに失敗しました。<br/>
+          お手数ですが、こちらのリンクからダウンロードしてください。<br/>
+          ** ここにさんだ防災ノートのURLが書かれます **
+        </DialogContentText>
+      </DialogContent>}
+      {downloading && <LinearProgress/>}
+    </Dialog>
+  </>);
+}
