@@ -1,24 +1,14 @@
 import React, { useState, useEffect } from 'react';
-import Typography from "@mui/material/Typography";
 import {
-  ImageCard,
-  ImageTextCard,
   TitleTextImageCard,
-  TitleImagesCard,
 } from "../components/CardComponents";
-import { Title, SubTitle, BodyText } from "../components/TitleComponents";
+import { Title, SubTitle} from "../components/TitleComponents";
 import Card from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';
 import CardHeader from '@mui/material/CardHeader';
-import CardMedia from '@mui/material/CardMedia';
 import Checkbox from '@mui/material/Checkbox';
-import Container from '@mui/material/Container';
 import FormGroup  from '@mui/material/FormGroup';
 import FormControlLabel  from '@mui/material/FormControlLabel';
-import Grid from '@mui/material/Grid';
-import Link from '@mui/material/Link';
-import TextField  from '@mui/material/TextField';
-import Box from '@mui/material/Box'
 
 
 const styles = {
@@ -63,57 +53,21 @@ const daijobuImages = [
 ];
 
 function CheckList() {
-  let tmp = localStorage.getItem("P15Earthquake");
-  const [earthquake, setEarthquake] = useState(
-    tmp !== null ? tmp : "");
-  useEffect(() => localStorage.setItem("P15Earthquake", earthquake),[earthquake]);
-  const handleChangeEarthquake = event => setEarthquake(event.target.value);
-
-
-  tmp = localStorage.getItem("P15Flood");
-  const [flood, setFlood] = useState(
-    tmp !== null ? tmp : "");
-  useEffect(() => localStorage.setItem("P15Flood", flood));
-  const handleChangeFlood = event => setFlood(event.target.value);
-  const shelter = earthquake !== "" && flood !== ""
-
-  tmp = localStorage.getItem("P15Place");
-  const [place, setPlace] = useState(
-    tmp !== null ? tmp : "");
-  useEffect(() => localStorage.setItem("P15Place", place));
-  const handleChangePlace = event => setPlace(event.target.value);
-  const filledPlace = place !== "";
-
-  tmp = localStorage.getItem("P15Home");
-  const [home, setHome] = useState(
+  
+  let tmp = localStorage.getItem("P11Sense");
+  const [sense, setSense] = useState(
     tmp !== null ? JSON.parse(tmp)
     : {
-      fixFurniture: false,
-      glass: false,
-      storage: false,
-      arrangeFurniture: false,
+      socializing: false,
+      preparation: false,
+      walking: false,
+      camp: false,
+      plasticBagCooking: false,
   });
-  useEffect(() => localStorage.setItem("P15Home", JSON.stringify(home)));
-  const handleChangeHome = event =>
-    setHome({...home, [event.target.name]: event.target.checked});
-  const { fixFurniture, glass, storage, arrangeFurniture } = home;
-  const homeAll = fixFurniture && glass && storage && arrangeFurniture;
-
-  tmp = localStorage.getItem("P15Stock");
-  const [stock, setStock] = useState(
-    tmp !== null ? JSON.parse(tmp)
-    : {
-      meal: false,
-      water: false,
-      stove: false,
-      gas: false,
-      toilet: false,
-  });
-  useEffect(() => localStorage.setItem("P15Stock", JSON.stringify(stock)));
-  const handleChangeStock = event =>
-    setStock({...stock, [event.target.name]: event.target.checked});
-  const { meal, water, stove, gas, toilet } = stock;
-  const stockAll = meal && water && stove && gas && toilet;
+  useEffect(() => localStorage.setItem("P11Sense", JSON.stringify(sense)));
+  const handleChangeSense = event =>
+    setSense({...sense, [event.target.name]: event.target.checked});
+  const { socializing, preparation, walking, camp, plasticBagCooking } = sense;
 
   return(
     <Card sx={styles.card}>
@@ -126,37 +80,36 @@ function CheckList() {
         <FormControlLabel
             control={
               <Checkbox
-                checked={fixFurniture} onChange={handleChangeHome} name="fixFurniture"
+                checked={socializing} onChange={handleChangeSense} name="socializing"
               />
             }
             label="友人・ご近所付き合い"
           />
+          
         <FormGroup sx={styles.child}>
-          <ul>
-            <li>顔見知りを増やすこと•挨拶する</li>
-            <li>子供を任せられる人</li>
-          </ul>
+          ・顔見知りを増やすこと•挨拶する
+          <br></br>
+          ・子供を任せられる人
         </FormGroup>
         
         <FormControlLabel
           control={
             <Checkbox
-              checked={fixFurniture} onChange={handleChangeHome} name="fixFurniture"
+              checked={preparation} onChange={handleChangeSense} name="preparation"
             />
           }
           label="家の中の備え"
         />
         <FormGroup sx={styles.child}>
-          <ul>
-            <li>備蓄(詳しくはP13~14)</li>
-            <li>ものが落ちてこないように整理整頓</li>
-          </ul>
+          ・備蓄(詳しくはP13~14)
+          <br></br>
+          ・ものが落ちてこないように整理整頓
         </FormGroup>
 
         <FormControlLabel
           control={
             <Checkbox
-              checked={glass} onChange={handleChangeHome} name="glass"
+              checked={walking} onChange={handleChangeSense} name="walking"
             />
           }
           label="防災さんぽ"
@@ -168,15 +121,16 @@ function CheckList() {
         <FormControlLabel
           control={
             <Checkbox
-              checked={storage} onChange={handleChangeHome} name="storage"
+              checked={camp} onChange={handleChangeSense} name="camp"
             />
           }
           label="防災キャンプ"
+          style={{display:"block"}}
         />
         <FormControlLabel
           control={
             <Checkbox
-              checked={arrangeFurniture} onChange={handleChangeHome} name="arrangeFurniture"
+              checked={plasticBagCooking} onChange={handleChangeSense} name="plasticBagCooking"
             />
           }
           label="ポリ袋クッキング"
