@@ -22,7 +22,6 @@ import { P7Izanigeru } from "./pages/P7Izanigeru";
 import P8Goods from "./pages/P8Goods";
 import P9Foods from "./pages/P9Foods";
 import { P10TaikenPapa } from "./pages/P10TaikenPapa";
-import { SandaP7TaikenPapa } from "./pages/SandaP7TaikenPapa";
 import { P11KikenSouzou } from "./pages/P11KikenSouzou";
 import { P12KikenJissai } from "./pages/P12KikenJissai";
 import { P13Toilet } from "./pages/P13Toilet";
@@ -32,6 +31,9 @@ import { Top } from "./pages/Top";
 import { SwipeNotifier } from "./components/SwipeNotifier";
 import { CustomThemeA } from "./components/Theme";
 import {titles} from "./components/Titles";
+//以下三田版
+import { SandaP5MamaPapa } from "./pages/SandaP5MamaPapa";
+import { SandaP7TaikenPapa } from "./pages/SandaP7TaikenPapa";
 
 const paths = [
   "/form",
@@ -51,6 +53,7 @@ const paths = [
   "/daijobu",
   "/bousaikaigi",
   "/oshirase",
+  "/sandaMamaPapa",
   "/sandaTaiken",
 ];
 
@@ -72,6 +75,7 @@ const pages = [
   <P14Daijobu />,
   <P15Bousaikaigi />,
   <Home />,
+  <SandaP5MamaPapa />,
   <SandaP7TaikenPapa/>,
 ];
 
