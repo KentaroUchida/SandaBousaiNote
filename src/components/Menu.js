@@ -93,7 +93,8 @@ export default function ResponsiveDrawer(props) {
     "/daijobu",
     "/bousaiKaigi",
     "/oshirase",
-    "/sandaTaiken"
+    "/sandaMamaPapa",
+    "/sandaTaiken",
   ];
 
   const drawer = (
