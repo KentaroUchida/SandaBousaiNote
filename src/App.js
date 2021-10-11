@@ -34,6 +34,7 @@ import {titles} from "./components/Titles";
 //以下三田版
 import { SandaP5MamaPapa } from "./pages/SandaP5MamaPapa";
 import { SandaP7TaikenPapa } from "./pages/SandaP7TaikenPapa";
+import { SandaP11Daijobu } from "./pages/SandaP11Daijobu";
 
 const paths = [
   "/form",
@@ -55,6 +56,7 @@ const paths = [
   "/oshirase",
   "/sandaMamaPapa",
   "/sandaTaiken",
+  "/sandaDaijobu",
 ];
 
 const pages = [
@@ -77,6 +79,7 @@ const pages = [
   <Home />,
   <SandaP5MamaPapa />,
   <SandaP7TaikenPapa/>,
+  <SandaP11Daijobu/>,
 ];
 
 function App() {

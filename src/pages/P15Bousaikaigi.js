@@ -65,7 +65,7 @@ function CheckList() {
   let tmp = localStorage.getItem("P15Earthquake");
   const [earthquake, setEarthquake] = useState(
     tmp !== null ? tmp : "");
-  useEffect(() => localStorage.setItem("P15Earthquake", earthquake));
+  useEffect(() => localStorage.setItem("P15Earthquake", earthquake),[earthquake]);
   const handleChangeEarthquake = event => setEarthquake(event.target.value);
 
 
