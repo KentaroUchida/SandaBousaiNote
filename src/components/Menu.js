@@ -26,6 +26,9 @@ import DialogContent from "@mui/material/DialogContent";
 import DialogContentText from "@mui/material/DialogContentText";
 import DialogActions from "@mui/material/DialogActions";
 import LinearProgress from "@mui/material/LinearProgress";
+import ArrowBackIosNewIcon from '@mui/icons-material/ArrowBackIosNew';
+import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
+
 
 const drawerWidth = 350;
 
@@ -153,9 +156,21 @@ export default function ResponsiveDrawer(props) {
               >
                 目次
               </Button>
-              <Typography variant="h6" noWrap style={{}}>
-                {"三田防災ノート.P"+String(props.now_index)}
-              </Typography>
+              
+              <Link to={links[ (props.now_index + links.length - 1) % links.length]} key={(props.now_index + links.length - 1) % links.length}>
+              <IconButton color="inherit" edge="end">
+              <ArrowBackIosNewIcon />
+              </IconButton> 
+              </Link>
+
+              <Typography marginRight = '-12px'> {props.now_index} </Typography>
+
+              <Link to={links[ (props.now_index + 1) % links.length]} key={(props.now_index + 1) % links.length}>
+              <IconButton color="inherit" edge="end">
+              <ArrowForwardIosIcon />
+              </IconButton> </Link>
+
+
             </div>
             <DownloadDialog/>
           </Grid>
