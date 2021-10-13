@@ -20,3 +20,7 @@ export * from "./P15Bousaikaigi";
 export * from "./SandaP5MamaPapa";
 export * from "./SandaP7TaikenPapa";
 export * from "./SandaP11Daijobu";
+
+// 新しいページを作ったらここに書いてね
+// export defaultはダメだよ
+// App.jsに書き足してね
