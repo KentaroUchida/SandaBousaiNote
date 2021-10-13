@@ -30,7 +30,11 @@ import P15Bousaikaigi from "./pages/P15Bousaikaigi";
 import { Top } from "./pages/Top";
 import { SwipeNotifier } from "./components/SwipeNotifier";
 import { CustomThemeA } from "./components/Theme";
-import {titles} from "./components/Title";
+import {titles} from "./components/Titles";
+//以下三田版
+import { SandaP5MamaPapa } from "./pages/SandaP5MamaPapa";
+import { SandaP7TaikenPapa } from "./pages/SandaP7TaikenPapa";
+import { SandaP11Daijobu } from "./pages/SandaP11Daijobu";
 
 const paths = [
   "/form",
@@ -50,6 +54,9 @@ const paths = [
   "/daijobu",
   "/bousaikaigi",
   "/oshirase",
+  "/sandaMamaPapa",
+  "/sandaTaiken",
+  "/sandaDaijobu",
 ];
 
 const pages = [
@@ -70,6 +77,9 @@ const pages = [
   <P14Daijobu />,
   <P15Bousaikaigi />,
   <Home />,
+  <SandaP5MamaPapa />,
+  <SandaP7TaikenPapa/>,
+  <SandaP11Daijobu/>,
 ];
 
 function App() {
