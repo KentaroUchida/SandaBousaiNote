@@ -55,10 +55,6 @@ const styles = {
     width: drawerWidth,
     boxSizing: "border-box",
   },
-  content: {
-    flexGrow: 1,
-    p: 3,
-  },
 };
 
 
@@ -108,7 +104,7 @@ export default function ResponsiveDrawer(props) {
   ];
 
   const drawer = (
-    <div>
+    <>
       <Toolbar />
       <List component="nav">
         {titles.map((text, index) => (
@@ -129,7 +125,7 @@ export default function ResponsiveDrawer(props) {
         ))}
         <Divider />
       </List>
-    </div>
+    </>
   );
 
   const container =
@@ -214,8 +210,7 @@ export default function ResponsiveDrawer(props) {
           {drawer}
         </Drawer>
       </Box>
-      <Box component="main" sx={styles.content}>
-        <Toolbar />
+      <Box component="main">
         {props.children}
       </Box>
     </Box>

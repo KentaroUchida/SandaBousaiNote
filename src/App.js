@@ -6,7 +6,7 @@ import {
   useLocation,
 } from "react-router-dom";
 import { useSwipeable } from "react-swipeable";
-import { useMediaQuery } from "@mui/material";
+import { useMediaQuery, Box, Toolbar } from "@mui/material";
 import { ThemeProvider } from "@mui/styles";
 import { ThemeProvider as EmotionThemeProvider } from "@emotion/react";
 
@@ -82,6 +82,14 @@ const pages = [
   <SandaP11Daijobu/>,
 ];
 
+const styles = {
+  content: {
+    minHeight: "100vh",
+    flexGrow: 1,
+    p: 3,
+  }
+}
+
 function App() {
   const ContentPage = ({ index }) => {
     const history = useHistory();
@@ -109,7 +117,9 @@ function App() {
       <Route exact path={paths[index]} key={index}>
         {index === 1 && matches && <SwipeNotifier />}
         <Menu title={titles[index]} now_index={index}>
-          <div {...handleSwipe}>{pages[index]}</div>
+          <Box {...handleSwipe} sx={styles.content}>
+                    <Toolbar />
+            {pages[index]}</Box>
         </Menu>
       </Route>
     );
