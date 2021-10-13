@@ -1,5 +1,5 @@
 import React from "react";
-import { CardContent } from "@mui/material";
+import { CardContent, Box } from "@mui/material";
 import {
   ImageTextCard,
   TitleTextImageCard,
@@ -73,6 +73,7 @@ export const P3Jishin = () => {
             食器棚のガラスにも飛散防止フィルムをはる。
           </BodyText>
           <ImageCardPart image={generateImagePath("kagu_window.png")} />
+          <Box sx={{height:30}}/>
           <BodyText>
             カーテンなどを閉めておくだけでもガラスの飛散を軽減できます。
           </BodyText>
