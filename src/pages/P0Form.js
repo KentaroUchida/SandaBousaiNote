@@ -8,8 +8,7 @@ import {
   Grid,
 } from "@mui/material";
 import { ExpandMore as ExpandMoreIcon } from "@mui/icons-material";
-import FormRegisterDialog from "../components/RegisterDialog";
-import FormEditDialog from "../components/EditDialog";
+import { FormRegisterDialog, FormEditDialog } from "../components";
 
 const Form = () => {
   const [familyList, setFamilyList] = useState(
@@ -24,8 +23,12 @@ const Form = () => {
   const [phoneNumber, setPhoneNumber] = useState(
     localStorage.getItem("phone") || ""
   );
-  const [hinanbasyo, setHinanbasyo] = useState(localStorage.getItem("P0Hinanbasyo") || "");
-  const [shishitei, setShishitei] = useState(localStorage.getItem("P0Shishitei") || "");
+  const [hinanbasyo, setHinanbasyo] = useState(
+    localStorage.getItem("P0Hinanbasyo") || ""
+  );
+  const [shishitei, setShishitei] = useState(
+    localStorage.getItem("P0Shishitei") || ""
+  );
 
   const switchCategory = (category, func) => {
     switch (category) {
@@ -69,15 +72,15 @@ const Form = () => {
   const handlePhoneNumberChange = (event) => {
     setPhoneNumber(event.target.value);
     localStorage.setItem("phone", event.target.value);
-  }
+  };
   const handleHinanbasyoChange = (event) => {
     setHinanbasyo(event.target.value);
     localStorage.setItem("P0Hinanbasyo", event.target.value);
-  }
+  };
   const handleShishiteiChange = (event) => {
     setShishitei(event.target.value);
     localStorage.setItem("P0Shishitei", event.target.value);
-  }
+  };
 
   // const setValues = () => {
   //   localStorage.setItem("phone", phoneNumber);
@@ -117,8 +120,8 @@ const Form = () => {
       </AccordionSummary>
       <AccordionDetails>
         <Typography>電話番号:{phoneNumber}</Typography>
-          <Typography>保険証番号:{insuranceId}</Typography>
-          <Typography>病気・アレルギー:{illness}</Typography>
+        <Typography>保険証番号:{insuranceId}</Typography>
+        <Typography>病気・アレルギー:{illness}</Typography>
       </AccordionDetails>
     </Accordion>
   );
@@ -146,9 +149,7 @@ const Form = () => {
         </Grid>
       </AccordionSummary>
       <AccordionDetails>
-        <Typography>
-          電話番号:{phoneNumber}
-        </Typography>
+        <Typography>電話番号:{phoneNumber}</Typography>
       </AccordionDetails>
     </Accordion>
   );
@@ -176,9 +177,7 @@ const Form = () => {
         </Grid>
       </AccordionSummary>
       <AccordionDetails>
-        <Typography>
-          電話番号:{phoneNumber}
-        </Typography>
+        <Typography>電話番号:{phoneNumber}</Typography>
       </AccordionDetails>
     </Accordion>
   );
@@ -202,7 +201,7 @@ const Form = () => {
   //   const validTsunami = tsunami.length !== 0;
   //   return validPhoneNumber && validIchiji && validSaigai && validTsunami;
   // }
-  
+
   return (
     <div>
       <Grid justifyContent="space-between" alignItems="center" container>
@@ -254,8 +253,12 @@ const Form = () => {
         </tbody>
       </table>
       <br></br>
-      <Typography>以下の電話番号・避難所情報は入力すると自動でブラウザ上に保存されます</Typography>
-      <Typography>入力した情報は収集等しておりませんので，安心してお使いください</Typography>
+      <Typography>
+        以下の電話番号・避難所情報は入力すると自動でブラウザ上に保存されます
+      </Typography>
+      <Typography>
+        入力した情報は収集等しておりませんので，安心してお使いください
+      </Typography>
       <table border="1">
         <tbody>
           <tr>
@@ -312,4 +315,4 @@ const Form = () => {
   );
 };
 
-export default Form;
+export { Form as P0Form};

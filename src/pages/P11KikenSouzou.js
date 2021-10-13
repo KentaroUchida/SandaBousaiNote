@@ -6,7 +6,7 @@ import {
   CardMedia,
   Grid,
 } from "@mui/material";
-import { ResponsiveFontProvider } from "../components/ResponsiveFontProvider";
+import { ResponsiveFontProvider } from "../components";
 
 const imgPath = "/img/pages/P11KikenSouzou/";
 
@@ -46,7 +46,7 @@ const images = ["tosyokan.png", "rouka.png", "genkan.png", "undoujou.png"];
 
 const texts = ["図書館", "ろうか", "げんかん(下足場)", "運動場"];
 
-export const P11KikenSouzou = (index) => {
+const P11KikenSouzou = (index) => {
   return (
     <div key={index}>
       <ResponsiveFontProvider>
@@ -78,3 +78,5 @@ export const P11KikenSouzou = (index) => {
     </div>
   );
 };
+
+export {P11KikenSouzou}

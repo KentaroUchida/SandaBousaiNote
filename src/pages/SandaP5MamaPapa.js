@@ -53,7 +53,7 @@ const photoTexts = [
   "ベランダの壁を突き破り、隣家からタイヤが飛んできました",
 ];
 
-export const SandaP5MamaPapa = () => {
+const SandaP5MamaPapa = () => {
   return (
     <>
       <Title>ママ&パパの体験談</Title>
@@ -75,3 +75,5 @@ export const SandaP5MamaPapa = () => {
     </>
   );
 };
+
+export {SandaP5MamaPapa}

@@ -51,7 +51,7 @@ const photoTexts = [
   "ベランダの壁を突き破り、隣家からタイヤが飛んできました",
 ];
 
-export const P5Taiken = () => {
+const P5Taiken = () => {
   return (
     <>
       <ImageCard image="img/pages/Taiken/title.png" />
@@ -75,3 +75,5 @@ export const P5Taiken = () => {
     </>
   );
 };
+
+export { P5Taiken }

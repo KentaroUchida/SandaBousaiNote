@@ -217,4 +217,4 @@ const FormEditDialog = ({ category, edit, remove, defaultMember }) => {
   );
 };
 
-export default FormEditDialog;
+export {FormEditDialog};
