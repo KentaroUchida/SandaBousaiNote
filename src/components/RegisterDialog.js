@@ -167,4 +167,4 @@ const FormRegisterDialog = ({ category, submit }) => {
   );
 };
 
-export default FormRegisterDialog;
+export {FormRegisterDialog};

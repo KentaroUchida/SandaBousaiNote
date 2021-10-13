@@ -8,7 +8,7 @@ import {
   Grid,
   Link,
 } from "@mui/material";
-import { ResponsiveFontProvider } from "../components/ResponsiveFontProvider";
+import { ResponsiveFontProvider } from "../components";
 
 const styles = {
   card: {
@@ -50,7 +50,7 @@ const Photo = ({ image, texts }) => {
   );
 };
 
-export const P13Toilet = () => {
+const P13Toilet = () => {
   return (
     <ResponsiveFontProvider>
       <Typography variant="h3">いちばん困る！ストレスになる！</Typography>
@@ -107,3 +107,5 @@ export const P13Toilet = () => {
     </ResponsiveFontProvider>
   );
 };
+
+export { P13Toilet }

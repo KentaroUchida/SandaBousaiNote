@@ -6,7 +6,7 @@ import {
   Box,
   CardMedia
 } from "@mui/material";
-import { ResponsiveFontProvider } from "../components/ResponsiveFontProvider";
+import { ResponsiveFontProvider } from "../components";
 
 const imgPath = "/img/pages/P14Daijobu/";
 
@@ -86,7 +86,7 @@ const illustTexts2 = ["継続的に、様々な場所や場面を想定した防
 const subImages = ["pic1_1.png", "pic2_1.png"]
 
 
-export const P14Daijobu = () => {
+const P14Daijobu = () => {
     return (
       <>
         <ResponsiveFontProvider>
@@ -152,3 +152,5 @@ export const P14Daijobu = () => {
       </>
     );
   };
+
+  export { P14Daijobu }

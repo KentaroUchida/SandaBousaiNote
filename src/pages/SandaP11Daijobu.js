@@ -3,12 +3,7 @@ import {
   TitleTextImageCard,
 } from "../components/CardComponents";
 import { Title, SubTitle} from "../components/TitleComponents";
-import Card from '@mui/material/Card';
-import CardContent from '@mui/material/CardContent';
-import CardHeader from '@mui/material/CardHeader';
-import Checkbox from '@mui/material/Checkbox';
-import FormGroup  from '@mui/material/FormGroup';
-import FormControlLabel  from '@mui/material/FormControlLabel';
+import {Card, CardContent, CardHeader, Checkbox, FormGroup, FormControlLabel} from "@mui/material"
 
 
 const styles = {
@@ -143,7 +138,7 @@ function CheckList() {
   );
 }
 
-export const SandaP11Daijobu = () => {
+const SandaP11Daijobu = () => {
 
   // 文字列を改行
   // https://chaika.hatenablog.com/entry/2020/07/12/083000
@@ -176,3 +171,5 @@ export const SandaP11Daijobu = () => {
     <CheckList/>
   </>)
 }
+
+export {SandaP11Daijobu}
