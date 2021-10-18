@@ -34,6 +34,7 @@ import {titles} from "./components/Titles";
 //以下三田版
 import { SandaP5MamaPapa } from "./pages/SandaP5MamaPapa";
 import { SandaP7TaikenPapa } from "./pages/SandaP7TaikenPapa";
+import { SandaP9IzaNigeru } from "./pages/SandaP9IzaNigeru";
 import { SandaP11Daijobu } from "./pages/SandaP11Daijobu";
 
 const paths = [
@@ -56,6 +57,7 @@ const paths = [
   "/oshirase",
   "/sandaMamaPapa",
   "/sandaTaiken",
+  "/sandaIzaNigeru",
   "/sandaDaijobu",
 ];
 
@@ -79,6 +81,7 @@ const pages = [
   <Home />,
   <SandaP5MamaPapa />,
   <SandaP7TaikenPapa/>,
+  <SandaP9IzaNigeru/>,
   <SandaP11Daijobu/>,
 ];
 
