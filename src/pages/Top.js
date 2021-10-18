@@ -19,7 +19,7 @@ const FlexImage = ({ image }) => {
   );
 };
 
-export const Top = () => {
+const Top = () => {
   return (
     <ResponsiveFontProvider>
       <FlexImage image="/img/pages/Top/top.png" sx={styles.image}/>
@@ -29,3 +29,5 @@ export const Top = () => {
     </ResponsiveFontProvider>
   );
 };
+
+export {Top}

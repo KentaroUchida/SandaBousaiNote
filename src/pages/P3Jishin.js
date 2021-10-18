@@ -12,7 +12,7 @@ import { Title, SubTitle, BodyText } from "../components/TitleComponents";
 const img_path = "/img/pages/P3Jishin";
 const generateImagePath = (filename) => img_path + "/" + filename;
 
-export const P3Jishin = () => {
+const P3Jishin = () => {
   return (
     <>
       <Title>グラッと地震がきたら！</Title>
@@ -91,3 +91,5 @@ export const P3Jishin = () => {
     </>
   );
 };
+
+export {P3Jishin};

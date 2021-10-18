@@ -6,7 +6,7 @@ import {
   CardMedia,
   Grid,
 } from "@mui/material";
-import { ResponsiveFontProvider } from "../components/ResponsiveFontProvider";
+import { ResponsiveFontProvider } from "../components";
 
 const imgPath = "/img/pages/P12KikenJissai/";
 
@@ -67,7 +67,7 @@ const mamoruTexts = [
   "割れものがいっぱい",
 ];
 
-export const P12KikenJissai = (index) => {
+const P12KikenJissai = (index) => {
   return (
     <div key={index}>
       <ResponsiveFontProvider>
@@ -106,3 +106,5 @@ export const P12KikenJissai = (index) => {
     </div>
   );
 };
+
+export { P12KikenJissai }

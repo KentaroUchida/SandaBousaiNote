@@ -7,7 +7,7 @@ import {
   CardMedia,
   Grid,
 } from "@mui/material";
-import { ResponsiveFontProvider } from "../components/ResponsiveFontProvider";
+import { ResponsiveFontProvider } from "../components";
 
 const styles = {
   card: {
@@ -104,7 +104,7 @@ const photoImages = [
   "img/pages/P10TaikenPapa/pic5.png",
 ];
 
-export const P10TaikenPapa = () => {
+const P10TaikenPapa = () => {
   return (
     <>
       <FlexImage image="img/pages/P10TaikenPapa/title.png" />
@@ -122,8 +122,10 @@ export const P10TaikenPapa = () => {
         />
       ))}
       {photoImages.map((_, i) => (
-        <Photo image={photoImages[i]} key={i}/>
+        <Photo image={photoImages[i]} key={i} />
       ))}
     </>
   );
 };
+
+export {P10TaikenPapa};
