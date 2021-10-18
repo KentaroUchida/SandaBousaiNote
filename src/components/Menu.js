@@ -10,6 +10,7 @@ import {
   IconButton,
   List,
   ListItem,
+  ListItemIcon,
   ListItemText,
   Toolbar,
   Typography,
@@ -29,8 +30,11 @@ import ChevronRightIcon from "@mui/icons-material/ChevronRight";
 import PrintIcon from "@mui/icons-material/Print";
 import ArrowBackIosNewIcon from "@mui/icons-material/ArrowBackIosNew";
 import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
+import HelpOutlineIcon from '@mui/icons-material/HelpOutline';
+import FiberManualRecordIcon from "@mui/icons-material/FiberManualRecord";
 
 import { titles } from "../components/Titles";
+import { hints}   from "../components/Hints"
 
 const drawerWidth = 350;
 
@@ -64,6 +68,13 @@ function ResponsiveDrawer(props) {
   const theme = useTheme();
   const [mobileOpen, setMobileOpen] = React.useState(false);
   const [selectedIndex, setSelectedIndex] = React.useState(props.now_index);
+  const [open, setOpen] = React.useState(false);
+  const handleClickOpen = () => {
+    setOpen(true);
+  };
+  const handleClose = () => {
+    setOpen(false);
+  };
   const handleListItemClick = (event, index) => {
     setSelectedIndex(index);
   };
@@ -177,6 +188,47 @@ function ResponsiveDrawer(props) {
                   <ArrowForwardIosIcon />
                 </IconButton>{" "}
               </Link>
+
+              <IconButton color="inherit" edge = "end" onClick = {handleClickOpen}>
+                <HelpOutlineIcon/>
+              </IconButton> 
+              <Dialog
+        open={open}
+        onClose={handleClose}
+        aria-labelledby="alert-dialog-title"
+        aria-describedby="alert-dialog-description"
+      >
+        <DialogTitle id="alert-dialog-title">
+          {"三田防災ノートP" + String(props.now_index)}
+          <br />
+          説明ページ
+        </DialogTitle>
+        <DialogContent>
+          <DialogContentText id="alert-dialog-description">
+          <div>
+        {hints[props.now_index].map((text, i) => {
+          return (
+            <div>
+              <Typography>
+                <ListItem>
+                  <ListItemIcon>
+                    <FiberManualRecordIcon />
+                  </ListItemIcon>
+                  <ListItemText primary={text} />
+                </ListItem>
+              </Typography>
+            </div>
+          );
+        })}
+      </div>
+          </DialogContentText>
+        </DialogContent>
+        <DialogActions>
+          <Button onClick={handleClose}>確認しました</Button>
+        </DialogActions>
+      </Dialog>
+              
+
             </div>
             <DownloadDialog />
           </Grid>
