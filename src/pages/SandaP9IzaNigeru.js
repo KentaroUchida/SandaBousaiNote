@@ -109,7 +109,7 @@ function ControlledAccordions() {
 
   return (<>
     {shelters.map((obj, i) => (
-      <Accordion expanded={expanded === 'panel' + i} onChange={handleChange('panel' + i)}>
+      <Accordion key={i} expanded={expanded === 'panel' + i} onChange={handleChange('panel' + i)}>
         <AccordionSummary
           expandIcon={<ExpandMoreIcon />}
           aria-controls="panel1bh-content"
