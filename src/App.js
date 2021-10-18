@@ -30,6 +30,7 @@ import {
   P15Bousaikaigi,
   SandaP5MamaPapa,
   SandaP7TaikenPapa,
+  SandaP9IzaNigeru,
   SandaP11Daijobu,
 } from "./pages";
 import { Menu, SwipeNotifier, titles } from "./components";
@@ -55,6 +56,7 @@ const paths = [
   "/oshirase",
   "/sandaMamaPapa",
   "/sandaTaiken",
+  "/sandaIzaNigeru",
   "/sandaDaijobu",
 ];
 
@@ -77,8 +79,9 @@ const pages = [
   <P15Bousaikaigi />,
   <Home />,
   <SandaP5MamaPapa />,
-  <SandaP7TaikenPapa />,
-  <SandaP11Daijobu />,
+  <SandaP7TaikenPapa/>,
+  <SandaP9IzaNigeru/>,
+  <SandaP11Daijobu/>,
 ];
 
 const styles = {

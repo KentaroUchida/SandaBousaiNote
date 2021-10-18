@@ -19,6 +19,7 @@ export * from "./P15Bousaikaigi";
 
 export * from "./SandaP5MamaPapa";
 export * from "./SandaP7TaikenPapa";
+export * from "./SandaP9IzaNigeru";
 export * from "./SandaP11Daijobu";
 
 // 新しいページを作ったらここに書いてね
