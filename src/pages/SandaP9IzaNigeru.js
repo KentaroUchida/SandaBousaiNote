@@ -14,9 +14,9 @@ import {
   TitleCardPart,
   ImageCardPart,
 } from "../components/CardComponents";
-import { BodyText } from "../components/TitleComponents";
+import { BodyText, SimpleTitle } from "../components/TitleComponents";
 
-const imageBasePath = "img/pages/SandaP9IzaNigeru/"
+const imageBasePath = "img/pages/SandaP9IzaNigeru/";
 
 const title = "いざ逃げる！";
 const subtitle = "避難とは、安全な場所に身を置くこと！";
@@ -131,9 +131,7 @@ function ControlledAccordions() {
 
 export const SandaP9IzaNigeru = () => {
   return (<>
-    <Typography variant="h6">{title}</Typography>
-    <Divider sx={{mb: 1}}/>
-    <Typography color="gray" sx={{mb: 4}}>{subtitle}</Typography>
+    <SimpleTitle title={title} subtitle={subtitle}/>
 
     <CardBase>
       <CardContent>
