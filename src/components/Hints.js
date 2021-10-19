@@ -147,5 +147,8 @@ export const hints = [
     "ヘルプボタンを押すと使い方の説明を見ることができます",
     "うしたいよ",
     ],
+
+    //以下三田版のエラー防止用です
+    ["test"],["test"],["test"],["test"],["test"],["test"],["test"],["test"],["test"],["test"],["test"],["test"],["test"],["test"],["test"],["test"],
   ];
 
