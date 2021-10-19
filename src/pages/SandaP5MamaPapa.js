@@ -1,12 +1,9 @@
 import React from "react";
-import Typography from "@mui/material/Typography";
 import {
-  ImageCard,
   ImageTextCard,
   TitleTextImageCard,
-  TitleImagesCard,
 } from "../components/CardComponents";
-import { Title, SubTitle, BodyText } from "../components/TitleComponents";
+import { Title, SubTitle } from "../components/TitleComponents";
 
 const taikenTitles = [
   "つながりの大事さを実感！",
@@ -57,7 +54,7 @@ const SandaP5MamaPapa = () => {
   return (
     <>
       <Title>ママ&パパの体験談</Title>
-      <SubTitle>大阪北部地震・台風21号を体験してほくせつママ&amp;パパの声をご紹介します。</SubTitle>
+      <SubTitle>地震や台風を体験したママ&パパの声をご紹介します。</SubTitle>
       {taikenTitles.map((_, i) => (
         <TitleTextImageCard
           title={taikenTitles[i]}

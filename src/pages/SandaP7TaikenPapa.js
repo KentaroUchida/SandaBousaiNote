@@ -1,12 +1,9 @@
 import React from "react";
-import Typography from "@mui/material/Typography";
 import {
-  ImageCard,
-  ImageTextCard,
   TitleTextImageCard,
   TitleImagesCard,
 } from "../components/CardComponents";
-import { Title, SubTitle, BodyText } from "../components/TitleComponents";
+import { Title, SubTitle } from "../components/TitleComponents";
 
 
 
