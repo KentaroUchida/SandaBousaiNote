@@ -26,7 +26,7 @@
 | checkListHyakkin | 百均でこれだけ揃う(object) | P8Goods.js |
 | checkListMore | さらにあると便利(object) | P8Goods.js |
 | foodList | 備えておきたい非常食・調理器具(object) | P9Food.js |
-| P18Shelters | まず逃げる,帰れない時に過ごす場所(object) | P18Izanigeru.js |
+| P18Shelters | まず逃げる,帰れない時に過ごす場所(object) | P18bousaikaigi.js |
 | P18Place | 集合場所(string) | P18Bousaikaigi.js |
 | P18Home | 家の中の安全対策はできていますか(object) | P18Bousaikaigi.js |
 | P18Stock | 食料・トイレの備蓄はできていますか(object) | P18Bousaikaigi.js |
