@@ -33,6 +33,7 @@ import {
   SandaP9IzaNigeru,
   SandaP10SandaBousai,
   SandaP11Daijobu,
+  SandaP17Toilet,
 } from "./pages";
 import { Menu, SwipeNotifier, titles } from "./components";
 import { CustomThemeA } from "./components/Theme";
@@ -60,6 +61,7 @@ const paths = [
   "/sandaIzaNigeru",
   "/sandaSandaBousai",
   "/sandaDaijobu",
+  "/sandaToilet",
 ];
 
 const pages = [
@@ -85,6 +87,7 @@ const pages = [
   <SandaP9IzaNigeru/>,
   <SandaP10SandaBousai/>,
   <SandaP11Daijobu/>,
+  <SandaP17Toilet/>,
 ];
 
 const styles = {
