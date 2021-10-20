@@ -28,6 +28,8 @@ import {
   P13Toilet,
   P14Daijobu,
   P15Bousaikaigi,
+  SandaP1Home,
+  SandaP2Omoi,
   SandaP5MamaPapa,
   SandaP7TaikenPapa,
   SandaP9IzaNigeru,
@@ -55,6 +57,8 @@ const paths = [
   "/daijobu",
   "/bousaikaigi",
   "/oshirase",
+  "/sandaHome",
+  "/sandaOmoi",
   "/sandaMamaPapa",
   "/sandaTaiken",
   "/sandaIzaNigeru",
@@ -80,6 +84,8 @@ const pages = [
   <P14Daijobu />,
   <P15Bousaikaigi />,
   <Home />,
+  <SandaP1Home/>,
+  <SandaP2Omoi/>,
   <SandaP5MamaPapa />,
   <SandaP7TaikenPapa/>,
   <SandaP9IzaNigeru/>,
@@ -92,6 +98,7 @@ const styles = {
     minHeight: "100vh",
     flexGrow: 1,
     p: 3,
+    backgroundColor : "#fadbd9", //要検討
   },
 };
 
