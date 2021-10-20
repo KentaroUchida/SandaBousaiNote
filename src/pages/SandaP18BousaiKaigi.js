@@ -5,7 +5,7 @@ import {
   CardBase,
   TitleCardPart,
 } from "../components/CardComponents";
-import { SimpleTitle } from "../components/TitleComponents";
+// import { SimpleTitle } from "../components/TitleComponents";
 import {
   CardContent,
   CardMedia,
