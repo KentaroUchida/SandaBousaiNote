@@ -31,6 +31,7 @@ import {
   SandaP5MamaPapa,
   SandaP7TaikenPapa,
   SandaP9IzaNigeru,
+  SandaP10SandaBousai,
   SandaP11Daijobu,
   SandaP17Toilet,
 } from "./pages";
@@ -58,6 +59,7 @@ const paths = [
   "/sandaMamaPapa",
   "/sandaTaiken",
   "/sandaIzaNigeru",
+  "/sandaSandaBousai",
   "/sandaDaijobu",
   "/sandaToilet",
 ];
@@ -83,6 +85,7 @@ const pages = [
   <SandaP5MamaPapa />,
   <SandaP7TaikenPapa/>,
   <SandaP9IzaNigeru/>,
+  <SandaP10SandaBousai/>,
   <SandaP11Daijobu/>,
   <SandaP17Toilet/>,
 ];

@@ -63,11 +63,34 @@ export const ImageCard = ({ image }) => {
   );
 };
 
+export const TextCard = ({children}) => (
+  <CardBase>
+    <CardContent>
+      <BodyText>{children}</BodyText>
+    </CardContent>
+  </CardBase>
+)
+
 export const ImageTextCard = ({ image, children }) => {
   return (
     <CardBase>
       <ImageCardPart image={image} />
       <CardContent>
+        <BodyText>{children}</BodyText>
+      </CardContent>
+    </CardBase>
+  );
+};
+
+export const TitleTextCard = ({
+  title,
+  color = "tertiary.main",
+  children,
+}) => {
+  return (
+    <CardBase>
+      <CardContent>
+        <TitleCardPart title={title} color={color} />
         <BodyText>{children}</BodyText>
       </CardContent>
     </CardBase>
