@@ -17,6 +17,8 @@ export * from "./P13Toilet";
 export * from "./P14Daijobu";
 export * from "./P15Bousaikaigi";
 
+export * from "./SandaP1Home";
+export * from "./SandaP2Omoi";
 export * from "./SandaP5MamaPapa";
 export * from "./SandaP7TaikenPapa";
 export * from "./SandaP9IzaNigeru";
