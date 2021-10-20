@@ -23,6 +23,7 @@ export * from "./SandaP9IzaNigeru";
 export * from "./SandaP10SandaSaigai"
 export * from "./SandaP11Daijobu";
 export * from "./SandaP17Toilet";
+export * from "./SandaP18Bousaikaigi"
 
 // 新しいページを作ったらここに書いてね
 // export defaultはダメだよ

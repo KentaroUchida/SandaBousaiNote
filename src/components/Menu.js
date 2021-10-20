@@ -115,6 +115,7 @@ function ResponsiveDrawer(props) {
     "/sandaSandaBousai",
     "/sandaDaijobu",
     "/sandaToilet",
+    "/sandaBousaikaigi",
   ];
 
   const drawer = (
