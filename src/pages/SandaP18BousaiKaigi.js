@@ -547,7 +547,7 @@ const Apps = () => {
 export const SandaP18Bousaikaigi = () => {
   return(
     <>
-      <Title>家族で防災会議</Title>
+      <Title>家族で防災カイギ</Title>
       <SubTitle>いざという時のために「今」できること</SubTitle>
       {/* <SimpleTitle title="家族で防災会議" subtitle="いざという時のために「今」できること" /> */}
       <Instruction />
