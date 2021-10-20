@@ -5,6 +5,7 @@ import {
   CardBase,
   TitleCardPart,
 } from "../components/CardComponents";
+import { SimpleTitle } from "../components/TitleComponents";
 import {
   CardContent,
   CardMedia,
@@ -441,9 +442,9 @@ const HinanCard = () => {
                 variant="standard"
               />
             </th>
-          </tr>
-        </table>
-        <CheckList />
+            </tr>
+          </table>
+          <CheckList />
         </CardContent>
       </CardBase>
     </>
@@ -548,6 +549,7 @@ export const SandaP18Bousaikaigi = () => {
     <>
       <Title>家族で防災会議</Title>
       <SubTitle>いざという時のために「今」できること</SubTitle>
+      {/* <SimpleTitle title="家族で防災会議" subtitle="いざという時のために「今」できること" /> */}
       <Instruction />
       <HinanCard />
       <Apps />

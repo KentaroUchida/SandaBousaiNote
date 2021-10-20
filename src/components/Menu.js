@@ -112,8 +112,10 @@ function ResponsiveDrawer(props) {
     "/sandaMamaPapa",
     "/sandaTaiken",
     "/sandaIzaNigeru",
+    "/sandaSandaBousai",
     "/sandaDaijobu",
-    "/sandaBousaikaigi"
+    "/sandaToilet",
+    "/sandaBousaikaigi",
   ];
 
   const drawer = (
@@ -207,7 +209,7 @@ function ResponsiveDrawer(props) {
         <DialogContent>
           <DialogContentText id="alert-dialog-description">
           <div>
-        {hints[props.now_index].map((text, i) => {
+        {typeof hints[props.now_index] === "object" && hints[props.now_index].map((text, i) => {
           return (
             <div>
               <Typography>

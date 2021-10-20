@@ -1,4 +1,4 @@
-import { Typography } from "@mui/material";
+import { Divider, Typography } from "@mui/material";
 import { ResponsiveFontProvider } from "./ResponsiveFontProvider";
 
 const CustomBasicText = ({ variant, children }) => {
@@ -24,3 +24,11 @@ export const BodyText = ({ variant = "body1", children }) => (
 export const CardTitle = ({ variant = "h5", children }) => (
   <CustomBasicText variant={variant}>{children}</CustomBasicText>
 );
+
+export const SimpleTitle = ({ title, subtitle }) => {
+  return (<>
+    <Typography variant="h6">{title}</Typography>
+    <Divider sx={{mb: 1}}/>
+    <Typography color="gray" sx={{mb: 4}}>{subtitle}</Typography>
+  </>);
+}
