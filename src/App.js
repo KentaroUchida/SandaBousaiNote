@@ -32,7 +32,7 @@ import {
   SandaP7TaikenPapa,
   SandaP9IzaNigeru,
   SandaP11Daijobu,
-  SandaP18BousaiKaigi,
+  SandaP18Bousaikaigi,
 } from "./pages";
 import { Menu, SwipeNotifier, titles } from "./components";
 import { CustomThemeA } from "./components/Theme";
@@ -84,7 +84,7 @@ const pages = [
   <SandaP7TaikenPapa/>,
   <SandaP9IzaNigeru/>,
   <SandaP11Daijobu/>,
-  <SandaP18BousaiKaigi/>,
+  <SandaP18Bousaikaigi/>,
 ];
 
 const styles = {
