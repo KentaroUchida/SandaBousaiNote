@@ -12,7 +12,7 @@ import {
   ImageList,
   Typography,
 } from "@mui/material";
-import { Title, SubTitle,SimpleTitle} from "../components/TitleComponents";
+import { SimpleTitle } from "../components/TitleComponents";
 
 const styles = {
   card: {
@@ -42,7 +42,7 @@ const styles = {
 const secondItems = [
   {
     name: "水",
-    sub : "ひとり1日３Lが目安",
+    sub : "ひとり1日3Lが目安",
     path: "drink_L",
   },
   {
@@ -308,12 +308,14 @@ class Second extends React.Component {
     return (
       <Card sx={styles.card}>
         <CardHeader
-          title="2次の備え：お家にストック"  
+          title="2次の備え"  
           sx={styles.cardHeaderCheckList}
           titleTypographyProps={{ align: "center" }}
+          subheader="お家にストック"
+          subheaderTypographyProps={{ align: "center" }}
         />
         <CardContent>
-        <Typography>基本の在宅避難自用　防災備蓄</Typography>
+        <Typography>基本の在宅避難時用　防災備蓄</Typography>
           <Checkbox2Lines
             items={this.state.items}
             onChange={this.handleChange}
