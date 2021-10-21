@@ -32,6 +32,8 @@ import {
   SandaP7TaikenPapa,
   SandaP9IzaNigeru,
   SandaP11Daijobu,
+  SandaP12Goods1,
+  SandaP13Goods2,
 } from "./pages";
 import { Menu, SwipeNotifier, titles } from "./components";
 import { CustomThemeA } from "./components/Theme";
@@ -58,6 +60,8 @@ const paths = [
   "/sandaTaiken",
   "/sandaIzaNigeru",
   "/sandaDaijobu",
+  "/sandaGoods1",
+  "/sandaGoods2",
 ];
 
 const pages = [
@@ -82,6 +86,8 @@ const pages = [
   <SandaP7TaikenPapa/>,
   <SandaP9IzaNigeru/>,
   <SandaP11Daijobu/>,
+  <SandaP12Goods1/>,
+  <SandaP13Goods2/>,
 ];
 
 const styles = {
