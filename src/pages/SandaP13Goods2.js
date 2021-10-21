@@ -41,106 +41,124 @@ const styles = {
 
 const secondItems = [
   {
-    name: "飲料水",
-    path: "water",
+    name: "水",
+    sub : "ひとり1日３Lが目安",
+    path: "drink_L",
   },
   {
-    name: "小銭",
-    path: "coin",
+    name: "食糧",
+    path: "foods",
   },
   {
-    name: "チョコレート・あめ",
-    path: "chocolate_and_candy",
+    name: "トイレ用品",
+    path: "toiletry",
   },
   {
-    name: "充電器・バッテリー",
+    name: "ランタン・ヘッドライト",
+    path: "light_2",
+  },
+  {
+    name: "モバイルバッテリー",
+    path: "mobile_battery_2",
+  },
+  {
+    name: "ポータブル電源",
+    path: "power_supply",
+  },
+  {
+    name: "救急セット",
+    path: "first_aid",
+  },
+  {
+    name: "サニタリー用品",
+    path: "sanitary_2",
+  },
+  {
+    name: "携帯ラジオ",
+    path: "radio",
+  },
+  {
+    name: "電池",
     path: "battery",
   },
   {
-    name: "大判ハンカチ",
-    sub: "マスク、止血に",
-    path: "handkerchief",
+    name: "コンロ・ボンベ・湯煎可能なポリ袋",
+    sub: "調理器具があればなおよし",
+    path: "burner",
   },
   {
-    name: "ふえ",
-    sub: "助けを呼ぶ体力がなくなる",
-    path: "whistle",
+    name: "ほうき・ちりとり",
+    sub: "電気を使わないもの",
+    path: "broom",
   },
   {
-    name: "救急用品",
-    path: "aid",
+    name: "体拭きシート・ドライシャンプー・カイロ・冷えピタ",
+    sub: "どの季節にも対応できるようにしよう",
+    path: "bath",
   },
   {
-    name: "紙おむつ・生理用品",
-    path: "diapers",
-  },
-  {
-    name: "家族の写真・連絡先",
-    path: "address",
-  },
-  {
-    name: "ポリ袋",
-    sub: "シート、防寒、水を運ぶ、など",
-    path: "poli",
-  },
-  {
-    name: "安全ピン",
-    sub: "節水ボトルを作る、着替え時、など",
-    path: "pin",
+    name: "その他・家族の連絡先・ハザードマップ",
+    sub: "何が起こるか知る事、心構え",
+    path: "other_2",
   },
 ];
 
 const hyakkinItems = [
   {
-    name: "レジャーシート",
-    sub: "着替え時、目隠し",
-    path: "picnic_sheet",
+    name: "給水容器",
+    path: "water_tank",
   },
   {
-    name: "マスク",
-    path: "mask",
+    name: "ブランケット",
+    path: "blanket_100",
   },
   {
-    name: "歯磨きシート",
-    path: "dentifrice_sheet",
+    name: "カイロ",
+    path: "cairo",
   },
   {
-    name: "靴下・手袋",
-    sub: "ワレモノだらけで危険",
-    path: "socks",
+    name: "冷却シート",
+    path: "cold_sheets",
   },
   {
-    name: "はさみ・つめきり",
-    emphasis: "必須",
-    path: "scissor",
+    name: "レインコート",
+    path: "raincoat",
   },
   {
-    name: "ばんそうこう・ほうたい",
-    path: "bandage",
-  },
-  {
-    name: "ふえ",
-    sub: "助けを呼ぶ体力がなくなる",
-    path: "whistle",
-  },
-  {
-    name: "ラップ",
-    sub: "食器の代わり、ケガの手当",
-    path: "wrap",
+    name: "リュック用防水カバー",
+    path: "wp_cover",
   },
   {
     name: "携帯トイレ",
-    sub: "節水",
-    path: "toilet",
+    path: "portable_toilets_100",
   },
   {
-    name: "養生テープ・マジック",
+    name: "電池・ライト",
+    sub: "100均のものは電池がすぐ切れる",
+    path: "battery_light",
+  },
+  {
+    name: "ポリ袋",
+    path: "poli_100",
+  },
+  {
+    name: "ラップ",
+    sup: "食器代わり、ケガの手当",
+    path: "rap",
+  },
+  {
+    name: "油性ペン",
     sub: "名札、伝言を残す",
+    path: "pen",
+  },
+  {
+    name: "ガムテープ",
+    sub : "伝言をかける",
     path: "tape",
   },
   {
-    name: "簡易まくら",
-    path: "pillow",
+    name: "ばんそうこう",
+    path: "bandage_100",
   },
   {
     name: "めがね",
@@ -150,32 +168,36 @@ const hyakkinItems = [
   {
     name: "除菌シート",
     sub: "洗顔、お風呂代わりに",
-    path: "wet_tissue",
+    path: "wet_sheet",
   },
   {
-    name: "LEDライト",
-    path: "light",
+    name: "使い捨てパンツ",
+    path: "dis_pants",
   },
   {
-    name:"aaa",
-    path:"wet_tissue2"
+    name: "体ふきシート",
+    path: "body_sheet",
+  },
+  {
+    name: "はさみ（裁縫セット）",
+    path: "sewing",
+  },
+ 
+  {
+    name: "ヘッドライト",
+    path: "headlight",
+  },
+  {
+    name:"軍手",
+    sub :"ワレモノだらけで危険",
+    path:"glove"
+  },
+  {
+    name:"歯ブラシセット",
+    path:"toothbrush_set"
   },
 ];
 
-const moreItems = [
-  {
-    name: "子供が好きなもの",
-    message:
-      "「これさえあれば子どもがご機嫌！」という、お菓子やおもちゃなど、子どもの心がほぐれるグッズ。",
-    path: "for_children",
-  },
-  {
-    name: "精油(ティーツリー)",
-    message:
-      "ティーツリーは抗菌・殺菌作用があるので、アロマオイルとしてだけではなく掃除や洗濯にも活用できます。",
-    path: "essential_oil",
-  },
-];
 
 function getPath(str) {
   return "/img/pages/SandaP13Goods/" + str + ".png";
@@ -210,9 +232,9 @@ function Checkbox2Lines(props) {
                   }}
                 />
                 <CardMedia
-                  //component="img"
+                  component="img"
                   alt={items[key].name}
-                  //image={getPath(key)}
+                  image={getPath(key)}
                   title={items[key].name}
                 />
                 <CardContent>
@@ -286,11 +308,12 @@ class Second extends React.Component {
     return (
       <Card sx={styles.card}>
         <CardHeader
-          title="0次の備え:いつものバッグに"  
+          title="2次の備え：お家にストック"  
           sx={styles.cardHeaderCheckList}
           titleTypographyProps={{ align: "center" }}
         />
         <CardContent>
+        <Typography>基本の在宅避難自用　防災備蓄</Typography>
           <Checkbox2Lines
             items={this.state.items}
             onChange={this.handleChange}
@@ -359,11 +382,12 @@ class Hyakkin extends React.Component {
     return (
       <Card sx={styles.card}>
         <CardHeader
-          title="1次の備え：非常持ち出し品"
-          sx={styles.cardHeaderCheckList}
+          title="100均でそろう防災グッズ"
+          sx={styles.cardHeaderCheck}
           titleTypographyProps={{ align: "center" }}
         />
         <CardContent>
+          <Typography> 百均で購入したものをは、長持ちしないものも多いので注意しよう！</Typography>
           <Checkbox2Lines
             items={this.state.items}
             onChange={this.handleChange}
@@ -374,111 +398,6 @@ class Hyakkin extends React.Component {
   }
 }
 
-class More extends React.Component {
-  constructor() {
-    super();
-    const storedCLMStr = localStorage.getItem("checkListMore");
-    let moreList = {};
-    if (storedCLMStr !== null) {
-      const storedCLM = JSON.parse(storedCLMStr);
-      moreList = moreItems.reduce(
-        (obj, el) => ({
-          ...obj,
-          [el.path]: {
-            name: el.name,
-            message: el.message,
-            checked: storedCLM[el.path] ? true : false,
-          },
-        }),
-        {}
-      );
-    } else {
-      moreList = moreItems.reduce(
-        (obj, el) => ({
-          ...obj,
-          [el.path]: {
-            name: el.name,
-            message: el.message,
-            checked: false,
-          },
-        }),
-        {}
-      );
-    }
-
-    this.state = { items: moreList };
-    this.handleChange = this.handleChange.bind(this);
-  }
-
-  handleChange(event) {
-    const items = this.state.items;
-    items[event.target.name].checked = event.target.checked;
-    this.setState({ items: items });
-
-    localStorage.setItem(
-      "checkListMore",
-      JSON.stringify(
-        Object.keys(items).reduce(
-          (obj, key) => ({ ...obj, [key]: items[key].checked }),
-          {}
-        )
-      )
-    );
-  }
-
-  render() {
-    const items = this.state.items;
-    return (
-      <Card sx={styles.card}>
-        <CardHeader
-          title="さらにあると便利"
-          sx={styles.cardHeaderCheckList}
-          titleTypographyProps={{ align: "center" }}
-        />
-        <CardContent>
-          {Object.keys(items).map((key) => {
-            return (
-              <Card key={key}>
-                <CardActionArea
-                  onClick={(event) => {
-                    event.target.name = key;
-                    event.target.checked = !items[key].checked;
-                    this.handleChange(event);
-                  }}
-                >
-                  <FormControlLabel
-                    control={
-                      <Checkbox
-                        checked={items[key].checked}
-                        name={key}
-                        onChange={this.handleChange}
-                      />
-                    }
-                    label={items[key].name}
-                    onClick={(event) => {
-                      event.stopPropagation(); // CardActionAreaのonClickを無効化
-                    }}
-                  />
-                  <CardMedia
-                    //component="img"
-                    alt={items[key].name}
-                    //image={getPath(key)}
-                    title={items[key].name}
-                  />
-                  <CardContent>
-                    <Typography variant="body2">
-                      {items[key].message}
-                    </Typography>
-                  </CardContent>
-                </CardActionArea>
-              </Card>
-            );
-          })}
-        </CardContent>
-      </Card>
-    );
-  }
-}
 
 function SandaP13Goods2() {
   return (
