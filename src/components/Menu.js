@@ -54,6 +54,9 @@ const styles = {
     marginRight: 1,
     display: { xs: "block", sm: "none" },
   },
+  helpButton: {
+    marginLeft: 5,
+  },
   hide: {
     display: "none",
   },
@@ -116,6 +119,8 @@ function ResponsiveDrawer(props) {
     "/sandaIzaNigeru",
     "/sandaSandaBousai",
     "/sandaDaijobu",
+    "/sandaGoods1",
+    "/sandaGoods2",
     "/sandaToilet",
     "/sandaBousaikaigi",
   ];
@@ -194,7 +199,7 @@ function ResponsiveDrawer(props) {
                 </IconButton>{" "}
               </Link>
 
-              <IconButton color="inherit" edge = "end" onClick = {handleClickOpen}>
+              <IconButton color="inherit" edge = "end" onClick = {handleClickOpen} sx={styles.helpButton}>
                 <HelpOutlineIcon/>
               </IconButton> 
               <Dialog
