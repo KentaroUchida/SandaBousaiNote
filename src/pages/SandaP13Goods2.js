@@ -12,7 +12,7 @@ import {
   ImageList,
   Typography,
 } from "@mui/material";
-import { Title, SubTitle} from "../components/TitleComponents";
+import { Title, SubTitle,SimpleTitle} from "../components/TitleComponents";
 
 const styles = {
   card: {
@@ -483,8 +483,7 @@ class More extends React.Component {
 function SandaP13Goods2() {
   return (
     <>
-      <Title>防災グッズを備えよう2</Title>
-      <SubTitle>非常時にホントに役に立つ</SubTitle>
+      <SimpleTitle title="防災グッズを備えよう２" subtitle="非常時にホントに役に立つ"/>
       <Divider />
       <Second />
       <Hyakkin />

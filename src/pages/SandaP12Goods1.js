@@ -12,7 +12,7 @@ import {
   ImageList,
   Typography,
 } from "@mui/material";
-import { Title, SubTitle} from "../components/TitleComponents";
+import { Title, SubTitle,SimpleTitle} from "../components/TitleComponents";
 import { typography } from "@mui/system";
 
 const styles = {
@@ -58,12 +58,34 @@ const zerothItems = [
     path: "mobile_battery",
   },
   {
-    name: "鏡・口紅・リップ・ヘアゴム",
-    path: "mirror_lipstick_hairelastic",
+    name: "手鏡",
+    path: "mirror",
+  },
+  {
+    name: "口紅・リップ",
+    path: "lipstick",
+  },
+  {
+    name: "ヘアゴム",
+    path: "hairband",
   },
   {
     name: "携帯トイレ",
+    sub: "節水",
     path: "portable_toilets",
+  },
+  {
+    name: "家族の写真・連絡先",
+    path: "adress",
+  },
+  {
+    name: "衛生用品ナプキン・おりものシート",
+    path: "sanitary_napkin",
+  },
+  {
+    name: "消毒液・ウエットティッシュ",
+    sub : "感染症対策",
+    path: "disinfectant_wetwipes",
   },
   {
     name: "大判ハンカチ",
@@ -71,52 +93,38 @@ const zerothItems = [
     path: "handkerchief",
   },
   {
-    name: "ふえ",
-    sub: "助けを呼ぶ体力がなくなる",
-    path: "whistle",
+    name: "氷砂糖・アメ",
+    path: "candy",
   },
   {
-    name: "救急用品",
-    path: "aid",
+    name: "バンドエイト",
+    path: "bandage",
   },
   {
-    name: "紙おむつ・生理用品",
-    path: "diapers",
+    name: "マスク",
+    sub : "感染症対策",
+    path: "mask",
   },
   {
-    name: "家族の写真・連絡先",
-    path: "address",
+    name: "保温ブランケット",
+    path: "blanket",
   },
   {
-    name: "ポリ袋",
+    name: "常備薬",
+    path: "medicine_0",
+  },
+  {
+    name: "ライト",
+    path: "light_0",
+  },
+  {
+    name: "ビニール袋",
     sub: "シート、防寒、水を運ぶ、など",
     path: "poli",
   },
   {
-    name: "安全ピン",
-    sub: "節水ボトルを作る、着替え時、など",
-    path: "pin",
-  },
-];
-
-const firstItems = [
-  {
-    name: "レジャーシート",
-    sub: "着替え時、目隠し",
-    path: "picnic_sheet",
-  },
-  {
-    name: "マスク",
-    path: "mask",
-  },
-  {
-    name: "歯磨きシート",
-    path: "dentifrice_sheet",
-  },
-  {
-    name: "靴下・手袋",
-    sub: "ワレモノだらけで危険",
-    path: "socks",
+    name: "飲み物",
+    path: "drink_S",
   },
   {
     name: "はさみ・つめきり",
@@ -124,50 +132,63 @@ const firstItems = [
     path: "scissor",
   },
   {
-    name: "ばんそうこう・ほうたい",
-    path: "bandage",
+    name: "体温計",
+    sub: "感染症対策",
+    path: "thermometer",
+  },
+];
+
+const firstItems = [
+  {
+    name: "飲料水",
+    sub: "500mlペットボトル3本",
+    path: "drink_M",
   },
   {
-    name: "ふえ",
-    sub: "助けを呼ぶ体力がなくなる",
-    path: "whistle",
+    name: "オムツ・おしりふき・ポリ袋",
+    path: "diaper",
   },
   {
-    name: "ラップ",
-    sub: "食器の代わり、ケガの手当",
-    path: "wrap",
+    name: "ミルク・離乳食・おやつ",
+    path: "baby_foods",
   },
   {
-    name: "携帯トイレ",
-    sub: "節水",
-    path: "toilet",
+    name: "紙食器・はし・スプーン",
+    path: "tableware",
   },
   {
-    name: "養生テープ・マジック",
-    sub: "名札、伝言を残す",
-    path: "tape",
+    name: "ウエットティッシュ・ティッシュペーパー",
+    path: "tissues",
   },
   {
-    name: "簡易まくら",
-    path: "pillow",
+    name: "歯磨き用品",
+    path: "dentifrice",
   },
   {
-    name: "めがね",
-    sub: "コンタクトは大変",
-    path: "glasses",
+    name: "ライト",
+    path: "light_1",
   },
   {
-    name: "除菌シート",
-    sub: "洗顔、お風呂代わりに",
-    path: "wet_tissue",
+    name: "母子手帳",
+    sub: "アプリでも代用可、健康保険所のコピー",
+    path: "bosi_book",
   },
   {
-    name: "LEDライト",
-    path: "light",
+    name: "現金",
+    path: "real_money",
   },
   {
-    name:"aaa",
-    path:"wet_tissue2"
+    name: "着替え・靴",
+    path: "clothes_shoes",
+  },
+  {
+    name: "常備薬",
+    path: "medicine_1",
+  },
+  
+  {
+    name: "その他・抱っこ紐・哺乳瓶",
+    path: "others",
   },
 ];
 
@@ -179,10 +200,10 @@ const moreItems = [
     path: "for_children",
   },
   {
-    name: "精油(ティーツリー)",
+    name: "新聞紙",
     message:
-      "ティーツリーは抗菌・殺菌作用があるので、アロマオイルとしてだけではなく掃除や洗濯にも活用できます。",
-    path: "essential_oil",
+      "暇を取ったり　紙食器を作ったり",
+    path: "newspaper",
   },
 ];
 
@@ -267,9 +288,9 @@ function Checkbox2Lines(props) {
                   }}
                 />
                 <CardMedia
-                  //component="img"
+                  component="img"
                   alt={items[key].name}
-                  //image={getPath(key)}
+                  image={getPath(key)}
                   title={items[key].name}
                 />
                 <CardContent>
@@ -539,9 +560,9 @@ class More extends React.Component {
                     }}
                   />
                   <CardMedia
-                    //component="img"
+                    component="img"
                     alt={items[key].name}
-                    //image={getPath(key)}
+                    image={getPath(key)}
                     title={items[key].name}
                   />
                   <CardContent>
@@ -562,8 +583,7 @@ class More extends React.Component {
 function SandaP12Goods1() {
   return (
     <>
-      <Title>防災グッズを備えよう１</Title>
-      <SubTitle>非常時にホントに役に立つ</SubTitle>
+       <SimpleTitle title="防災グッズを備えよう１" subtitle="非常時にホントに役に立つ"/>
       <Sonae />
       <Divider />
       <Zeroth />

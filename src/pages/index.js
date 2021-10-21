@@ -17,12 +17,17 @@ export * from "./P13Toilet";
 export * from "./P14Daijobu";
 export * from "./P15Bousaikaigi";
 
+export * from "./SandaP1Home";
+export * from "./SandaP2Omoi";
 export * from "./SandaP5MamaPapa";
 export * from "./SandaP7TaikenPapa";
 export * from "./SandaP9IzaNigeru";
+export * from "./SandaP10SandaSaigai"
 export * from "./SandaP11Daijobu";
 export * from "./SandaP12Goods1";
 export * from "./SandaP13Goods2";
+export * from "./SandaP17Toilet";
+export * from "./SandaP18Bousaikaigi"
 
 // 新しいページを作ったらここに書いてね
 // export defaultはダメだよ

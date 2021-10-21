@@ -28,12 +28,17 @@ import {
   P13Toilet,
   P14Daijobu,
   P15Bousaikaigi,
+  SandaP1Home,
+  SandaP2Omoi,
   SandaP5MamaPapa,
   SandaP7TaikenPapa,
   SandaP9IzaNigeru,
+  SandaP10SandaBousai,
   SandaP11Daijobu,
   SandaP12Goods1,
   SandaP13Goods2,
+  SandaP17Toilet,
+  SandaP18Bousaikaigi,
 } from "./pages";
 import { Menu, SwipeNotifier, titles } from "./components";
 import { CustomThemeA } from "./components/Theme";
@@ -56,12 +61,17 @@ const paths = [
   "/daijobu",
   "/bousaikaigi",
   "/oshirase",
+  "/sandaHome",
+  "/sandaOmoi",
   "/sandaMamaPapa",
   "/sandaTaiken",
   "/sandaIzaNigeru",
+  "/sandaSandaBousai",
   "/sandaDaijobu",
   "/sandaGoods1",
   "/sandaGoods2",
+  "/sandaToilet",
+  "/sandaBousaikaigi",
 ];
 
 const pages = [
@@ -82,12 +92,17 @@ const pages = [
   <P14Daijobu />,
   <P15Bousaikaigi />,
   <Home />,
+  <SandaP1Home/>,
+  <SandaP2Omoi/>,
   <SandaP5MamaPapa />,
   <SandaP7TaikenPapa/>,
   <SandaP9IzaNigeru/>,
+  <SandaP10SandaBousai/>,
   <SandaP11Daijobu/>,
   <SandaP12Goods1/>,
   <SandaP13Goods2/>,
+  <SandaP17Toilet/>,
+  <SandaP18Bousaikaigi/>,
 ];
 
 const styles = {
@@ -95,6 +110,7 @@ const styles = {
     minHeight: "100vh",
     flexGrow: 1,
     p: 3,
+    backgroundColor : "#fadbd9", //要検討
   },
 };
 

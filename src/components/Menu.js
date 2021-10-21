@@ -54,6 +54,9 @@ const styles = {
     marginRight: 1,
     display: { xs: "block", sm: "none" },
   },
+  helpButton: {
+    marginLeft: 5,
+  },
   hide: {
     display: "none",
   },
@@ -109,12 +112,17 @@ function ResponsiveDrawer(props) {
     "/daijobu",
     "/bousaiKaigi",
     "/oshirase",
+    "/sandaHome",
+    "/sandaOmoi",
     "/sandaMamaPapa",
     "/sandaTaiken",
     "/sandaIzaNigeru",
+    "/sandaSandaBousai",
     "/sandaDaijobu",
     "/sandaGoods1",
-    "/sandaGoods2"
+    "/sandaGoods2",
+    "/sandaToilet",
+    "/sandaBousaikaigi",
   ];
 
   const drawer = (
@@ -191,7 +199,7 @@ function ResponsiveDrawer(props) {
                 </IconButton>{" "}
               </Link>
 
-              <IconButton color="inherit" edge = "end" onClick = {handleClickOpen}>
+              <IconButton color="inherit" edge = "end" onClick = {handleClickOpen} sx={styles.helpButton}>
                 <HelpOutlineIcon/>
               </IconButton> 
               <Dialog
@@ -208,7 +216,7 @@ function ResponsiveDrawer(props) {
         <DialogContent>
           <DialogContentText id="alert-dialog-description">
           <div>
-        {hints[props.now_index].map((text, i) => {
+        {typeof hints[props.now_index] === "object" && hints[props.now_index].map((text, i) => {
           return (
             <div>
               <Typography>
