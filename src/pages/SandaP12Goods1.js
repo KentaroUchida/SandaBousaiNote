@@ -12,8 +12,7 @@ import {
   ImageList,
   Typography,
 } from "@mui/material";
-import { Title, SubTitle,SimpleTitle} from "../components/TitleComponents";
-import { typography } from "@mui/system";
+import { SimpleTitle } from "../components/TitleComponents";
 
 const styles = {
   card: {
@@ -202,7 +201,7 @@ const moreItems = [
   {
     name: "新聞紙",
     message:
-      "暇を取ったり　紙食器を作ったり",
+      "暖を取ったり　紙食器を作ったり",
     path: "newspaper",
   },
 ];
@@ -386,9 +385,11 @@ class Zeroth extends React.Component {
     return (
       <Card sx={styles.card}>
         <CardHeader
-          title="0次の備え:いつものバッグに"  
+          title="0次の備え"
           sx={styles.cardHeaderCheckList}
           titleTypographyProps={{ align: "center" }}
+          subheader="いつものバッグに"
+          subheaderTypographyProps={{ align: "center" }}
         />
         <CardContent>
           <Checkbox2Lines
@@ -459,9 +460,11 @@ class First extends React.Component {
     return (
       <Card sx={styles.card}>
         <CardHeader
-          title="1次の備え：非常持ち出し品"
+          title="1次の備え"
           sx={styles.cardHeaderCheckList}
           titleTypographyProps={{ align: "center" }}
+          subheader="非常持ち出し品"
+          subheaderTypographyProps={{ align: "center" }}
         />
         <CardContent>
           <Checkbox2Lines
