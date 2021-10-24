@@ -123,6 +123,7 @@ function ResponsiveDrawer(props) {
     "/sandaGoods2",
     "/sandaToilet",
     "/sandaBousaikaigi",
+    "/sandaBousaiSanpo",
   ];
 
   const drawer = (
