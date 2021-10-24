@@ -83,7 +83,7 @@ const zerothItems = [
   },
   {
     name: "消毒液・ウエットティッシュ",
-    sub : "感染症対策",
+    sub : "感染症対策にも重要",
     path: "disinfectant_wetwipes",
   },
   {
@@ -101,7 +101,7 @@ const zerothItems = [
   },
   {
     name: "マスク",
-    sub : "感染症対策",
+    sub : "感染症対策にも重要",
     path: "mask",
   },
   {
@@ -132,7 +132,7 @@ const zerothItems = [
   },
   {
     name: "体温計",
-    sub: "感染症対策",
+    sub: "感染症対策にも重要",
     path: "thermometer",
   },
 ];

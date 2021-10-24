@@ -27,7 +27,8 @@ export * from "./SandaP11Daijobu";
 export * from "./SandaP12Goods1";
 export * from "./SandaP13Goods2";
 export * from "./SandaP17Toilet";
-export * from "./SandaP18Bousaikaigi"
+export * from "./SandaP18Bousaikaigi";
+export * from "./SandaP19BousaiSanpo";
 
 // 新しいページを作ったらここに書いてね
 // export defaultはダメだよ

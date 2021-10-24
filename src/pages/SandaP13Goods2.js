@@ -83,7 +83,7 @@ const secondItems = [
   },
   {
     name: "コンロ・ボンベ・湯煎可能なポリ袋",
-    sub: "調理器具があればなおよし",
+    sub: "調理器具（湯煎可能なポリ袋なども）があればなおよし",
     path: "burner",
   },
   {
@@ -134,7 +134,7 @@ const hyakkinItems = [
   },
   {
     name: "電池・ライト",
-    sub: "100均のものは電池がすぐ切れる",
+    sub: "100均のものは電池がすぐ切れるので注意",
     path: "battery_light",
   },
   {
