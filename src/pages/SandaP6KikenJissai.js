@@ -10,11 +10,13 @@ import {
   ImageCard,
   ImageTextCard,
   TitleTextImageCard,
+  TitleTextCard,
 } from "../components/CardComponents";
 import { Title, SubTitle } from "../components/TitleComponents";
 import { ResponsiveFontProvider } from "../components";
+import { SimpleTitle2 } from "../components/TitleComponents";
 
-const imgPath = "/img/pages/P12KikenJissai/";
+const imgPath = "/img/pages/P6KikenJissai/";
 
 const styles = {
   grid: {
@@ -60,9 +62,9 @@ const illustTexts = ["図書館", "ろうか", "げんかん(下足場)", "運�
 const mamoruImages = [
   "atama.png",
   "tsukue.png",
-  "kodomobeya.png",
-  "kitchen.png",
-  "waremono.png",
+  "kodomobeya.jpg",
+  "kitchen.jpg",
+  "waremono.jpg",
 ];
 
 const mamoruTexts = [
@@ -76,9 +78,8 @@ const mamoruTexts = [
 const SandaP6KikenJissai = (index) => {
   return (
     <div key={index}>
-      <SubTitle>実際に地震がおきるとキケンなものが</SubTitle>
-      <Title>落ちる！倒れる！動く！</Title>
-      <FlexImage image={imgPath + "madori.png"} />
+      <SimpleTitle2 title="落ちる！倒れる！動く！" subtitle="実際に地震がおきるとキケンなものが"/>
+      <FlexImage image={imgPath + "madori.jpg"} />
       <Grid container>
         {illustImages.map((_, i) => (
           <Grid item xs={6} sx={styles.grid} key={i.toString()}>
@@ -87,14 +88,11 @@ const SandaP6KikenJissai = (index) => {
         ))}
       </Grid>
       <ResponsiveFontProvider>
-        <Typography variant="h3" gutterBottom>
-          自分の身は自分で守ろう！！
-        </Typography>
-        <Typography variant="h6" gutterBottom>
+        <TitleTextCard title="自分の身は自分で守ろう！">
           大地震がおきたとき、とっさの行動が命を分けます。
           すぐに行動するには、からだで覚えるしかありません。
           家族で話し合い、ふだんからイメージして実際に訓練しましょう。
-        </Typography>
+        </TitleTextCard>
       </ResponsiveFontProvider>
       <Grid container>
         {mamoruImages.map((_, i) => (
