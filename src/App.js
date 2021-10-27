@@ -36,8 +36,11 @@ import {
   SandaP9IzaNigeru,
   SandaP10SandaBousai,
   SandaP11Daijobu,
+  SandaP12Goods1,
+  SandaP13Goods2,
   SandaP17Toilet,
   SandaP18Bousaikaigi,
+  SandaP19BousaiSanpo,
 } from "./pages";
 import { Menu, SwipeNotifier, titles } from "./components";
 import { CustomThemeA } from "./components/Theme";
@@ -68,8 +71,11 @@ const paths = [
   "/sandaIzaNigeru",
   "/sandaSandaBousai",
   "/sandaDaijobu",
+  "/sandaGoods1",
+  "/sandaGoods2",
   "/sandaToilet",
   "/sandaBousaikaigi",
+  "/sandaBousaiSanpo",
 ];
 
 const pages = [
@@ -98,8 +104,11 @@ const pages = [
   <SandaP9IzaNigeru/>,
   <SandaP10SandaBousai/>,
   <SandaP11Daijobu/>,
+  <SandaP12Goods1/>,
+  <SandaP13Goods2/>,
   <SandaP17Toilet/>,
   <SandaP18Bousaikaigi/>,
+  <SandaP19BousaiSanpo/>,
 ];
 
 const styles = {
