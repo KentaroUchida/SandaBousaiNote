@@ -32,3 +32,11 @@ export const SimpleTitle = ({ title, subtitle }) => {
     <Typography color="gray" sx={{mb: 4}}>{subtitle}</Typography>
   </>);
 }
+
+export const SimpleTitle2 = ({ title, subtitle }) => {
+  return (<>
+    <Typography color="gray">{subtitle}</Typography>
+    <Typography variant="h6" sx={{mb: 1}}>{title}</Typography>
+    <Divider sx={{mb: 4}}/>
+  </>);
+}

@@ -20,6 +20,7 @@ export * from "./P15Bousaikaigi";
 export * from "./SandaP1Home";
 export * from "./SandaP2Omoi";
 export * from "./SandaP5MamaPapa";
+export * from "./SandaP6KikenJissai"
 export * from "./SandaP7TaikenPapa";
 export * from "./SandaP9IzaNigeru";
 export * from "./SandaP10SandaSaigai"
