@@ -1,14 +1,10 @@
 import React from "react";
 import {
-  Accordion,
-  AccordionDetails,
-  AccordionSummary,
   CardContent,
+  CardHeader,
   Divider,
   Typography,
 } from "@mui/material";
-import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
-
 import {
   CardBase,
   TitleCardPart,
@@ -20,11 +16,11 @@ const imageBasePath = "img/pages/SandaP9IzaNigeru/";
 
 const title = "いざ逃げる！";
 const subtitle = "避難とは、安全な場所に身を置くこと！";
-const mainContentTitle = "どんな所に避難しよう？";
+const mainContentTitle = <><div>どんな所に</div><div>避難しよう？</div></>;
 const mainContentText = "様々な場所が避難先になり得ます。三角ボタンを押して詳細を見てみましょう！"
 
 const shelters = [
-  { title: "広域避難場所", text: "火災などの際に、一時的に逃げる場所。講演などが指定されている。", image: "tatemono_kouen.png"},
+  { title: "広域避難場所", text: "火災などの際に、一時的に逃げる場所。公園などが指定されている。", image: "tatemono_kouen.png"},
   { title: "市指定避難所", text: "自宅が被災した時に生活をする場。小・中学校や公民館など。", image: "hinanjo_seikatsu_family_smile.png"},
   { title: "在宅避難", text: "自宅が安全なら在宅で。しっかり備蓄しておきましょう。", image: "saigai_mochidashi_bag_kakunin_family.png"},
   { title: "親戚宅・友人宅", text: "「もしもの時はよろしくね！」と予め約束しておきましょう。", image: "shinseki.png"},
@@ -37,6 +33,7 @@ const notices = [{
   texts1: ["避難場所も災害によっては危険な場所になります！"],
   image2: "tsunami_nigeru.png",
   texts2: ["洪水・津波のときは、高い所や海・川の遠くへ"],
+  sx: {bgcolor: "secondary.light"},
 }, {
   title: "CHECK!!",
   image1: "sign_B.png",
@@ -46,6 +43,9 @@ const notices = [{
   ],
   image2: "shizensaigai_dosyakuzure.png",
   texts2: ["土砂のときは、山・崖から離れたところへ"],
+  style: {backgroundImage: // 斜線はsx.bgcolorでは表現できないので、これだけstyle.backgroundImageにしている
+    "repeating-linear-gradient(45deg, #e0ffff, #e0ffff 12px, #ffffff 12px, #ffffff 24px)",
+  },
 }];
 
 //const fromChuoBousaiKaigi = {
@@ -80,12 +80,18 @@ export const TwoContentsCard = ({
   image2,
   texts1,
   texts2,
-  color = "tertiary.main",
+  sx,
+  style,
 }) => {
   return (
     <CardBase>
+      <CardHeader
+        title={title}
+        titleTypographyProps={{ align: "center" }}
+        sx={sx}
+        style={style}
+      />
       <CardContent>
-        <TitleCardPart title={title} color={color} />
         <ImageCardPart image={image1} />
         {texts1.map((text, i) => {
           return <BodyText key={i}>{text}</BodyText>
@@ -100,31 +106,21 @@ export const TwoContentsCard = ({
   );
 };
 
-function ControlledAccordions() {
-  const [expanded, setExpanded] = React.useState(false);
-
-  const handleChange = (panel) => (event, isExpanded) => {
-    setExpanded(isExpanded ? panel : false);
-  };
-
+function Places() {
   return (<>
     {shelters.map((obj, i) => (
-      <Accordion key={i} expanded={expanded === 'panel' + i} onChange={handleChange('panel' + i)}>
-        <AccordionSummary
-          expandIcon={<ExpandMoreIcon />}
-          aria-controls="panel1bh-content"
-          id="panel1bh-header"
-          sx={{ backgroundColor: "tertiary.light" }}
-        >
-          <Typography sx={{ flexShrink: 0 }}>{obj.title}</Typography>
-        </AccordionSummary>
-        <AccordionDetails>
+      <CardBase key={i}>
+        <CardHeader
+          title={obj.title}
+          titleTypographyProps={{ align: "center" }}
+          sx={{bgcolor: "success.light"}}
+        />
+        <CardContent>
           <Typography>{obj.text}</Typography>
           <Typography variant="body2">{obj.subText}</Typography>
           <ImageCardPart image={imageBasePath + obj.image } />
-        </AccordionDetails>
-      </Accordion>
-
+        </CardContent>
+      </CardBase>
     ))}
   </>);
 }
@@ -134,10 +130,14 @@ export const SandaP9IzaNigeru = () => {
     <SimpleTitle title={title} subtitle={subtitle}/>
 
     <CardBase>
+      <CardHeader
+        title={mainContentTitle}
+        titleTypographyProps={{ align: "center" }}
+        sx={{bgcolor: "primary.light"}}
+      />
       <CardContent>
-        <TitleCardPart title={mainContentTitle}/>
         <BodyText>{mainContentText}</BodyText>
-        <ControlledAccordions/>
+        <Places/>
       </CardContent>
     </CardBase>
 
@@ -148,7 +148,8 @@ export const SandaP9IzaNigeru = () => {
         image2={imageBasePath + obj.image2}
         texts1={obj.texts1}
         texts2={obj.texts2}
-        color="primary.light"
+        sx={obj.sx}
+        style={obj.style}
         key={i}
       />
     ))}
