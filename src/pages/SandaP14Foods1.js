@@ -150,8 +150,6 @@ const SandaP14Foods1 = () => {
     loadPreparationList("cookingList")
   );
 
-  console.log(foodList)
-
   const handleFoodListChange = (event) => {
     let nextFoodList = foodList;
     nextFoodList[event.target.name].checked = event.target.checked;
@@ -171,7 +169,7 @@ const SandaP14Foods1 = () => {
   const handleCookingListChange = (event) => {
     const nextCookingList = cookingList;
     nextCookingList[event.target.name].checked = event.target.checked;
-    setCookingList(nextCookingList);
+    setCookingList({...nextCookingList});
 
     localStorage.setItem(
       "cookingList",
@@ -187,8 +185,8 @@ const SandaP14Foods1 = () => {
   const Preparation = ({ title, items, handleChange, comment }) => (
     <CardBase>
       <HeaderCardPart title={title} />
-      {comment !== null ? <BodyText>{comment}</BodyText> : ""}
       <CardContent>
+        {comment !== null ? <BodyText>{comment}</BodyText> : ""}
         <FormGroup row>
           <ImageList cols={2} rowHeight="auto">
             {Object.keys(items).map((key) => {
@@ -254,8 +252,6 @@ const SandaP14Foods1 = () => {
     </CardBase>
   );
 
-  console.log("render");
-
   return (
     <>
       <SimpleTitle2
@@ -267,14 +263,12 @@ const SandaP14Foods1 = () => {
         <br />
         さらにアレルギー対応食や幼児用の食事は手に入りません!
       </BodyText>
-      <Divider />
       <Preparation
         title="備えておきたい 非常食"
         items={foodList}
         handleChange={handleFoodListChange}
         comment={null}
       />
-      <Divider />
       <CardBase>
         <CardContent>
           <TitleCardPart title="ポリ袋クッキング(パッククッキング)" />
@@ -291,7 +285,6 @@ const SandaP14Foods1 = () => {
           <ImageCardPart image={generateImagePath("poli_cooking_2")} />
         </CardContent>
       </CardBase>
-      <Divider />
       <Preparation
         title="備えておきたい 調理器具"
         items={cookingList}
