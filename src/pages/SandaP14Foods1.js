@@ -6,7 +6,6 @@ import {
   CardContent,
   CardMedia,
   Checkbox,
-  Divider,
   FormControlLabel,
   FormGroup,
   ImageList,
@@ -255,7 +254,7 @@ const SandaP14Foods1 = () => {
   return (
     <>
       <SimpleTitle2
-        title="食べ物がない?!"
+        title="食べ物がない?! その1"
         subtitle="避難所に行っても 全員分の"
       />
       <BodyText>

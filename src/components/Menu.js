@@ -122,6 +122,8 @@ function ResponsiveDrawer(props) {
     "/sandaDaijobu",
     "/sandaGoods1",
     "/sandaGoods2",
+    "/sandaFoods1",
+    "/sandaFoods2",
     "/sandaToilet",
     "/sandaBousaikaigi",
     "/sandaBousaiSanpo",
