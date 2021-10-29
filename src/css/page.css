@@ -1,0 +1,106 @@
+@media(max-width: 600px){
+  .home {
+    min-width: 50vw;
+    min-height: 140vw;
+  }
+  .letter2 {
+    min-height: 500px;
+    position: absolute;
+    height: 88%;
+    width: 88%;
+    z-index: 2;
+    background: #fafafa;
+    box-shadow: 0 0 8px rgba(0,0,0,0.2);
+    transform: rotate(-2.0deg);
+  }
+  .letter3 {
+    min-height: 500px;
+    position: absolute;
+    height: 88%;
+    width: 88%;
+    z-index: 1;
+    background: #f6f6f6;
+    box-shadow: 0 0 8px rgba(0,0,0,0.2);
+    transform: rotate(1.4deg);
+  }
+}
+@media(min-width: 601px){
+  .home {
+    min-width: calc(50vw - 350px);
+    min-height: 80vw;
+  }
+  .letter2 {
+    min-height: 500px;
+    position: absolute;
+    height: 97%;
+    width: calc(93vw - 350px);
+    z-index: 2;
+    background: #fafafa;
+    box-shadow: 0 0 8px rgba(0,0,0,0.2);
+    transform: rotate(-2.0deg);
+  }
+  .letter3 {
+    min-height: 500px;
+    position: absolute;
+    height: 97%;
+    width: calc(93vw - 350px);
+    z-index: 1;
+    background: #f6f6f6;
+    box-shadow: 0 0 8px rgba(0,0,0,0.2);
+    transform: rotate(1.4deg);
+  }
+}
+.letter {
+  background: #fff;
+  box-shadow: 0 0 10px rgba(0,0,0,0.3);
+  margin: 0 auto;
+  min-height: 500px;
+  padding: 20px;
+  position: relative;
+  width: 100%;
+  text-align: center;
+  z-index: 3;
+}
+.omoiTitle {
+  font-size: 26px;
+  font-weight: bold;
+}
+.omoiSubTitle {
+  font-size: 13px;
+  color:darkgray;
+}
+.omoiImpact {
+  color: hotpink;
+  font-size: 17px;
+}
+.omoiNormal{
+  font-size: 13px;
+}
+.omoiImage {
+  display: flex;
+}
+.frame1 {
+  background-color: #fadbd9;
+  padding: 1px;
+  border: solid;
+  border-color: #595656;
+}
+.frame2 {
+  padding: 20px;
+  border: 1px solid;
+  border-color: #595656;
+  text-align: center;
+}
+.homeHeader {
+  padding: 20px;
+  font-family:"ヒラギノ丸ゴ Pro W4","ヒラギノ丸ゴ Pro","Hiragino Maru Gothic Pro","ヒラギノ角ゴ Pro W3","Hiragino Kaku Gothic Pro","HG丸ｺﾞｼｯｸM-PRO","HGMaruGothicMPRO";
+}
+.overLine {
+  border-top: 1px solid #595656;
+}
+.underLine {
+  border-bottom: 1px solid #595656;
+}
+.homeImage {
+  display: flex;
+}

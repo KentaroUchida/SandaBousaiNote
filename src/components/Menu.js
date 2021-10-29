@@ -1,31 +1,40 @@
 import React from "react";
 import PropTypes from "prop-types";
 import axios from "axios";
-import AppBar from "@mui/material/AppBar";
-import CssBaseline from "@mui/material/CssBaseline";
-import Divider from "@mui/material/Divider";
-import Drawer from "@mui/material/Drawer";
-import IconButton from "@mui/material/IconButton";
-import List from "@mui/material/List";
-import ListItem from "@mui/material/ListItem";
-import ListItemText from "@mui/material/ListItemText";
+import { Link } from "react-router-dom";
+import {
+  AppBar,
+  CssBaseline,
+  Divider,
+  Drawer,
+  IconButton,
+  List,
+  ListItem,
+  ListItemIcon,
+  ListItemText,
+  Toolbar,
+  Typography,
+  Grid,
+  Button,
+  Box,
+  Dialog,
+  DialogTitle,
+  DialogContent,
+  DialogContentText,
+  DialogActions,
+  LinearProgress,
+} from "@mui/material";
+import { useTheme } from "@mui/material/styles";
 import ChevronLeftIcon from "@mui/icons-material/ChevronLeft";
 import ChevronRightIcon from "@mui/icons-material/ChevronRight";
-import Toolbar from "@mui/material/Toolbar";
-import Typography from "@mui/material/Typography";
 import PrintIcon from "@mui/icons-material/Print";
-import { useTheme } from "@mui/material/styles";
-import { Link } from "react-router-dom";
-import Grid from "@mui/material/Grid";
-import { Button } from "@mui/material";
-import Box from "@mui/material/Box";
-import {titles} from "../components/Titles";
-import Dialog from "@mui/material/Dialog";
-import DialogTitle from "@mui/material/DialogTitle";
-import DialogContent from "@mui/material/DialogContent";
-import DialogContentText from "@mui/material/DialogContentText";
-import DialogActions from "@mui/material/DialogActions";
-import LinearProgress from "@mui/material/LinearProgress";
+import ArrowBackIcon from "@mui/icons-material/ArrowBack";
+import ArrowForwardIcon from "@mui/icons-material/ArrowForward";
+import HelpOutlineIcon from "@mui/icons-material/HelpOutline";
+import FiberManualRecordIcon from "@mui/icons-material/FiberManualRecord";
+
+import { titles } from "../components/Titles";
+import { hints } from "../components/Hints";
 
 const drawerWidth = 350;
 
@@ -52,18 +61,20 @@ const styles = {
     width: drawerWidth,
     boxSizing: "border-box",
   },
-  content: {
-    flexGrow: 1,
-    p: 3,
-  },
 };
 
-
-export default function ResponsiveDrawer(props) {
+function ResponsiveDrawer(props) {
   const { window } = props;
   const theme = useTheme();
   const [mobileOpen, setMobileOpen] = React.useState(false);
   const [selectedIndex, setSelectedIndex] = React.useState(props.now_index);
+  const [open, setOpen] = React.useState(false);
+  const handleClickOpen = () => {
+    setOpen(true);
+  };
+  const handleClose = () => {
+    setOpen(false);
+  };
   const handleListItemClick = (event, index) => {
     setSelectedIndex(index);
   };
@@ -80,30 +91,31 @@ export default function ResponsiveDrawer(props) {
     setMobileOpen(!mobileOpen);
   };
 
-
   const links = [
-    "/form",
     "/",
     "/instruction",
-    "/jishin",
-    "/koudouChart",
-    "/Taiken",
-    "/mada",
-    "/izanigeru",
-    "/bousaiGoods",
-    "/foods",
-    "/papaTaiken",
-    "/souzou",
-    "/otiru",
-    "/toilet",
-    "/daijobu",
-    "/bousaiKaigi",
-    "/oshirase",
-    "/sandaTaiken"
+    "/sandaOmoi",
+    "/sandaJishin",
+    "/sandaKoudouChart",
+    "/sandaMamaPapa",
+    "/sandaKikenJissai",
+    "/sandaTaiken",
+    "/sandaMada",
+    "/sandaIzaNigeru",
+    "/sandaSandaBousai",
+    "/sandaDaijobu",
+    "/sandaGoods1",
+    "/sandaGoods2",
+    "/sandaFoods1",
+    "/sandaFoods2",
+    "/sandaToilet",
+    "/sandaBousaikaigi",
+    "/sandaBousaiSanpo",
+    "/sandaForm",
   ];
 
   const drawer = (
-    <div>
+    <>
       <Toolbar />
       <List component="nav">
         {titles.map((text, index) => (
@@ -118,13 +130,17 @@ export default function ResponsiveDrawer(props) {
               selected={selectedIndex === index}
               onClick={(event) => handleListItemClick(event, index)}
             >
-              <ListItemText primary={String("ページ")+String(index)+String(".")+String(text)} />
+              <ListItemText
+                primary={
+                  String("ページ") + String(index) + String(". ") + String(text)
+                }
+              />
             </ListItem>
           </Link>
         ))}
         <Divider />
       </List>
-    </div>
+    </>
   );
 
   const container =
@@ -135,27 +151,106 @@ export default function ResponsiveDrawer(props) {
       <CssBaseline />
       <AppBar position="fixed" sx={styles.appBar}>
         <Toolbar>
-          <Grid justifyContent="space-between" alignItems="center" container>
-            <div style={{ display: "inline-flex", alignItems: "center" }}>
+          <Grid
+            container
+            direction="row"
+            justifyContent="space-between"
+            alignItems="center"
+          >
+            <Grid item>
               <Button
                 style={{
                   backgroundColor: "white",
                   textShadow: "1px 1px 100px rgba(255, 255, 255, 0.66)",
                   boxShadow:
-                    "inset 0 100px 0 rgba(255,255,255,0.5), 0 2px 2px rgba(0, 0, 0, 0.19)",
-                  borderBottom: "solid 2px #b5b5b5",
+                    "inset 0 100px 0 rgba(255,255,255,0.5), 0 1px 1px rgba(0, 0, 0, 0.19)",
+                  borderBottom: "solid 1px #b5b5b5",
                 }}
                 aria-label="open drawer"
                 onClick={handleDrawerOpen}
                 sx={styles.menuButton}
               >
-                目次
+                <b>目次</b>
               </Button>
-              <Typography variant="h6" noWrap style={{}}>
-                {"三田防災ノート.P"+String(props.now_index)}
-              </Typography>
-            </div>
-            <DownloadDialog/>
+            </Grid>
+
+            <Grid item>
+              <Grid container alignItems="center">
+                <Grid item>
+                  <Link
+                    to={
+                      links[(props.now_index + links.length - 1) % links.length]
+                    }
+                    key={(props.now_index + links.length - 1) % links.length}
+                  >
+                    <IconButton edge="end">
+                      <ArrowBackIcon />
+                    </IconButton>
+                  </Link>
+                </Grid>
+
+                <Grid item>
+                  <Typography sx={{ml: 1.8}}>
+                    {props.now_index}{"ページ"}
+                  </Typography>
+                </Grid>
+
+                <Grid item>
+                  <Link
+                    to={links[(props.now_index + 1) % links.length]}
+                    key={(props.now_index + 1) % links.length}
+                  >
+                    <IconButton edge="end">
+                      <ArrowForwardIcon />
+                    </IconButton>
+                  </Link>
+                </Grid>
+              </Grid>
+            </Grid>
+
+            <Grid item>
+              <IconButton
+                color="inherit"
+                edge="end"
+                onClick={handleClickOpen}
+                sx={{mr:"1px"}}
+              >
+                <HelpOutlineIcon fontSize="large" />
+              </IconButton>
+              <Dialog
+                open={open}
+                onClose={handleClose}
+                aria-labelledby="alert-dialog-title"
+                aria-describedby="alert-dialog-description"
+              >
+                <DialogTitle id="alert-dialog-title">
+                  {"三田防災ノートP" + String(props.now_index)}
+                  <br />
+                  説明ページ
+                </DialogTitle>
+                <DialogContent>
+                  <DialogContentText id="alert-dialog-description">
+                    {typeof hints[props.now_index] === "object" &&
+                      hints[props.now_index].map((text, i) => {
+                        return (
+                          <Typography>
+                            <ListItem>
+                              <ListItemIcon>
+                                <FiberManualRecordIcon />
+                              </ListItemIcon>
+                              <ListItemText primary={text} />
+                            </ListItem>
+                          </Typography>
+                        );
+                      })}
+                  </DialogContentText>
+                </DialogContent>
+                <DialogActions>
+                  <Button onClick={handleClose}>確認しました</Button>
+                </DialogActions>
+              </Dialog>
+              <DownloadDialog />
+            </Grid>
           </Grid>
         </Toolbar>
       </AppBar>
@@ -197,10 +292,7 @@ export default function ResponsiveDrawer(props) {
           {drawer}
         </Drawer>
       </Box>
-      <Box component="main" sx={styles.content}>
-        <Toolbar />
-        {props.children}
-      </Box>
+      <Box component="main">{props.children}</Box>
     </Box>
   );
 }
@@ -224,110 +316,136 @@ function DownloadDialog() {
   };
   const handleClose = () => {
     setOpen(false);
-    if(failed) setFailed(false);
+    if (failed) setFailed(false);
   };
   const downloadPDF = () => {
     setDownloading(true);
     setFailed(false);
-    const body = {form: {}, card: {}, goods: {}, checkList: {}};
-    [['family', 'familyList'], ['relatives', 'relativeList'], ['facilities', 'facilityList']].forEach(keys => {
+    const body = { form: {}, card: {}, goods: {}, checkList: {} };
+    [
+      ["family", "familyList"],
+      ["relatives", "relativeList"],
+      ["facilities", "facilityList"],
+    ].forEach((keys) => {
       const tmp = localStorage.getItem(keys[1]);
       body.form[keys[0]] = tmp ? JSON.parse(tmp) : [];
     });
-    [['home', 'phone'], ['temporary', 'P0Hinanbasyo'], ['disaster', 'P0Shishitei']].forEach(keys => {
+    [
+      ["home", "phone"],
+      ["temporary", "P0Hinanbasyo"],
+      ["disaster", "P0Shishitei"],
+    ].forEach((keys) => {
       body.form[keys[0]] = localStorage.getItem(keys[1]);
     });
-    const cardString = localStorage.getItem('P17Izanigeru');
+    const cardString = localStorage.getItem("P17Izanigeru");
     const cardTmp = cardString ? JSON.parse(cardString) : {};
-    [['flood', 'suigai'], ['sediment', 'dosya'], ['earthquake', 'jishin'], ['fire', 'kasai']].forEach(keys => {
+    [
+      ["flood", "suigai"],
+      ["sediment", "dosya"],
+      ["earthquake", "jishin"],
+      ["fire", "kasai"],
+    ].forEach((keys) => {
       body.card[keys[0]] = {};
-      ['evacuation', 'shelter'].forEach((k, i) => body.card[keys[0]][k] = cardTmp[keys[1] + (i+1)]);
+      ["evacuation", "shelter"].forEach(
+        (k, i) => (body.card[keys[0]][k] = cardTmp[keys[1] + (i + 1)])
+      );
     });
-    const clm = localStorage.getItem('checkListMore');
-    if(clm) Object.assign(body.goods, JSON.parse(clm));
-    const clh = localStorage.getItem('checkListHyakkin');
-    if(clh) {
+    const clm = localStorage.getItem("checkListMore");
+    if (clm) Object.assign(body.goods, JSON.parse(clm));
+    const clh = localStorage.getItem("checkListHyakkin");
+    if (clh) {
       const tmp = JSON.parse(clh);
-      if(tmp.whistle) body.goods.whistle2 = true;
+      if (tmp.whistle) body.goods.whistle2 = true;
       Object.assign(body.goods, tmp);
     }
-    const cln = localStorage.getItem('checkListNormally');
-    if(cln) Object.assign(body.goods, JSON.parse(cln));
-    const fl = localStorage.getItem('foodList');
+    const cln = localStorage.getItem("checkListNormally");
+    if (cln) Object.assign(body.goods, JSON.parse(cln));
+    const fl = localStorage.getItem("foodList");
     body.foods = fl ? JSON.parse(fl) : {};
 
-    body.checkList.earthquake = localStorage.getItem('P15Earthquake');
-    body.checkList.flood = localStorage.getItem('P15Flood');
-    body.checkList.place = localStorage.getItem('P15Place');
-    const clhm = localStorage.getItem('P15Home');
-    if(clhm) Object.assign(body.checkList, JSON.parse(clhm));
-    const clst = localStorage.getItem('P15Stock');
-    if(clst) Object.assign(body.checkList, JSON.parse(clst));
+    body.checkList.earthquake = localStorage.getItem("P15Earthquake");
+    body.checkList.flood = localStorage.getItem("P15Flood");
+    body.checkList.place = localStorage.getItem("P15Place");
+    const clhm = localStorage.getItem("P15Home");
+    if (clhm) Object.assign(body.checkList, JSON.parse(clhm));
+    const clst = localStorage.getItem("P15Stock");
+    if (clst) Object.assign(body.checkList, JSON.parse(clst));
 
     console.log(body);
-    axios.post('https://mfdxebawsi.execute-api.us-east-1.amazonaws.com/Prod/create', body).then(res => {
-      console.log(res.data);
-      return axios.get(res.data, {
-        responseType: 'blob',
-        dataType: 'binary',
+    axios
+      .post(
+        "https://mfdxebawsi.execute-api.us-east-1.amazonaws.com/Prod/create",
+        body
+      )
+      .then((res) => {
+        console.log(res.data);
+        return axios.get(res.data, {
+          responseType: "blob",
+          dataType: "binary",
+        });
+      })
+      .then((res) => {
+        const url = URL.createObjectURL(new Blob([res.data]));
+        const link = document.createElement("a");
+        link.href = url;
+        link.setAttribute("download", "bousai_note.pdf");
+        document.body.appendChild(link);
+        link.click();
+        handleClose();
+      })
+      .catch((err) => {
+        console.log(err);
+        setFailed(true);
+      })
+      .finally(() => {
+        setDownloading(false);
       });
-    }).then(res => {
-      const url = URL.createObjectURL(new Blob([res.data]));
-      const link = document.createElement('a');
-      link.href = url;
-      link.setAttribute(
-        'download',
-        'bousai_note.pdf'
-      );
-      document.body.appendChild(link);
-      link.click();
-      handleClose();
-    }).catch(err => {
-      console.log(err);
-      setFailed(true);
-    }).finally(() => {
-      setDownloading(false)
-    });
-  }
+  };
 
-  return (<>
-    <IconButton
-      color="inherit"
-      edge="end"
-      onClick={handleClickOpen}
-    >
-      <PrintIcon />
-    </IconButton>
-    <Dialog
-      open={open}
-      onClose={handleClose}
-      aria-labelledby="alert-dialog-title"
-      aria-describedby="alert-dialog-description"
-    >
-      <DialogTitle id="alert-dialog-title">
-        さんだ防災ノート<br/>
-        PDFダウンロード
-      </DialogTitle>
-      <DialogContent>
-        <DialogContentText id="alert-dialog-description">
-          防災ノートのPDF版をダウンロードすることができます。<br/>
-          PDFには、本Webアプリに保存された情報が書き込まれます。印刷したいときなどにご利用ください。
-        </DialogContentText>
-      </DialogContent>
-      <DialogActions>
-        <Button onClick={handleClose}>キャンセル</Button>
-        <Button onClick={downloadPDF} autoFocus>
-          {downloading ? 'ダウンロード中' : 'ダウンロード'}
-        </Button>
-      </DialogActions>
-      {failed && <DialogContent>
-        <DialogContentText id="alert-dialog-description">
-          サーバエラーにより、ダウンロードに失敗しました。<br/>
-          お手数ですが、こちらのリンクからダウンロードしてください。<br/>
-          ** ここにさんだ防災ノートのURLが書かれます **
-        </DialogContentText>
-      </DialogContent>}
-      {downloading && <LinearProgress/>}
-    </Dialog>
-  </>);
+  return (
+    <>
+      <IconButton color="inherit" edge="end" onClick={handleClickOpen}>
+        <PrintIcon fontSize="large" />
+      </IconButton>
+      <Dialog
+        open={open}
+        onClose={handleClose}
+        aria-labelledby="alert-dialog-title"
+        aria-describedby="alert-dialog-description"
+      >
+        <DialogTitle id="alert-dialog-title">
+          さんだ防災ノート
+          <br />
+          PDFダウンロード
+        </DialogTitle>
+        <DialogContent>
+          <DialogContentText id="alert-dialog-description">
+            防災ノートのPDF版をダウンロードすることができます。
+            <br />
+            PDFには、本Webアプリに保存された情報が書き込まれます。印刷したいときなどにご利用ください。
+          </DialogContentText>
+        </DialogContent>
+        <DialogActions>
+          <Button onClick={handleClose}>キャンセル</Button>
+          <Button onClick={downloadPDF} autoFocus>
+            {downloading ? "ダウンロード中" : "ダウンロード"}
+          </Button>
+        </DialogActions>
+        {failed && (
+          <DialogContent>
+            <DialogContentText id="alert-dialog-description">
+              サーバエラーにより、ダウンロードに失敗しました。
+              <br />
+              お手数ですが、こちらのリンクからダウンロードしてください。
+              <br />
+              ** ここにさんだ防災ノートのURLが書かれます **
+            </DialogContentText>
+          </DialogContent>
+        )}
+        {downloading && <LinearProgress />}
+      </Dialog>
+    </>
+  );
 }
+
+export { ResponsiveDrawer as Menu };

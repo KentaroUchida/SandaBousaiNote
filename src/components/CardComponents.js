@@ -40,12 +40,12 @@ export const TitleCardPart = ({
   color = "tertiary.main",
   variant = "h5",
 }) => (
-  <Paper elevation={3} sx={{ ...styles.cardTitle, bgcolor: color }}>
+  <Paper elevation={2} sx={{ ...styles.cardTitle, bgcolor: color }}>
     <CardTitle variant={variant}>{title}</CardTitle>
   </Paper>
 );
 
-export const HeaderCardPart = ({ title, color = "success.main" }) => (
+export const HeaderCardPart = ({ title, color = "success.light" }) => (
   <CardHeader
     title={title}
     titleTypographyProps={{ align: "center" }}
@@ -63,11 +63,34 @@ export const ImageCard = ({ image }) => {
   );
 };
 
+export const TextCard = ({children}) => (
+  <CardBase>
+    <CardContent>
+      <BodyText>{children}</BodyText>
+    </CardContent>
+  </CardBase>
+)
+
 export const ImageTextCard = ({ image, children }) => {
   return (
     <CardBase>
       <ImageCardPart image={image} />
       <CardContent>
+        <BodyText>{children}</BodyText>
+      </CardContent>
+    </CardBase>
+  );
+};
+
+export const TitleTextCard = ({
+  title,
+  color = "tertiary.main",
+  children,
+}) => {
+  return (
+    <CardBase>
+      <CardContent>
+        <TitleCardPart title={title} color={color} />
         <BodyText>{children}</BodyText>
       </CardContent>
     </CardBase>
@@ -91,6 +114,23 @@ export const TitleTextImageCard = ({
   );
 };
 
+export const TitleImageTextCard = ({
+  title,
+  image,
+  color = "tertiary.main",
+  children,
+}) => {
+  return (
+    <CardBase>
+      <CardContent>
+        <TitleCardPart title={title} color={color} />
+        <ImageCardPart image={image} />
+        <BodyText>{children}</BodyText>
+      </CardContent>
+    </CardBase>
+  );
+};
+
 export const TitleImagesCard = ({
   title,
   image1,
@@ -104,12 +144,12 @@ export const TitleImagesCard = ({
     <CardBase>
       <CardContent>
         <TitleCardPart title={title} color={color} />
+        <ImageCard image={image1} />
+        <ImageCard image={image2} />
+        <ImageCard image={image3} />
+        <ImageCard image={image4} />
+        <ImageCard image={image5} />
       </CardContent>
-      <ImageCardPart image={image1} />
-      <ImageCardPart image={image2} />
-      <ImageCardPart image={image3} />
-      <ImageCardPart image={image4} />
-      <ImageCardPart image={image5} />
     </CardBase>
   );
 };

@@ -10,9 +10,9 @@ import {
 export const CustomThemeA = createTheme({
   palette: {
     primary: {
-      light: lightBlue[200],
-      main: lightBlue[500],
-      dark: lightBlue[700],
+      light: "#ea526f",
+      main: "#ea526f",
+      dark: "#ea526f",
     },
     secondary: {
       light: orange[200],
@@ -34,6 +34,11 @@ export const CustomThemeA = createTheme({
       main: lightGreen[500],
       dark: lightGreen[700],
     },
+    blue: {
+      light: lightBlue[200],
+      main: lightBlue[500],
+      dark: lightBlue[700],
+    }
   },
   components: {
     MuiCheckbox: {

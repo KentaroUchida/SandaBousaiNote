@@ -13,7 +13,7 @@ export const SwipeNotifier = () => (
       display="flex"
       justifyContent="flex-end"
       alignItems="center"
-      style={{opacity: 0.5}}
+      style={{opacity: 0.4}}
       zIndex="appBar"
     >
         <ArrowBackIos style={{fontSize: 40, color :blueGrey[900]}}/>
@@ -27,7 +27,7 @@ export const SwipeNotifier = () => (
       display="flex"
       justifyContent="center"
       alignItems="center"
-      style={{opacity: 0.5}}
+      style={{opacity: 0.4}}
       zIndex="appBar"
     >
         <ArrowForwardIos style={{fontSize: 40, color :blueGrey[900]}}/>
