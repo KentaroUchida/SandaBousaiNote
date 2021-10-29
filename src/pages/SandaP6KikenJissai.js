@@ -9,7 +9,7 @@ import {
 import { ResponsiveFontProvider } from "../components";
 import { SimpleTitle2 } from "../components/TitleComponents";
 
-const imgPath = "/img/pages/P6KikenJissai/";
+const imgPath = "/img/pages/SandaP6KikenJissai/";
 
 const styles = {
   grid: {

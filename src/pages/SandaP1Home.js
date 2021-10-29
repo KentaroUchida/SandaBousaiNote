@@ -20,11 +20,11 @@ const SandaP1Home = () => {
             </div>
             <div className="underLine" />
             <div className="homeImage">
-              <img src="img/pages/P1Home/jishin.png" alt="" width="33%" height="auto"/>
-              <img src="img/pages/P1Home/tatsumaki.png" alt="" width="33%" height="auto"/>
-              <img src="img/pages/P1Home/tsunami.png" alt="" width="33%" height="auto"/>
+              <img src="img/pages/SandaP1Home/jishin.png" alt="" width="33%" height="auto"/>
+              <img src="img/pages/SandaP1Home/tatsumaki.png" alt="" width="33%" height="auto"/>
+              <img src="img/pages/SandaP1Home/tsunami.png" alt="" width="33%" height="auto"/>
             </div>
-          <img src="img/pages/P1Home/logo.png" alt="" width="100%" height="auto"/>
+          <img src="img/pages/SandaP1Home/logo.png" alt="" width="100%" height="auto"/>
           <div style={{color:"#595656"}}>
               災害に備えよう！
           </div>

@@ -29,9 +29,9 @@ const SandaP2Omoi = () => {
           <p>特定非営利活動法人ミラクルウィッシュ<br/>さんだ女子防災部<br/>2021年10月</p>
         </div>
         <div className="omoiImage">
-          <ImageCard image="img/pages/P2Omoi/img1.jpg"/>
-          <ImageCard image="img/pages/P2Omoi/img2.jpg"/>
-          <ImageCard image="img/pages/P2Omoi/img3.jpg"/>
+          <ImageCard image="img/pages/SandaP2Omoi/img1.jpg"/>
+          <ImageCard image="img/pages/SandaP2Omoi/img2.jpg"/>
+          <ImageCard image="img/pages/SandaP2Omoi/img3.jpg"/>
         </div>
       </div>
     </div>

@@ -60,7 +60,7 @@ const charts = [
   },
 ];
 
-const img_path = "/img/pages/P4Yurega";
+const img_path = "/img/pages/SandaP4Yurega";
 const generateImagePath = (filename) => img_path + "/" + filename;
 
 const ActionChartCard = ({ content }) => (
@@ -88,7 +88,7 @@ const Arrow = () => (
   </Box>
 );
 
-function P4Yurega() {
+function SandaP4Yurega() {
   return (
     <>
       <SimpleTitle title="ゆれがおさまったら" subtitle="その次の行動チャート" />
@@ -112,4 +112,4 @@ function P4Yurega() {
   );
 }
 
-export { P4Yurega };
+export { SandaP4Yurega };
