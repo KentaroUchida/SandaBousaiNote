@@ -1,8 +1,5 @@
 import React from "react";
 import {
-  Card,
-  CardContent,
-  CardMedia,
   Grid,
 } from "@mui/material";
 import {
@@ -26,23 +23,6 @@ const styles = {
 const FlexImage = ({ image }) => {
   return (
     <img src={image} alt="" style={{ maxWidth: "100%", height: "auto" }} />
-  );
-};
-
-const Photo = ({ image, text }) => {
-  return (
-    <Card sx={styles.card}>
-      <CardMedia>
-        <Grid container justifyContent="center">
-          <img
-            src={image}
-            alt=""
-            style={{ maxWidth: "100%", height: "auto" }}
-          />
-        </Grid>
-      </CardMedia>
-      <CardContent>{text}</CardContent>
-    </Card>
   );
 };
 

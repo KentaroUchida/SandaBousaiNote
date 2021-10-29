@@ -211,7 +211,6 @@ function getPath(str) {
 }
 
 function Sonaebox(props) {
-  const items = props.items;
   return (
     <FormGroup row>
       <ImageList cols={1} rowHeight="auto" gap ={0}>

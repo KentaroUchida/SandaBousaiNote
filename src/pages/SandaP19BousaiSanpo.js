@@ -1,17 +1,13 @@
 import React from "react";
 import { Link, CardContent } from "@mui/material";
-import { Title, SubTitle, BodyText } from "../components/TitleComponents";
+import { BodyText } from "../components/TitleComponents";
 import {
   CardBase,
   TitleCardPart,
-  TextCard,
-  TitleTextImageCard,
   TitleImageTextCard,
-  TitleTextCard,
   ImageTextCard,
 } from "../components/CardComponents";
 import { SimpleTitle } from "../components/TitleComponents";
-import { typography } from "@mui/system";
 
 
 const img_path = "/img/pages/SandaP19BousaiSanpo";
