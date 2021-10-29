@@ -21,7 +21,7 @@ const styles = {
   cardHeaderMain: {
   },
   cardHeaderCheckList: {
-    bgcolor: "primary.light",
+    bgcolor: "blue.light",
   },
   cardHeaderCheck: {
     bgcolor: "secondary.light",

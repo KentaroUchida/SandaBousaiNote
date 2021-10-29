@@ -1,17 +1,13 @@
 import React from "react";
 import { Link, CardContent } from "@mui/material";
-import { Title, SubTitle, BodyText } from "../components/TitleComponents";
+import { BodyText } from "../components/TitleComponents";
 import {
   CardBase,
   TitleCardPart,
-  TextCard,
-  TitleTextImageCard,
   TitleImageTextCard,
-  TitleTextCard,
   ImageTextCard,
 } from "../components/CardComponents";
 import { SimpleTitle } from "../components/TitleComponents";
-import { typography } from "@mui/system";
 
 
 const img_path = "/img/pages/SandaP19BousaiSanpo";
@@ -23,10 +19,10 @@ const SandaP19BousaiSanpo = () => {
       <SimpleTitle title="防災さんぽ" subtitle="普段からやってみよう！"/>
       <CardBase>
         <CardContent>
-          <BodyText　>
+          <BodyText>
             お家の周りの危険や避難場所を
             <br />
-            市の防災マップでまずチェック!
+            市の防災マップでまずチェック！
             <br />
             チェックできたら家族で防災さんぽ!!
           </BodyText>
@@ -51,7 +47,7 @@ const SandaP19BousaiSanpo = () => {
             <br/>
             ・昼と夜では全然違うので
             <br/>
-            　それぞれ歩いてみよう！
+              それぞれ歩いてみよう！
           </TitleImageTextCard>
 
           <ImageTextCard image={generateImagePath("singboard.png")}>
@@ -84,7 +80,7 @@ const SandaP19BousaiSanpo = () => {
               通学路,習い事に使う道もチェック
           </ImageTextCard>
 
-          <TitleImageTextCard title="要確認！！"  image={generateImagePath("telphone_searchbar.png")} color = "lightgreen"> 
+          <TitleImageTextCard title="要確認!!"  image={generateImagePath("telphone_searchbar.png")} color = "lightgreen"> 
           災害伝言ダイヤルの使い方は<Link href="/form">こちら</Link>
           
           </TitleImageTextCard>

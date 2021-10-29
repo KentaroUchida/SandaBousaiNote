@@ -3,9 +3,7 @@ import {
   TitleTextImageCard,
   TitleImagesCard,
 } from "../components/CardComponents";
-import { Title, SubTitle } from "../components/TitleComponents";
-
-
+import { SimpleTitle } from "../components/TitleComponents";
 
 const taikenTitles = [
   "台所はキケンがいっぱい！",
@@ -41,44 +39,43 @@ const taikenImages = [
 ];
 
 const SandaP7TaikenPapa = () => {
-
   // 文字列を改行
   // https://chaika.hatenablog.com/entry/2020/07/12/083000
-  const texts=[];
-  for(let i=0; i<8; i++){
+  const texts = [];
+  for (let i = 0; i < 8; i++) {
     const text = taikenTexts[i].split(/(\n)/).map((item, index) => {
       return (
         <React.Fragment key={index}>
-          { item.match(/\n/) ? <br /> : item }
+          {item.match(/\n/) ? <br /> : item}
         </React.Fragment>
       );
     });
     texts.push(text);
-  };
+  }
 
-  return(<>
-    <Title>東日本大震災のパパの体験談</Title>
-    <SubTitle>実際の3.11震災の当時，仙台に住んでいたパパの体験をご紹介します</SubTitle>
-    {
-      taikenTitles.map((_,i) => {
-        return(
-        <TitleTextImageCard
-          title={taikenTitles[i]}
-          image={taikenImages[i]}
-        >
-          {texts[i]}
-        </TitleTextImageCard>  
-      )})
-    }
-    <TitleImagesCard
-      title="震災時の写真です"
-      image1="img/pages/P7TaikenPapa/higai1.jpg"
-      image2="img/pages/P7TaikenPapa/higai2.jpg"
-      image3="img/pages/P7TaikenPapa/higai3.jpg"
-      image4="img/pages/P7TaikenPapa/higai4.jpg"
-      image5="img/pages/P7TaikenPapa/higai5.jpg"
-    />
-  </>)
-}
+  return (
+    <>
+      <SimpleTitle
+        title="東日本大震災のパパの体験談"
+        subtitle="実際の3.11震災の当時、仙台に住んでいたパパの体験をご紹介します"
+      />
+      {taikenTitles.map((_, i) => {
+        return (
+          <TitleTextImageCard title={taikenTitles[i]} image={taikenImages[i]}>
+            {texts[i]}
+          </TitleTextImageCard>
+        );
+      })}
+      <TitleImagesCard
+        title="震災時の写真です"
+        image1="img/pages/P7TaikenPapa/higai1.jpg"
+        image2="img/pages/P7TaikenPapa/higai2.jpg"
+        image3="img/pages/P7TaikenPapa/higai3.jpg"
+        image4="img/pages/P7TaikenPapa/higai4.jpg"
+        image5="img/pages/P7TaikenPapa/higai5.jpg"
+      />
+    </>
+  );
+};
 
-export {SandaP7TaikenPapa}
+export { SandaP7TaikenPapa };
