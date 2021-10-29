@@ -28,8 +28,8 @@ import { useTheme } from "@mui/material/styles";
 import ChevronLeftIcon from "@mui/icons-material/ChevronLeft";
 import ChevronRightIcon from "@mui/icons-material/ChevronRight";
 import PrintIcon from "@mui/icons-material/Print";
-import ArrowBackIosNewIcon from "@mui/icons-material/ArrowBackIosNew";
-import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
+import ArrowBackIcon from "@mui/icons-material/ArrowBack";
+import ArrowForwardIcon from "@mui/icons-material/ArrowForward";
 import HelpOutlineIcon from "@mui/icons-material/HelpOutline";
 import FiberManualRecordIcon from "@mui/icons-material/FiberManualRecord";
 
@@ -53,9 +53,6 @@ const styles = {
   menuButton: {
     marginRight: 1,
     display: { xs: "block", sm: "none" },
-  },
-  helpButton: {
-    marginLeft: 5,
   },
   hide: {
     display: "none",
@@ -154,50 +151,71 @@ function ResponsiveDrawer(props) {
       <CssBaseline />
       <AppBar position="fixed" sx={styles.appBar}>
         <Toolbar>
-          <Grid justifyContent="space-between" alignItems="center" container>
-            <div style={{ display: "inline-flex", alignItems: "center" }}>
+          <Grid
+            container
+            direction="row"
+            justifyContent="space-between"
+            alignItems="center"
+          >
+            <Grid item>
               <Button
                 style={{
                   backgroundColor: "white",
                   textShadow: "1px 1px 100px rgba(255, 255, 255, 0.66)",
                   boxShadow:
-                    "inset 0 100px 0 rgba(255,255,255,0.5), 0 2px 2px rgba(0, 0, 0, 0.19)",
-                  borderBottom: "solid 2px #b5b5b5",
+                    "inset 0 100px 0 rgba(255,255,255,0.5), 0 1px 1px rgba(0, 0, 0, 0.19)",
+                  borderBottom: "solid 1px #b5b5b5",
                 }}
                 aria-label="open drawer"
                 onClick={handleDrawerOpen}
                 sx={styles.menuButton}
               >
-                目次
+                <b>目次</b>
               </Button>
+            </Grid>
 
-              <Link
-                to={links[(props.now_index + links.length - 1) % links.length]}
-                key={(props.now_index + links.length - 1) % links.length}
-              >
-                <IconButton edge="end">
-                  <ArrowBackIosNewIcon />
-                </IconButton>
-              </Link>
+            <Grid item>
+              <Grid container alignItems="center">
+                <Grid item>
+                  <Link
+                    to={
+                      links[(props.now_index + links.length - 1) % links.length]
+                    }
+                    key={(props.now_index + links.length - 1) % links.length}
+                  >
+                    <IconButton edge="end">
+                      <ArrowBackIcon />
+                    </IconButton>
+                  </Link>
+                </Grid>
 
-              <Typography marginRight="-12px"> {props.now_index} </Typography>
+                <Grid item>
+                  <Typography sx={{ml: 1.8}}>
+                    {props.now_index}{"ページ"}
+                  </Typography>
+                </Grid>
 
-              <Link
-                to={links[(props.now_index + 1) % links.length]}
-                key={(props.now_index + 1) % links.length}
-              >
-                <IconButton edge="end">
-                  <ArrowForwardIosIcon />
-                </IconButton>{" "}
-              </Link>
+                <Grid item>
+                  <Link
+                    to={links[(props.now_index + 1) % links.length]}
+                    key={(props.now_index + 1) % links.length}
+                  >
+                    <IconButton edge="end">
+                      <ArrowForwardIcon />
+                    </IconButton>
+                  </Link>
+                </Grid>
+              </Grid>
+            </Grid>
 
+            <Grid item>
               <IconButton
                 color="inherit"
                 edge="end"
                 onClick={handleClickOpen}
-                sx={styles.helpButton}
+                sx={{mr:"1px"}}
               >
-                <HelpOutlineIcon />
+                <HelpOutlineIcon fontSize="large" />
               </IconButton>
               <Dialog
                 open={open}
@@ -212,31 +230,27 @@ function ResponsiveDrawer(props) {
                 </DialogTitle>
                 <DialogContent>
                   <DialogContentText id="alert-dialog-description">
-                    <div>
-                      {typeof hints[props.now_index] === "object" &&
-                        hints[props.now_index].map((text, i) => {
-                          return (
-                            <div>
-                              <Typography>
-                                <ListItem>
-                                  <ListItemIcon>
-                                    <FiberManualRecordIcon />
-                                  </ListItemIcon>
-                                  <ListItemText primary={text} />
-                                </ListItem>
-                              </Typography>
-                            </div>
-                          );
-                        })}
-                    </div>
+                    {typeof hints[props.now_index] === "object" &&
+                      hints[props.now_index].map((text, i) => {
+                        return (
+                          <Typography>
+                            <ListItem>
+                              <ListItemIcon>
+                                <FiberManualRecordIcon />
+                              </ListItemIcon>
+                              <ListItemText primary={text} />
+                            </ListItem>
+                          </Typography>
+                        );
+                      })}
                   </DialogContentText>
                 </DialogContent>
                 <DialogActions>
                   <Button onClick={handleClose}>確認しました</Button>
                 </DialogActions>
               </Dialog>
-            </div>
-            <DownloadDialog />
+              <DownloadDialog />
+            </Grid>
           </Grid>
         </Toolbar>
       </AppBar>
@@ -391,7 +405,7 @@ function DownloadDialog() {
   return (
     <>
       <IconButton color="inherit" edge="end" onClick={handleClickOpen}>
-        <PrintIcon />
+        <PrintIcon fontSize="large" />
       </IconButton>
       <Dialog
         open={open}
