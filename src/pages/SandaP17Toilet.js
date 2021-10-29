@@ -155,7 +155,7 @@ const Difference = () => {
       <Typography sx={{mt: 1}}>トイレットペーパーの平均的な使用量は、1人当たり1週間程度で1ロール、4人家族の場合には、1か月で16ロール程度が必要。</Typography>
       <Typography variant="caption">日本家庭紙工業会より</Typography>
 
-      <Typography variant="h6" sx={{mt: 2}}>あなたの家族の必要数は?</Typography>
+      <Typography variant="h6" sx={{mt: 2}}>あなたの家族の必要数は？</Typography>
       <Typography sx={{mb: 2}}>家族の人数を入力してみましょう！</Typography>
       <Grid container alignItems="flex-end">
         <Grid item xs>
