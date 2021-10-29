@@ -2,6 +2,7 @@ import {
   Box,
   Button,
   CardContent,
+  CardHeader,
   CardMedia,
   Divider,
   Grid,
@@ -22,13 +23,19 @@ const title = "トイレが大変!!";
 const subtitle = "いちばん困る！ストレスになる！";
 
 const Coagulant = () => {
-  const [num, setNum] = React.useState(0);
+  const lsNum = localStorage.getItem("P17cnum");
+  const [num, setNum] = React.useState(lsNum ? lsNum : 4);
   const handleChange = (event) => {
     setNum(event.target.value);
+    localStorage.setItem("P17cnum", event.target.value);
   };
   return (<CardBase>
+    <CardHeader
+      title="凝固剤の必要数を知ろう！"
+      titleTypographyProps={{ align: "center" }}
+      sx={{ bgcolor: "tertiary.main" }}
+    />
     <CardContent>
-      <TitleCardPart title="凝固剤の必要数を知ろう！"/>
       <Typography>1日のトイレの回数は5～7回。</Typography>
       <Typography>最低でも3回。</Typography>
       <Typography>できれば7日分の備蓄が必要。</Typography>
@@ -46,10 +53,10 @@ const Coagulant = () => {
           />
         </Grid>
         <Grid item xs>
-          <Typography> 人 × 7日分 = </Typography>
+          <Typography> 人 × 35 = </Typography>
         </Grid>
         <Grid item xs>
-          <Typography variant="caption">最低必要数</Typography>
+          <Typography variant="caption"><div>一週間の</div><div>最低必要数</div></Typography>
           <Typography>{num * 35}</Typography>
         </Grid>
       </Grid>
@@ -58,79 +65,43 @@ const Coagulant = () => {
 };
 
 const MakeToilet = () => {
-  const steps = [
-    {
-      label: 'ゴミ袋を便座に二重にかぶせる。',
-      description: `ゴミ袋は消臭効果の高いものを使う。
-      汚物はゴミ収集が開始されるまで自宅に置くことになります`,
-    },
-    {
-      label: '短冊状に切って、くしゃくしゃにした新聞紙をゴミ袋の中に敷き詰める。',
-    },
-    {
-      label: '用を足した後、水分を固める効果のある凝固剤を上からかける。',
-    },
-    {
-      label: '内側のゴミ袋を鳥だし、空気を抜いて口を強く縛る。',
-    },
-  ];
-  const [activeStep, setActiveStep] = React.useState(0);
-
-  const handleNext = () => {
-    setActiveStep((prevActiveStep) => prevActiveStep + 1);
-  };
-
-  const handleBack = () => {
-    setActiveStep((prevActiveStep) => prevActiveStep - 1);
-  };
-
   return (<CardBase>
+    <CardHeader
+      title="緊急用トイレの作り方"
+      titleTypographyProps={{ align: "center" }}
+      sx={{ bgcolor: "primary.light" }}
+    />
     <CardContent>
-      <TitleCardPart title="緊急用トイレの作り方" color="primary.light"/>
-      <Typography>「続き」ボタンを押してチェックしましょう！</Typography>
-      <Stepper activeStep={activeStep} orientation="vertical" sx={{mt: 4}}>
-        {steps.map((step, index) => (
-          <Step key={step.label} classes="theme.secondary">
-            <StepLabel>{step.label}</StepLabel>
-            <StepContent>
-              <Typography>{step.description}</Typography>
-              {index % 2 === 0 && <CardMedia component="img" image={imageBasePath + "make" + index + ".png"}/>}
-              <Box sx={{ mb: 2 }}>
-                <Button
-                  variant="contained"
-                  onClick={handleNext}
-                  sx={{ mt: 1, mr: 1 }}
-                  disabled={activeStep >= steps.length - 1}
-                >
-                  {index === steps.length - 1 ? '完了！' : '続き'}
-                </Button>
-                <Button
-                  disabled={index === 0}
-                  onClick={handleBack}
-                  sx={{ mt: 1, mr: 1 }}
-                >
-                  戻る
-                </Button>
-              </Box>
-            </StepContent>
-          </Step>
-        ))}
-      </Stepper>
+      <Typography>1.ゴミ袋を便座に二重にかぶせる。</Typography>
+      <Typography variant="body2" sx={{ml: 2}}>ゴミ袋は消臭効果の高いものを使う。</Typography>
+      <Typography variant="body2" sx={{ml: 2}}>汚物はゴミ収集が開始されるまで自宅に置くことになります</Typography>
+      <CardMedia component="img" image={imageBasePath + "make0.png"} sx={{mt: 1}}/>
+      <Divider sx={{mb: 2}}/>
+      <Typography>2.短冊状に切って、くしゃくしゃにした新聞紙をゴミ袋の中に敷き詰める。</Typography>
+      <Divider sx={{mb: 2}}/>
+      <Typography>3.用を足した後、水分を固める効果のある凝固剤を上からかける。</Typography>
+      <CardMedia component="img" image={imageBasePath + "make2.png"} sx={{mt: 1, mb: 2}} height="200"/>
+      <Divider sx={{mb: 2}}/>
+      <Typography>4.内側のゴミ袋を取り出し、空気を抜いて口を強く縛る。</Typography>
     </CardContent>
   </CardBase>);
 };
 
 const Poncho = () => {
   return (<CardBase>
+    <CardHeader
+      title={<><div>女性はポンチョが</div><div>あると便利！</div></>}
+      titleTypographyProps={{ align: "center" }}
+      sx={{ bgcolor: "warning.light" }}
+    />
     <CardContent>
-      <TitleCardPart title="女性はポンチョがあると便利！" color="warning.light"/>
       <Typography>もしものときのために車の中にも積んでおくといいかも！</Typography>
       <Typography>キャンプにも使えます</Typography>
       <Grid container justifyContent="left" alignItems="flex-end" sx={{mt: 2}}>
-        <Grid item xs={7}>
+        <Grid item xs={6}>
           <CardMedia component="img" image={imageBasePath + "poncho0.png"}/>
         </Grid>
-        <Grid item xs={3}>
+        <Grid item xs={4}>
           <CardMedia component="img" image={imageBasePath + "poncho1.png"}/>
         </Grid>
       </Grid>
@@ -147,9 +118,11 @@ const Poncho = () => {
 };
 
 const Difference = () => {
-  const [num, setNum] = React.useState(0);
+  const lsNum = localStorage.getItem("P17dnum");
+  const [num, setNum] = React.useState(lsNum ? lsNum : 4);
   const handleChange = (event) => {
     setNum(event.target.value);
+    localStorage.setItem("P17dnum", event.target.value);
   };
 
   const kinds = [
@@ -159,9 +132,13 @@ const Difference = () => {
     {name: "普通巻", m: 50, g: 124, d: 10},
   ];
   return (<CardBase>
+    <CardHeader
+      title="トイレットペーパーの違い"
+      titleTypographyProps={{ align: "center" }}
+      sx={{ bgcolor: "success.light" }}
+    />
     <CardContent>
-      <TitleCardPart title="トイレットペーパーの違い" color="success.light"/>
-      <Typography variant="h6">普通巻きより2倍巻、5倍巻のものがコンパクトでおすすめ</Typography>
+      <Typography variant="h6">普通巻より2倍巻、5倍巻のものがコンパクトでおすすめ</Typography>
       <CardMedia component="img" image={imageBasePath + "difference.png"}/>
       <Typography variant="caption">画像出典：あかね空</Typography>
       <Grid container sx={{mt: 2}}>
@@ -192,9 +169,10 @@ const Difference = () => {
           />
         </Grid>
         <Grid item xs>
-          <Typography> 人 × 1か月 = </Typography>
+          <Typography> 人 × 4 = </Typography>
         </Grid>
         <Grid item xs>
+          <Typography variant="caption"><div>一か月の</div><div>必要数</div></Typography>
           <Typography>{num * 4} ロール</Typography>
         </Grid>
       </Grid>
@@ -215,7 +193,7 @@ export const SandaP17Toilet = () => {
         <Typography>
           でも安易に水を流すのは待って！マンションのトイレの配管は、上下の部屋とつながっていて破損したら使えません！
         </Typography>
-        <CardMedia component="img" image={imageBasePath + "backflow.png"} height="140" sx={{mt: 2}}/>
+        <CardMedia component="img" image={imageBasePath + "backflow.png"} sx={{mt: 2}}/>
         <Typography variant="caption">逆流するかも...</Typography>
       </CardContent>
     </CardBase>

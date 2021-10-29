@@ -114,6 +114,23 @@ export const TitleTextImageCard = ({
   );
 };
 
+export const TitleImageTextCard = ({
+  title,
+  image,
+  color = "tertiary.main",
+  children,
+}) => {
+  return (
+    <CardBase>
+      <CardContent>
+        <TitleCardPart title={title} color={color} />
+        <ImageCardPart image={image} />
+        <BodyText>{children}</BodyText>
+      </CardContent>
+    </CardBase>
+  );
+};
+
 export const TitleImagesCard = ({
   title,
   image1,

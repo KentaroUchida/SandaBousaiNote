@@ -54,6 +54,9 @@ const styles = {
     marginRight: 1,
     display: { xs: "block", sm: "none" },
   },
+  helpButton: {
+    marginLeft: 5,
+  },
   hide: {
     display: "none",
   },
@@ -109,13 +112,21 @@ function ResponsiveDrawer(props) {
     "/daijobu",
     "/bousaiKaigi",
     "/oshirase",
+    "/sandaHome",
+    "/sandaOmoi",
     "/sandaMamaPapa",
+    "/sandaKikenJissai",
     "/sandaTaiken",
     "/sandaIzaNigeru",
     "/sandaSandaBousai",
     "/sandaDaijobu",
+    "/sandaGoods1",
+    "/sandaGoods2",
+    "/sandaFoods1",
+    "/sandaFoods2",
     "/sandaToilet",
     "/sandaBousaikaigi",
+    "/sandaBousaiSanpo",
     "/sandaForm"
   ];
 
@@ -193,7 +204,7 @@ function ResponsiveDrawer(props) {
                 </IconButton>{" "}
               </Link>
 
-              <IconButton color="inherit" edge = "end" onClick = {handleClickOpen}>
+              <IconButton color="inherit" edge = "end" onClick = {handleClickOpen} sx={styles.helpButton}>
                 <HelpOutlineIcon/>
               </IconButton> 
               <Dialog
@@ -231,7 +242,7 @@ function ResponsiveDrawer(props) {
           <Button onClick={handleClose}>確認しました</Button>
         </DialogActions>
       </Dialog>
-              
+
 
             </div>
             <DownloadDialog />
