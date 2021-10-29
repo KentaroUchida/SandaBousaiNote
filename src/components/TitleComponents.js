@@ -1,10 +1,10 @@
 import { Divider, Typography } from "@mui/material";
 import { ResponsiveFontProvider } from "./ResponsiveFontProvider";
 
-const CustomBasicText = ({ variant, children }) => {
+const CustomBasicText = ({ variant, children, sx = {} }) => {
   return (
     <ResponsiveFontProvider>
-      <Typography variant={variant} sx={{my: 1}}>{children}</Typography>
+      <Typography variant={variant} sx={{...sx, my: 1}}>{children}</Typography>
     </ResponsiveFontProvider>
   );
 };
@@ -22,7 +22,7 @@ export const BodyText = ({ variant = "body1", children }) => (
 );
 
 export const CardTitle = ({ variant = "h5", children }) => (
-  <CustomBasicText variant={variant}>{children}</CustomBasicText>
+  <CustomBasicText variant={variant} sx={{textAlign: "center"}} >{children}</CustomBasicText>
 );
 
 export const SimpleTitle = ({ title, subtitle }) => {
