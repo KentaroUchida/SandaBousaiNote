@@ -1,54 +1,65 @@
 @media(max-width: 600px){
-  .omoi {
-    min-width: 88vw;
-  }
   .home {
     min-width: 50vw;
     min-height: 140vw;
   }
+  .letter2 {
+    min-height: 500px;
+    position: absolute;
+    height: 88%;
+    width: 88%;
+    z-index: 2;
+    background: #fafafa;
+    box-shadow: 0 0 8px rgba(0,0,0,0.2);
+    transform: rotate(-2.0deg);
+  }
+  .letter3 {
+    min-height: 500px;
+    position: absolute;
+    height: 88%;
+    width: 88%;
+    z-index: 1;
+    background: #f6f6f6;
+    box-shadow: 0 0 8px rgba(0,0,0,0.2);
+    transform: rotate(1.4deg);
+  }
 }
 @media(min-width: 601px){
-  .omoi {
-    min-width: calc(88vw - 350px);
-  }
   .home {
     min-width: calc(50vw - 350px);
-    min-height: 140vw;
+    min-height: 80vw;
+  }
+  .letter2 {
+    min-height: 500px;
+    position: absolute;
+    height: 97%;
+    width: calc(93vw - 350px);
+    z-index: 2;
+    background: #fafafa;
+    box-shadow: 0 0 8px rgba(0,0,0,0.2);
+    transform: rotate(-2.0deg);
+  }
+  .letter3 {
+    min-height: 500px;
+    position: absolute;
+    height: 97%;
+    width: calc(93vw - 350px);
+    z-index: 1;
+    background: #f6f6f6;
+    box-shadow: 0 0 8px rgba(0,0,0,0.2);
+    transform: rotate(1.4deg);
   }
 }
 .letter {
   background: #fff;
   box-shadow: 0 0 10px rgba(0,0,0,0.3);
   margin: 0 auto;
-  max-width: 750px;
   min-height: 500px;
   padding: 20px;
   position: relative;
   width: 100%;
   text-align: center;
   z-index: 3;
-}
-.letter2 {
-  max-width: 750px;
-  min-height: 500px;
-  position: absolute;
-  height: 92%;
-  width: 90%;
-  z-index: 2;
-  background: #fafafa;
-  box-shadow: 0 0 8px rgba(0,0,0,0.2);
-  transform: rotate(-2.0deg);
-}
-.letter3 {
-  max-width: 750px;
-  min-height: 500px;
-  position: absolute;
-  height: 92%;
-  width: 90%;
-  z-index: 1;
-  background: #f6f6f6;
-  box-shadow: 0 0 8px rgba(0,0,0,0.2);
-  transform: rotate(1.4deg);
 }
 .omoiTitle {
   font-size: 26px;
