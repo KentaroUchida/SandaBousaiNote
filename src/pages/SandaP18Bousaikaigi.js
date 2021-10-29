@@ -13,7 +13,6 @@ import {
   Checkbox,
   FormGroup,
 } from "@mui/material";
-import { SimpleTitle } from "../components/TitleComponents";
 import CheckCircle from "@mui/icons-material/CheckCircle";
 import CircleOutlined from "@mui/icons-material/CircleOutlined";
 
@@ -539,7 +538,6 @@ export const SandaP18Bousaikaigi = () => {
   return (
     <>
       <SimpleTitle title="家族で防災カイギ" subtitle="いざという時のために「今」できること" />
-      {/* <SimpleTitle title="家族で防災会議" subtitle="いざという時のために「今」できること" /> */}
       <Instruction />
       <HinanCard />
       <Apps />
