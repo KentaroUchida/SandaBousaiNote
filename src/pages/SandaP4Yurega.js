@@ -60,7 +60,7 @@ const charts = [
   },
 ];
 
-const img_path = "/img/pages/P4Yurega";
+const img_path = "/img/pages/SandaP4Yurega";
 const generateImagePath = (filename) => img_path + "/" + filename;
 
 const ActionChartCard = ({ content }) => (
