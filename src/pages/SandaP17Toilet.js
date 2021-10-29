@@ -1,21 +1,15 @@
 import {
-  Box,
-  Button,
   CardContent,
   CardHeader,
   CardMedia,
   Divider,
   Grid,
   Link,
-  Step,
-  StepContent,
-  StepLabel,
-  Stepper,
   TextField,
   Typography,
 } from "@mui/material";
 import React from "react";
-import { CardBase, TitleCardPart } from "../components/CardComponents";
+import { CardBase } from "../components/CardComponents";
 import { SimpleTitle } from "../components/TitleComponents";
 
 const imageBasePath = "img/pages/SandaP17Toilet/";
