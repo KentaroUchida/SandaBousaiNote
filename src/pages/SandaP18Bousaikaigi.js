@@ -18,9 +18,9 @@ import {
   Checkbox,
   FormGroup,
 } from "@mui/material";
+import { SimpleTitle } from "../components/TitleComponents";
 import CheckCircle from "@mui/icons-material/CheckCircle";
 import CircleOutlined from "@mui/icons-material/CircleOutlined";
-import { Title, SubTitle} from "../components/TitleComponents";
 
 const styles = {
   card: {
@@ -361,7 +361,7 @@ const HinanCard = () => {
           <TitleCardPart title="わがやの災害避難カードを作ろう!" />
           <BodyText>水害、土砂、地震，火災など、災害によって複数の逃げる場所を持つことが大切です。</BodyText>
           {/* <HinanTable /> */}
-          <table border="1">
+          <table>
           <tr>
             <th></th>
             <th>まず逃げるところ</th>
@@ -547,8 +547,7 @@ const Apps = () => {
 export const SandaP18Bousaikaigi = () => {
   return(
     <>
-      <Title>家族で防災カイギ</Title>
-      <SubTitle>いざという時のために「今」できること</SubTitle>
+      <SimpleTitle title="家族で防災カイギ" subtitle="いざという時のために「今」できること" />
       {/* <SimpleTitle title="家族で防災会議" subtitle="いざという時のために「今」できること" /> */}
       <Instruction />
       <HinanCard />
