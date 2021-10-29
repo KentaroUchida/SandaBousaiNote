@@ -1,11 +1,15 @@
 import React from "react";
 import {
-  Grid,
+  CardContent,
   ListItem,
   ListItemIcon,
   ListItemText,
   Typography,
 } from "@mui/material";
+import {
+  CardBase,
+  TitleCardPart,
+} from "../components/CardComponents";
 import FiberManualRecordIcon from "@mui/icons-material/FiberManualRecord";
 // import {
 // 	createTheme,
@@ -24,36 +28,28 @@ const instructionText = [
   "印刷ボタンを押すとPDFを作成することができます",
 ];
 
-class Title extends React.Component {
-  render() {
-    return (
-      <div>
-        <Grid container alignItems="center" justify="center">
-          <h2>さんだ防災ノートの使い方</h2>
-        </Grid>
-      </div>
-    );
-  }
-}
 class Content extends React.Component {
   render() {
     return (
-      <div>
-        {instructionText.map((text, i) => {
-          return (
-            <div>
-              <Typography>
-                <ListItem>
-                  <ListItemIcon>
-                    <FiberManualRecordIcon />
-                  </ListItemIcon>
-                  <ListItemText primary={instructionText[i]} />
-                </ListItem>
-              </Typography>
-            </div>
-          );
-        })}
-      </div>
+      <CardBase>
+        <CardContent>
+          <TitleCardPart title="さんだ防災ノートの使い方" />
+          {instructionText.map((text, i) => {
+            return (
+              <div>
+                <Typography>
+                  <ListItem>
+                    <ListItemIcon>
+                      <FiberManualRecordIcon />
+                    </ListItemIcon>
+                    <ListItemText primary={instructionText[i]} />
+                  </ListItem>
+                </Typography>
+              </div>
+            );
+          })}
+        </CardContent>
+      </CardBase>
     );
   }
 }
@@ -61,7 +57,6 @@ class Content extends React.Component {
 function Instruction() {
   return (
     <>
-      <Title />
       <Content />
     </>
   );

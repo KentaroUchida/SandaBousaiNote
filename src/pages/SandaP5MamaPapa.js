@@ -1,6 +1,9 @@
+import { CardContent } from "@mui/material";
 import React from "react";
 import {
+  CardBase,
   ImageTextCard,
+  TitleCardPart,
   TitleTextImageCard,
 } from "../components/CardComponents";
 import { SimpleTitle } from "../components/TitleComponents";
@@ -66,11 +69,16 @@ const SandaP5MamaPapa = () => {
           {taikenTexts[i]}
         </TitleTextImageCard>
       ))}
-      {photoImages.map((_, i) => (
-        <ImageTextCard image={photoImages[i]} key={i}>
-          {photoTexts[i]}
-        </ImageTextCard>
-      ))}
+      <CardBase>
+        <CardContent>
+          <TitleCardPart title="災害時の写真です" />
+          {photoImages.map((_, i) => (
+            <ImageTextCard image={photoImages[i]} key={i}>
+              {photoTexts[i]}
+            </ImageTextCard>
+          ))}
+        </CardContent>
+      </CardBase>
     </>
   );
 };
