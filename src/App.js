@@ -112,10 +112,10 @@ function App() {
       },
       [history]
     );
-    const matches = useMediaQuery("(max-width:600px)");
+    // const matches = useMediaQuery("(max-width:600px)");
     return (
       <Route exact path={paths[index]} key={index}>
-        {index === 0 && matches && <SwipeNotifier />}
+        {/* {index === 0 && matches && <SwipeNotifier />} */}
         <Menu title={titles[index]} now_index={index}>
           <Box {...handleSwipe} sx={styles.content}>
             <Toolbar />
