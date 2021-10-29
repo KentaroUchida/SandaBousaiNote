@@ -9,7 +9,7 @@ import {
 } from "../components/CardComponents";
 import { SubTitle, SimpleTitle, BodyText } from "../components/TitleComponents";
 
-const img_path = "/img/pages/P3Jishin";
+const img_path = "/img/pages/SandaP3Jishin";
 const generateImagePath = (filename) => img_path + "/" + filename;
 
 const SandaP3Jishin = () => {
