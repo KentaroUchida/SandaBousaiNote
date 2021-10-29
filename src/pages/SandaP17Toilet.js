@@ -63,7 +63,7 @@ const MakeToilet = () => {
     <CardHeader
       title="緊急用トイレの作り方"
       titleTypographyProps={{ align: "center" }}
-      sx={{ bgcolor: "primary.light" }}
+      sx={{ bgcolor: "blue.light" }}
     />
     <CardContent>
       <Typography>1.ゴミ袋を便座に二重にかぶせる。</Typography>
