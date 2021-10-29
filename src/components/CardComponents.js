@@ -40,7 +40,7 @@ export const TitleCardPart = ({
   color = "tertiary.main",
   variant = "h5",
 }) => (
-  <Paper elevation={3} sx={{ ...styles.cardTitle, bgcolor: color }}>
+  <Paper elevation={2} sx={{ ...styles.cardTitle, bgcolor: color }}>
     <CardTitle variant={variant}>{title}</CardTitle>
   </Paper>
 );

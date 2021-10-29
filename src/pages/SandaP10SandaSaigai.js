@@ -19,6 +19,7 @@ const SandaP10SandaBousai = () => {
         subtitle="避難所に行っても全員の食べ物がない！"
       />
       <CardBase>
+        <HeaderCardPart title="三田市の避難者想定" />
         <CardContent>
           <BodyText>
             ・三田市の人口は、約11万人 (令和3年4月現在)
@@ -36,11 +37,9 @@ const SandaP10SandaBousai = () => {
         </CardContent>
       </CardBase>
       <CardBase>
+        <HeaderCardPart title={<>三田市防災倉庫(狭間が丘)<br/>の備蓄計画</>} />
         <CardContent>
           <BodyText>
-            市防災倉庫(狭間が丘)の備蓄計画
-            <br />
-            <br />
             ・主食のアルファ化米5,370食(うちお粥2,980食)
             <br />
             ・乾パン9,870食
@@ -61,34 +60,37 @@ const SandaP10SandaBousai = () => {
       </ImageTextCard>
 
       <CardBase>
-        <HeaderCardPart title="三田で想定される3つの災害" />
-        <Box sx={{p: 2}}>
-        <TitleTextImageCard
-          title="地震"
-          image={generateImagePath("sindo_bunpu.png")}
-        >
-          南海トラフ地震、有馬－高槻断層帯地震
-        </TitleTextImageCard>
-        <TitleTextImageCard
-          title="水害"
-          image={generateImagePath("suigai.png")}
-        >
-          三田市は、武庫川中流域に位置するため、上流部での集中豪雨による急激な増水(出水)氾濫に注意する必要がある。
-          <br />
-          <br />
-          また、市内には多数のため池が分布しているため、大雨時には特に警戒を要する。
-        </TitleTextImageCard>
-        <TitleTextImageCard
-          title="土砂災害"
-          image={generateImagePath("dosya.png")}
-        >
-          急傾斜地でのがけ崩れ、地すべり。三田市内でも市域の中部、北部において危険箇所・区域の分布が多い。
-        </TitleTextImageCard>
+        <HeaderCardPart title={<>三田で想定される<br/>3つの災害</>} />
+        <Box sx={{ p: 2 }}>
+          <TitleTextImageCard
+            title="地震"
+            image={generateImagePath("sindo_bunpu.png")}
+            color="warning.main"
+          >
+            南海トラフ地震、有馬－高槻断層帯地震
+          </TitleTextImageCard>
+          <TitleTextImageCard
+            title="水害"
+            image={generateImagePath("suigai.png")}
+            color="warning.main"
+          >
+            三田市は、武庫川中流域に位置するため、上流部での集中豪雨による急激な増水(出水)氾濫に注意する必要がある。
+            <br />
+            <br />
+            また、市内には多数のため池が分布しているため、大雨時には特に警戒を要する。
+          </TitleTextImageCard>
+          <TitleTextImageCard
+            title="土砂災害"
+            image={generateImagePath("dosya.png")}
+            color="warning.main"
+          >
+            急傾斜地でのがけ崩れ、地すべり。三田市内でも市域の中部、北部において危険箇所・区域の分布が多い。
+          </TitleTextImageCard>
         </Box>
       </CardBase>
 
       <CardBase>
-        <HeaderCardPart title="さんだ防災・防犯メールへの登録を！" />
+        <HeaderCardPart title={<>さんだ防災・防犯メール<br/>への登録を！</>} />
         <CardContent>
           <BodyText>
             災害時には正確な情報の取得が大切です。
@@ -110,7 +112,7 @@ const SandaP10SandaBousai = () => {
             <br />
             ↓登録はこちらから
           </BodyText>
-          <Link href="http://bosai.net/sanda/">http://bosai.net/sanda/</Link>
+          <Link href="http://bosai.net/sanda/">さんだ防災・防犯メール登録ページ</Link>
         </CardContent>
       </CardBase>
     </>

@@ -19,12 +19,12 @@ import {
 } from "@mui/material";
 import { grey } from "@mui/material/colors";
 import { useTheme } from "@mui/material/styles";
-import { Title, SubTitle, BodyText } from "../components/TitleComponents";
+import { SimpleTitle, BodyText } from "../components/TitleComponents";
 import {
   CardBase,
   ImageCardPart,
   HeaderCardPart,
-  TitleTextImageCard
+  TitleTextImageCard,
 } from "../components/CardComponents";
 
 const styles = {
@@ -100,7 +100,7 @@ function getStepContent(step) {
       items: [
         "怪我をしていないかチェック",
         "何が起こったのか正しい情報をチェック",
-        "土砂災害の危険性がある時\n※迷わず避難行動！！",
+        "土砂災害の危険性がある時\n※迷わず避難行動!!",
         "救急要請が必要な時\n※物をたたき、音を出して救助を要請",
       ],
     },
@@ -242,7 +242,7 @@ const charts = [
     image: "breaker_switch_off.png",
     items: [
       "自宅にいるのか、避難所や友人・知人宅へ避難するのか各自で判断します",
-      "ブレーカーをオフ！！自宅を離れる際は、ブレーカーをオフに！通電火災に注意！",
+      "ブレーカーをオフ!!自宅を離れる際は、ブレーカーをオフに！通電火災に注意！",
     ],
   },
 ];
@@ -324,15 +324,14 @@ const Arrow = () => (
 function P4Yurega() {
   return (
     <>
-      <Title>ゆれがおさまったら</Title>
-      <SubTitle>その次の行動チャート</SubTitle>
+      <SimpleTitle title="ゆれがおさまったら" subtitle="その次の行動チャート" />
       {charts.map((content, i) => (
         <>
           <ActionChartCard content={content} key={`card-${i}`} />
-          {i < charts.length-1 ? <Arrow key={`arrow-${i}`} /> : ""}
+          {i < charts.length - 1 ? <Arrow key={`arrow-${i}`} /> : ""}
         </>
       ))}
-      <Box sx={{height:30}}/>
+      <Box sx={{ height: 30 }} />
       <TitleTextImageCard
         title="会社から帰って来れないかも!?"
         image={generateImagePath("tatemono_buildings.png")}

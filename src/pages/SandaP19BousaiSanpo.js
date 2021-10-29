@@ -26,7 +26,7 @@ const SandaP19BousaiSanpo = () => {
           <BodyText　>
             お家の周りの危険や避難場所を
             <br />
-            市の防災マップでまずチェック!
+            市の防災マップでまずチェック！
             <br />
             チェックできたら家族で防災さんぽ!!
           </BodyText>
@@ -84,7 +84,7 @@ const SandaP19BousaiSanpo = () => {
               通学路,習い事に使う道もチェック
           </ImageTextCard>
 
-          <TitleImageTextCard title="要確認！！"  image={generateImagePath("telphone_searchbar.png")} color = "lightgreen"> 
+          <TitleImageTextCard title="要確認!!"  image={generateImagePath("telphone_searchbar.png")} color = "lightgreen"> 
           災害伝言ダイヤルの使い方は<Link href="/form">こちら</Link>
           
           </TitleImageTextCard>

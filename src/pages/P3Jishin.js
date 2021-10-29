@@ -7,7 +7,7 @@ import {
   CardBase,
   ImageCardPart,
 } from "../components/CardComponents";
-import { Title, SubTitle, BodyText } from "../components/TitleComponents";
+import { SubTitle, SimpleTitle, BodyText } from "../components/TitleComponents";
 
 const img_path = "/img/pages/P3Jishin";
 const generateImagePath = (filename) => img_path + "/" + filename;
@@ -15,12 +15,16 @@ const generateImagePath = (filename) => img_path + "/" + filename;
 const P3Jishin = () => {
   return (
     <>
-      <Title>グラッと地震がきたら！</Title>
-      <SubTitle>
-        いのちを守る！
-        <br />
-        できるだけケガをせず生き残る！
-      </SubTitle>
+      <SimpleTitle
+        title="グラッと地震がきたら！"
+        subtitle={
+          <>
+            いのちを守る！
+            <br />
+            できるだけケガをせず生き残る！
+          </>
+        }
+      />
       <ImageTextCard image={generateImagePath("family_under_table.png")}>
         1. 姿勢を低く
         <br />
@@ -73,7 +77,7 @@ const P3Jishin = () => {
             食器棚のガラスにも飛散防止フィルムをはる。
           </BodyText>
           <ImageCardPart image={generateImagePath("kagu_window.png")} />
-          <Box sx={{height:30}}/>
+          <Box sx={{ height: 30 }} />
           <BodyText>
             カーテンなどを閉めておくだけでもガラスの飛散を軽減できます。
           </BodyText>
@@ -92,4 +96,4 @@ const P3Jishin = () => {
   );
 };
 
-export {P3Jishin};
+export { P3Jishin };

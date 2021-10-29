@@ -12,7 +12,7 @@ const SandaP1Home = () => {
             <div className="overLine" />
             <div style={{marginTop:"10px",marginBottom:"10px"}}>
             <p style={{color:"#595656"}}>
-              自然災害から命を守る!
+              自然災害から命を守る！
             </p>
               <div style={{color:"#595656", fontSize:"30px", fontWeight:"bold"}}>
                 さんだ<br/>親子防災ノート
