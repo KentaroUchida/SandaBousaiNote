@@ -11,25 +11,11 @@ import { ThemeProvider } from "@mui/styles";
 import { ThemeProvider as EmotionThemeProvider } from "@emotion/react";
 
 import {
-  Home,
-  Top,
   Instruction,
-  P0Form,
-  P3Jishin,
-  P4Yurega,
-  P5Taiken,
-  P6Mada,
-  P7Izanigeru,
-  P8Goods,
-  P9Foods,
-  P10TaikenPapa,
-  P11KikenSouzou,
-  P12KikenJissai,
-  P13Toilet,
-  P14Daijobu,
-  P15Bousaikaigi,
   SandaP1Home,
   SandaP2Omoi,
+  SandaP3Jishin,
+  SandaP4Yurega,
   SandaP5MamaPapa,
   SandaP6KikenJissai,
   SandaP7TaikenPapa,
@@ -50,25 +36,11 @@ import { Menu, SwipeNotifier, titles } from "./components";
 import { CustomThemeA } from "./components/Theme";
 
 const paths = [
-  "/form",
   "/",
   "/instruction",
-  "/jishin",
-  "/koudouChart",
-  "/Taiken",
-  "/mada",
-  "/izanigeru",
-  "/bousaiGoods",
-  "/foods",
-  "/papaTaiken",
-  "/souzou",
-  "/otiru",
-  "/toilet",
-  "/daijobu",
-  "/bousaikaigi",
-  "/oshirase",
-  "/sandaHome",
   "/sandaOmoi",
+  "/sandaJishin",
+  "/sandaKoudouChart",
   "/sandaMamaPapa",
   "/sandaKikenJissai",
   "/sandaTaiken",
@@ -87,25 +59,11 @@ const paths = [
 ];
 
 const pages = [
-  <P0Form />,
-  <Top />,
-  <Instruction />,
-  <P3Jishin />,
-  <P4Yurega />,
-  <P5Taiken />,
-  <P6Mada />,
-  <P7Izanigeru />,
-  <P8Goods />,
-  <P9Foods />,
-  <P10TaikenPapa />,
-  <P11KikenSouzou />,
-  <P12KikenJissai />,
-  <P13Toilet />,
-  <P14Daijobu />,
-  <P15Bousaikaigi />,
-  <Home />,
   <SandaP1Home/>,
+  <Instruction />,
   <SandaP2Omoi/>,
+  <SandaP3Jishin />,
+  <SandaP4Yurega />,
   <SandaP5MamaPapa />,
   <SandaP6KikenJissai/>,
   <SandaP7TaikenPapa/>,
@@ -157,7 +115,7 @@ function App() {
     const matches = useMediaQuery("(max-width:600px)");
     return (
       <Route exact path={paths[index]} key={index}>
-        {index === 1 && matches && <SwipeNotifier />}
+        {index === 0 && matches && <SwipeNotifier />}
         <Menu title={titles[index]} now_index={index}>
           <Box {...handleSwipe} sx={styles.content}>
             <Toolbar />
