@@ -128,6 +128,7 @@ function ResponsiveDrawer(props) {
     "/sandaToilet",
     "/sandaBousaikaigi",
     "/sandaBousaiSanpo",
+    "/sandaForm"
   ];
 
   const drawer = (
@@ -242,7 +243,7 @@ function ResponsiveDrawer(props) {
           <Button onClick={handleClose}>確認しました</Button>
         </DialogActions>
       </Dialog>
-              
+
 
             </div>
             <DownloadDialog />

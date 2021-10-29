@@ -33,7 +33,7 @@ export * from "./SandaP15Foods2";
 export * from "./SandaP17Toilet";
 export * from "./SandaP18Bousaikaigi";
 export * from "./SandaP19BousaiSanpo";
-
+export * from "./SandaP20Form";
 // 新しいページを作ったらここに書いてね
 // export defaultはダメだよ
 // App.jsに書き足してね

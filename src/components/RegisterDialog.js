@@ -7,9 +7,9 @@ import {
   DialogContent,
   DialogContentText,
   DialogTitle,
-  IconButton,
+  // IconButton,
 } from "@mui/material";
-import { AddCircle as AddCircleIcon } from "@mui/icons-material";
+// import { AddCircle as AddCircleIcon } from "@mui/icons-material";
 
 const categoryTextList = {
   family: "家族",
@@ -133,13 +133,14 @@ const FormRegisterDialog = ({ category, submit }) => {
 
   return (
     <div className="FormDialog">
-      <IconButton
+      {/* <IconButton
         color="primary"
         aria-label="create form"
         onClick={handleClickOpen}
       >
         <AddCircleIcon />
-      </IconButton>
+      </IconButton> */}
+      <Button variant="contained" onClick={handleClickOpen}>追加</Button>
       <Dialog
         open={open}
         onClose={handleClose}

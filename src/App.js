@@ -44,6 +44,7 @@ import {
   SandaP17Toilet,
   SandaP18Bousaikaigi,
   SandaP19BousaiSanpo,
+  SandaP20Form,
 } from "./pages";
 import { Menu, SwipeNotifier, titles } from "./components";
 import { CustomThemeA } from "./components/Theme";
@@ -82,6 +83,7 @@ const paths = [
   "/sandaToilet",
   "/sandaBousaikaigi",
   "/sandaBousaiSanpo",
+  "/sandaForm",
 ];
 
 const pages = [
@@ -118,6 +120,7 @@ const pages = [
   <SandaP17Toilet/>,
   <SandaP18Bousaikaigi/>,
   <SandaP19BousaiSanpo/>,
+  <SandaP20Form />,
 ];
 
 const styles = {
