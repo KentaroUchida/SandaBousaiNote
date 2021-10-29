@@ -171,7 +171,7 @@ export const SandaP20Form = () => {
       <CardBase>
         <CardContent>
           <Typography>・以下の情報は外部に送信等されませんので、安心してお使いください</Typography>
-          <Typography>・家族・親戚・知人の連絡先は、プラスマークを押すと入力ができます</Typography>
+          <Typography>・家族、親戚、知人の連絡先は、追加ボタンを押すと入力ができます</Typography>
           <Typography>・避難場所の情報は、入力をすると自動的に保存されます</Typography>
         </CardContent>
       </CardBase>
@@ -184,11 +184,11 @@ export const SandaP20Form = () => {
         <CardBase>
           <CardContent>
             <TitleCardPart title="家族の連絡先" />
-            <Grid container alignItems="center" justify="center">
-              <Grid item>
-                <FormRegisterDialog category="family" submit={addAddress} />
-              </Grid>
-            </Grid>
+
+            <div style={{textAlign:"center"}}>
+              <FormRegisterDialog category="family" submit={addAddress} />
+              <br/>
+            </div>
             {familyList.map((v, index) => (
               <PrintFamilyInformation
                 name={v.name}
@@ -199,15 +199,17 @@ export const SandaP20Form = () => {
                 key={index}
               />
             ))}
+
           </CardContent>
         </CardBase>
 
         <CardBase>
           <CardContent>
             <TitleCardPart title="親戚・知人の連絡先" />
-            <Grid justifyContent="space-between" alignItems="center" container>
-              <FormRegisterDialog category="relative" submit={addAddress} />
-            </Grid>
+            <div style={{textAlign:"center"}}>
+              <FormRegisterDialog category="family" submit={addAddress} />
+              <br/>
+            </div>
             {relativeList.map((v, index) => (
               <PrintRelativeInformation
                 name={v.name}
@@ -222,45 +224,45 @@ export const SandaP20Form = () => {
     )
   }
 
-  const Shelter = () => {
-    return(
-      <>
-        <CardBase>
-          <CardContent>
-            <TitleCardPart title="集合場所・避難場所を決めておく" />
-            <table>
-              <tbody>
-                <tr>
-                  <td>避難場所</td>
-                  <td>
-                    <TextField
-                      onChange={handleHinanbasyoChange}
-                      id="P0Hinanbasyo"
-                      defaultValue={hinanbasyo}
-                      variant="standard"
-                    />
-                  </td>
-                </tr>
-                <tr>
-                  <td>市指定避難場所</td>
-                  <td>
-                    <TextField
-                      onChange={handleShishiteiChange}
-                      id="shishitei"
-                      defaultValue={shishitei}
-                      variant="standard"
-                    />
-                  </td>
-                </tr>
-              </tbody>
-            </table>
-            <Typography>避難場所:危険を回避するための待機場所</Typography>
-            <Typography>市指定避難所:避難生活を送る場所</Typography>
-          </CardContent>
-        </CardBase>
-      </>
-    )
-  }
+  // const Shelter = () => {
+  //   return(
+  //     <>
+  //     <CardBase>
+  //         <CardContent>
+  //           <TitleCardPart title="集合場所・避難場所を決めておく" />
+  //           <table>
+  //             <tbody>
+  //               <tr>
+  //                 <td>避難場所</td>
+  //                 <td>
+  //                   <TextField
+  //                     onChange={handleHinanbasyoChange}
+  //                     id="P0Hinanbasyo"
+  //                     defaultValue={hinanbasyo}
+  //                     variant="standard"
+  //                   />
+  //                 </td>
+  //               </tr>
+  //               <tr>
+  //                 <td>市指定避難場所</td>
+  //                 <td>
+  //                   <TextField
+  //                     onChange={handleShishiteiChange}
+  //                     id="shishitei"
+  //                     defaultValue={shishitei}
+  //                     variant="standard"
+  //                   />
+  //                 </td>
+  //               </tr>
+  //             </tbody>
+  //           </table>
+  //           <Typography>避難場所:危険を回避するための待機場所</Typography>
+  //           <Typography>市指定避難所:避難生活を送る場所</Typography>
+  //         </CardContent>
+  //       </CardBase>
+  //     </>
+  //   )
+  // }
 
   const Dial = () => {
     return(
@@ -297,7 +299,7 @@ export const SandaP20Form = () => {
                 <Typography>災害時でもつながりやすい公衆電話がどこにあるのかを調べて、子どもと実際にかけてみましょう。</Typography>
                 <br/>
                 <div style={{textAlign:"center"}}>
-                <img src="/img/pages/SandaP20Form/phone.png"  alt="公衆電話の画像" width='100px' height='auto'/>
+                  <img src="/img/pages/SandaP20Form/phone.png"  alt="公衆電話の画像" width='100px' height='auto'/>
                 </div>
               </CardContent>
             </CardBase>
@@ -308,13 +310,62 @@ export const SandaP20Form = () => {
       </>
     )
   }
+  const Wifi = () => {
+    return(
+      <>
+        <CardBase>
+          <CardContent>
+            <TitleCardPart title="フリーWiFi" />
+            <Typography style={{textAlign:"center"}}>災害時に誰でも使えるWiFi「00000JAPAN」</Typography>
+            <div style={{textAlign:"center"}}>
+              <img src="/img/pages/SandaP20Form/wifi.png" alt="wifiの画像" width="100px" height='auto' />
+            </div>
+          </CardContent>
+        </CardBase>
+      </>
+    )
+  }
   return (
     <>
       <SimpleTitle title="緊急時の我が家の情報"/>
       <Caution />
       <Contact />
-      <Shelter />
+      {/* <Shelter /> */}
+      <CardBase>
+          <CardContent>
+            <TitleCardPart title="集合場所・避難場所を決めておく" />
+            <table>
+              <tbody>
+                <tr>
+                  <td>避難場所</td>
+                  <td>
+                    <TextField
+                      onChange={handleHinanbasyoChange}
+                      id="P0Hinanbasyo"
+                      defaultValue={hinanbasyo}
+                      variant="standard"
+                    />
+                  </td>
+                </tr>
+                <tr>
+                  <td>市指定避難場所</td>
+                  <td>
+                    <TextField
+                      onChange={handleShishiteiChange}
+                      id="shishitei"
+                      defaultValue={shishitei}
+                      variant="standard"
+                    />
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+            <Typography>避難場所:危険を回避するための待機場所</Typography>
+            <Typography>市指定避難所:避難生活を送る場所</Typography>
+          </CardContent>
+        </CardBase>
       <Dial />
+      <Wifi />
     </>
   );
 };
