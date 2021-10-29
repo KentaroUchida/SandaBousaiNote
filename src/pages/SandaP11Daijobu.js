@@ -46,9 +46,9 @@ const daijobuTexts = [
 ];
 
 const daijobuImages = [
-  "img/pages/P11Daijobu/waremono.png",
-  "img/pages/P11Daijobu/kotei.png",
-  "img/pages/P11Daijobu/tounan1.png",
+  "img/pages/SandaP11Daijobu/waremono.png",
+  "img/pages/SandaP11Daijobu/kotei.png",
+  "img/pages/SandaP11Daijobu/tounan1.png",
 ];
 
 function CheckList() {
