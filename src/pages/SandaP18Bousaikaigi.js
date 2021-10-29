@@ -20,17 +20,6 @@ const styles = {
   card: {
     marginBottom: 12,
   },
-  cardHeaderMain: {},
-  cardHeaderCheckList: {
-    bgcolor: "primary.light",
-  },
-  cardHeaderCheck: {
-    bgcolor: "secondary.light",
-  },
-  cardHeaderRecommend: {
-    bgcolor:
-      "repeating-linear-gradient(45deg, #e0ffff, #e0ffff 12px, #ffffff 12px, #ffffff 24px)",
-  },
   child: {
     marginLeft: 4,
   },

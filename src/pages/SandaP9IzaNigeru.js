@@ -133,7 +133,7 @@ export const SandaP9IzaNigeru = () => {
       <CardHeader
         title={mainContentTitle}
         titleTypographyProps={{ align: "center" }}
-        sx={{bgcolor: "primary.light"}}
+        sx={{bgcolor: "blue.light"}}
       />
       <CardContent>
         <BodyText>{mainContentText}</BodyText>
