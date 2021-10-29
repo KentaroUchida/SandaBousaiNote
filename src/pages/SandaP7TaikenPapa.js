@@ -28,14 +28,14 @@ const taikenTexts = [
 ];
 
 const taikenImages = [
-  "img/pages/P7TaikenPapa/waremono.png",
-  "img/pages/P7TaikenPapa/kotei.png",
-  "img/pages/P7TaikenPapa/tounan1.png",
-  "img/pages/P7TaikenPapa/tounan2.png",
-  "img/pages/P7TaikenPapa/furo.png",
-  "img/pages/P7TaikenPapa/gasorin.png",
-  "img/pages/P7TaikenPapa/economy.png",
-  "img/pages/P7TaikenPapa/food.png",
+  "img/pages/SandaP7TaikenPapa/waremono.png",
+  "img/pages/SandaP7TaikenPapa/kotei.png",
+  "img/pages/SandaP7TaikenPapa/tounan1.png",
+  "img/pages/SandaP7TaikenPapa/tounan2.png",
+  "img/pages/SandaP7TaikenPapa/furo.png",
+  "img/pages/SandaP7TaikenPapa/gasorin.png",
+  "img/pages/SandaP7TaikenPapa/economy.png",
+  "img/pages/SandaP7TaikenPapa/food.png",
 ];
 
 const SandaP7TaikenPapa = () => {
@@ -68,11 +68,11 @@ const SandaP7TaikenPapa = () => {
       })}
       <TitleImagesCard
         title="震災時の写真です"
-        image1="img/pages/P7TaikenPapa/higai1.jpg"
-        image2="img/pages/P7TaikenPapa/higai2.jpg"
-        image3="img/pages/P7TaikenPapa/higai3.jpg"
-        image4="img/pages/P7TaikenPapa/higai4.jpg"
-        image5="img/pages/P7TaikenPapa/higai5.jpg"
+        image1="img/pages/SandaP7TaikenPapa/higai1.jpg"
+        image2="img/pages/SandaP7TaikenPapa/higai2.jpg"
+        image3="img/pages/SandaP7TaikenPapa/higai3.jpg"
+        image4="img/pages/SandaP7TaikenPapa/higai4.jpg"
+        image5="img/pages/SandaP7TaikenPapa/higai5.jpg"
       />
     </>
   );

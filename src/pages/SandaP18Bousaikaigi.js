@@ -504,7 +504,7 @@ const Apps = () => {
                     <Grid item>
                       <Link href={app.googlePlay}>
                         <img
-                          src="/img/pages/Home/hyogo_bousai_google_play_badge.png"
+                          src="/img/pages/SandaP18Bousaikaigi/google.png"
                           alt="Google Playリンク"
                           style={{ width: "160px", margin: "-10px" }}
                         />
@@ -513,7 +513,7 @@ const Apps = () => {
                     <Grid item>
                       <Link href={app.appStore}>
                         <img
-                          src="/img/pages/Home/hyogo_bousai_app_store_black.svg"
+                          src="/img/pages/SandaP18Bousaikaigi/black.svg"
                           alt="App Storeリンク"
                           style={{ width: "140px" }}
                         />

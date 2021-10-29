@@ -1,6 +1,9 @@
+import { CardContent } from "@mui/material";
 import React from "react";
 import {
+  CardBase,
   ImageTextCard,
+  TitleCardPart,
   TitleTextImageCard,
 } from "../components/CardComponents";
 import { SimpleTitle } from "../components/TitleComponents";
@@ -28,20 +31,20 @@ const taikenTexts = [
 ];
 
 const taikenImages = [
-  "img/pages/P5MamaPapa/tsunagari.png",
-  "img/pages/P5MamaPapa/cable.png",
-  "img/pages/P5MamaPapa/kusuri.png",
-  "img/pages/P5MamaPapa/yahoo.png",
-  "img/pages/P5MamaPapa/kotei.png",
-  "img/pages/P5MamaPapa/fuan.png",
-  "img/pages/P5MamaPapa/kazoku.png",
-  "img/pages/P5MamaPapa/tsushin.png",
+  "img/pages/SandaP5MamaPapa/tsunagari.png",
+  "img/pages/SandaP5MamaPapa/cable.png",
+  "img/pages/SandaP5MamaPapa/kusuri.png",
+  "img/pages/SandaP5MamaPapa/yahoo.png",
+  "img/pages/SandaP5MamaPapa/kotei.png",
+  "img/pages/SandaP5MamaPapa/fuan.png",
+  "img/pages/SandaP5MamaPapa/kazoku.png",
+  "img/pages/SandaP5MamaPapa/tsushin.png",
 ];
 
 const photoImages = [
-  "img/pages/P5MamaPapa/higai1.jpg",
-  "img/pages/P5MamaPapa/higai2.jpg",
-  "img/pages/P5MamaPapa/higai3.jpg",
+  "img/pages/SandaP5MamaPapa/higai1.jpg",
+  "img/pages/SandaP5MamaPapa/higai2.jpg",
+  "img/pages/SandaP5MamaPapa/higai3.jpg",
 ];
 
 const photoTexts = [
@@ -66,11 +69,16 @@ const SandaP5MamaPapa = () => {
           {taikenTexts[i]}
         </TitleTextImageCard>
       ))}
-      {photoImages.map((_, i) => (
-        <ImageTextCard image={photoImages[i]} key={i}>
-          {photoTexts[i]}
-        </ImageTextCard>
-      ))}
+      <CardBase>
+        <CardContent>
+          <TitleCardPart title="災害時の写真です" />
+          {photoImages.map((_, i) => (
+            <ImageTextCard image={photoImages[i]} key={i}>
+              {photoTexts[i]}
+            </ImageTextCard>
+          ))}
+        </CardContent>
+      </CardBase>
     </>
   );
 };
