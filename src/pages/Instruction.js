@@ -1,7 +1,6 @@
 import React from "react";
 import {
   CardContent,
-  Grid,
   ListItem,
   ListItemIcon,
   ListItemText,

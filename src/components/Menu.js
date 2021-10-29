@@ -135,7 +135,7 @@ function ResponsiveDrawer(props) {
             >
               <ListItemText
                 primary={
-                  String("ページ") + String(index) + String(".") + String(text)
+                  String("ページ") + String(index) + String(". ") + String(text)
                 }
               />
             </ListItem>
