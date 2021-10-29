@@ -1,21 +1,15 @@
 import {
-  Box,
-  Button,
   CardContent,
   CardHeader,
   CardMedia,
   Divider,
   Grid,
   Link,
-  Step,
-  StepContent,
-  StepLabel,
-  Stepper,
   TextField,
   Typography,
 } from "@mui/material";
 import React from "react";
-import { CardBase, TitleCardPart } from "../components/CardComponents";
+import { CardBase } from "../components/CardComponents";
 import { SimpleTitle } from "../components/TitleComponents";
 
 const imageBasePath = "img/pages/SandaP17Toilet/";
@@ -69,7 +63,7 @@ const MakeToilet = () => {
     <CardHeader
       title="緊急用トイレの作り方"
       titleTypographyProps={{ align: "center" }}
-      sx={{ bgcolor: "primary.light" }}
+      sx={{ bgcolor: "blue.light" }}
     />
     <CardContent>
       <Typography>1.ゴミ袋を便座に二重にかぶせる。</Typography>
@@ -155,7 +149,7 @@ const Difference = () => {
       <Typography sx={{mt: 1}}>トイレットペーパーの平均的な使用量は、1人当たり1週間程度で1ロール、4人家族の場合には、1か月で16ロール程度が必要。</Typography>
       <Typography variant="caption">日本家庭紙工業会より</Typography>
 
-      <Typography variant="h6" sx={{mt: 2}}>あなたの家族の必要数は?</Typography>
+      <Typography variant="h6" sx={{mt: 2}}>あなたの家族の必要数は？</Typography>
       <Typography sx={{mb: 2}}>家族の人数を入力してみましょう！</Typography>
       <Grid container alignItems="flex-end">
         <Grid item xs>

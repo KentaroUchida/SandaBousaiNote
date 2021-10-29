@@ -40,12 +40,12 @@ export const TitleCardPart = ({
   color = "tertiary.main",
   variant = "h5",
 }) => (
-  <Paper elevation={3} sx={{ ...styles.cardTitle, bgcolor: color }}>
+  <Paper elevation={2} sx={{ ...styles.cardTitle, bgcolor: color }}>
     <CardTitle variant={variant}>{title}</CardTitle>
   </Paper>
 );
 
-export const HeaderCardPart = ({ title, color = "success.main" }) => (
+export const HeaderCardPart = ({ title, color = "success.light" }) => (
   <CardHeader
     title={title}
     titleTypographyProps={{ align: "center" }}

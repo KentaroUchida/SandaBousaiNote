@@ -117,6 +117,7 @@ function ResponsiveDrawer(props) {
     "/sandaMamaPapa",
     "/sandaKikenJissai",
     "/sandaTaiken",
+    "/sandaMada",
     "/sandaIzaNigeru",
     "/sandaSandaBousai",
     "/sandaDaijobu",

@@ -77,7 +77,7 @@ const preparationList = {
     },
     {
       name: "カセットボンベ",
-      comment: "1日2本×7日分=14本(※家族4人分の目安です)",
+      comment: "カセットボンベ1本で約60分使用可能。1日2本×7日分=14本(※家族4人分の目安です)",
       path: "gas",
     },
     {
@@ -92,7 +92,7 @@ const preparationList = {
     },
     {
       name: "ラップフィルム",
-      comment: "食器や神食器にかぶせると水が節約できる",
+      comment: "食器や紙食器にかぶせると水が節約できる",
       path: "wrap",
     },
     {
@@ -110,6 +110,11 @@ const preparationList = {
       comment: null,
       path: "wet",
     },
+    {
+      name: "お皿・コップ・割りばし(使い捨て)",
+      comment: null,
+      path: "tableware"
+    }
   ],
 };
 
@@ -231,7 +236,7 @@ const SandaP14Foods1 = () => {
                         sx={{
                           maxHeight: 100,
                           height: "auto",
-                          maxWidth: "100%",
+                          maxWidth: "90%",
                           width: "auto",
                         }}
                       />
@@ -260,7 +265,7 @@ const SandaP14Foods1 = () => {
       <BodyText>
         巨大地震など発生直後は、ライフラインも壊滅状態となり、水や食料の不足が予想されます。
         <br />
-        さらにアレルギー対応食や幼児用の食事は手に入りません!
+        さらにアレルギー対応食や幼児用の食事は手に入りません！
       </BodyText>
       <Preparation
         title="備えておきたい 非常食"
@@ -280,8 +285,9 @@ const SandaP14Foods1 = () => {
             <br />
             少ない水で温かい食べ物が作れます。
           </BodyText>
-          <ImageCardPart image={generateImagePath("poli_cooking_1")} />
           <ImageCardPart image={generateImagePath("poli_cooking_2")} />
+          <br/>
+          <ImageCardPart image={generateImagePath("poli_cooking_1")} />
         </CardContent>
       </CardBase>
       <Preparation

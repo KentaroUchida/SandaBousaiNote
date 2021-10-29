@@ -1,11 +1,6 @@
-// import React from "react";
 import React, { useState, useEffect } from "react";
-import { BodyText } from "../components/TitleComponents";
-import {
-  CardBase,
-  TitleCardPart,
-} from "../components/CardComponents";
-// import { SimpleTitle } from "../components/TitleComponents";
+import { BodyText, SimpleTitle } from "../components/TitleComponents";
+import { CardBase, TitleCardPart } from "../components/CardComponents";
 import {
   CardContent,
   CardMedia,
@@ -26,17 +21,6 @@ const styles = {
   card: {
     marginBottom: 12,
   },
-  cardHeaderMain: {},
-  cardHeaderCheckList: {
-    bgcolor: "primary.light",
-  },
-  cardHeaderCheck: {
-    bgcolor: "secondary.light",
-  },
-  cardHeaderRecommend: {
-    bgcolor:
-      "repeating-linear-gradient(45deg, #e0ffff, #e0ffff 12px, #ffffff 12px, #ffffff 24px)",
-  },
   child: {
     marginLeft: 4,
   },
@@ -50,21 +34,21 @@ const messages = [
   "避難場所にたくさんの人が集まり、すぐ会えるとは限りません。",
   "集合場所は時間と場所をピンポイントで決めておきましょう。",
   "たとえば ○○小学校の運動場の鉄棒の前 10時と15時に30分間待つ。",
-]
+];
 
 const Instruction = () => {
-  return(
+  return (
     <>
       <CardBase>
         <CardContent>
-          {messages.map(message => {
+          {messages.map((message) => {
             return <BodyText key={message}>{message}</BodyText>;
           })}
         </CardContent>
-    </CardBase>
+      </CardBase>
     </>
-  )
-}
+  );
+};
 
 const HinanCard = () => {
   const [shelters, setShelters] = useState(
@@ -244,7 +228,11 @@ const HinanCard = () => {
             />
             <FormControlLabel
               control={
-                <Checkbox checked={gas} onChange={handleChangeStock} name="gas" />
+                <Checkbox
+                  checked={gas}
+                  onChange={handleChangeStock}
+                  name="gas"
+                />
               }
               label="カセットコンロ用ボンベ"
             />
@@ -262,7 +250,7 @@ const HinanCard = () => {
         </CardContent>
       </CardBase>
     );
-  }
+  };
 
   // const HinanTable = () => {
   //   return (
@@ -354,12 +342,14 @@ const HinanCard = () => {
   //   )
   // }
 
-  return(
+  return (
     <>
       <CardBase>
         <CardContent>
-          <TitleCardPart title="わがやの災害避難カードを作ろう!" />
-          <BodyText>水害、土砂、地震，火災など、災害によって複数の逃げる場所を持つことが大切です。</BodyText>
+          <TitleCardPart title="わがやの災害避難カードを作ろう！" />
+          <BodyText>
+            水害、土砂、地震、火災など、災害によって複数の逃げる場所を持つことが大切です。
+          </BodyText>
           {/* <HinanTable /> */}
           <table>
           <tr>
@@ -442,14 +432,15 @@ const HinanCard = () => {
                 variant="standard"
               />
             </th>
+
             </tr>
           </table>
           <CheckList />
         </CardContent>
       </CardBase>
     </>
-  )
-}
+  );
+};
 
 const Apps = () => {
   const apps = [
@@ -472,12 +463,12 @@ const Apps = () => {
     },
     {
       name: "ひょうご防災ネット",
-      text: "防災情報のポータルサイト。12外国語に対応!",
+      text: "防災情報のポータルサイト。12外国語に対応！",
       icon: "/img/pages/SandaP18Bousaikaigi/HyougoBousai.png",
       googlePlay:
         "https://play.google.com/store/apps/details?id=net.bosai.appli&hl=ja",
       appStore:
-      "https://apps.apple.com/us/app/%E3%81%B2%E3%82%87%E3%81%86%E3%81%94%E9%98%B2%E7%81%BD%E3%83%8D%E3%83%83%E3%83%88/id1458839848?itsct=apps_box_link&itscg=30200",
+        "https://apps.apple.com/us/app/%E3%81%B2%E3%82%87%E3%81%86%E3%81%94%E9%98%B2%E7%81%BD%E3%83%8D%E3%83%83%E3%83%88/id1458839848?itsct=apps_box_link&itscg=30200",
     },
     {
       name: "radiko",
@@ -490,7 +481,7 @@ const Apps = () => {
     },
     {
       name: "母子モ",
-      text: "災害時にも、母子手帳情報がスマホに入っていると安心!",
+      text: "災害時にも、母子手帳情報がスマホに入っていると安心！",
       icon: "/img/pages/SandaP18Bousaikaigi/bosimo.png",
       googlePlay:
         "https://play.google.com/store/apps/details?id=jp.co.mti.BoshiAuthorize&hl=ja",
@@ -503,49 +494,49 @@ const Apps = () => {
       <CardContent>
         <TitleCardPart title="防災おすすめアプリ" />
         {apps.map((app, i) => {
-        return (
-          <React.Fragment key={i.toString()}>
-            <Grid container justifyContent="center" alignItems="center">
-              <Grid item xs>
-                <CardMedia alt={app.name} component="img" image={app.icon} />
+          return (
+            <React.Fragment key={i.toString()}>
+              <Grid container justifyContent="center" alignItems="center">
+                <Grid item xs>
+                  <CardMedia alt={app.name} component="img" image={app.icon} />
+                </Grid>
+                <Grid item xs>
+                  <Container fixed>
+                    <Grid item>
+                      <Link href={app.googlePlay}>
+                        <img
+                          src="/img/pages/Home/hyogo_bousai_google_play_badge.png"
+                          alt="Google Playリンク"
+                          style={{ width: "160px", margin: "-10px" }}
+                        />
+                      </Link>
+                    </Grid>
+                    <Grid item>
+                      <Link href={app.appStore}>
+                        <img
+                          src="/img/pages/Home/hyogo_bousai_app_store_black.svg"
+                          alt="App Storeリンク"
+                          style={{ width: "140px" }}
+                        />
+                      </Link>
+                    </Grid>
+                  </Container>
+                </Grid>
               </Grid>
-              <Grid item xs>
-                <Container fixed>
-                  <Grid item>
-                    <Link href={app.googlePlay}>
-                      <img
-                        src="/img/pages/Home/hyogo_bousai_google_play_badge.png"
-                        alt="Google Playリンク"
-                        style={{ width: "160px", margin: "-10px" }}
-                      />
-                    </Link>
-                  </Grid>
-                  <Grid item>
-                    <Link href={app.appStore}>
-                      <img
-                        src="/img/pages/Home/hyogo_bousai_app_store_black.svg"
-                        alt="App Storeリンク"
-                        style={{ width: "140px" }}
-                      />
-                    </Link>
-                  </Grid>
-                </Container>
-              </Grid>
-            </Grid>
-            <CardContent>
-              <Typography variant="h5">{app.name}</Typography>
-              <Typography variant="body2">{app.text}</Typography>
-            </CardContent>
-          </React.Fragment>
-        );
+              <CardContent>
+                <Typography variant="h5">{app.name}</Typography>
+                <Typography variant="body2">{app.text}</Typography>
+              </CardContent>
+            </React.Fragment>
+          );
         })}
       </CardContent>
     </CardBase>
   );
-}
+};
 
 export const SandaP18Bousaikaigi = () => {
-  return(
+  return (
     <>
       <SimpleTitle title="家族で防災カイギ" subtitle="いざという時のために「今」できること" />
       {/* <SimpleTitle title="家族で防災会議" subtitle="いざという時のために「今」できること" /> */}
@@ -553,5 +544,5 @@ export const SandaP18Bousaikaigi = () => {
       <HinanCard />
       <Apps />
     </>
-  )
-}
+  );
+};
