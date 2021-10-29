@@ -45,7 +45,7 @@ export const TitleCardPart = ({
   </Paper>
 );
 
-export const HeaderCardPart = ({ title, color = "success.main" }) => (
+export const HeaderCardPart = ({ title, color = "success.light" }) => (
   <CardHeader
     title={title}
     titleTypographyProps={{ align: "center" }}
