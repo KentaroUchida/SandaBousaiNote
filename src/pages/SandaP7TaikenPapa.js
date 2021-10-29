@@ -57,7 +57,7 @@ const SandaP7TaikenPapa = () => {
     <>
       <SimpleTitle
         title="東日本大震災のパパの体験談"
-        subtitle="実際の3.11震災の当時，仙台に住んでいたパパの体験をご紹介します"
+        subtitle="実際の3.11震災の当時、仙台に住んでいたパパの体験をご紹介します"
       />
       {taikenTitles.map((_, i) => {
         return (

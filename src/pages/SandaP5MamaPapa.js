@@ -8,7 +8,7 @@ import { SimpleTitle } from "../components/TitleComponents";
 const taikenTitles = [
   "つながりの大事さを実感！",
   "充電器・バッテリーは必須！",
-  "体質にあった特殊なものは要注意！！",
+  "体質にあった特殊なものは要注意!!",
   "かならず確かな情報を！",
   "転倒防止策がいちばんの防災！",
   "不安を一人で抱えこまないで",

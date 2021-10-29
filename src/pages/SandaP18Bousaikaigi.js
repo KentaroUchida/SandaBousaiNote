@@ -356,9 +356,9 @@ const HinanCard = () => {
     <>
       <CardBase>
         <CardContent>
-          <TitleCardPart title="わがやの災害避難カードを作ろう!" />
+          <TitleCardPart title="わがやの災害避難カードを作ろう！" />
           <BodyText>
-            水害、土砂、地震，火災など、災害によって複数の逃げる場所を持つことが大切です。
+            水害、土砂、地震、火災など、災害によって複数の逃げる場所を持つことが大切です。
           </BodyText>
           {/* <HinanTable /> */}
           <table border="1">
@@ -472,7 +472,7 @@ const Apps = () => {
     },
     {
       name: "ひょうご防災ネット",
-      text: "防災情報のポータルサイト。12外国語に対応!",
+      text: "防災情報のポータルサイト。12外国語に対応！",
       icon: "/img/pages/SandaP18Bousaikaigi/HyougoBousai.png",
       googlePlay:
         "https://play.google.com/store/apps/details?id=net.bosai.appli&hl=ja",
@@ -490,7 +490,7 @@ const Apps = () => {
     },
     {
       name: "母子モ",
-      text: "災害時にも、母子手帳情報がスマホに入っていると安心!",
+      text: "災害時にも、母子手帳情報がスマホに入っていると安心！",
       icon: "/img/pages/SandaP18Bousaikaigi/bosimo.png",
       googlePlay:
         "https://play.google.com/store/apps/details?id=jp.co.mti.BoshiAuthorize&hl=ja",
