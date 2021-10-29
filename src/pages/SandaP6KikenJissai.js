@@ -2,17 +2,13 @@ import React from "react";
 import {
   Card,
   CardContent,
-  Typography,
   CardMedia,
   Grid,
 } from "@mui/material";
 import {
-  ImageCard,
   ImageTextCard,
-  TitleTextImageCard,
   TitleTextCard,
 } from "../components/CardComponents";
-import { Title, SubTitle } from "../components/TitleComponents";
 import { ResponsiveFontProvider } from "../components";
 import { SimpleTitle2 } from "../components/TitleComponents";
 
@@ -51,7 +47,7 @@ const Photo = ({ image, text }) => {
 };
 
 const illustImages = [
-  "tosyokan.png",
+  "tosyoshitsu.png",
   "rouka.png",
   "genkan.png",
   "undoujou.png",
@@ -62,9 +58,9 @@ const illustTexts = ["図書館", "ろうか", "げんかん(下足場)", "運�
 const mamoruImages = [
   "atama.png",
   "tsukue.png",
-  "kodomobeya.jpg",
-  "kitchen.jpg",
-  "waremono.jpg",
+  "kodomobeya.png",
+  "kitchen.png",
+  "waremono.png",
 ];
 
 const mamoruTexts = [
@@ -79,11 +75,13 @@ const SandaP6KikenJissai = (index) => {
   return (
     <div key={index}>
       <SimpleTitle2 title="落ちる！倒れる！動く！" subtitle="実際に地震がおきるとキケンなものが"/>
-      <FlexImage image={imgPath + "madori.jpg"} />
-      <Grid container>
+      <FlexImage image={imgPath + "madori.png"} />
+      <Grid container spacing={1}>
         {illustImages.map((_, i) => (
           <Grid item xs={6} sx={styles.grid} key={i.toString()}>
-            <Photo image={imgPath + illustImages[i]} text={illustTexts[i]} />
+            <ImageTextCard image={imgPath + illustImages[i]}>
+              <div style={{textAlign:"center"}}>{illustTexts[i]}</div>
+            </ImageTextCard>
           </Grid>
         ))}
       </Grid>
@@ -94,11 +92,11 @@ const SandaP6KikenJissai = (index) => {
           家族で話し合い、ふだんからイメージして実際に訓練しましょう。
         </TitleTextCard>
       </ResponsiveFontProvider>
-      <Grid container>
+      <Grid container spacing={1}>
         {mamoruImages.map((_, i) => (
           <Grid item xs={6} sx={styles.grid} key={i.toString()}>
             <ImageTextCard image={imgPath + mamoruImages[i]}>
-              {mamoruTexts[i]}
+              <div>{mamoruTexts[i]}</div>
             </ImageTextCard>
           </Grid>
         ))}

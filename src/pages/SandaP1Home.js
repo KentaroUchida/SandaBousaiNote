@@ -25,8 +25,14 @@ const SandaP1Home = () => {
               <img src="img/pages/P1Home/tsunami.png" alt="" width="33%" height="auto"/>
             </div>
           <img src="img/pages/P1Home/logo.png" alt="" width="100%" height="auto"/>
+          <div style={{color:"#595656"}}>
+              災害に備えよう！
+          </div>
           <p style={{color:"#595656"}}>
               さんだ女子防災部/三田市/神戸大学
+          </p>
+          <p style={{color:"#000000",fontSize:"13px"}}>
+              (c) 2021.KobeSpiral Team3
           </p>
           </div>
         </div>
