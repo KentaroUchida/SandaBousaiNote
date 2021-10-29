@@ -88,7 +88,7 @@ const Arrow = () => (
   </Box>
 );
 
-function P4Yurega() {
+function SandaP4Yurega() {
   return (
     <>
       <SimpleTitle title="ゆれがおさまったら" subtitle="その次の行動チャート" />
@@ -112,4 +112,4 @@ function P4Yurega() {
   );
 }
 
-export { P4Yurega };
+export { SandaP4Yurega };

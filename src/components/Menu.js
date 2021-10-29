@@ -30,11 +30,11 @@ import ChevronRightIcon from "@mui/icons-material/ChevronRight";
 import PrintIcon from "@mui/icons-material/Print";
 import ArrowBackIosNewIcon from "@mui/icons-material/ArrowBackIosNew";
 import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
-import HelpOutlineIcon from '@mui/icons-material/HelpOutline';
+import HelpOutlineIcon from "@mui/icons-material/HelpOutline";
 import FiberManualRecordIcon from "@mui/icons-material/FiberManualRecord";
 
 import { titles } from "../components/Titles";
-import { hints}   from "../components/Hints"
+import { hints } from "../components/Hints";
 
 const drawerWidth = 350;
 
@@ -95,25 +95,11 @@ function ResponsiveDrawer(props) {
   };
 
   const links = [
-    "/form",
     "/",
     "/instruction",
-    "/jishin",
-    "/koudouChart",
-    "/Taiken",
-    "/mada",
-    "/izanigeru",
-    "/bousaiGoods",
-    "/foods",
-    "/papaTaiken",
-    "/souzou",
-    "/otiru",
-    "/toilet",
-    "/daijobu",
-    "/bousaiKaigi",
-    "/oshirase",
-    "/sandaHome",
     "/sandaOmoi",
+    "/sandaJishin",
+    "/sandaKoudouChart",
     "/sandaMamaPapa",
     "/sandaKikenJissai",
     "/sandaTaiken",
@@ -128,7 +114,7 @@ function ResponsiveDrawer(props) {
     "/sandaToilet",
     "/sandaBousaikaigi",
     "/sandaBousaiSanpo",
-    "/sandaForm"
+    "/sandaForm",
   ];
 
   const drawer = (
@@ -205,46 +191,50 @@ function ResponsiveDrawer(props) {
                 </IconButton>{" "}
               </Link>
 
-              <IconButton color="inherit" edge = "end" onClick = {handleClickOpen} sx={styles.helpButton}>
-                <HelpOutlineIcon/>
-              </IconButton> 
+              <IconButton
+                color="inherit"
+                edge="end"
+                onClick={handleClickOpen}
+                sx={styles.helpButton}
+              >
+                <HelpOutlineIcon />
+              </IconButton>
               <Dialog
-        open={open}
-        onClose={handleClose}
-        aria-labelledby="alert-dialog-title"
-        aria-describedby="alert-dialog-description"
-      >
-        <DialogTitle id="alert-dialog-title">
-          {"三田防災ノートP" + String(props.now_index)}
-          <br />
-          説明ページ
-        </DialogTitle>
-        <DialogContent>
-          <DialogContentText id="alert-dialog-description">
-          <div>
-        {typeof hints[props.now_index] === "object" && hints[props.now_index].map((text, i) => {
-          return (
-            <div>
-              <Typography>
-                <ListItem>
-                  <ListItemIcon>
-                    <FiberManualRecordIcon />
-                  </ListItemIcon>
-                  <ListItemText primary={text} />
-                </ListItem>
-              </Typography>
-            </div>
-          );
-        })}
-      </div>
-          </DialogContentText>
-        </DialogContent>
-        <DialogActions>
-          <Button onClick={handleClose}>確認しました</Button>
-        </DialogActions>
-      </Dialog>
-
-
+                open={open}
+                onClose={handleClose}
+                aria-labelledby="alert-dialog-title"
+                aria-describedby="alert-dialog-description"
+              >
+                <DialogTitle id="alert-dialog-title">
+                  {"三田防災ノートP" + String(props.now_index)}
+                  <br />
+                  説明ページ
+                </DialogTitle>
+                <DialogContent>
+                  <DialogContentText id="alert-dialog-description">
+                    <div>
+                      {typeof hints[props.now_index] === "object" &&
+                        hints[props.now_index].map((text, i) => {
+                          return (
+                            <div>
+                              <Typography>
+                                <ListItem>
+                                  <ListItemIcon>
+                                    <FiberManualRecordIcon />
+                                  </ListItemIcon>
+                                  <ListItemText primary={text} />
+                                </ListItem>
+                              </Typography>
+                            </div>
+                          );
+                        })}
+                    </div>
+                  </DialogContentText>
+                </DialogContent>
+                <DialogActions>
+                  <Button onClick={handleClose}>確認しました</Button>
+                </DialogActions>
+              </Dialog>
             </div>
             <DownloadDialog />
           </Grid>
@@ -444,4 +434,4 @@ function DownloadDialog() {
   );
 }
 
-export { ResponsiveDrawer as Menu};
+export { ResponsiveDrawer as Menu };

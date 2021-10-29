@@ -12,7 +12,7 @@ import { SubTitle, SimpleTitle, BodyText } from "../components/TitleComponents";
 const img_path = "/img/pages/P3Jishin";
 const generateImagePath = (filename) => img_path + "/" + filename;
 
-const P3Jishin = () => {
+const SandaP3Jishin = () => {
   return (
     <>
       <SimpleTitle
@@ -96,4 +96,4 @@ const P3Jishin = () => {
   );
 };
 
-export { P3Jishin };
+export { SandaP3Jishin };
