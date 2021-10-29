@@ -1,11 +1,6 @@
-// import React from "react";
 import React, { useState, useEffect } from "react";
-import { BodyText } from "../components/TitleComponents";
-import {
-  CardBase,
-  TitleCardPart,
-} from "../components/CardComponents";
-// import { SimpleTitle } from "../components/TitleComponents";
+import { BodyText, SimpleTitle } from "../components/TitleComponents";
+import { CardBase, TitleCardPart } from "../components/CardComponents";
 import {
   CardContent,
   CardMedia,
@@ -20,7 +15,6 @@ import {
 } from "@mui/material";
 import CheckCircle from "@mui/icons-material/CheckCircle";
 import CircleOutlined from "@mui/icons-material/CircleOutlined";
-import { Title, SubTitle} from "../components/TitleComponents";
 
 const styles = {
   card: {
@@ -50,21 +44,21 @@ const messages = [
   "避難場所にたくさんの人が集まり、すぐ会えるとは限りません。",
   "集合場所は時間と場所をピンポイントで決めておきましょう。",
   "たとえば ○○小学校の運動場の鉄棒の前 10時と15時に30分間待つ。",
-]
+];
 
 const Instruction = () => {
-  return(
+  return (
     <>
       <CardBase>
         <CardContent>
-          {messages.map(message => {
+          {messages.map((message) => {
             return <BodyText key={message}>{message}</BodyText>;
           })}
         </CardContent>
-    </CardBase>
+      </CardBase>
     </>
-  )
-}
+  );
+};
 
 const HinanCard = () => {
   const [shelters, setShelters] = useState(
@@ -244,7 +238,11 @@ const HinanCard = () => {
             />
             <FormControlLabel
               control={
-                <Checkbox checked={gas} onChange={handleChangeStock} name="gas" />
+                <Checkbox
+                  checked={gas}
+                  onChange={handleChangeStock}
+                  name="gas"
+                />
               }
               label="カセットコンロ用ボンベ"
             />
@@ -262,7 +260,7 @@ const HinanCard = () => {
         </CardContent>
       </CardBase>
     );
-  }
+  };
 
   // const HinanTable = () => {
   //   return (
@@ -354,102 +352,104 @@ const HinanCard = () => {
   //   )
   // }
 
-  return(
+  return (
     <>
       <CardBase>
         <CardContent>
           <TitleCardPart title="わがやの災害避難カードを作ろう!" />
-          <BodyText>水害、土砂、地震，火災など、災害によって複数の逃げる場所を持つことが大切です。</BodyText>
+          <BodyText>
+            水害、土砂、地震，火災など、災害によって複数の逃げる場所を持つことが大切です。
+          </BodyText>
           {/* <HinanTable /> */}
           <table border="1">
-          <tr>
-            <th></th>
-            <th>まず逃げるところ</th>
-            <th>家に帰れないときに過ごす場所</th>
-          </tr>
-          <tr>
-            <th>水害</th>
-            <th>
-              <TextField
-                onChange={handleChange}
-                id="suigai1"
-                defaultValue={shelters.suigai1}
-                variant="standard"
-              />
-            </th>
-            <th>
-              <TextField
-                onChange={handleChange}
-                id="suigai2"
-                defaultValue={shelters.suigai2}
-                variant="standard"
-              />
-            </th>
-          </tr>
-          <tr>
-            <th>土砂</th>
-            <th>
-              <TextField
-                onChange={handleChange}
-                id="dosya1"
-                defaultValue={shelters.dosya1}
-                variant="standard"
-              />
-            </th>
-            <th>
-              <TextField
-                onChange={handleChange}
-                id="dosya2"
-                defaultValue={shelters.dosya2}
-                variant="standard"
-              />
-            </th>
-          </tr>
-          <tr>
-            <th>地震</th>
-            <th>
-              <TextField
-                onChange={handleChange}
-                id="jishin1"
-                defaultValue={shelters.jishin1}
-                variant="standard"
-              />
-            </th>
-            <th>
-              <TextField
-                onChange={handleChange}
-                id="jishin2"
-                defaultValue={shelters.jishin2}
-                variant="standard"
-              />
-            </th>
-          </tr>
-          <tr>
-            <th>火災</th>
-            <th>
-              <TextField
-                onChange={handleChange}
-                id="kasai1"
-                defaultValue={shelters.kasai1}
-                variant="standard"
-              />
-            </th>
-            <th>
-              <TextField
-                onChange={handleChange}
-                id="kasai2"
-                defaultValue={shelters.kasai2}
-                variant="standard"
-              />
-            </th>
+            <tr>
+              <th></th>
+              <th>まず逃げるところ</th>
+              <th>家に帰れないときに過ごす場所</th>
+            </tr>
+            <tr>
+              <th>水害</th>
+              <th>
+                <TextField
+                  onChange={handleChange}
+                  id="suigai1"
+                  defaultValue={shelters.suigai1}
+                  variant="standard"
+                />
+              </th>
+              <th>
+                <TextField
+                  onChange={handleChange}
+                  id="suigai2"
+                  defaultValue={shelters.suigai2}
+                  variant="standard"
+                />
+              </th>
+            </tr>
+            <tr>
+              <th>土砂</th>
+              <th>
+                <TextField
+                  onChange={handleChange}
+                  id="dosya1"
+                  defaultValue={shelters.dosya1}
+                  variant="standard"
+                />
+              </th>
+              <th>
+                <TextField
+                  onChange={handleChange}
+                  id="dosya2"
+                  defaultValue={shelters.dosya2}
+                  variant="standard"
+                />
+              </th>
+            </tr>
+            <tr>
+              <th>地震</th>
+              <th>
+                <TextField
+                  onChange={handleChange}
+                  id="jishin1"
+                  defaultValue={shelters.jishin1}
+                  variant="standard"
+                />
+              </th>
+              <th>
+                <TextField
+                  onChange={handleChange}
+                  id="jishin2"
+                  defaultValue={shelters.jishin2}
+                  variant="standard"
+                />
+              </th>
+            </tr>
+            <tr>
+              <th>火災</th>
+              <th>
+                <TextField
+                  onChange={handleChange}
+                  id="kasai1"
+                  defaultValue={shelters.kasai1}
+                  variant="standard"
+                />
+              </th>
+              <th>
+                <TextField
+                  onChange={handleChange}
+                  id="kasai2"
+                  defaultValue={shelters.kasai2}
+                  variant="standard"
+                />
+              </th>
             </tr>
           </table>
           <CheckList />
         </CardContent>
       </CardBase>
     </>
-  )
-}
+  );
+};
 
 const Apps = () => {
   const apps = [
@@ -477,7 +477,7 @@ const Apps = () => {
       googlePlay:
         "https://play.google.com/store/apps/details?id=net.bosai.appli&hl=ja",
       appStore:
-      "https://apps.apple.com/us/app/%E3%81%B2%E3%82%87%E3%81%86%E3%81%94%E9%98%B2%E7%81%BD%E3%83%8D%E3%83%83%E3%83%88/id1458839848?itsct=apps_box_link&itscg=30200",
+        "https://apps.apple.com/us/app/%E3%81%B2%E3%82%87%E3%81%86%E3%81%94%E9%98%B2%E7%81%BD%E3%83%8D%E3%83%83%E3%83%88/id1458839848?itsct=apps_box_link&itscg=30200",
     },
     {
       name: "radiko",
@@ -503,56 +503,58 @@ const Apps = () => {
       <CardContent>
         <TitleCardPart title="防災おすすめアプリ" />
         {apps.map((app, i) => {
-        return (
-          <React.Fragment key={i.toString()}>
-            <Grid container justifyContent="center" alignItems="center">
-              <Grid item xs>
-                <CardMedia alt={app.name} component="img" image={app.icon} />
+          return (
+            <React.Fragment key={i.toString()}>
+              <Grid container justifyContent="center" alignItems="center">
+                <Grid item xs>
+                  <CardMedia alt={app.name} component="img" image={app.icon} />
+                </Grid>
+                <Grid item xs>
+                  <Container fixed>
+                    <Grid item>
+                      <Link href={app.googlePlay}>
+                        <img
+                          src="/img/pages/Home/hyogo_bousai_google_play_badge.png"
+                          alt="Google Playリンク"
+                          style={{ width: "160px", margin: "-10px" }}
+                        />
+                      </Link>
+                    </Grid>
+                    <Grid item>
+                      <Link href={app.appStore}>
+                        <img
+                          src="/img/pages/Home/hyogo_bousai_app_store_black.svg"
+                          alt="App Storeリンク"
+                          style={{ width: "140px" }}
+                        />
+                      </Link>
+                    </Grid>
+                  </Container>
+                </Grid>
               </Grid>
-              <Grid item xs>
-                <Container fixed>
-                  <Grid item>
-                    <Link href={app.googlePlay}>
-                      <img
-                        src="/img/pages/Home/hyogo_bousai_google_play_badge.png"
-                        alt="Google Playリンク"
-                        style={{ width: "160px", margin: "-10px" }}
-                      />
-                    </Link>
-                  </Grid>
-                  <Grid item>
-                    <Link href={app.appStore}>
-                      <img
-                        src="/img/pages/Home/hyogo_bousai_app_store_black.svg"
-                        alt="App Storeリンク"
-                        style={{ width: "140px" }}
-                      />
-                    </Link>
-                  </Grid>
-                </Container>
-              </Grid>
-            </Grid>
-            <CardContent>
-              <Typography variant="h5">{app.name}</Typography>
-              <Typography variant="body2">{app.text}</Typography>
-            </CardContent>
-          </React.Fragment>
-        );
+              <CardContent>
+                <Typography variant="h5">{app.name}</Typography>
+                <Typography variant="body2">{app.text}</Typography>
+              </CardContent>
+            </React.Fragment>
+          );
         })}
       </CardContent>
     </CardBase>
   );
-}
+};
 
 export const SandaP18Bousaikaigi = () => {
-  return(
+  return (
     <>
-      <Title>家族で防災カイギ</Title>
-      <SubTitle>いざという時のために「今」できること</SubTitle>
+      <SimpleTitle
+        title="家族で防災カイギ"
+        subtitle="いざという時のために「今」できること"
+      />
       {/* <SimpleTitle title="家族で防災会議" subtitle="いざという時のために「今」できること" /> */}
       <Instruction />
       <HinanCard />
       <Apps />
     </>
-  )
-}
+  );
+};

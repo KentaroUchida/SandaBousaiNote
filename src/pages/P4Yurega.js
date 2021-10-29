@@ -19,12 +19,12 @@ import {
 } from "@mui/material";
 import { grey } from "@mui/material/colors";
 import { useTheme } from "@mui/material/styles";
-import { Title, SubTitle, BodyText } from "../components/TitleComponents";
+import { SimpleTitle, BodyText } from "../components/TitleComponents";
 import {
   CardBase,
   ImageCardPart,
   HeaderCardPart,
-  TitleTextImageCard
+  TitleTextImageCard,
 } from "../components/CardComponents";
 
 const styles = {
@@ -324,15 +324,14 @@ const Arrow = () => (
 function P4Yurega() {
   return (
     <>
-      <Title>ゆれがおさまったら</Title>
-      <SubTitle>その次の行動チャート</SubTitle>
+      <SimpleTitle title="ゆれがおさまったら" subtitle="その次の行動チャート" />
       {charts.map((content, i) => (
         <>
           <ActionChartCard content={content} key={`card-${i}`} />
-          {i < charts.length-1 ? <Arrow key={`arrow-${i}`} /> : ""}
+          {i < charts.length - 1 ? <Arrow key={`arrow-${i}`} /> : ""}
         </>
       ))}
-      <Box sx={{height:30}}/>
+      <Box sx={{ height: 30 }} />
       <TitleTextImageCard
         title="会社から帰って来れないかも!?"
         image={generateImagePath("tatemono_buildings.png")}

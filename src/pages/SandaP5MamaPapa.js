@@ -3,7 +3,7 @@ import {
   ImageTextCard,
   TitleTextImageCard,
 } from "../components/CardComponents";
-import { Title, SubTitle } from "../components/TitleComponents";
+import { SimpleTitle } from "../components/TitleComponents";
 
 const taikenTitles = [
   "つながりの大事さを実感！",
@@ -53,8 +53,10 @@ const photoTexts = [
 const SandaP5MamaPapa = () => {
   return (
     <>
-      <Title>ママ&パパの体験談</Title>
-      <SubTitle>地震や台風を体験したママ&パパの声をご紹介します。</SubTitle>
+      <SimpleTitle
+        title="ママ&パパの体験談"
+        subtitle="地震や台風を体験したママ&パパの声をご紹介します。"
+      />
       {taikenTitles.map((_, i) => (
         <TitleTextImageCard
           title={taikenTitles[i]}
@@ -73,4 +75,4 @@ const SandaP5MamaPapa = () => {
   );
 };
 
-export {SandaP5MamaPapa}
+export { SandaP5MamaPapa };
