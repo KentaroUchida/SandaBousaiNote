@@ -23,7 +23,7 @@ const SandaP19BousaiSanpo = () => {
       <SimpleTitle title="防災さんぽ" subtitle="普段からやってみよう！"/>
       <CardBase>
         <CardContent>
-          <BodyText　>
+          <BodyText>
             お家の周りの危険や避難場所を
             <br />
             市の防災マップでまずチェック！
@@ -51,7 +51,7 @@ const SandaP19BousaiSanpo = () => {
             <br/>
             ・昼と夜では全然違うので
             <br/>
-            　それぞれ歩いてみよう！
+              それぞれ歩いてみよう！
           </TitleImageTextCard>
 
           <ImageTextCard image={generateImagePath("singboard.png")}>

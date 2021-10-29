@@ -10,9 +10,9 @@ import {
 export const CustomThemeA = createTheme({
   palette: {
     primary: {
-      light: lightBlue[200],
-      main: lightBlue[500],
-      dark: lightBlue[700],
+      light: "#ea526f",
+      main: "#ea526f",
+      dark: "#ea526f",
     },
     secondary: {
       light: orange[200],

@@ -188,7 +188,7 @@ function ResponsiveDrawer(props) {
                 to={links[(props.now_index + links.length - 1) % links.length]}
                 key={(props.now_index + links.length - 1) % links.length}
               >
-                <IconButton color="inherit" edge="end">
+                <IconButton edge="end">
                   <ArrowBackIosNewIcon />
                 </IconButton>
               </Link>
@@ -199,7 +199,7 @@ function ResponsiveDrawer(props) {
                 to={links[(props.now_index + 1) % links.length]}
                 key={(props.now_index + 1) % links.length}
               >
-                <IconButton color="inherit" edge="end">
+                <IconButton edge="end">
                   <ArrowForwardIosIcon />
                 </IconButton>{" "}
               </Link>
