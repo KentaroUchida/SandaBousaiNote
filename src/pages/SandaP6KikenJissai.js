@@ -4,6 +4,7 @@ import {
 } from "@mui/material";
 import {
   ImageTextCard,
+  ImageCenterTextCard,
   TitleTextCard,
 } from "../components/CardComponents";
 import { ResponsiveFontProvider } from "../components";
@@ -59,9 +60,9 @@ const SandaP6KikenJissai = (index) => {
       <Grid container spacing={1}>
         {illustImages.map((_, i) => (
           <Grid item xs={6} sx={styles.grid} key={i.toString()}>
-            <ImageTextCard image={imgPath + illustImages[i]}>
-              <div style={{textAlign:"center"}}>{illustTexts[i]}</div>
-            </ImageTextCard>
+            <ImageCenterTextCard image={imgPath + illustImages[i]}>
+              {illustTexts[i]}
+            </ImageCenterTextCard>
           </Grid>
         ))}
       </Grid>
@@ -76,7 +77,7 @@ const SandaP6KikenJissai = (index) => {
         {mamoruImages.map((_, i) => (
           <Grid item xs={6} sx={styles.grid} key={i.toString()}>
             <ImageTextCard image={imgPath + mamoruImages[i]}>
-              <div>{mamoruTexts[i]}</div>
+              {mamoruTexts[i]}
             </ImageTextCard>
           </Grid>
         ))}

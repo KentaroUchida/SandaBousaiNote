@@ -93,10 +93,10 @@ function SandaP4Yurega() {
     <>
       <SimpleTitle title="ゆれがおさまったら" subtitle="その次の行動チャート" />
       {charts.map((content, i) => (
-        <>
-          <ActionChartCard content={content} key={`card-${i}`} />
-          {i < charts.length - 1 ? <Arrow key={`arrow-${i}`} /> : ""}
-        </>
+        <div key={i}>
+          <ActionChartCard content={content} />
+          {i < charts.length - 1 ? <Arrow /> : ""}
+        </div>
       ))}
       <Box sx={{ height: 30 }} />
       <TitleTextImageCard

@@ -4,20 +4,9 @@ import {
   ListItem,
   ListItemIcon,
   ListItemText,
-  Typography,
 } from "@mui/material";
-import {
-  CardBase,
-  TitleCardPart,
-} from "../components/CardComponents";
+import { CardBase, TitleCardPart } from "../components/CardComponents";
 import FiberManualRecordIcon from "@mui/icons-material/FiberManualRecord";
-// import {
-// 	createTheme,
-// 	responsiveFontSizes,
-// } from '@mui/styles';
-
-// let theme = createTheme();
-// theme = responsiveFontSizes(theme);
 
 const instructionText = [
   // 全ページに共通する説明
@@ -29,48 +18,32 @@ const instructionText = [
   "印刷ボタンを押すとPDFを作成することができます",
 ];
 const text_emphasis = {
-  color: "#FF5192"
-}
+  color: "#FF5192",
+};
 
 const text_nomal = {
-  color: 'black'
-}
+  color: "black",
+};
 
 class Content extends React.Component {
- 
   render() {
     return (
       <CardBase>
         <CardContent>
           <TitleCardPart title="さんだ防災ノートの使い方" />
           {instructionText.map((text, i) => {
-            if(i===0){
-              return (
-                <div>
-                  <Typography>
-                    <ListItem>
-                      <ListItemIcon>
-                        <FiberManualRecordIcon />
-                      </ListItemIcon>
-                      <ListItemText style={text_emphasis} primary={instructionText[i]} />
-                    </ListItem>
-                  </Typography>
-                </div>
-              );
-            } else{
-              return(<div>
-                <Typography>
-                  <ListItem>
-                    <ListItemIcon>
-                      <FiberManualRecordIcon />
-                    </ListItemIcon>
-                    <ListItemText style={text_nomal}secondary={instructionText[i]} />
-                  </ListItem>
-                </Typography>
-              </div>);
-              
-            }
-            
+            return (
+              <ListItem key={i}>
+                <ListItemIcon>
+                  <FiberManualRecordIcon />
+                </ListItemIcon>
+                {i === 0 ? (
+                  <ListItemText style={text_emphasis} primary={text} />
+                ) : (
+                  <ListItemText style={text_nomal} secondary={text} />
+                )}
+              </ListItem>
+            );
           })}
         </CardContent>
       </CardBase>
@@ -86,4 +59,4 @@ function Instruction() {
   );
 }
 
-export {Instruction}
+export { Instruction };

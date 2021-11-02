@@ -61,7 +61,7 @@ const SandaP7TaikenPapa = () => {
       />
       {taikenTitles.map((_, i) => {
         return (
-          <TitleTextImageCard title={taikenTitles[i]} image={taikenImages[i]}>
+          <TitleTextImageCard title={taikenTitles[i]} image={taikenImages[i]} key={i}>
             {texts[i]}
           </TitleTextImageCard>
         );

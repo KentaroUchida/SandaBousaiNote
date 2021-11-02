@@ -168,7 +168,7 @@ const SandaP11Daijobu = () => {
       />
       {daijobuTitles.map((_, i) => {
         return (
-          <TitleTextImageCard title={daijobuTitles[i]} image={daijobuImages[i]}>
+          <TitleTextImageCard title={daijobuTitles[i]} image={daijobuImages[i]} key={i}>
             {texts[i]}
           </TitleTextImageCard>
         );

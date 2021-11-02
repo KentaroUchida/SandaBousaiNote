@@ -33,7 +33,6 @@ import ArrowForwardIcon from "@mui/icons-material/ArrowForward";
 import HelpOutlineIcon from "@mui/icons-material/HelpOutline";
 import FiberManualRecordIcon from "@mui/icons-material/FiberManualRecord";
 
-
 import { titles } from "../components/Titles";
 import { hints } from "../components/Hints";
 
@@ -146,305 +145,167 @@ function ResponsiveDrawer(props) {
 
   const container =
     window !== undefined ? () => window().document.body : undefined;
-  if( hints[props.now_index][0]==="NULL"){
-    return (
-      <Box sx={styles.root}>
-        <CssBaseline />
-        <AppBar position="fixed" sx={styles.appBar}>
-          <Toolbar>
-            <Grid
-              container
-              direction="row"
-              justifyContent="space-between"
-              alignItems="center"
-            >
-              <Grid item>
-                <Button
-                  style={{
-                    backgroundColor: "white",
-                    textShadow: "1px 1px 100px rgba(255, 255, 255, 0.66)",
-                    boxShadow:
-                      "inset 0 100px 0 rgba(255,255,255,0.5), 0 1px 1px rgba(0, 0, 0, 0.19)",
-                    borderBottom: "solid 1px #b5b5b5",
-                  }}
-                  aria-label="open drawer"
-                  onClick={handleDrawerOpen}
-                  sx={styles.menuButton}
-                >
-                  <b>目次</b>
-                </Button>
-              </Grid>
-  
-              <Grid item>
-                <Grid container alignItems="center">
-                  <Grid item>
-                    <Link
-                      to={
-                        links[(props.now_index + links.length - 1) % links.length]
-                      }
-                      key={(props.now_index + links.length - 1) % links.length}
-                    >
-                      <IconButton edge="end">
-                        <ArrowBackIcon />
-                      </IconButton>
-                    </Link>
-                  </Grid>
-  
-                  <Grid item>
-                    <Typography sx={{ml: 1.8}}>
-                      {props.now_index}{"ページ"}
-                    </Typography>
-                  </Grid>
-  
-                  <Grid item>
-                    <Link
-                      to={links[(props.now_index + 1) % links.length]}
-                      key={(props.now_index + 1) % links.length}
-                    >
-                      <IconButton edge="end">
-                        <ArrowForwardIcon sx={{mr: 6.5}}/>
-                      </IconButton>
-                    </Link>
-                  </Grid>
-                </Grid>
-              </Grid>
-  
-              <Grid item>
-                
-                <Dialog
-                  open={open}
-                  onClose={handleClose}
-                  aria-labelledby="alert-dialog-title"
-                  aria-describedby="alert-dialog-description"
-                >
-                  <DialogTitle id="alert-dialog-title">
-                    {"三田防災ノートP" + String(props.now_index)}
-                    <br />
-                    説明ページ
-                  </DialogTitle>
-                  <DialogContent>
-                    <DialogContentText id="alert-dialog-description">
-                      {typeof hints[props.now_index] === "object" &&
-                        hints[props.now_index].map((text, i) => {
-                          return (
-                            <Typography>
-                              <ListItem>
-                                <ListItemIcon>
-                                  <FiberManualRecordIcon />
-                                </ListItemIcon>
-                                <ListItemText primary={text} />
-                              </ListItem>
-                            </Typography>
-                          );
-                        })}
-                    </DialogContentText>
-                  </DialogContent>
-                  <DialogActions>
-                    <Button onClick={handleClose}>確認しました</Button>
-                  </DialogActions>
-                </Dialog>
-                <DownloadDialog />
-              </Grid>
-  
+  return (
+    <Box sx={styles.root}>
+      <CssBaseline />
+      <AppBar position="fixed" sx={styles.appBar}>
+        <Toolbar>
+          <Grid
+            container
+            direction="row"
+            justifyContent="space-between"
+            alignItems="center"
+          >
+            <Grid item>
+              <Button
+                style={{
+                  backgroundColor: "white",
+                  textShadow: "1px 1px 100px rgba(255, 255, 255, 0.66)",
+                  boxShadow:
+                    "inset 0 100px 0 rgba(255,255,255,0.5), 0 1px 1px rgba(0, 0, 0, 0.19)",
+                  borderBottom: "solid 1px #b5b5b5",
+                }}
+                aria-label="open drawer"
+                onClick={handleDrawerOpen}
+                sx={styles.menuButton}
+              >
+                <b>目次</b>
+              </Button>
             </Grid>
-          </Toolbar>
-        </AppBar>
-        <Box component="nav" sx={styles.drawer} aria-label="mailbox folders">
-          {/* The implementation can be swapped with js to avoid SEO duplication of links. */}
-          <Drawer
-            container={container}
-            variant="temporary"
-            anchor={theme.direction === "rtl" ? "right" : "left"}
-            open={mobileOpen}
-            onClose={handleDrawerToggle}
-            sx={{
-              display: { xs: "block", sm: "none" },
-              "& .MuiDrawer-paper": styles.drawerPaper,
-            }}
-            ModalProps={{
-              keepMounted: true, // Better open performance on mobile.
-            }}
-          >
-            <Box sx={styles.drawerHeader}>
-              <IconButton onClick={handleDrawerClose}>
-                {theme.direction === "ltr" ? (
-                  <ChevronLeftIcon />
-                ) : (
-                  <ChevronRightIcon />
-                )}
-              </IconButton>
-            </Box>
-            {drawer}
-          </Drawer>
-          <Drawer
-            sx={{
-              display: { xs: "none", sm: "block" },
-              "& .MuiDrawer-paper": styles.drawerPaper,
-            }}
-            variant="permanent"
-            //open
-          >
-            {drawer}
-          </Drawer>
-        </Box>
-        <Box component="main">{props.children}</Box>
-      </Box>
-    );
 
-  } else{
-    return (
-      <Box sx={styles.root}>
-        <CssBaseline />
-        <AppBar position="fixed" sx={styles.appBar}>
-          <Toolbar>
-            <Grid
-              container
-              direction="row"
-              justifyContent="space-between"
-              alignItems="center"
-            >
-              <Grid item>
-                <Button
-                  style={{
-                    backgroundColor: "white",
-                    textShadow: "1px 1px 100px rgba(255, 255, 255, 0.66)",
-                    boxShadow:
-                      "inset 0 100px 0 rgba(255,255,255,0.5), 0 1px 1px rgba(0, 0, 0, 0.19)",
-                    borderBottom: "solid 1px #b5b5b5",
-                  }}
-                  aria-label="open drawer"
-                  onClick={handleDrawerOpen}
-                  sx={styles.menuButton}
-                >
-                  <b>目次</b>
-                </Button>
-              </Grid>
-  
-              <Grid item>
-                <Grid container alignItems="center">
-                  <Grid item>
-                    <Link
-                      to={
-                        links[(props.now_index + links.length - 1) % links.length]
-                      }
-                      key={(props.now_index + links.length - 1) % links.length}
-                    >
-                      <IconButton edge="end">
-                        <ArrowBackIcon />
-                      </IconButton>
-                    </Link>
-                  </Grid>
-  
-                  <Grid item>
-                    <Typography sx={{ml: 1.8}}>
-                      {props.now_index}{"ページ"}
-                    </Typography>
-                  </Grid>
-  
-                  <Grid item>
-                    <Link
-                      to={links[(props.now_index + 1) % links.length]}
-                      key={(props.now_index + 1) % links.length}
-                    >
-                      <IconButton edge="end">
-                        <ArrowForwardIcon />
-                      </IconButton>
-                    </Link>
-                  </Grid>
+            <Grid item>
+              <Grid container alignItems="center">
+                <Grid item>
+                  <Link
+                    to={
+                      links[(props.now_index + links.length - 1) % links.length]
+                    }
+                    key={(props.now_index + links.length - 1) % links.length}
+                  >
+                    <IconButton edge="end">
+                      <ArrowBackIcon />
+                    </IconButton>
+                  </Link>
+                </Grid>
+
+                <Grid item>
+                  <Typography sx={{ ml: 1.8 }}>
+                    {props.now_index}
+                    {"ページ"}
+                  </Typography>
+                </Grid>
+
+                <Grid item>
+                  <Link
+                    to={links[(props.now_index + 1) % links.length]}
+                    key={(props.now_index + 1) % links.length}
+                  >
+                    <IconButton edge="end">
+                      <ArrowForwardIcon />
+                    </IconButton>
+                  </Link>
                 </Grid>
               </Grid>
-  
-              <Grid item>
+            </Grid>
+
+            <Grid item>
+              {hints[props.now_index][0] === "NULL" ? (
+                <IconButton
+                  color="inherit"
+                  edge="end"
+                  sx={{ mr: "1px" }}
+                  disabled
+                >
+                  <HelpOutlineIcon fontSize="large" color="primary" />
+                </IconButton>
+              ) : (
                 <IconButton
                   color="inherit"
                   edge="end"
                   onClick={handleClickOpen}
-                  sx={{mr:"1px"}}
+                  sx={{ mr: "1px" }}
                 >
                   <HelpOutlineIcon fontSize="large" />
                 </IconButton>
-                <Dialog
-                  open={open}
-                  onClose={handleClose}
-                  aria-labelledby="alert-dialog-title"
-                  aria-describedby="alert-dialog-description"
-                >
-                  <DialogTitle id="alert-dialog-title">
-                    {"三田防災ノートP" + String(props.now_index)}
-                    <br />
-                    説明ページ
-                  </DialogTitle>
-                  <DialogContent>
-                    <DialogContentText id="alert-dialog-description">
-                      {typeof hints[props.now_index] === "object" &&
-                        hints[props.now_index].map((text, i) => {
-                          return (
-                            <Typography>
-                              <ListItem>
-                                <ListItemIcon>
-                                  <FiberManualRecordIcon />
-                                </ListItemIcon>
-                                <ListItemText primary={text} />
-                              </ListItem>
-                            </Typography>
-                          );
-                        })}
-                    </DialogContentText>
-                  </DialogContent>
-                  <DialogActions>
-                    <Button onClick={handleClose}>確認しました</Button>
-                  </DialogActions>
-                </Dialog>
-                <DownloadDialog />
-              </Grid>
-  
+              )}
+              <Dialog
+                open={open}
+                onClose={handleClose}
+                aria-labelledby="alert-dialog-title"
+                aria-describedby="alert-dialog-description"
+              >
+                <DialogTitle id="alert-dialog-title">
+                  {"三田防災ノートP" + String(props.now_index)}
+                  <br />
+                  説明ページ
+                </DialogTitle>
+                <DialogContent>
+                  <div id="alert-dialog-description">
+                    {typeof hints[props.now_index] === "object" &&
+                      hints[props.now_index].map((text, i) => {
+                        return (
+                          <ListItem key={i}>
+                            <ListItemIcon>
+                              <FiberManualRecordIcon />
+                            </ListItemIcon>
+                            {//<ListItemText primary={text} />}
+                      }
+                            {text}
+                          </ListItem>
+                        );
+                      })}
+                  </div>
+                </DialogContent>
+                <DialogActions>
+                  <Button onClick={handleClose}>確認しました</Button>
+                </DialogActions>
+              </Dialog>
+              <DownloadDialog />
             </Grid>
-          </Toolbar>
-        </AppBar>
-        <Box component="nav" sx={styles.drawer} aria-label="mailbox folders">
-          {/* The implementation can be swapped with js to avoid SEO duplication of links. */}
-          <Drawer
-            container={container}
-            variant="temporary"
-            anchor={theme.direction === "rtl" ? "right" : "left"}
-            open={mobileOpen}
-            onClose={handleDrawerToggle}
-            sx={{
-              display: { xs: "block", sm: "none" },
-              "& .MuiDrawer-paper": styles.drawerPaper,
-            }}
-            ModalProps={{
-              keepMounted: true, // Better open performance on mobile.
-            }}
-          >
-            <Box sx={styles.drawerHeader}>
-              <IconButton onClick={handleDrawerClose}>
-                {theme.direction === "ltr" ? (
-                  <ChevronLeftIcon />
-                ) : (
-                  <ChevronRightIcon />
-                )}
-              </IconButton>
-            </Box>
-            {drawer}
-          </Drawer>
-          <Drawer
-            sx={{
-              display: { xs: "none", sm: "block" },
-              "& .MuiDrawer-paper": styles.drawerPaper,
-            }}
-            variant="permanent"
-            //open
-          >
-            {drawer}
-          </Drawer>
-        </Box>
-        <Box component="main">{props.children}</Box>
+          </Grid>
+        </Toolbar>
+      </AppBar>
+      <Box component="nav" sx={styles.drawer} aria-label="mailbox folders">
+        {/* The implementation can be swapped with js to avoid SEO duplication of links. */}
+        <Drawer
+          container={container}
+          variant="temporary"
+          anchor={theme.direction === "rtl" ? "right" : "left"}
+          open={mobileOpen}
+          onClose={handleDrawerToggle}
+          sx={{
+            display: { xs: "block", sm: "none" },
+            "& .MuiDrawer-paper": styles.drawerPaper,
+          }}
+          ModalProps={{
+            keepMounted: true, // Better open performance on mobile.
+          }}
+        >
+          <Box sx={styles.drawerHeader}>
+            <IconButton onClick={handleDrawerClose}>
+              {theme.direction === "ltr" ? (
+                <ChevronLeftIcon />
+              ) : (
+                <ChevronRightIcon />
+              )}
+            </IconButton>
+          </Box>
+          {drawer}
+        </Drawer>
+        <Drawer
+          sx={{
+            display: { xs: "none", sm: "block" },
+            "& .MuiDrawer-paper": styles.drawerPaper,
+          }}
+          variant="permanent"
+          //open
+        >
+          {drawer}
+        </Drawer>
       </Box>
-    );
-
-  }
-  
+      <Box component="main">{props.children}</Box>
+    </Box>
+  );
 }
 
 ResponsiveDrawer.propTypes = {

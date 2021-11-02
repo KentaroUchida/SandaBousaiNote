@@ -6,7 +6,7 @@ import {
   useLocation,
 } from "react-router-dom";
 import { useSwipeable } from "react-swipeable";
-import { useMediaQuery, Box, Toolbar } from "@mui/material";
+import { Box, Toolbar } from "@mui/material";
 import { ThemeProvider } from "@mui/styles";
 import { ThemeProvider as EmotionThemeProvider } from "@emotion/react";
 
@@ -32,7 +32,7 @@ import {
   SandaP19BousaiSanpo,
   SandaP20Form,
 } from "./pages";
-import { Menu, SwipeNotifier, titles } from "./components";
+import { Menu, titles } from "./components";
 import { CustomThemeA } from "./components/Theme";
 
 const paths = [
@@ -115,7 +115,6 @@ function App() {
     // const matches = useMediaQuery("(max-width:600px)");
     return (
       <Route exact path={paths[index]} key={index}>
-        {/* {index === 0 && matches && <SwipeNotifier />} */}
         <Menu title={titles[index]} now_index={index}>
           <Box {...handleSwipe} sx={styles.content}>
             <Toolbar />

@@ -7,7 +7,7 @@ import {
 } from "@mui/material";
 
 import {
-  BodyText, CardTitle
+  BodyText, CardTitle, CenterBodyText
 } from "./TitleComponents"
 
 const styles = {
@@ -77,6 +77,17 @@ export const ImageTextCard = ({ image, children }) => {
       <ImageCardPart image={image} />
       <CardContent>
         <BodyText>{children}</BodyText>
+      </CardContent>
+    </CardBase>
+  );
+};
+
+export const ImageCenterTextCard = ({ image, children }) => {
+  return (
+    <CardBase>
+      <ImageCardPart image={image} />
+      <CardContent>
+        <CenterBodyText>{children}</CenterBodyText>
       </CardContent>
     </CardBase>
   );
