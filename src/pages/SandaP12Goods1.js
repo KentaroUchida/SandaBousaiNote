@@ -1,5 +1,6 @@
 import React from "react";
 import {
+  Box,
   Card,
   CardActionArea,
   CardContent,
@@ -18,8 +19,7 @@ const styles = {
   card: {
     marginBottom: 4,
   },
-  cardHeaderMain: {
-  },
+  cardHeaderMain: {},
   cardHeaderCheckList: {
     bgcolor: "blue.light",
   },
@@ -32,10 +32,10 @@ const styles = {
   cardHeaderSonaeDark: {
     bgcolor: "success.dark",
   },
- 
- 
+
   cardHeaderRecommend: {
-    bgcolor: "repeating-linear-gradient(45deg, #e0ffff, #e0ffff 12px, #ffffff 12px, #ffffff 24px)",
+    bgcolor:
+      "repeating-linear-gradient(45deg, #e0ffff, #e0ffff 12px, #ffffff 12px, #ffffff 24px)",
   },
   child: {
     marginLeft: 3,
@@ -44,8 +44,6 @@ const styles = {
     pointerEvents: "none",
   },
 };
-
-
 
 const zerothItems = [
   {
@@ -83,7 +81,7 @@ const zerothItems = [
   },
   {
     name: "消毒液・ウエットティッシュ",
-    sub : "感染症対策にも重要",
+    sub: "感染症対策にも重要",
     path: "disinfectant_wetwipes",
   },
   {
@@ -101,7 +99,7 @@ const zerothItems = [
   },
   {
     name: "マスク",
-    sub : "感染症対策にも重要",
+    sub: "感染症対策にも重要",
     path: "mask",
   },
   {
@@ -184,7 +182,7 @@ const firstItems = [
     name: "常備薬",
     path: "medicine_1",
   },
-  
+
   {
     name: "その他・抱っこ紐・哺乳瓶",
     path: "others",
@@ -200,8 +198,7 @@ const moreItems = [
   },
   {
     name: "新聞紙",
-    message:
-      "暖を取ったり　紙食器を作ったり",
+    message: "暖を取ったり　紙食器を作ったり",
     path: "newspaper",
   },
 ];
@@ -213,45 +210,44 @@ function getPath(str) {
 function Sonaebox(props) {
   return (
     <FormGroup row>
-      <ImageList cols={1} rowHeight="auto" gap ={0}>
-      <Card sx={styles.card} >
+      <ImageList cols={1} rowHeight="auto" gap={0}>
+        <Card sx={styles.card}>
           <CardHeader
-            title="0次の備え"  
+            title="0次の備え"
             sx={styles.cardHeaderSonae}
             titleTypographyProps={{ align: "center" }}
-        />
-        <CardContent>
-        <Typography variant="body2" color="text.secondary">
-         「非常持ち出し品」として備えるものの中から、携帯できそうなものは、いつも使うバッグに入れ、身に付けてみよう！
-         いつどこで被災するかわからない災害への安心感を持ち歩こう。
-        </Typography>
-        </CardContent>
-      </Card>
-      <Card sx={styles.card}>
+          />
+          <CardContent>
+            <Typography variant="body2" color="text.secondary">
+              「非常持ち出し品」として備えるものの中から、携帯できそうなものは、いつも使うバッグに入れ、身に付けてみよう！
+              いつどこで被災するかわからない災害への安心感を持ち歩こう。
+            </Typography>
+          </CardContent>
+        </Card>
+        <Card sx={styles.card}>
           <CardHeader
-            title="1次の備え"  
+            title="1次の備え"
             sx={styles.cardHeaderSonae}
             titleTypographyProps={{ align: "center" }}
-        />
-        <CardContent>
-        <Typography variant="body2" color="text.secondary">
-          家庭や勤務先　多くの時間を過ごす場所には「非常持ち出し品」をそなえよう！いざという時に、さっと持ち出して逃げられるコンパクトな1パック。
-        </Typography>
-        </CardContent>
-      </Card>
-      <Card sx={styles.card}>
+          />
+          <CardContent>
+            <Typography variant="body2" color="text.secondary">
+              家庭や勤務先　多くの時間を過ごす場所には「非常持ち出し品」をそなえよう！いざという時に、さっと持ち出して逃げられるコンパクトな1パック。
+            </Typography>
+          </CardContent>
+        </Card>
+        <Card sx={styles.card}>
           <CardHeader
-            title="2次の備え"  
+            title="2次の備え"
             sx={styles.cardHeaderSonae}
             titleTypographyProps={{ align: "center" }}
-        />
-        <CardContent>
-        <Typography variant="body2" color="text.secondary">
-          非常時、ライフラインが途絶え、もしも助けの手が届かなかったとしても、何日間は時給自足してしのげる物品を備蓄しよう。
-        </Typography>
-        </CardContent>
-      </Card>
-        
+          />
+          <CardContent>
+            <Typography variant="body2" color="text.secondary">
+              非常時、ライフラインが途絶え、もしも助けの手が届かなかったとしても、何日間は時給自足してしのげる物品を備蓄しよう。
+            </Typography>
+          </CardContent>
+        </Card>
       </ImageList>
     </FormGroup>
   );
@@ -285,12 +281,25 @@ function Checkbox2Lines(props) {
                     event.stopPropagation(); // CardActionAreaのonClickを無効化
                   }}
                 />
-                <CardMedia
-                  component="img"
-                  alt={items[key].name}
-                  image={getPath(key)}
-                  title={items[key].name}
-                />
+                <Box
+                  sx={{
+                    display: "flex",
+                    justifyContent: "center",
+                  }}
+                >
+                  <CardMedia
+                    component="img"
+                    alt={items[key].name}
+                    image={getPath(key)}
+                    title={items[key].name}
+                    sx={{
+                      maxHeight: 100,
+                      height: "auto",
+                      maxWidth: "90%",
+                      width: "auto",
+                    }}
+                  />
+                </Box>
                 <CardContent>
                   <Typography variant="body2">{items[key].emphasis}</Typography>
                   <Typography variant="body2">{items[key].sub}</Typography>
@@ -309,22 +318,20 @@ class Sonae extends React.Component {
     return (
       <Card sx={styles.card}>
         <CardHeader
-          title="非常時に備える３ステップ"  
+          title="非常時に備える３ステップ"
           sx={styles.cardHeaderSonaeDark}
           titleTypographyProps={{ align: "center" }}
         />
         <CardContent>
-        <Typography variant="h6"　align = 'center'>
-          まずは１次から備えよう
-        </Typography>
-          <Sonaebox/>
+          <Typography variant="h6" align="center">
+            まずは１次から備えよう
+          </Typography>
+          <Sonaebox />
         </CardContent>
       </Card>
     );
   }
 }
-
-
 
 class Zeroth extends React.Component {
   constructor() {
@@ -585,7 +592,10 @@ class More extends React.Component {
 function SandaP12Goods1() {
   return (
     <>
-       <SimpleTitle title="防災グッズを備えよう１" subtitle="非常時にホントに役に立つ"/>
+      <SimpleTitle
+        title="防災グッズを備えよう１"
+        subtitle="非常時にホントに役に立つ"
+      />
       <Sonae />
       <Divider />
       <Zeroth />
@@ -595,4 +605,4 @@ function SandaP12Goods1() {
   );
 }
 
-export {SandaP12Goods1}
+export { SandaP12Goods1 };

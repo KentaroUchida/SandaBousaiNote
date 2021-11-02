@@ -112,7 +112,6 @@ function App() {
       },
       [history]
     );
-    // const matches = useMediaQuery("(max-width:600px)");
     return (
       <Route exact path={paths[index]} key={index}>
         <Menu title={titles[index]} now_index={index}>
@@ -136,34 +135,6 @@ function App() {
   };
 
   return (
-    // <BrowserRouter>
-    //   <Menu title="Home">
-    //     <Route exact path='/'>
-    //       <Home/>
-    //     </Route>
-    //     <Route exact path='/jishin'>
-    //       <Jishin/>
-    //     </Route>
-    //     <Route exact path='/taiken'>
-    //       <Taiken/>
-    //     </Route>
-    //     <Route exact path='/taikenPapa'>
-    //       <P10TaikenPapa/>
-    //     </Route>
-    //     <Route exact path='/form'>
-    //       <Form/>
-    //     </Route>
-    //     <Route exact path='/souzou'>
-    //       <P11KikenSouzou/>
-    //     </Route>
-    //     <Route exact path="/jissai">
-    //       <P12KikenJissai/>
-    //     </Route>
-    //     <Route exact path='/daijobu'>
-    //       <P14Daijobu/>
-    //     </Route>
-    //   </Menu>
-    // </BrowserRouter>
     <EmotionThemeProvider theme={CustomThemeA}>
       <ThemeProvider theme={CustomThemeA}>
         <BrowserRouter>

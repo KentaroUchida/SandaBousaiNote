@@ -1,4 +1,5 @@
 import {
+  Box,
   Card,
   CardMedia,
   CardContent,
@@ -6,9 +7,7 @@ import {
   Paper,
 } from "@mui/material";
 
-import {
-  BodyText, CardTitle, CenterBodyText
-} from "./TitleComponents"
+import { BodyText, CardTitle, CenterBodyText } from "./TitleComponents";
 
 const styles = {
   card: {
@@ -21,7 +20,13 @@ const styles = {
   },
   image: {
     maxWidth: "100%",
-    height: "auto",
+    height: { xs: "auto", sm: "300px" },
+    width: { sm: "auto" },
+  },
+  imageBox: {
+    justifyContent: "center",
+    display: "flex",
+    width: "100%",
   },
 };
 
@@ -32,7 +37,9 @@ export const CardBase = ({ children }) => (
 );
 
 export const ImageCardPart = ({ image }) => (
-  <CardMedia component="img" image={image} alt="" sx={styles.image} />
+  <Box sx={styles.imageBox}>
+    <CardMedia component="img" image={image} alt="" sx={styles.image} />
+  </Box>
 );
 
 export const TitleCardPart = ({
@@ -63,13 +70,13 @@ export const ImageCard = ({ image }) => {
   );
 };
 
-export const TextCard = ({children}) => (
+export const TextCard = ({ children }) => (
   <CardBase>
     <CardContent>
       <BodyText>{children}</BodyText>
     </CardContent>
   </CardBase>
-)
+);
 
 export const ImageTextCard = ({ image, children }) => {
   return (
@@ -93,11 +100,7 @@ export const ImageCenterTextCard = ({ image, children }) => {
   );
 };
 
-export const TitleTextCard = ({
-  title,
-  color = "tertiary.main",
-  children,
-}) => {
+export const TitleTextCard = ({ title, color = "tertiary.main", children }) => {
   return (
     <CardBase>
       <CardContent>

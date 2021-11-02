@@ -1,9 +1,29 @@
 import React from "react";
-import { CardContent, CardHeader, CardMedia, Typography } from "@mui/material";
+import {
+  CardContent,
+  CardHeader,
+  CardMedia,
+  Typography,
+  Box,
+} from "@mui/material";
+import { styled } from "@mui/system";
 import { CardBase } from "../components/CardComponents";
 import { SimpleTitle } from "../components/TitleComponents";
 
 const imageBasePath = "img/pages/SandaP8Mada/";
+
+const CenterBox = styled("Box")({
+  justifyContent: "center",
+  display: "flex",
+});
+
+const styles = {
+  image: {
+    mb: 2,
+    width: { sm: "auto" },
+    height: { sm: "300px" },
+  },
+};
 
 const EvacuationOrder = () => {
   const levels = [
@@ -127,12 +147,18 @@ const EvacuationOrder = () => {
                 }
                 sx={l.headerSx}
               />
-              <CardContent sx={{ bgcolor: l.contentColor }}>
-                <CardMedia
-                  component="img"
-                  image={imageBasePath + i + ".png"}
-                  sx={{ mb: 2 }}
-                />
+              <CardContent
+                sx={{
+                  bgcolor: l.contentColor,
+                }}
+              >
+                <CenterBox>
+                  <CardMedia
+                    component="img"
+                    image={imageBasePath + i + ".png"}
+                    sx={styles.image}
+                  />
+                </CenterBox>
                 <Typography variant="caption">{l.caption}</Typography>
                 {l.text}
                 {l.subtext}
@@ -186,13 +212,15 @@ const Check = () => {
               }}
             />
             <CardContent>
-              <CardMedia
-                component="img"
-                alt={c.imgName}
-                image={imageBasePath + "check" + i + ".png"}
-                title={c.imgName}
-                sx={{ mb: 2 }}
-              />
+              <CenterBox>
+                <CardMedia
+                  component="img"
+                  alt={c.imgName}
+                  image={imageBasePath + "check" + i + ".png"}
+                  title={c.imgName}
+                  sx={styles.image}
+                />
+              </CenterBox>
               {c.text}
               {c.subtext}
             </CardContent>
@@ -219,13 +247,15 @@ const Notice = () => {
         sx={{ bgcolor: "tertiary.main" }}
       />
       <CardContent>
-        <CardMedia
-          component="img"
-          alt="動けない"
-          image={imageBasePath + "notice.png"}
-          title="動けない"
-          sx={{ mb: 2 }}
-        />
+        <CenterBox>
+          <CardMedia
+            component="img"
+            alt="動けない"
+            image={imageBasePath + "notice.png"}
+            title="動けない"
+            sx={styles.image}
+          />
+        </CenterBox>
         <Typography>
           浸水10cmで、小柄な女性が後退。横にひっぱられる力が強く、歩行困難となる。
         </Typography>
