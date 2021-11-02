@@ -251,96 +251,6 @@ const HinanCard = () => {
     );
   };
 
-  // const HinanTable = () => {
-  //   return (
-  //     <>
-  //       <table border="1">
-  //         <tr>
-  //           <th></th>
-  //           <th>まず逃げるところ</th>
-  //           <th>家に帰れないときに過ごす場所</th>
-  //         </tr>
-  //         <tr>
-  //           <th>水害</th>
-  //           <th>
-  //             <TextField
-  //               onChange={handleChange}
-  //               id="suigai1"
-  //               defaultValue={shelters.suigai1}
-  //               variant="standard"
-  //             />
-  //           </th>
-  //           <th>
-  //             <TextField
-  //               onChange={handleChange}
-  //               id="suigai2"
-  //               defaultValue={shelters.suigai2}
-  //               variant="standard"
-  //             />
-  //           </th>
-  //         </tr>
-  //         <tr>
-  //           <th>土砂</th>
-  //           <th>
-  //             <TextField
-  //               onChange={handleChange}
-  //               id="dosya1"
-  //               defaultValue={shelters.dosya1}
-  //               variant="standard"
-  //             />
-  //           </th>
-  //           <th>
-  //             <TextField
-  //               onChange={handleChange}
-  //               id="dosya2"
-  //               defaultValue={shelters.dosya2}
-  //               variant="standard"
-  //             />
-  //           </th>
-  //         </tr>
-  //         <tr>
-  //           <th>地震</th>
-  //           <th>
-  //             <TextField
-  //               onChange={handleChange}
-  //               id="jishin1"
-  //               defaultValue={shelters.jishin1}
-  //               variant="standard"
-  //             />
-  //           </th>
-  //           <th>
-  //             <TextField
-  //               onChange={handleChange}
-  //               id="jishin2"
-  //               defaultValue={shelters.jishin2}
-  //               variant="standard"
-  //             />
-  //           </th>
-  //         </tr>
-  //         <tr>
-  //           <th>火災</th>
-  //           <th>
-  //             <TextField
-  //               onChange={handleChange}
-  //               id="kasai1"
-  //               defaultValue={shelters.kasai1}
-  //               variant="standard"
-  //             />
-  //           </th>
-  //           <th>
-  //             <TextField
-  //               onChange={handleChange}
-  //               id="kasai2"
-  //               defaultValue={shelters.kasai2}
-  //               variant="standard"
-  //             />
-  //           </th>
-  //         </tr>
-  //       </table>
-  //     </>
-  //   )
-  // }
-
   return (
     <>
       <CardBase>
@@ -351,88 +261,89 @@ const HinanCard = () => {
           </BodyText>
           {/* <HinanTable /> */}
           <table>
-          <tr>
-            <th></th>
-            <th>まず逃げるところ</th>
-            <th>家に帰れないときに過ごす場所</th>
-          </tr>
-          <tr>
-            <th>水害</th>
-            <th>
-              <TextField
-                onChange={handleChange}
-                id="suigai1"
-                defaultValue={shelters.suigai1}
-                variant="standard"
-              />
-            </th>
-            <th>
-              <TextField
-                onChange={handleChange}
-                id="suigai2"
-                defaultValue={shelters.suigai2}
-                variant="standard"
-              />
-            </th>
-          </tr>
-          <tr>
-            <th>土砂</th>
-            <th>
-              <TextField
-                onChange={handleChange}
-                id="dosya1"
-                defaultValue={shelters.dosya1}
-                variant="standard"
-              />
-            </th>
-            <th>
-              <TextField
-                onChange={handleChange}
-                id="dosya2"
-                defaultValue={shelters.dosya2}
-                variant="standard"
-              />
-            </th>
-          </tr>
-          <tr>
-            <th>地震</th>
-            <th>
-              <TextField
-                onChange={handleChange}
-                id="jishin1"
-                defaultValue={shelters.jishin1}
-                variant="standard"
-              />
-            </th>
-            <th>
-              <TextField
-                onChange={handleChange}
-                id="jishin2"
-                defaultValue={shelters.jishin2}
-                variant="standard"
-              />
-            </th>
-          </tr>
-          <tr>
-            <th>火災</th>
-            <th>
-              <TextField
-                onChange={handleChange}
-                id="kasai1"
-                defaultValue={shelters.kasai1}
-                variant="standard"
-              />
-            </th>
-            <th>
-              <TextField
-                onChange={handleChange}
-                id="kasai2"
-                defaultValue={shelters.kasai2}
-                variant="standard"
-              />
-            </th>
-
-            </tr>
+            <tbody>
+              <tr>
+                <th></th>
+                <th>まず逃げるところ</th>
+                <th>家に帰れないときに過ごす場所</th>
+              </tr>
+              <tr>
+                <th>水害</th>
+                <th>
+                  <TextField
+                    onChange={handleChange}
+                    id="suigai1"
+                    defaultValue={shelters.suigai1}
+                    variant="standard"
+                  />
+                </th>
+                <th>
+                  <TextField
+                    onChange={handleChange}
+                    id="suigai2"
+                    defaultValue={shelters.suigai2}
+                    variant="standard"
+                  />
+                </th>
+              </tr>
+              <tr>
+                <th>土砂</th>
+                <th>
+                  <TextField
+                    onChange={handleChange}
+                    id="dosya1"
+                    defaultValue={shelters.dosya1}
+                    variant="standard"
+                  />
+                </th>
+                <th>
+                  <TextField
+                    onChange={handleChange}
+                    id="dosya2"
+                    defaultValue={shelters.dosya2}
+                    variant="standard"
+                  />
+                </th>
+              </tr>
+              <tr>
+                <th>地震</th>
+                <th>
+                  <TextField
+                    onChange={handleChange}
+                    id="jishin1"
+                    defaultValue={shelters.jishin1}
+                    variant="standard"
+                  />
+                </th>
+                <th>
+                  <TextField
+                    onChange={handleChange}
+                    id="jishin2"
+                    defaultValue={shelters.jishin2}
+                    variant="standard"
+                  />
+                </th>
+              </tr>
+              <tr>
+                <th>火災</th>
+                <th>
+                  <TextField
+                    onChange={handleChange}
+                    id="kasai1"
+                    defaultValue={shelters.kasai1}
+                    variant="standard"
+                  />
+                </th>
+                <th>
+                  <TextField
+                    onChange={handleChange}
+                    id="kasai2"
+                    defaultValue={shelters.kasai2}
+                    variant="standard"
+                  />
+                </th>
+              </tr>
+            </tbody>
           </table>
           <CheckList />
         </CardContent>
@@ -537,7 +448,10 @@ const Apps = () => {
 export const SandaP18Bousaikaigi = () => {
   return (
     <>
-      <SimpleTitle title="家族で防災カイギ" subtitle="いざという時のために「今」できること" />
+      <SimpleTitle
+        title="家族で防災カイギ"
+        subtitle="いざという時のために「今」できること"
+      />
       <Instruction />
       <HinanCard />
       <Apps />

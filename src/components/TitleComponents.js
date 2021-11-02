@@ -21,6 +21,10 @@ export const BodyText = ({ variant = "body1", children }) => (
   <CustomBasicText variant={variant}>{children}</CustomBasicText>
 );
 
+export const CenterBodyText = ({variant = "body1", children}) => (
+  <CustomBasicText variant={variant} sx={{textAlign:"center"}}>{children}</CustomBasicText>
+)
+
 export const CardTitle = ({ variant = "h5", children }) => (
   <CustomBasicText variant={variant} sx={{textAlign: "center"}} >{children}</CustomBasicText>
 );
