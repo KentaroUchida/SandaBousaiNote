@@ -81,8 +81,8 @@ const SandaP19BousaiSanpo = () => {
           </ImageTextCard>
 
           <TitleImageTextCard title="要確認!!"  image={generateImagePath("telphone_searchbar.png")} color = "lightgreen"> 
-          ↓災害伝言ダイヤルの使い方はこちらから<br/>
-          <Link href="/sandaForm">三田防災ノートP20</Link>
+          ↓災害伝言ダイヤルの使い方はこちら<br/>
+          <Link href="/sandaForm">三田防災ノートP19</Link>
           
           </TitleImageTextCard>
         </CardContent>
