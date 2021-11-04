@@ -42,6 +42,9 @@ const styles = {
   root: {
     display: "flex",
   },
+  main: {
+    width: { sm: `calc(100vw - ${drawerWidth}px - 15px)` },
+  },
   drawer: {
     width: { sm: drawerWidth },
     flexShrink: { sm: 0 },
@@ -145,6 +148,7 @@ function ResponsiveDrawer(props) {
 
   const container =
     window !== undefined ? () => window().document.body : undefined;
+  
   return (
     <Box sx={styles.root}>
       <CssBaseline />
@@ -189,7 +193,10 @@ function ResponsiveDrawer(props) {
                 </Grid>
 
                 <Grid item>
-                  <Typography sx={{ ml: 1.8 }}>
+                  <Typography display="inline" color="primary" sx={{ml:1.8}}>
+                    {props.now_index < 10 ? "0" : ""}
+                  </Typography>
+                  <Typography display="inline">
                     {props.now_index}
                     {"ページ"}
                   </Typography>
@@ -303,7 +310,7 @@ function ResponsiveDrawer(props) {
           {drawer}
         </Drawer>
       </Box>
-      <Box component="main">{props.children}</Box>
+      <Box component="main" sx={styles.main}>{props.children}</Box>
     </Box>
   );
 }

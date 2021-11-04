@@ -408,7 +408,16 @@ const Apps = () => {
             <React.Fragment key={i.toString()}>
               <Grid container justifyContent="center" alignItems="center">
                 <Grid item xs>
-                  <CardMedia alt={app.name} component="img" image={app.icon} />
+                  <CardMedia
+                    alt={app.name}
+                    component="img"
+                    image={app.icon}
+                    sx={{
+                      maxWidth: "100%",
+                      height: { xs: "auto", sm: "300px" },
+                      width: { sm: "auto" },
+                    }}
+                  />
                 </Grid>
                 <Grid item xs>
                   <Container fixed>
