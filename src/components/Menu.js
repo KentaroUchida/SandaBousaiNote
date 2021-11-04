@@ -357,35 +357,34 @@ function DownloadDialog() {
         stock: JSON.parse(localStorage.getItem('P18Stock') || '{}'),
       }
     };
-    console.log(body);
-    //axios
-    //  .post(
-    //    "https://mfdxebawsi.execute-api.us-east-1.amazonaws.com/Prod/create",
-    //    body
-    //  )
-    //  .then((res) => {
-    //    console.log(res.data);
-    //    return axios.get(res.data, {
-    //      responseType: "blob",
-    //      dataType: "binary",
-    //    });
-    //  })
-    //  .then((res) => {
-    //    const url = URL.createObjectURL(new Blob([res.data]));
-    //    const link = document.createElement("a");
-    //    link.href = url;
-    //    link.setAttribute("download", "bousai_note.pdf");
-    //    document.body.appendChild(link);
-    //    link.click();
-    //    handleClose();
-    //  })
-    //  .catch((err) => {
-    //    console.log(err);
-    //    setFailed(true);
-    //  })
-    //  .finally(() => {
-    //    setDownloading(false);
-    //  });
+    axios
+      .post(
+        "https://mfdxebawsi.execute-api.us-east-1.amazonaws.com/Prod/create",
+        body
+      )
+      .then((res) => {
+        console.log(res.data);
+        return axios.get(res.data, {
+          responseType: "blob",
+          dataType: "binary",
+        });
+      })
+      .then((res) => {
+        const url = URL.createObjectURL(new Blob([res.data]));
+        const link = document.createElement("a");
+        link.href = url;
+        link.setAttribute("download", "bousai_note.pdf");
+        document.body.appendChild(link);
+        link.click();
+        handleClose();
+      })
+      .catch((err) => {
+        console.log(err);
+        setFailed(true);
+      })
+      .finally(() => {
+        setDownloading(false);
+      });
   };
 
   return (
