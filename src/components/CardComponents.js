@@ -128,6 +128,23 @@ export const TitleTextImageCard = ({
   );
 };
 
+export const HeaderTextImageCard = ({
+  title,
+  image,
+  color = "tertiary.main",
+  children,
+}) => {
+  return (
+    <CardBase>
+      <HeaderCardPart title={title} color={color} />
+      <CardContent>
+        <BodyText>{children}</BodyText>
+      </CardContent>
+      <ImageCardPart image={image} />
+    </CardBase>
+  );
+};
+
 export const TitleImageTextCard = ({
   title,
   image,

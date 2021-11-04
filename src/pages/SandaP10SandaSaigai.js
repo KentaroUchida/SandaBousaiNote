@@ -5,7 +5,7 @@ import {
   CardBase,
   HeaderCardPart,
   ImageTextCard,
-  TitleTextImageCard,
+  HeaderTextImageCard,
 } from "../components/CardComponents";
 
 const img_path = "/img/pages/SandaP10SandaSaigai";
@@ -62,14 +62,14 @@ const SandaP10SandaBousai = () => {
       <CardBase>
         <HeaderCardPart title={<>三田で想定される<br/>3つの災害</>} />
         <Box sx={{ p: 2 }}>
-          <TitleTextImageCard
+          <HeaderTextImageCard
             title="地震"
             image={generateImagePath("sindo_bunpu.png")}
             color="warning.main"
           >
             南海トラフ地震、有馬－高槻断層帯地震
-          </TitleTextImageCard>
-          <TitleTextImageCard
+          </HeaderTextImageCard>
+          <HeaderTextImageCard
             title="水害"
             image={generateImagePath("suigai.png")}
             color="warning.main"
@@ -78,14 +78,14 @@ const SandaP10SandaBousai = () => {
             <br />
             <br />
             また、市内には多数のため池が分布しているため、大雨時には特に警戒を要する。
-          </TitleTextImageCard>
-          <TitleTextImageCard
+          </HeaderTextImageCard>
+          <HeaderTextImageCard
             title="土砂災害"
             image={generateImagePath("dosya.png")}
             color="warning.main"
           >
             急傾斜地でのがけ崩れ、地すべり。三田市内でも市域の中部、北部において危険箇所・区域の分布が多い。
-          </TitleTextImageCard>
+          </HeaderTextImageCard>
         </Box>
       </CardBase>
 

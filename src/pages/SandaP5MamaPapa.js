@@ -3,10 +3,10 @@ import React from "react";
 import {
   CardBase,
   ImageTextCard,
-  TitleCardPart,
-  TitleTextImageCard,
+  ImageCardPart,
+  HeaderCardPart,
 } from "../components/CardComponents";
-import { SimpleTitle } from "../components/TitleComponents";
+import { SimpleTitle, BodyText } from "../components/TitleComponents";
 
 const taikenTitles = [
   "つながりの大事さを実感！",
@@ -60,18 +60,20 @@ const SandaP5MamaPapa = () => {
         title="ママ&パパの体験談"
         subtitle="地震や台風を体験したママ&パパの声をご紹介します。"
       />
+
       {taikenTitles.map((_, i) => (
-        <TitleTextImageCard
-          title={taikenTitles[i]}
-          image={taikenImages[i]}
-          key={i}
-        >
-          {taikenTexts[i]}
-        </TitleTextImageCard>
+        <CardBase>
+          <HeaderCardPart title={taikenTitles[i]} color="tertiary.main" />
+          <CardContent>
+            <BodyText>{taikenTexts[i]}</BodyText>
+            <ImageCardPart image={taikenImages[i]} />
+          </CardContent>
+        </CardBase>
       ))}
+
       <CardBase>
+        <HeaderCardPart title="災害時の写真です"  color="tertiary.main" />
         <CardContent>
-          <TitleCardPart title="災害時の写真です" />
           {photoImages.map((_, i) => (
             <ImageTextCard image={photoImages[i]} key={i}>
               {photoTexts[i]}

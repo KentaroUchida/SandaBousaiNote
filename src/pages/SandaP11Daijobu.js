@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { TitleTextCard } from "../components/CardComponents";
+import { HeaderCardPart, CardBase,} from "../components/CardComponents";
 import { SimpleTitle } from "../components/TitleComponents";
 import {
   Card,
@@ -168,13 +168,24 @@ const SandaP11Daijobu = () => {
         title="「私は大丈夫！」って思ってない？"
         subtitle="それは、イヤなことを考えたくない心理です！"
       />
-      {daijobuTitles.map((_, i) => {
+      {/* {daijobuTitles.map((_, i) => {
         return (
           <TitleTextCard title={daijobuTitles[i]} key={i}>
             {texts[i]}
           </TitleTextCard>
         );
+      })} */}
+      {daijobuTitles.map((_, i) => {
+        return (
+          <CardBase>
+            <HeaderCardPart title={daijobuTitles[i]} color="tertiary.main" />
+            <CardContent>
+              {texts[i]}
+            </CardContent>
+          </CardBase>
+        );
       })}
+
       <CheckList />
     </>
   );

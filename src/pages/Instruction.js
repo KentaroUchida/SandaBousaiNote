@@ -5,7 +5,7 @@ import {
   ListItemIcon,
   ListItemText,
 } from "@mui/material";
-import { CardBase, TitleCardPart } from "../components/CardComponents";
+import { CardBase, HeaderCardPart, } from "../components/CardComponents";
 import FiberManualRecordIcon from "@mui/icons-material/FiberManualRecord";
 
 const instructionText = [
@@ -29,8 +29,8 @@ class Content extends React.Component {
   render() {
     return (
       <CardBase>
+        <HeaderCardPart title="さんだ防災ノートの使い方" color="tertiary.main"/>
         <CardContent>
-          <TitleCardPart title="さんだ防災ノートの使い方" />
           {instructionText.map((text, i) => {
             return (
               <ListItem key={i}>

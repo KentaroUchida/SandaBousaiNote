@@ -10,7 +10,7 @@ import {
 } from "@mui/material";
 import {
   CardBase,
-  TitleCardPart,
+  HeaderCardPart,
 } from "../components/CardComponents";
 import { SimpleTitle } from "../components/TitleComponents";
 import { ExpandMore as ExpandMoreIcon } from "@mui/icons-material";
@@ -182,9 +182,8 @@ export const SandaP20Form = () => {
     return(
       <>
         <CardBase>
+          <HeaderCardPart title="家族の連絡先"  color="tertiary.main" />
           <CardContent>
-            <TitleCardPart title="家族の連絡先" />
-
             <div style={{textAlign:"center"}}>
               <FormRegisterDialog category="family" submit={addAddress} />
               <br/>
@@ -204,8 +203,8 @@ export const SandaP20Form = () => {
         </CardBase>
 
         <CardBase>
+          <HeaderCardPart title="親戚・知人の連絡先"  color="tertiary.main" />
           <CardContent>
-            <TitleCardPart title="親戚・知人の連絡先" />
             <div style={{textAlign:"center"}}>
               <FormRegisterDialog category="family" submit={addAddress} />
               <br/>
@@ -268,8 +267,8 @@ export const SandaP20Form = () => {
     return(
       <>
         <CardBase>
+          <HeaderCardPart title="災害伝言ダイヤル"  color="tertiary.main" />
           <CardContent>
-            <TitleCardPart title="災害伝言ダイヤル" />
             <CardBase>
               <CardContent>
                 <h3 style={{textAlign:"center"}}>NTT災害ダイアル:171</h3>
@@ -278,24 +277,24 @@ export const SandaP20Form = () => {
               </CardContent>
             </CardBase>
             <CardBase>
+              <HeaderCardPart title="録音するとき" color='#FFF8AD' />
               <CardContent>
-                <TitleCardPart title="録音するとき" color='#FFF8AD'/>
                   <Typography>①「1」をダイヤル</Typography>
                   <Typography>②自分の番号をダイヤル</Typography>
                   <Typography>③メッセージを録音</Typography>
               </CardContent>
             </CardBase>
             <CardBase>
+              <HeaderCardPart title="再生するとき" color='#FFF8AD' />
               <CardContent>
-                <TitleCardPart title="再生する時" color='#FFF8AD'/>
                   <Typography>①「2」をダイヤル</Typography>
                   <Typography>②相手の番号をダイヤル</Typography>
                   <Typography>③メッセージを聞く</Typography>
               </CardContent>
             </CardBase>
             <CardBase>
+              <HeaderCardPart title="公衆電話" color="tertiary.main" />
               <CardContent>
-                <TitleCardPart title="公衆電話" />
                 <Typography>災害時でもつながりやすい公衆電話がどこにあるのかを調べて、子どもと実際にかけてみましょう。</Typography>
                 <br/>
                 <div style={{textAlign:"center"}}>
@@ -314,8 +313,8 @@ export const SandaP20Form = () => {
     return(
       <>
         <CardBase>
+          <HeaderCardPart title="フリーWiFi" color="tertiary.main" />
           <CardContent>
-            <TitleCardPart title="フリーWiFi" />
             <Typography style={{textAlign:"center"}}>災害時に誰でも使えるWiFi「00000JAPAN」</Typography>
             <div style={{textAlign:"center"}}>
               <img src="/img/pages/SandaP20Form/wifi.png" alt="wifiの画像" width="100px" height='auto' />
@@ -332,38 +331,38 @@ export const SandaP20Form = () => {
       <Contact />
       {/* <Shelter /> */}
       <CardBase>
-          <CardContent>
-            <TitleCardPart title="集合場所・避難場所を決めておく" />
-            <table>
-              <tbody>
-                <tr>
-                  <td>避難場所</td>
-                  <td>
-                    <TextField
-                      onChange={handleHinanbasyoChange}
-                      id="P0Hinanbasyo"
-                      defaultValue={hinanbasyo}
-                      variant="standard"
-                    />
-                  </td>
-                </tr>
-                <tr>
-                  <td>市指定避難場所</td>
-                  <td>
-                    <TextField
-                      onChange={handleShishiteiChange}
-                      id="shishitei"
-                      defaultValue={shishitei}
-                      variant="standard"
-                    />
-                  </td>
-                </tr>
-              </tbody>
-            </table>
-            <Typography>避難場所:危険を回避するための待機場所</Typography>
-            <Typography>市指定避難所:避難生活を送る場所</Typography>
-          </CardContent>
-        </CardBase>
+        <HeaderCardPart title="集合場所・避難場所を決めておく"  color="tertiary.main" />
+        <CardContent>
+          <table>
+            <tbody>
+              <tr>
+                <td>避難場所</td>
+                <td>
+                  <TextField
+                    onChange={handleHinanbasyoChange}
+                    id="P0Hinanbasyo"
+                    defaultValue={hinanbasyo}
+                    variant="standard"
+                  />
+                </td>
+              </tr>
+              <tr>
+                <td>市指定避難場所</td>
+                <td>
+                  <TextField
+                    onChange={handleShishiteiChange}
+                    id="shishitei"
+                    defaultValue={shishitei}
+                    variant="standard"
+                  />
+                </td>
+              </tr>
+            </tbody>
+          </table>
+          <Typography>避難場所:危険を回避するための待機場所</Typography>
+          <Typography>市指定避難所:避難生活を送る場所</Typography>
+        </CardContent>
+      </CardBase>
       <Dial />
       <Wifi />
     </>
