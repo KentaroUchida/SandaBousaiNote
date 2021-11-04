@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { BodyText, SimpleTitle } from "../components/TitleComponents";
-import { CardBase, TitleCardPart } from "../components/CardComponents";
+import { CardBase, HeaderCardPart } from "../components/CardComponents";
 import {
   CardContent,
   CardMedia,
@@ -254,8 +254,8 @@ const HinanCard = () => {
   return (
     <>
       <CardBase>
+        <HeaderCardPart title="わがやの災害避難カードを作ろう！"  color="tertiary.main" />
         <CardContent>
-          <TitleCardPart title="わがやの災害避難カードを作ろう！" />
           <BodyText>
             水害、土砂、地震、火災など、災害によって複数の逃げる場所を持つことが大切です。
           </BodyText>
@@ -401,8 +401,8 @@ const Apps = () => {
   ];
   return (
     <CardBase>
+      <HeaderCardPart title="防災おすすめアプリ"  color="tertiary.main" />
       <CardContent>
-        <TitleCardPart title="防災おすすめアプリ" />
         {apps.map((app, i) => {
           return (
             <React.Fragment key={i.toString()}>

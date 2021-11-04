@@ -1,9 +1,12 @@
+import { CardContent } from "@mui/material";
 import React from "react";
 import {
-  TitleTextImageCard,
-  TitleImagesCard,
+  ImageCard,
+  HeaderCardPart,
+  CardBase,
+  ImageCardPart,
 } from "../components/CardComponents";
-import { SimpleTitle } from "../components/TitleComponents";
+import { BodyText, SimpleTitle } from "../components/TitleComponents";
 
 const taikenTitles = [
   "台所はキケンがいっぱい！",
@@ -38,6 +41,14 @@ const taikenImages = [
   "img/pages/SandaP7TaikenPapa/food.png",
 ];
 
+const imageSrc = [
+  "img/pages/SandaP7TaikenPapa/higai1.jpg",
+  "img/pages/SandaP7TaikenPapa/higai2.jpg",
+  "img/pages/SandaP7TaikenPapa/higai3.jpg",
+  "img/pages/SandaP7TaikenPapa/higai4.jpg",
+  "img/pages/SandaP7TaikenPapa/higai5.jpg",
+]
+
 const SandaP7TaikenPapa = () => {
   // 文字列を改行
   // https://chaika.hatenablog.com/entry/2020/07/12/083000
@@ -59,21 +70,27 @@ const SandaP7TaikenPapa = () => {
         title="東日本大震災のパパの体験談"
         subtitle="実際の3.11震災の当時、仙台に住んでいたパパの体験をご紹介します"
       />
+
       {taikenTitles.map((_, i) => {
         return (
-          <TitleTextImageCard title={taikenTitles[i]} image={taikenImages[i]} key={i}>
-            {texts[i]}
-          </TitleTextImageCard>
+          <CardBase>
+            <HeaderCardPart title={taikenTitles[i]} color="tertiary.main" />
+            <CardContent>
+              <BodyText>{texts[i]}</BodyText>
+              <ImageCardPart image={taikenImages[i]} />
+            </CardContent>
+          </CardBase>
         );
       })}
-      <TitleImagesCard
-        title="震災時の写真です"
-        image1="img/pages/SandaP7TaikenPapa/higai1.jpg"
-        image2="img/pages/SandaP7TaikenPapa/higai2.jpg"
-        image3="img/pages/SandaP7TaikenPapa/higai3.jpg"
-        image4="img/pages/SandaP7TaikenPapa/higai4.jpg"
-        image5="img/pages/SandaP7TaikenPapa/higai5.jpg"
-      />
+
+      <CardBase>
+        <HeaderCardPart title="震災時の写真です" color="tertiary.main" />
+        <CardContent>
+          {imageSrc.map((_,i) => {
+            return <ImageCard image={imageSrc[i]} />
+          })}
+        </CardContent>
+      </CardBase>
     </>
   );
 };
