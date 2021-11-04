@@ -323,8 +323,6 @@ ResponsiveDrawer.propTypes = {
   window: PropTypes.func,
 };
 
-//export default ResponsiveDrawer;
-
 function DownloadDialog() {
   const [open, setOpen] = React.useState(false);
   const [downloading, setDownloading] = React.useState(false);
@@ -334,62 +332,38 @@ function DownloadDialog() {
   };
   const handleClose = () => {
     setOpen(false);
-    if (failed) setFailed(false);
+    if(downloading) setDownloading(false);
+    if(failed) setFailed(false);
   };
   const downloadPDF = () => {
     setDownloading(true);
     setFailed(false);
-    const body = { form: {}, card: {}, goods: {}, checkList: {} };
-    [
-      ["family", "familyList"],
-      ["relatives", "relativeList"],
-      ["facilities", "facilityList"],
-    ].forEach((keys) => {
-      const tmp = localStorage.getItem(keys[1]);
-      body.form[keys[0]] = tmp ? JSON.parse(tmp) : [];
-    });
-    [
-      ["home", "phone"],
-      ["temporary", "P0Hinanbasyo"],
-      ["disaster", "P0Shishitei"],
-    ].forEach((keys) => {
-      body.form[keys[0]] = localStorage.getItem(keys[1]);
-    });
-    const cardString = localStorage.getItem("P17Izanigeru");
-    const cardTmp = cardString ? JSON.parse(cardString) : {};
-    [
-      ["flood", "suigai"],
-      ["sediment", "dosya"],
-      ["earthquake", "jishin"],
-      ["fire", "kasai"],
-    ].forEach((keys) => {
-      body.card[keys[0]] = {};
-      ["evacuation", "shelter"].forEach(
-        (k, i) => (body.card[keys[0]][k] = cardTmp[keys[1] + (i + 1)])
-      );
-    });
-    const clm = localStorage.getItem("checkListMore");
-    if (clm) Object.assign(body.goods, JSON.parse(clm));
-    const clh = localStorage.getItem("checkListHyakkin");
-    if (clh) {
-      const tmp = JSON.parse(clh);
-      if (tmp.whistle) body.goods.whistle2 = true;
-      Object.assign(body.goods, tmp);
-    }
-    const cln = localStorage.getItem("checkListNormally");
-    if (cln) Object.assign(body.goods, JSON.parse(cln));
-    const fl = localStorage.getItem("foodList");
-    body.foods = fl ? JSON.parse(fl) : {};
 
-    body.checkList.earthquake = localStorage.getItem("P15Earthquake");
-    body.checkList.flood = localStorage.getItem("P15Flood");
-    body.checkList.place = localStorage.getItem("P15Place");
-    const clhm = localStorage.getItem("P15Home");
-    if (clhm) Object.assign(body.checkList, JSON.parse(clhm));
-    const clst = localStorage.getItem("P15Stock");
-    if (clst) Object.assign(body.checkList, JSON.parse(clst));
-
-    console.log(body);
+    const body = {
+      form: {
+        family: JSON.parse(localStorage.getItem('familyList') || '{}'),
+        // TODO: 親戚(relatives)と知人(acquaintance)のフォームを直して、ここに
+        //       localStorageの読み込み処理を追記する
+        shelter: localStorage.getItem('P20Hinanbasyo'),
+        specified: localStorage.getItem('P20Shishitei'),
+      },
+      consciousness: JSON.parse(localStorage.getItem('P11Sense') || '{}'),
+      goods:{
+        zeroth: JSON.parse(localStorage.getItem('checkListZeroth') || '{}'),
+        first: JSON.parse(localStorage.getItem('checkListFirst') || '{}'),
+        more: JSON.parse(localStorage.getItem('checkListMore') || '{}'),
+        second: JSON.parse(localStorage.getItem('checkListSecond') || '{}'),
+        hyakkin: JSON.parse(localStorage.getItem('checkListHyakkin') || '{}'),
+      }, foods: {
+        foodList: JSON.parse(localStorage.getItem('foodList') || '{}'),
+        cookingList: JSON.parse(localStorage.getItem('cookingList') || '{}'),
+      }, card: {
+        shelters: JSON.parse(localStorage.getItem('P18Shelters') || '{}'),
+        place: localStorage.getItem('P18Place'),
+        home: JSON.parse(localStorage.getItem('P18Home') || '{}'),
+        stock: JSON.parse(localStorage.getItem('P18Stock') || '{}'),
+      }
+    };
     axios
       .post(
         "https://mfdxebawsi.execute-api.us-east-1.amazonaws.com/Prod/create",

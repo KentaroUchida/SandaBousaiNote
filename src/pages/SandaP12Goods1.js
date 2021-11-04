@@ -73,7 +73,7 @@ const zerothItems = [
   },
   {
     name: "家族の写真・連絡先",
-    path: "adress",
+    path: "address",
   },
   {
     name: "衛生用品ナプキン・おりものシート",

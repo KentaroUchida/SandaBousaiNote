@@ -12,7 +12,7 @@ sam cliをインストールしている環境 or AWS Cloud9
 
 ## 下準備
 
-`src/`以下に、ttfファイル`GenShinGothic-P-Normal.ttf`と親子防災ノート`1015_Bousai_A4.pdf`を配置してから以下の作業をおこなってください。
+`src/`以下に、ttfファイル`GenShinGothic-P-Normal.ttf`と親子防災ノート`211029.pdf`を配置してから以下の作業をおこなってください。
 
 ## ビルド・デプロイ
 
