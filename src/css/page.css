@@ -32,7 +32,7 @@
   .letter2 {
     min-height: 500px;
     position: absolute;
-    height: 97%;
+    height: 88%;
     width: calc(93vw - 350px);
     z-index: 2;
     background: #fafafa;
@@ -42,7 +42,7 @@
   .letter3 {
     min-height: 500px;
     position: absolute;
-    height: 97%;
+    height: 88%;
     width: calc(93vw - 350px);
     z-index: 1;
     background: #f6f6f6;

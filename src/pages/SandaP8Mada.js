@@ -4,7 +4,6 @@ import {
   CardHeader,
   CardMedia,
   Typography,
-  Box,
 } from "@mui/material";
 import { styled } from "@mui/system";
 import { CardBase } from "../components/CardComponents";

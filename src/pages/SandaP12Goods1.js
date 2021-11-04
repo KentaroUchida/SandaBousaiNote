@@ -210,7 +210,7 @@ function getPath(str) {
 function Sonaebox(props) {
   return (
     <FormGroup row>
-      <ImageList cols={1} rowHeight="auto" gap={0}>
+      <ImageList cols={1} rowHeight="auto" gap={0} sx={{ width: "100%" }}>
         <Card sx={styles.card}>
           <CardHeader
             title="0次の備え"
@@ -257,7 +257,7 @@ function Checkbox2Lines(props) {
   const items = props.items;
   return (
     <FormGroup row>
-      <ImageList cols={2} rowHeight="auto">
+      <ImageList cols={2} rowHeight="auto" sx={{ width: "100%" }}>
         {Object.keys(items).map((key) => {
           return (
             <Card key={key}>
@@ -293,7 +293,7 @@ function Checkbox2Lines(props) {
                     image={getPath(key)}
                     title={items[key].name}
                     sx={{
-                      maxHeight: 100,
+                      maxHeight: { xs: 100, sm: 250 },
                       height: "auto",
                       maxWidth: "90%",
                       width: "auto",
@@ -545,44 +545,59 @@ class More extends React.Component {
           titleTypographyProps={{ align: "center" }}
         />
         <CardContent>
-          {Object.keys(items).map((key) => {
-            return (
-              <Card key={key}>
-                <CardActionArea
-                  onClick={(event) => {
-                    event.target.name = key;
-                    event.target.checked = !items[key].checked;
-                    this.handleChange(event);
-                  }}
-                >
-                  <FormControlLabel
-                    control={
-                      <Checkbox
-                        checked={items[key].checked}
-                        name={key}
-                        onChange={this.handleChange}
+          <FormGroup row>
+            <ImageList cols={2} rowHeight="auto" sx={{ width: "100%" }}>
+              {Object.keys(items).map((key) => {
+                return (
+                  <Card key={key}>
+                    <CardActionArea
+                      onClick={(event) => {
+                        event.target.name = key;
+                        event.target.checked = !items[key].checked;
+                        this.handleChange(event);
+                      }}
+                    >
+                      <FormControlLabel
+                        control={
+                          <Checkbox
+                            checked={items[key].checked}
+                            name={key}
+                            onChange={this.handleChange}
+                          />
+                        }
+                        label={items[key].name}
+                        onClick={(event) => {
+                          event.stopPropagation(); // CardActionAreaのonClickを無効化
+                        }}
                       />
-                    }
-                    label={items[key].name}
-                    onClick={(event) => {
-                      event.stopPropagation(); // CardActionAreaのonClickを無効化
-                    }}
-                  />
-                  <CardMedia
-                    component="img"
-                    alt={items[key].name}
-                    image={getPath(key)}
-                    title={items[key].name}
-                  />
-                  <CardContent>
-                    <Typography variant="body2">
-                      {items[key].message}
-                    </Typography>
-                  </CardContent>
-                </CardActionArea>
-              </Card>
-            );
-          })}
+                      <Box
+                        sx={{
+                          display: "flex",
+                          justifyContent: "center",
+                        }}
+                      >
+                        <CardMedia
+                          component="img"
+                          alt={items[key].name}
+                          image={getPath(key)}
+                          title={items[key].name}
+                          sx={{
+                            maxHeight: { xs: 100, sm: 250 },
+                            height: "auto",
+                            maxWidth: "90%",
+                            width: "auto",
+                          }}
+                        />
+                      </Box>
+                      <Typography variant="body2">
+                        {items[key].message}
+                      </Typography>
+                    </CardActionArea>
+                  </Card>
+                );
+              })}
+            </ImageList>
+          </FormGroup>
         </CardContent>
       </Card>
     );

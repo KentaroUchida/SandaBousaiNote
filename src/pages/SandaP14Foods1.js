@@ -77,7 +77,8 @@ const preparationList = {
     },
     {
       name: "カセットボンベ",
-      comment: "カセットボンベ1本で約60分使用可能。1日2本×7日分=14本(※家族4人分の目安です)",
+      comment:
+        "カセットボンベ1本で約60分使用可能。1日2本×7日分=14本(※家族4人分の目安です)",
       path: "gas",
     },
     {
@@ -113,8 +114,8 @@ const preparationList = {
     {
       name: "お皿・コップ・割りばし(使い捨て)",
       comment: null,
-      path: "tableware"
-    }
+      path: "tableware",
+    },
   ],
 };
 
@@ -157,7 +158,7 @@ const SandaP14Foods1 = () => {
   const handleFoodListChange = (event) => {
     let nextFoodList = foodList;
     nextFoodList[event.target.name].checked = event.target.checked;
-    setFoodList({...nextFoodList});
+    setFoodList({ ...nextFoodList });
 
     localStorage.setItem(
       "foodList",
@@ -173,7 +174,7 @@ const SandaP14Foods1 = () => {
   const handleCookingListChange = (event) => {
     const nextCookingList = cookingList;
     nextCookingList[event.target.name].checked = event.target.checked;
-    setCookingList({...nextCookingList});
+    setCookingList({ ...nextCookingList });
 
     localStorage.setItem(
       "cookingList",
@@ -192,7 +193,7 @@ const SandaP14Foods1 = () => {
       <CardContent>
         {comment !== null ? <BodyText>{comment}</BodyText> : ""}
         <FormGroup row>
-          <ImageList cols={2} rowHeight="auto">
+          <ImageList cols={2} rowHeight="auto" sx={{ width: "100%" }}>
             {Object.keys(items).map((key) => {
               const item = items[key];
               const [name, comment, checked] = [
@@ -234,7 +235,7 @@ const SandaP14Foods1 = () => {
                         image={generateImagePath(key)}
                         title={name}
                         sx={{
-                          maxHeight: 100,
+                          maxHeight: { xs: 100, sm: 250 },
                           height: "auto",
                           maxWidth: "90%",
                           width: "auto",
@@ -286,7 +287,7 @@ const SandaP14Foods1 = () => {
             少ない水で温かい食べ物が作れます。
           </BodyText>
           <ImageCardPart image={generateImagePath("poli_cooking_2")} />
-          <br/>
+          <br />
           <ImageCardPart image={generateImagePath("poli_cooking_1")} />
         </CardContent>
       </CardBase>

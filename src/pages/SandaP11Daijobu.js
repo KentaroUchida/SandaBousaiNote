@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { TitleTextImageCard } from "../components/CardComponents";
+import { TitleTextCard } from "../components/CardComponents";
 import { SimpleTitle } from "../components/TitleComponents";
 import {
   Card,
@@ -45,11 +45,13 @@ const daijobuTexts = [
   "自然災害は、想定していたものより、小さなもので済むことがあります。「避難したけど、何ごともなかった」そんな時なんとなく損した気分になりますね。\nでもそうじゃない！あなたは今回も自分の命、家族の命を守る行動をとれたのです!!自然災害は想定していた以上の被害が生じることもあります。油断しないで最善を尽くしましょう。",
 ];
 
+/*
 const daijobuImages = [
   "img/pages/SandaP11Daijobu/waremono.png",
   "img/pages/SandaP11Daijobu/kotei.png",
   "img/pages/SandaP11Daijobu/tounan1.png",
 ];
+*/
 
 function CheckList() {
   let tmp = localStorage.getItem("P11Sense");
@@ -168,9 +170,9 @@ const SandaP11Daijobu = () => {
       />
       {daijobuTitles.map((_, i) => {
         return (
-          <TitleTextImageCard title={daijobuTitles[i]} image={daijobuImages[i]} key={i}>
+          <TitleTextCard title={daijobuTitles[i]} key={i}>
             {texts[i]}
-          </TitleTextImageCard>
+          </TitleTextCard>
         );
       })}
       <CheckList />
