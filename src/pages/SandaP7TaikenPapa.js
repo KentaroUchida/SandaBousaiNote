@@ -47,7 +47,7 @@ const imageSrc = [
   "img/pages/SandaP7TaikenPapa/higai3.jpg",
   "img/pages/SandaP7TaikenPapa/higai4.jpg",
   "img/pages/SandaP7TaikenPapa/higai5.jpg",
-]
+];
 
 const SandaP7TaikenPapa = () => {
   // 文字列を改行
@@ -73,7 +73,7 @@ const SandaP7TaikenPapa = () => {
 
       {taikenTitles.map((_, i) => {
         return (
-          <CardBase>
+          <CardBase key={i}>
             <HeaderCardPart title={taikenTitles[i]} color="tertiary.main" />
             <CardContent>
               <BodyText>{texts[i]}</BodyText>
@@ -86,8 +86,8 @@ const SandaP7TaikenPapa = () => {
       <CardBase>
         <HeaderCardPart title="震災時の写真です" color="tertiary.main" />
         <CardContent>
-          {imageSrc.map((_,i) => {
-            return <ImageCard image={imageSrc[i]} />
+          {imageSrc.map((_, i) => {
+            return <ImageCard image={imageSrc[i]} key={i} />;
           })}
         </CardContent>
       </CardBase>

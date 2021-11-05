@@ -1,20 +1,26 @@
 import React from "react";
 import {
+  Box,
   CardContent,
   CardHeader,
   CardMedia,
   Typography,
 } from "@mui/material";
-import { styled } from "@mui/system";
 import { CardBase } from "../components/CardComponents";
 import { SimpleTitle } from "../components/TitleComponents";
 
 const imageBasePath = "img/pages/SandaP8Mada/";
 
-const CenterBox = styled("Box")({
-  justifyContent: "center",
-  display: "flex",
-});
+const CenterBox = ({ children }) => (
+  <Box
+    sx={{
+      justifyContent: "center",
+      display: "flex",
+    }}
+  >
+    {children}
+  </Box>
+);
 
 const styles = {
   image: {
