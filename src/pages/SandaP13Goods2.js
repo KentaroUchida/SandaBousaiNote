@@ -1,5 +1,6 @@
 import React from "react";
 import {
+  Box,
   Card,
   CardActionArea,
   CardContent,
@@ -18,8 +19,7 @@ const styles = {
   card: {
     marginBottom: 12,
   },
-  cardHeaderMain: {
-  },
+  cardHeaderMain: {},
   cardHeaderCheckList: {
     bgcolor: "blue.light",
   },
@@ -27,7 +27,8 @@ const styles = {
     bgcolor: "secondary.light",
   },
   cardHeaderRecommend: {
-    bgcolor: "repeating-linear-gradient(45deg, #e0ffff, #e0ffff 12px, #ffffff 12px, #ffffff 24px)",
+    bgcolor:
+      "repeating-linear-gradient(45deg, #e0ffff, #e0ffff 12px, #ffffff 12px, #ffffff 24px)",
   },
   child: {
     marginLeft: 3,
@@ -37,12 +38,10 @@ const styles = {
   },
 };
 
-
-
 const secondItems = [
   {
     name: "水",
-    sub : "ひとり1日3Lが目安",
+    sub: "ひとり1日3Lが目安",
     path: "drink_L",
   },
   {
@@ -153,7 +152,7 @@ const hyakkinItems = [
   },
   {
     name: "ガムテープ",
-    sub : "伝言をかける",
+    sub: "伝言をかける",
     path: "tape",
   },
   {
@@ -182,22 +181,21 @@ const hyakkinItems = [
     name: "はさみ（裁縫セット）",
     path: "sewing",
   },
- 
+
   {
     name: "ヘッドライト",
     path: "headlight",
   },
   {
-    name:"軍手",
-    sub :"ワレモノだらけで危険",
-    path:"glove"
+    name: "軍手",
+    sub: "ワレモノだらけで危険",
+    path: "glove",
   },
   {
-    name:"歯ブラシセット",
-    path:"toothbrush_set"
+    name: "歯ブラシセット",
+    path: "toothbrush_set",
   },
 ];
-
 
 function getPath(str) {
   return "/img/pages/SandaP13Goods/" + str + ".png";
@@ -207,7 +205,7 @@ function Checkbox2Lines(props) {
   const items = props.items;
   return (
     <FormGroup row>
-      <ImageList cols={2} rowHeight="auto">
+      <ImageList cols={2} rowHeight="auto" sx={{ width: "100%" }}>
         {Object.keys(items).map((key) => {
           return (
             <Card key={key}>
@@ -231,12 +229,25 @@ function Checkbox2Lines(props) {
                     event.stopPropagation(); // CardActionAreaのonClickを無効化
                   }}
                 />
-                <CardMedia
-                  component="img"
-                  alt={items[key].name}
-                  image={getPath(key)}
-                  title={items[key].name}
-                />
+                <Box
+                  sx={{
+                    display: "flex",
+                    justifyContent: "center",
+                  }}
+                >
+                  <CardMedia
+                    component="img"
+                    alt={items[key].name}
+                    image={getPath(key)}
+                    title={items[key].name}
+                    sx={{
+                      maxHeight: { xs: 100, sm: 250 },
+                      height: "auto",
+                      maxWidth: "90%",
+                      width: "auto",
+                    }}
+                  />
+                </Box>
                 <CardContent>
                   <Typography variant="body2">{items[key].emphasis}</Typography>
                   <Typography variant="body2">{items[key].sub}</Typography>
@@ -308,14 +319,14 @@ class Second extends React.Component {
     return (
       <Card sx={styles.card}>
         <CardHeader
-          title="2次の備え"  
+          title="2次の備え"
           sx={styles.cardHeaderCheckList}
           titleTypographyProps={{ align: "center" }}
           subheader="お家にストック"
           subheaderTypographyProps={{ align: "center" }}
         />
         <CardContent>
-        <Typography>基本の在宅避難時用　防災備蓄</Typography>
+          <Typography>基本の在宅避難時用　防災備蓄</Typography>
           <Checkbox2Lines
             items={this.state.items}
             onChange={this.handleChange}
@@ -389,7 +400,10 @@ class Hyakkin extends React.Component {
           titleTypographyProps={{ align: "center" }}
         />
         <CardContent>
-          <Typography> 百均で購入したものをは、長持ちしないものも多いので注意しよう！</Typography>
+          <Typography>
+            {" "}
+            百均で購入したものをは、長持ちしないものも多いので注意しよう！
+          </Typography>
           <Checkbox2Lines
             items={this.state.items}
             onChange={this.handleChange}
@@ -400,11 +414,13 @@ class Hyakkin extends React.Component {
   }
 }
 
-
 function SandaP13Goods2() {
   return (
     <>
-      <SimpleTitle title="防災グッズを備えよう２" subtitle="非常時にホントに役に立つ"/>
+      <SimpleTitle
+        title="防災グッズを備えよう２"
+        subtitle="非常時にホントに役に立つ"
+      />
       <Divider />
       <Second />
       <Hyakkin />
@@ -412,4 +428,4 @@ function SandaP13Goods2() {
   );
 }
 
-export {SandaP13Goods2}
+export { SandaP13Goods2 };

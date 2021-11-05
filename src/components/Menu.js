@@ -33,7 +33,6 @@ import ArrowForwardIcon from "@mui/icons-material/ArrowForward";
 import HelpOutlineIcon from "@mui/icons-material/HelpOutline";
 import FiberManualRecordIcon from "@mui/icons-material/FiberManualRecord";
 
-
 import { titles } from "../components/Titles";
 import { hints } from "../components/Hints";
 
@@ -42,6 +41,9 @@ const drawerWidth = 350;
 const styles = {
   root: {
     display: "flex",
+  },
+  main: {
+    width: { sm: `calc(100vw - ${drawerWidth}px - 15px)` },
   },
   drawer: {
     width: { sm: drawerWidth },
@@ -146,305 +148,171 @@ function ResponsiveDrawer(props) {
 
   const container =
     window !== undefined ? () => window().document.body : undefined;
-  if( hints[props.now_index][0]==="NULL"){
-    return (
-      <Box sx={styles.root}>
-        <CssBaseline />
-        <AppBar position="fixed" sx={styles.appBar}>
-          <Toolbar>
-            <Grid
-              container
-              direction="row"
-              justifyContent="space-between"
-              alignItems="center"
-            >
-              <Grid item>
-                <Button
-                  style={{
-                    backgroundColor: "white",
-                    textShadow: "1px 1px 100px rgba(255, 255, 255, 0.66)",
-                    boxShadow:
-                      "inset 0 100px 0 rgba(255,255,255,0.5), 0 1px 1px rgba(0, 0, 0, 0.19)",
-                    borderBottom: "solid 1px #b5b5b5",
-                  }}
-                  aria-label="open drawer"
-                  onClick={handleDrawerOpen}
-                  sx={styles.menuButton}
-                >
-                  <b>目次</b>
-                </Button>
-              </Grid>
   
-              <Grid item>
-                <Grid container alignItems="center">
-                  <Grid item>
-                    <Link
-                      to={
-                        links[(props.now_index + links.length - 1) % links.length]
-                      }
-                      key={(props.now_index + links.length - 1) % links.length}
-                    >
-                      <IconButton edge="end">
-                        <ArrowBackIcon />
-                      </IconButton>
-                    </Link>
-                  </Grid>
-  
-                  <Grid item>
-                    <Typography sx={{ml: 1.8}}>
-                      {props.now_index}{"ページ"}
-                    </Typography>
-                  </Grid>
-  
-                  <Grid item>
-                    <Link
-                      to={links[(props.now_index + 1) % links.length]}
-                      key={(props.now_index + 1) % links.length}
-                    >
-                      <IconButton edge="end">
-                        <ArrowForwardIcon sx={{mr: 6.5}}/>
-                      </IconButton>
-                    </Link>
-                  </Grid>
-                </Grid>
-              </Grid>
-  
-              <Grid item>
-                
-                <Dialog
-                  open={open}
-                  onClose={handleClose}
-                  aria-labelledby="alert-dialog-title"
-                  aria-describedby="alert-dialog-description"
-                >
-                  <DialogTitle id="alert-dialog-title">
-                    {"三田防災ノートP" + String(props.now_index)}
-                    <br />
-                    説明ページ
-                  </DialogTitle>
-                  <DialogContent>
-                    <DialogContentText id="alert-dialog-description">
-                      {typeof hints[props.now_index] === "object" &&
-                        hints[props.now_index].map((text, i) => {
-                          return (
-                            <Typography>
-                              <ListItem>
-                                <ListItemIcon>
-                                  <FiberManualRecordIcon />
-                                </ListItemIcon>
-                                <ListItemText primary={text} />
-                              </ListItem>
-                            </Typography>
-                          );
-                        })}
-                    </DialogContentText>
-                  </DialogContent>
-                  <DialogActions>
-                    <Button onClick={handleClose}>確認しました</Button>
-                  </DialogActions>
-                </Dialog>
-                <DownloadDialog />
-              </Grid>
-  
+  return (
+    <Box sx={styles.root}>
+      <CssBaseline />
+      <AppBar position="fixed" sx={styles.appBar}>
+        <Toolbar>
+          <Grid
+            container
+            direction="row"
+            justifyContent="space-between"
+            alignItems="center"
+          >
+            <Grid item>
+              <Button
+                style={{
+                  backgroundColor: "white",
+                  textShadow: "1px 1px 100px rgba(255, 255, 255, 0.66)",
+                  boxShadow:
+                    "inset 0 100px 0 rgba(255,255,255,0.5), 0 1px 1px rgba(0, 0, 0, 0.19)",
+                  borderBottom: "solid 1px #b5b5b5",
+                }}
+                aria-label="open drawer"
+                onClick={handleDrawerOpen}
+                sx={styles.menuButton}
+              >
+                <b>目次</b>
+              </Button>
             </Grid>
-          </Toolbar>
-        </AppBar>
-        <Box component="nav" sx={styles.drawer} aria-label="mailbox folders">
-          {/* The implementation can be swapped with js to avoid SEO duplication of links. */}
-          <Drawer
-            container={container}
-            variant="temporary"
-            anchor={theme.direction === "rtl" ? "right" : "left"}
-            open={mobileOpen}
-            onClose={handleDrawerToggle}
-            sx={{
-              display: { xs: "block", sm: "none" },
-              "& .MuiDrawer-paper": styles.drawerPaper,
-            }}
-            ModalProps={{
-              keepMounted: true, // Better open performance on mobile.
-            }}
-          >
-            <Box sx={styles.drawerHeader}>
-              <IconButton onClick={handleDrawerClose}>
-                {theme.direction === "ltr" ? (
-                  <ChevronLeftIcon />
-                ) : (
-                  <ChevronRightIcon />
-                )}
-              </IconButton>
-            </Box>
-            {drawer}
-          </Drawer>
-          <Drawer
-            sx={{
-              display: { xs: "none", sm: "block" },
-              "& .MuiDrawer-paper": styles.drawerPaper,
-            }}
-            variant="permanent"
-            //open
-          >
-            {drawer}
-          </Drawer>
-        </Box>
-        <Box component="main">{props.children}</Box>
-      </Box>
-    );
 
-  } else{
-    return (
-      <Box sx={styles.root}>
-        <CssBaseline />
-        <AppBar position="fixed" sx={styles.appBar}>
-          <Toolbar>
-            <Grid
-              container
-              direction="row"
-              justifyContent="space-between"
-              alignItems="center"
-            >
-              <Grid item>
-                <Button
-                  style={{
-                    backgroundColor: "white",
-                    textShadow: "1px 1px 100px rgba(255, 255, 255, 0.66)",
-                    boxShadow:
-                      "inset 0 100px 0 rgba(255,255,255,0.5), 0 1px 1px rgba(0, 0, 0, 0.19)",
-                    borderBottom: "solid 1px #b5b5b5",
-                  }}
-                  aria-label="open drawer"
-                  onClick={handleDrawerOpen}
-                  sx={styles.menuButton}
-                >
-                  <b>目次</b>
-                </Button>
-              </Grid>
-  
-              <Grid item>
-                <Grid container alignItems="center">
-                  <Grid item>
-                    <Link
-                      to={
-                        links[(props.now_index + links.length - 1) % links.length]
-                      }
-                      key={(props.now_index + links.length - 1) % links.length}
-                    >
-                      <IconButton edge="end">
-                        <ArrowBackIcon />
-                      </IconButton>
-                    </Link>
-                  </Grid>
-  
-                  <Grid item>
-                    <Typography sx={{ml: 1.8}}>
-                      {props.now_index}{"ページ"}
-                    </Typography>
-                  </Grid>
-  
-                  <Grid item>
-                    <Link
-                      to={links[(props.now_index + 1) % links.length]}
-                      key={(props.now_index + 1) % links.length}
-                    >
-                      <IconButton edge="end">
-                        <ArrowForwardIcon />
-                      </IconButton>
-                    </Link>
-                  </Grid>
+            <Grid item>
+              <Grid container alignItems="center">
+                <Grid item>
+                  <Link
+                    to={
+                      links[(props.now_index + links.length - 1) % links.length]
+                    }
+                    key={(props.now_index + links.length - 1) % links.length}
+                  >
+                    <IconButton edge="end">
+                      <ArrowBackIcon />
+                    </IconButton>
+                  </Link>
+                </Grid>
+
+                <Grid item>
+                  <Typography display="inline" color="primary" sx={{ml:1.8}}>
+                    {props.now_index < 10 ? "0" : ""}
+                  </Typography>
+                  <Typography display="inline">
+                    {props.now_index}
+                    {"ページ"}
+                  </Typography>
+                </Grid>
+
+                <Grid item>
+                  <Link
+                    to={links[(props.now_index + 1) % links.length]}
+                    key={(props.now_index + 1) % links.length}
+                  >
+                    <IconButton edge="end">
+                      <ArrowForwardIcon />
+                    </IconButton>
+                  </Link>
                 </Grid>
               </Grid>
-  
-              <Grid item>
+            </Grid>
+
+            <Grid item>
+              {hints[props.now_index][0] === "NULL" ? (
+                <IconButton
+                  color="inherit"
+                  edge="end"
+                  sx={{ mr: "1px" }}
+                  disabled
+                >
+                  <HelpOutlineIcon fontSize="large" color="primary" />
+                </IconButton>
+              ) : (
                 <IconButton
                   color="inherit"
                   edge="end"
                   onClick={handleClickOpen}
-                  sx={{mr:"1px"}}
+                  sx={{ mr: "1px" }}
                 >
                   <HelpOutlineIcon fontSize="large" />
                 </IconButton>
-                <Dialog
-                  open={open}
-                  onClose={handleClose}
-                  aria-labelledby="alert-dialog-title"
-                  aria-describedby="alert-dialog-description"
-                >
-                  <DialogTitle id="alert-dialog-title">
-                    {"三田防災ノートP" + String(props.now_index)}
-                    <br />
-                    説明ページ
-                  </DialogTitle>
-                  <DialogContent>
-                    <DialogContentText id="alert-dialog-description">
-                      {typeof hints[props.now_index] === "object" &&
-                        hints[props.now_index].map((text, i) => {
-                          return (
-                            <Typography>
-                              <ListItem>
-                                <ListItemIcon>
-                                  <FiberManualRecordIcon />
-                                </ListItemIcon>
-                                <ListItemText primary={text} />
-                              </ListItem>
-                            </Typography>
-                          );
-                        })}
-                    </DialogContentText>
-                  </DialogContent>
-                  <DialogActions>
-                    <Button onClick={handleClose}>確認しました</Button>
-                  </DialogActions>
-                </Dialog>
-                <DownloadDialog />
-              </Grid>
-  
+              )}
+              <Dialog
+                open={open}
+                onClose={handleClose}
+                aria-labelledby="alert-dialog-title"
+                aria-describedby="alert-dialog-description"
+              >
+                <DialogTitle id="alert-dialog-title">
+                  {"三田防災ノートP" + String(props.now_index)}
+                  <br />
+                  説明ページ
+                </DialogTitle>
+                <DialogContent>
+                  <div id="alert-dialog-description">
+                    {typeof hints[props.now_index] === "object" &&
+                      hints[props.now_index].map((text, i) => {
+                        return (
+                          <ListItem key={i}>
+                            <ListItemIcon>
+                              <FiberManualRecordIcon />
+                            </ListItemIcon>
+                            {//<ListItemText primary={text} />}
+                      }
+                            {text}
+                          </ListItem>
+                        );
+                      })}
+                  </div>
+                </DialogContent>
+                <DialogActions>
+                  <Button onClick={handleClose}>確認しました</Button>
+                </DialogActions>
+              </Dialog>
+              <DownloadDialog />
             </Grid>
-          </Toolbar>
-        </AppBar>
-        <Box component="nav" sx={styles.drawer} aria-label="mailbox folders">
-          {/* The implementation can be swapped with js to avoid SEO duplication of links. */}
-          <Drawer
-            container={container}
-            variant="temporary"
-            anchor={theme.direction === "rtl" ? "right" : "left"}
-            open={mobileOpen}
-            onClose={handleDrawerToggle}
-            sx={{
-              display: { xs: "block", sm: "none" },
-              "& .MuiDrawer-paper": styles.drawerPaper,
-            }}
-            ModalProps={{
-              keepMounted: true, // Better open performance on mobile.
-            }}
-          >
-            <Box sx={styles.drawerHeader}>
-              <IconButton onClick={handleDrawerClose}>
-                {theme.direction === "ltr" ? (
-                  <ChevronLeftIcon />
-                ) : (
-                  <ChevronRightIcon />
-                )}
-              </IconButton>
-            </Box>
-            {drawer}
-          </Drawer>
-          <Drawer
-            sx={{
-              display: { xs: "none", sm: "block" },
-              "& .MuiDrawer-paper": styles.drawerPaper,
-            }}
-            variant="permanent"
-            //open
-          >
-            {drawer}
-          </Drawer>
-        </Box>
-        <Box component="main">{props.children}</Box>
+          </Grid>
+        </Toolbar>
+      </AppBar>
+      <Box component="nav" sx={styles.drawer} aria-label="mailbox folders">
+        {/* The implementation can be swapped with js to avoid SEO duplication of links. */}
+        <Drawer
+          container={container}
+          variant="temporary"
+          anchor={theme.direction === "rtl" ? "right" : "left"}
+          open={mobileOpen}
+          onClose={handleDrawerToggle}
+          sx={{
+            display: { xs: "block", sm: "none" },
+            "& .MuiDrawer-paper": styles.drawerPaper,
+          }}
+          ModalProps={{
+            keepMounted: true, // Better open performance on mobile.
+          }}
+        >
+          <Box sx={styles.drawerHeader}>
+            <IconButton onClick={handleDrawerClose}>
+              {theme.direction === "ltr" ? (
+                <ChevronLeftIcon />
+              ) : (
+                <ChevronRightIcon />
+              )}
+            </IconButton>
+          </Box>
+          {drawer}
+        </Drawer>
+        <Drawer
+          sx={{
+            display: { xs: "none", sm: "block" },
+            "& .MuiDrawer-paper": styles.drawerPaper,
+          }}
+          variant="permanent"
+          //open
+        >
+          {drawer}
+        </Drawer>
       </Box>
-    );
-
-  }
-  
+      <Box component="main" sx={styles.main}>{props.children}</Box>
+    </Box>
+  );
 }
 
 ResponsiveDrawer.propTypes = {
@@ -455,8 +323,6 @@ ResponsiveDrawer.propTypes = {
   window: PropTypes.func,
 };
 
-//export default ResponsiveDrawer;
-
 function DownloadDialog() {
   const [open, setOpen] = React.useState(false);
   const [downloading, setDownloading] = React.useState(false);
@@ -466,62 +332,38 @@ function DownloadDialog() {
   };
   const handleClose = () => {
     setOpen(false);
-    if (failed) setFailed(false);
+    if(downloading) setDownloading(false);
+    if(failed) setFailed(false);
   };
   const downloadPDF = () => {
     setDownloading(true);
     setFailed(false);
-    const body = { form: {}, card: {}, goods: {}, checkList: {} };
-    [
-      ["family", "familyList"],
-      ["relatives", "relativeList"],
-      ["facilities", "facilityList"],
-    ].forEach((keys) => {
-      const tmp = localStorage.getItem(keys[1]);
-      body.form[keys[0]] = tmp ? JSON.parse(tmp) : [];
-    });
-    [
-      ["home", "phone"],
-      ["temporary", "P0Hinanbasyo"],
-      ["disaster", "P0Shishitei"],
-    ].forEach((keys) => {
-      body.form[keys[0]] = localStorage.getItem(keys[1]);
-    });
-    const cardString = localStorage.getItem("P17Izanigeru");
-    const cardTmp = cardString ? JSON.parse(cardString) : {};
-    [
-      ["flood", "suigai"],
-      ["sediment", "dosya"],
-      ["earthquake", "jishin"],
-      ["fire", "kasai"],
-    ].forEach((keys) => {
-      body.card[keys[0]] = {};
-      ["evacuation", "shelter"].forEach(
-        (k, i) => (body.card[keys[0]][k] = cardTmp[keys[1] + (i + 1)])
-      );
-    });
-    const clm = localStorage.getItem("checkListMore");
-    if (clm) Object.assign(body.goods, JSON.parse(clm));
-    const clh = localStorage.getItem("checkListHyakkin");
-    if (clh) {
-      const tmp = JSON.parse(clh);
-      if (tmp.whistle) body.goods.whistle2 = true;
-      Object.assign(body.goods, tmp);
-    }
-    const cln = localStorage.getItem("checkListNormally");
-    if (cln) Object.assign(body.goods, JSON.parse(cln));
-    const fl = localStorage.getItem("foodList");
-    body.foods = fl ? JSON.parse(fl) : {};
 
-    body.checkList.earthquake = localStorage.getItem("P15Earthquake");
-    body.checkList.flood = localStorage.getItem("P15Flood");
-    body.checkList.place = localStorage.getItem("P15Place");
-    const clhm = localStorage.getItem("P15Home");
-    if (clhm) Object.assign(body.checkList, JSON.parse(clhm));
-    const clst = localStorage.getItem("P15Stock");
-    if (clst) Object.assign(body.checkList, JSON.parse(clst));
-
-    console.log(body);
+    const body = {
+      form: {
+        family: JSON.parse(localStorage.getItem('familyList') || '{}'),
+        // TODO: 親戚(relatives)と知人(acquaintance)のフォームを直して、ここに
+        //       localStorageの読み込み処理を追記する
+        shelter: localStorage.getItem('P20Hinanbasyo'),
+        specified: localStorage.getItem('P20Shishitei'),
+      },
+      consciousness: JSON.parse(localStorage.getItem('P11Sense') || '{}'),
+      goods:{
+        zeroth: JSON.parse(localStorage.getItem('checkListZeroth') || '{}'),
+        first: JSON.parse(localStorage.getItem('checkListFirst') || '{}'),
+        more: JSON.parse(localStorage.getItem('checkListMore') || '{}'),
+        second: JSON.parse(localStorage.getItem('checkListSecond') || '{}'),
+        hyakkin: JSON.parse(localStorage.getItem('checkListHyakkin') || '{}'),
+      }, foods: {
+        foodList: JSON.parse(localStorage.getItem('foodList') || '{}'),
+        cookingList: JSON.parse(localStorage.getItem('cookingList') || '{}'),
+      }, card: {
+        shelters: JSON.parse(localStorage.getItem('P18Shelters') || '{}'),
+        place: localStorage.getItem('P18Place'),
+        home: JSON.parse(localStorage.getItem('P18Home') || '{}'),
+        stock: JSON.parse(localStorage.getItem('P18Stock') || '{}'),
+      }
+    };
     axios
       .post(
         "https://mfdxebawsi.execute-api.us-east-1.amazonaws.com/Prod/create",

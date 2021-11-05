@@ -3,9 +3,9 @@ import { Link, CardContent } from "@mui/material";
 import { BodyText } from "../components/TitleComponents";
 import {
   CardBase,
-  TitleCardPart,
-  TitleImageTextCard,
+  HeaderCardPart,
   ImageTextCard,
+  ImageCardPart,
 } from "../components/CardComponents";
 import { SimpleTitle } from "../components/TitleComponents";
 
@@ -17,6 +17,7 @@ const SandaP19BousaiSanpo = () => {
   return (
     <>
       <SimpleTitle title="防災さんぽ" subtitle="普段からやってみよう！"/>
+
       <CardBase>
         <CardContent>
           <BodyText>
@@ -28,27 +29,36 @@ const SandaP19BousaiSanpo = () => {
           </BodyText>
         </CardContent>
       </CardBase>
+
       <CardBase>
-
+        <HeaderCardPart title="防災さんぽのやり方"  color="tertiary.main" />
         <CardContent>
-          <TitleCardPart title="防災さんぽのやり方" />
-          <TitleImageTextCard title="用意するもの" image={generateImagePath("needed_item.png")} color = "orange" >
-            <br/>
-            ・避難所が入った自宅周辺の地図
-            <br/>
-            ・非常持ち出し袋
-          </TitleImageTextCard>
+          <CardBase>
+            <HeaderCardPart title="用意するもの"  color="orange" />
+            <CardContent>
+              <br/>
+              <ImageCardPart image={generateImagePath("needed_item.png")} />
+                <br/>
+                ・避難所が入った自宅周辺の地図
+                <br/>
+                ・非常持ち出し袋
+            </CardContent>
+          </CardBase>
 
-          <TitleImageTextCard title="Check!!" image={generateImagePath("map_open.png")} color = "lightgreen">
-            <br/>
-            ・避難場所への経路を歩く
-            <br/>
-            ・かかる時間もしらべてみる
-            <br/>
-            ・昼と夜では全然違うので
-            <br/>
-              それぞれ歩いてみよう！
-          </TitleImageTextCard>
+          <CardBase>
+            <HeaderCardPart title="Check!!" color="lightgreen" />
+            <CardContent>
+              <ImageCardPart image={generateImagePath("map_open.png")} />
+              <br/>
+              ・避難場所への経路を歩く
+              <br/>
+              ・かかる時間もしらべてみる
+              <br/>
+              ・昼と夜では全然違うので
+              <br/>
+                それぞれ歩いてみよう！
+            </CardContent>
+          </CardBase>
 
           <ImageTextCard image={generateImagePath("singboard.png")}>
               街灯・看板など
@@ -80,11 +90,15 @@ const SandaP19BousaiSanpo = () => {
               通学路,習い事に使う道もチェック
           </ImageTextCard>
 
-          <TitleImageTextCard title="要確認!!"  image={generateImagePath("telphone_searchbar.png")} color = "lightgreen"> 
-          ↓災害伝言ダイヤルの使い方はこちらから<br/>
-          <Link href="/sandaForm">三田防災ノートP20</Link>
-          
-          </TitleImageTextCard>
+          <CardBase>
+            <HeaderCardPart title="要確認!!"  color="lightgreen" />
+            <CardContent>
+              <ImageCardPart image={generateImagePath("telphone_searchbar.png")} />
+              災害伝言ダイヤルの使い方はこちら<br/>
+              <Link href="/sandaForm">三田防災ノートP19</Link>
+            </CardContent>
+          </CardBase>
+
         </CardContent>
       </CardBase>
     </>

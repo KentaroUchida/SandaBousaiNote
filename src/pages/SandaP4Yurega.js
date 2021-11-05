@@ -13,7 +13,7 @@ import {
   CardBase,
   ImageCardPart,
   HeaderCardPart,
-  TitleTextImageCard,
+  HeaderTextImageCard,
 } from "../components/CardComponents";
 
 const charts = [
@@ -93,13 +93,13 @@ function SandaP4Yurega() {
     <>
       <SimpleTitle title="ゆれがおさまったら" subtitle="その次の行動チャート" />
       {charts.map((content, i) => (
-        <>
-          <ActionChartCard content={content} key={`card-${i}`} />
-          {i < charts.length - 1 ? <Arrow key={`arrow-${i}`} /> : ""}
-        </>
+        <div key={i}>
+          <ActionChartCard content={content} />
+          {i < charts.length - 1 ? <Arrow /> : ""}
+        </div>
       ))}
       <Box sx={{ height: 30 }} />
-      <TitleTextImageCard
+      <HeaderTextImageCard
         title="会社から帰って来れないかも!?"
         image={generateImagePath("tatemono_buildings.png")}
         color="warning.main"
@@ -107,7 +107,7 @@ function SandaP4Yurega() {
         一斉帰宅による混乱を防ぐため、兵庫県は事業主に「従業員の一斉帰宅の抑制」をお願いしています。
         対策として「従業員の施設内待機」「最低3日分の備蓄」など。
         会社からすぐに帰って来れないかもしれません。
-      </TitleTextImageCard>
+      </HeaderTextImageCard>
     </>
   );
 }

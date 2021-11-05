@@ -1,8 +1,6 @@
 import React from "react";
 import {} from "../css/page.css";
 
-
-
 const SandaP1Home = () => {
   return (
     <div className="frame1">

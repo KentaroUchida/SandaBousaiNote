@@ -2,10 +2,10 @@ import React from "react";
 import { CardContent, Box } from "@mui/material";
 import {
   ImageTextCard,
-  TitleTextImageCard,
-  TitleCardPart,
+  HeaderTextImageCard,
   CardBase,
   ImageCardPart,
+  HeaderCardPart,
 } from "../components/CardComponents";
 import { SubTitle, SimpleTitle, BodyText } from "../components/TitleComponents";
 
@@ -50,15 +50,15 @@ const SandaP3Jishin = () => {
       </ImageTextCard>
 
       <SubTitle>たいせつな家族の命を守る「安全対策」の例</SubTitle>
-      <TitleTextImageCard
+      <HeaderTextImageCard
         title="家具の固定"
         image={generateImagePath("shijin_taishin1.png")}
       >
         L字金具などで固定する。
         <br />
         2段重ねの家具は、つなぎ目を金具で連結させる。
-      </TitleTextImageCard>
-      <TitleTextImageCard
+      </HeaderTextImageCard>
+      <HeaderTextImageCard
         title="家具の配置を工夫"
         image={generateImagePath("kagu_haiti.png")}
       >
@@ -67,10 +67,10 @@ const SandaP3Jishin = () => {
         倒れても下敷きにならない家具の配置にする。
         <br />
         寝室にスリッパや靴を置いておく。
-      </TitleTextImageCard>
+      </HeaderTextImageCard>
       <CardBase>
+        <HeaderCardPart title="ガラスの飛散防止" color="tertiary.main"/>
         <CardContent>
-          <TitleCardPart title="ガラスの飛散防止" />
           <BodyText>
             窓ガラスに飛散防止フィルムをはる。 または、強化ガラスに替える。
             <br />
@@ -84,14 +84,14 @@ const SandaP3Jishin = () => {
           <ImageCardPart image={generateImagePath("curtain_pink.png")} />
         </CardContent>
       </CardBase>
-      <TitleTextImageCard
+      <HeaderTextImageCard
         title="収納"
         image={generateImagePath("kagu_nimotsu_orosu.png")}
       >
         家具の上など、高いところに重いものを置かない。
         <br />
         重いものは家具の下部に、軽いものは上部に収納する。
-      </TitleTextImageCard>
+      </HeaderTextImageCard>
     </>
   );
 };
