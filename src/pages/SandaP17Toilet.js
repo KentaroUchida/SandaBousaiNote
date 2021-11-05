@@ -80,7 +80,7 @@ const MakeToilet = () => {
           ゴミ袋は消臭効果の高いものを使う。
         </Typography>
         <Typography variant="body2" sx={{ ml: 2 }}>
-          汚物はゴミ収集が開始されるまで自宅に置くことになります
+          汚物はゴミ収集が開始されるまで自宅に置くことになります。
         </Typography>
         <Box
           sx={{
@@ -152,7 +152,7 @@ const Poncho = () => {
         <Typography>
           もしものときのために車の中にも積んでおくといいかも！
         </Typography>
-        <Typography>キャンプにも使えます</Typography>
+        <Typography>キャンプにも使えます。</Typography>
         <Grid
           container
           justifyContent="left"
@@ -207,7 +207,7 @@ const Difference = () => {
       />
       <CardContent>
         <Typography variant="h6">
-          普通巻より2倍巻、5倍巻のものがコンパクトでおすすめ
+          普通巻より2倍巻、5倍巻のものがコンパクトでおすすめ。
         </Typography>
         <CardMedia component="img" image={imageBasePath + "difference.png"} />
         <Typography variant="caption">画像出典：あかね空</Typography>

@@ -68,7 +68,7 @@ const zerothItems = [
   },
   {
     name: "携帯トイレ",
-    sub: "節水",
+    sub: "節水。",
     path: "portable_toilets",
   },
   {
@@ -81,12 +81,12 @@ const zerothItems = [
   },
   {
     name: "消毒液・ウエットティッシュ",
-    sub: "感染症対策にも重要",
+    sub: "感染症対策にも重要。",
     path: "disinfectant_wetwipes",
   },
   {
     name: "大判ハンカチ",
-    sub: "マスク、止血に",
+    sub: "マスク、止血に。",
     path: "handkerchief",
   },
   {
@@ -99,7 +99,7 @@ const zerothItems = [
   },
   {
     name: "マスク",
-    sub: "感染症対策にも重要",
+    sub: "感染症対策にも重要。",
     path: "mask",
   },
   {
@@ -116,7 +116,7 @@ const zerothItems = [
   },
   {
     name: "ビニール袋",
-    sub: "シート、防寒、水を運ぶ、など",
+    sub: "シート、防寒、水を運ぶ、など。",
     path: "poli",
   },
   {
@@ -125,12 +125,12 @@ const zerothItems = [
   },
   {
     name: "はさみ・つめきり",
-    emphasis: "必須",
+    emphasis: "必須。",
     path: "scissor",
   },
   {
     name: "体温計",
-    sub: "感染症対策にも重要",
+    sub: "感染症対策にも重要。",
     path: "thermometer",
   },
 ];
@@ -138,7 +138,7 @@ const zerothItems = [
 const firstItems = [
   {
     name: "飲料水",
-    sub: "500mlペットボトル3本",
+    sub: "500mlペットボトル3本。",
     path: "drink_M",
   },
   {
@@ -167,7 +167,7 @@ const firstItems = [
   },
   {
     name: "母子手帳",
-    sub: "アプリでも代用可、健康保険所のコピー",
+    sub: "アプリでも代用可、健康保険所のコピー。",
     path: "bosi_book",
   },
   {
@@ -198,7 +198,7 @@ const moreItems = [
   },
   {
     name: "新聞紙",
-    message: "暖を取ったり　紙食器を作ったり",
+    message: "暖を取ったり　紙食器を作ったり。",
     path: "newspaper",
   },
 ];

@@ -23,7 +23,7 @@ const preparationList = {
   foodList: [
     {
       name: "飲料水",
-      comment: "1日3ℓ×家族の人数×7日分",
+      comment: "1日3ℓ×家族の人数×7日分。",
       path: "drink_water",
     },
     {
@@ -43,17 +43,17 @@ const preparationList = {
     },
     {
       name: "漬物",
-      comment: "伝統的な保存方法で",
+      comment: "伝統的な保存方法で。",
       path: "tsukemono",
     },
     {
       name: "家庭菜園",
-      comment: "庭やベランダ等も活用して菜園を",
+      comment: "庭やベランダ等も活用して菜園を。",
       path: "saien",
     },
     {
       name: "冷凍食品",
-      comment: "自然解凍できるものが便利",
+      comment: "自然解凍できるものが便利。",
       path: "food_reitou_syokuhin",
     },
     {
@@ -64,7 +64,7 @@ const preparationList = {
     {
       name: "離乳食・液体ミルク・おやつ",
       comment:
-        "乳幼児を持つご家庭は、離乳食・液体ミルクや食べられるおやつを多い目に備蓄しましょう",
+        "乳幼児を持つご家庭は、離乳食・液体ミルクや食べられるおやつを多い目に備蓄しましょう。",
       path: "baby_food",
     },
   ],
@@ -72,38 +72,38 @@ const preparationList = {
     {
       name: "カセットコンロ",
       comment:
-        "カセットコンロがあればライフラインがストップした時にでも調理できます",
+        "カセットコンロがあればライフラインがストップした時にでも調理できます。",
       path: "conlo",
     },
     {
       name: "カセットボンベ",
       comment:
-        "カセットボンベ1本で約60分使用可能。1日2本×7日分=14本(※家族4人分の目安です)",
+        "カセットボンベ1本で約60分使用可能。1日2本×7日分=14本(※家族4人分の目安です)。",
       path: "gas",
     },
     {
       name: "ポリ袋",
-      comment: "耐熱性のポリ袋をお使いください",
+      comment: "耐熱性のポリ袋をお使いください。",
       path: "poli_bukuro",
     },
     {
       name: "キッチンばさみ・スライサー",
-      comment: "まな板を使わずに調理できて衛生面でも安心",
+      comment: "まな板を使わずに調理できて衛生面でも安心。",
       path: "hasami_slicer",
     },
     {
       name: "ラップフィルム",
-      comment: "食器や紙食器にかぶせると水が節約できる",
+      comment: "食器や紙食器にかぶせると水が節約できる。",
       path: "wrap",
     },
     {
       name: "アルミホイル",
-      comment: "フライパンに敷いて調理すると水の節約になる",
+      comment: "フライパンに敷いて調理すると水の節約になる。",
       path: "almi",
     },
     {
       name: "水筒(魔法瓶)",
-      comment: "乾麺をゆでたり、もどすなどお湯の再利用も可能",
+      comment: "乾麺をゆでたり、もどすなどお湯の再利用も可能。",
       path: "suitou",
     },
     {
@@ -295,7 +295,7 @@ const SandaP14Foods1 = () => {
         title="備えておきたい 調理器具"
         items={cookingList}
         handleChange={handleCookingListChange}
-        comment="衛星調理を心掛け汚れたものはウエットティッシュで拭いたり、使い捨てのものや袋を使うなど工夫しましょう"
+        comment="衛星調理を心掛け汚れたものはウエットティッシュで拭いたり、使い捨てのものや袋を使うなど工夫しましょう。"
       />
     </>
   );
