@@ -206,7 +206,7 @@ export const SandaP20Form = () => {
           <HeaderCardPart title="親戚・知人の連絡先"  color="tertiary.main" />
           <CardContent>
             <div style={{textAlign:"center"}}>
-              <FormRegisterDialog category="family" submit={addAddress} />
+              <FormRegisterDialog category="relative" submit={addAddress} />
               <br/>
             </div>
             {relativeList.map((v, index) => (
