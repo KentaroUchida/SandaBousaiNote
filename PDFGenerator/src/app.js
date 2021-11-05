@@ -81,7 +81,7 @@ async function generatePDF(params) {
     const context = pageModifier.startContext().getContext();
 
     // 5人までしか書き込めない
-    if(typeof form.family === 'object') form.family.slice(0,5).forEach((r,i) => {
+    if(typeof form.family === 'object' && form.family !== 0) form.family.slice(0,5).forEach((r,i) => {
       [
         {'k': 'name', 'x': 59, 'opt': option},
         {'k': 'phoneNumber', 'x': 130, 'opt': phoneOption},
