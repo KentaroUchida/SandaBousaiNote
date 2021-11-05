@@ -62,7 +62,7 @@ const SandaP5MamaPapa = () => {
       />
 
       {taikenTitles.map((_, i) => (
-        <CardBase>
+        <CardBase key={_}>
           <HeaderCardPart title={taikenTitles[i]} color="tertiary.main" />
           <CardContent>
             <BodyText>{taikenTexts[i]}</BodyText>
@@ -75,7 +75,7 @@ const SandaP5MamaPapa = () => {
         <HeaderCardPart title="災害時の写真です"  color="tertiary.main" />
         <CardContent>
           {photoImages.map((_, i) => (
-            <ImageTextCard image={photoImages[i]} key={i}>
+            <ImageTextCard image={photoImages[i]} key={_}>
               {photoTexts[i]}
             </ImageTextCard>
           ))}
