@@ -41,7 +41,7 @@ const styles = {
 const secondItems = [
   {
     name: "水",
-    sub: "ひとり1日3Lが目安",
+    sub: "ひとり1日3Lが目安。",
     path: "drink_L",
   },
   {
@@ -82,22 +82,22 @@ const secondItems = [
   },
   {
     name: "コンロ・ボンベ・湯煎可能なポリ袋",
-    sub: "調理器具（湯煎可能なポリ袋なども）があればなおよし",
+    sub: "調理器具（湯煎可能なポリ袋なども）があればなおよし。",
     path: "burner",
   },
   {
     name: "ほうき・ちりとり",
-    sub: "電気を使わないもの",
+    sub: "電気を使わないもの。",
     path: "broom",
   },
   {
     name: "体拭きシート・ドライシャンプー・カイロ・冷えピタ",
-    sub: "どの季節にも対応できるようにしよう",
+    sub: "どの季節にも対応できるようにしよう。",
     path: "bath",
   },
   {
     name: "その他・家族の連絡先・ハザードマップ",
-    sub: "何が起こるか知る事、心構え",
+    sub: "何が起こるか知る事、心構え。",
     path: "other_2",
   },
 ];
@@ -133,7 +133,7 @@ const hyakkinItems = [
   },
   {
     name: "電池・ライト",
-    sub: "100均のものは電池がすぐ切れるので注意",
+    sub: "100均のものは電池がすぐ切れるので注意。",
     path: "battery_light",
   },
   {
@@ -142,17 +142,17 @@ const hyakkinItems = [
   },
   {
     name: "ラップ",
-    sup: "食器代わり、ケガの手当",
+    sub: "食器代わり、ケガの手当。",
     path: "rap",
   },
   {
     name: "油性ペン",
-    sub: "名札、伝言を残す",
+    sub: "名札、伝言を残す。",
     path: "pen",
   },
   {
     name: "ガムテープ",
-    sub: "伝言をかける",
+    sub: "伝言をかける。",
     path: "tape",
   },
   {
@@ -161,12 +161,12 @@ const hyakkinItems = [
   },
   {
     name: "めがね",
-    sub: "コンタクトは大変",
+    sub: "コンタクトは大変。",
     path: "glasses",
   },
   {
     name: "除菌シート",
-    sub: "洗顔、お風呂代わりに",
+    sub: "洗顔、お風呂代わりに。",
     path: "wet_sheet",
   },
   {
@@ -188,7 +188,7 @@ const hyakkinItems = [
   },
   {
     name: "軍手",
-    sub: "ワレモノだらけで危険",
+    sub: "ワレモノだらけで危険。",
     path: "glove",
   },
   {

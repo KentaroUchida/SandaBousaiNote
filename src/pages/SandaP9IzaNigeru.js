@@ -17,7 +17,6 @@ const imageBasePath = "img/pages/SandaP9IzaNigeru/";
 const title = "いざ逃げる！";
 const subtitle = "避難とは、安全な場所に身を置くこと！";
 const mainContentTitle = <><div>どんな所に</div><div>避難しよう？</div></>;
-const mainContentText = "様々な場所が避難先になり得ます。三角ボタンを押して詳細を見てみましょう！"
 
 const shelters = [
   { title: "広域避難場所", text: "火災などの際に、一時的に逃げる場所。公園などが指定されている。", image: "tatemono_kouen.png"},
@@ -32,7 +31,7 @@ const notices = [{
   image1: "sign_A.png",
   texts1: ["避難場所も災害によっては危険な場所になります！"],
   image2: "tsunami_nigeru.png",
-  texts2: ["洪水・津波のときは、高い所や海・川の遠くへ"],
+  texts2: ["洪水・津波のときは、高い所や海・川の遠くへ。"],
   sx: {bgcolor: "secondary.light"},
 }, {
   title: "CHECK!!",
@@ -42,7 +41,7 @@ const notices = [{
     "海の近くに出かけた時は、津波避難場所・津波避難ビルをチェックしましょう。"
   ],
   image2: "shizensaigai_dosyakuzure.png",
-  texts2: ["土砂のときは、山・崖から離れたところへ"],
+  texts2: ["土砂のときは、山・崖から離れたところへ。"],
   style: {backgroundImage: // 斜線はsx.bgcolorでは表現できないので、これだけstyle.backgroundImageにしている
     "repeating-linear-gradient(45deg, #e0ffff, #e0ffff 12px, #ffffff 12px, #ffffff 24px)",
   },
@@ -136,7 +135,6 @@ export const SandaP9IzaNigeru = () => {
         sx={{bgcolor: "blue.light"}}
       />
       <CardContent>
-        <BodyText>{mainContentText}</BodyText>
         <Places/>
       </CardContent>
     </CardBase>

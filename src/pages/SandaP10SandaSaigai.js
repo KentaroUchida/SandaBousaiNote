@@ -22,17 +22,17 @@ const SandaP10SandaBousai = () => {
         <HeaderCardPart title="三田市の避難者想定" />
         <CardContent>
           <BodyText>
-            ・三田市の人口は、約11万人 (令和3年4月現在)
+            ・三田市の人口は、約11万人 (令和3年4月現在)。
             <br />
             ・三田市の避難者想定数は、4,700人
-            (市内伏在断層地震で震度6強の揺れを想定し、4,694人)
+            (市内伏在断層地震で震度6強の揺れを想定し、4,694人)。
             <br />
-            ・避難所受け入れは、28,798人
+            ・避難所受け入れは、28,798人。
           </BodyText>
           <BodyText variant="caption">
             ※上記は、通常時の災害を想定した収容人数です。
             三田市では令和2年7月に三田市避難所運営マニュアル
-            ～新型コロナウイルス感染症対応編～として改定
+            ～新型コロナウイルス感染症対応編～として改定。
           </BodyText>
         </CardContent>
       </CardBase>
@@ -40,11 +40,11 @@ const SandaP10SandaBousai = () => {
         <HeaderCardPart title={<>三田市防災倉庫(狭間が丘)<br/>の備蓄計画</>} />
         <CardContent>
           <BodyText>
-            ・主食のアルファ化米5,370食(うちお粥2,980食)
+            ・主食のアルファ化米5,370食(うちお粥2,980食)。
             <br />
-            ・乾パン9,870食
+            ・乾パン9,870食。
             <br />
-            ・クラッカー9,870食
+            ・クラッカー9,870食。
           </BodyText>
           <BodyText variant="caption">
             ※市が業務を遂行するために必要な備蓄も含まれます。
@@ -67,7 +67,7 @@ const SandaP10SandaBousai = () => {
             image={generateImagePath("sindo_bunpu.png")}
             color="warning.main"
           >
-            南海トラフ地震、有馬－高槻断層帯地震
+            南海トラフ地震、有馬－高槻断層帯地震。
           </HeaderTextImageCard>
           <HeaderTextImageCard
             title="水害"

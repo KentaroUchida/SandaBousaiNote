@@ -170,9 +170,9 @@ export const SandaP20Form = () => {
     return(
       <CardBase>
         <CardContent>
-          <Typography>・以下の情報は外部に送信等されませんので、安心してお使いください</Typography>
-          <Typography>・家族、親戚、知人の連絡先は、追加ボタンを押すと入力ができます</Typography>
-          <Typography>・避難場所の情報は、入力をすると自動的に保存されます</Typography>
+          <Typography>・以下の情報は外部に送信等されませんので、安心してお使いください。</Typography>
+          <Typography>・家族、親戚、知人の連絡先は、追加ボタンを押すと入力ができます。</Typography>
+          <Typography>・避難場所の情報は、入力をすると自動的に保存されます。</Typography>
         </CardContent>
       </CardBase>
     )
@@ -279,17 +279,17 @@ export const SandaP20Form = () => {
             <CardBase>
               <HeaderCardPart title="録音するとき" color='#FFF8AD' />
               <CardContent>
-                  <Typography>①「1」をダイヤル</Typography>
-                  <Typography>②自分の番号をダイヤル</Typography>
-                  <Typography>③メッセージを録音</Typography>
+                  <Typography>①「1」をダイヤル。</Typography>
+                  <Typography>②自分の番号をダイヤル。</Typography>
+                  <Typography>③メッセージを録音。</Typography>
               </CardContent>
             </CardBase>
             <CardBase>
               <HeaderCardPart title="再生するとき" color='#FFF8AD' />
               <CardContent>
-                  <Typography>①「2」をダイヤル</Typography>
-                  <Typography>②相手の番号をダイヤル</Typography>
-                  <Typography>③メッセージを聞く</Typography>
+                  <Typography>①「2」をダイヤル。</Typography>
+                  <Typography>②相手の番号をダイヤル。</Typography>
+                  <Typography>③メッセージを聞く。</Typography>
               </CardContent>
             </CardBase>
             <CardBase>

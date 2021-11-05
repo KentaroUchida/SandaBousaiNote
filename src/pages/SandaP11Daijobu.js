@@ -107,7 +107,7 @@ function CheckList() {
           label="家の中の備え"
         />
         <FormGroup sx={styles.child}>
-          ・備蓄(詳しくはP13~14)
+          ・備蓄(詳しくはP14~15)
           <br></br>
           ・ものが落ちてこないように整理整頓
         </FormGroup>
