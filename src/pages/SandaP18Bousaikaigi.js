@@ -356,7 +356,7 @@ const Apps = () => {
   const apps = [
     {
       name: "Yahoo!防災速報",
-      text: "災害の情報をいち早くお知らせ",
+      text: "災害の情報をいち早くお知らせ。",
       icon: "/img/pages/SandaP18Bousaikaigi/Yahoo.png",
       googlePlay:
         "https://play.google.com/store/apps/details?id=jp.co.yahoo.android.emg",
@@ -364,7 +364,7 @@ const Apps = () => {
     },
     {
       name: "eお薬手帳",
-      text: "いつでもどこでも確かなお薬情報を",
+      text: "いつでもどこでも確かなお薬情報を。",
       icon: "/img/pages/SandaP18Bousaikaigi/eOkusuri.png",
       googlePlay:
         "https://play.google.com/store/apps/details?id=jp.co.nichiyaku.okusuri&hl=ja&gl=US",

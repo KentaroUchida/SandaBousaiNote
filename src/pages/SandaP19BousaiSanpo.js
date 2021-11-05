@@ -39,9 +39,9 @@ const SandaP19BousaiSanpo = () => {
               <br/>
               <ImageCardPart image={generateImagePath("needed_item.png")} />
                 <br/>
-                ・避難所が入った自宅周辺の地図
+                ・避難所が入った自宅周辺の地図。
                 <br/>
-                ・非常持ち出し袋
+                ・非常持ち出し袋。
             </CardContent>
           </CardBase>
 
@@ -50,9 +50,9 @@ const SandaP19BousaiSanpo = () => {
             <CardContent>
               <ImageCardPart image={generateImagePath("map_open.png")} />
               <br/>
-              ・避難場所への経路を歩く
+              ・避難場所への経路を歩く。
               <br/>
-              ・かかる時間もしらべてみる
+              ・かかる時間もしらべてみる。
               <br/>
               ・昼と夜では全然違うので
               <br/>
@@ -61,40 +61,40 @@ const SandaP19BousaiSanpo = () => {
           </CardBase>
 
           <ImageTextCard image={generateImagePath("singboard.png")}>
-              街灯・看板など
+              街灯・看板など。
               <br/>
-              落ちてきそうなもの
+              落ちてきそうなもの。
           </ImageTextCard>
 
           <ImageTextCard image={generateImagePath("crushed_glasses.png")}>
-              住宅の瓦や、ビルの窓ガラスなど
+              住宅の瓦や、ビルの窓ガラスなど。
               <br/>
-              飛んできそうなもの
+              飛んできそうなもの。
           </ImageTextCard>
 
           <ImageTextCard image={generateImagePath("stair_famiry.png")}>
-              避難経路の階段・溝など
+              避難経路の階段・溝など。
               <br/>
-              自転車・ベビーカーでは通れない
+              自転車・ベビーカーでは通れない。
               <br/>
-              小さな子供は抱っこ,もしくは手をつないで歩く
+              小さな子供は抱っこ、もしくは手をつないで歩く。
           </ImageTextCard>
 
           <ImageTextCard image={generateImagePath("fall_over.png")}>
-              ブロック塀・自転車・花壇・自動販売機
+              ブロック塀・自転車・花壇・自動販売機。
               <br/>
-              地震で倒れそうなもの
+              地震で倒れそうなもの。
           </ImageTextCard>
 
           <ImageTextCard image={generateImagePath("sings.png")}>
-              通学路,習い事に使う道もチェック
+              通学路、習い事に使う道もチェック。
           </ImageTextCard>
 
           <CardBase>
             <HeaderCardPart title="要確認!!"  color="lightgreen" />
             <CardContent>
               <ImageCardPart image={generateImagePath("telphone_searchbar.png")} />
-              災害伝言ダイヤルの使い方はこちら<br/>
+              災害伝言ダイヤルの使い方はこちら。<br/>
               <Link href="/sandaForm">三田防災ノートP19</Link>
             </CardContent>
           </CardBase>

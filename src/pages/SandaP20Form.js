@@ -23,6 +23,9 @@ export const SandaP20Form = () => {
   const [relativeList, setRelativeList] = useState(
     JSON.parse(localStorage.getItem("relativeList")) || []
   );
+  const [acquaintanceList, setAcquaintanceList] = useState(
+    JSON.parse(localStorage.getItem("acquaintanceList")) || []
+  );
   const [hinanbasyo, setHinanbasyo] = useState(
     localStorage.getItem("P20Hinanbasyo") || ""
   );
@@ -37,6 +40,9 @@ export const SandaP20Form = () => {
         break;
       case "relative":
         setRelativeList(func);
+        break;
+      case "acquaintance":
+        setAcquaintanceList(func);
         break;
       default:
     }
@@ -73,14 +79,6 @@ export const SandaP20Form = () => {
     setShishitei(event.target.value);
     localStorage.setItem("P20Shishitei", event.target.value);
   };
-
-  // const setValues = () => {
-  //   localStorage.setItem("phone", phoneNumber);
-  //   localStorage.setItem("ichiji", ichiji);
-  //   localStorage.setItem("saigai", saigai);
-  //   localStorage.setItem("tsunami", tsunami);
-  //   alert("電話番号と避難先を保存しました");
-  // };
 
   const PrintFamilyInformation = ({
     name,
@@ -146,33 +144,41 @@ export const SandaP20Form = () => {
     </Accordion>
   );
 
-  // const phoneValidation = (phone) => {
-  //   if(!phone) return '電話番号を入力してください'
-  //   const regex=/^[0-9０-９-]+$/;
-  //   if(!regex.test(phone)) return '正しい形式で電話番号を入力してください';
-  //   return '';
-  // }
-  // const shelterValidation = (ichiji,saigai,tsunami) => {
-  //   if(!ichiji || !saigai || !tsunami) return '避難所を入力してください';
-  //   return '';
-  // }
-
-  // const canSubmit = (phoneNumber,ichiji,saigai,tsunami) => {
-  //   const regex=/^[0-9０-９-]+$/;
-  //   const validPhoneNumber = regex.test(phoneNumber);
-  //   const validIchiji = ichiji.length !== 0;
-  //   const validSaigai = saigai.length !== 0;
-  //   const validTsunami = tsunami.length !== 0;
-  //   return validPhoneNumber && validIchiji && validSaigai && validTsunami;
-  // }
+  const PrintAcquaintanceInformation = ({ name, phoneNumber, index }) => (
+    <Accordion>
+      <AccordionSummary
+        expandIcon={<ExpandMoreIcon fontSize="large" />}
+        aria-label="Expand"
+        aria-controls="panel1a-content"
+        id="panel1a-header"
+      >
+        <Grid container justifyContent="space-between" alignItems="center">
+          <Grid item>
+            <Typography>名前:{name}</Typography>
+          </Grid>
+          <Grid item>
+            <FormEditDialog
+              category="acquaintance"
+              edit={editAddress(index)}
+              remove={removeAddress(index)}
+              defaultMember={acquaintanceList[index]}
+            />
+          </Grid>
+        </Grid>
+      </AccordionSummary>
+      <AccordionDetails>
+        <Typography>電話番号:{phoneNumber}</Typography>
+      </AccordionDetails>
+    </Accordion>
+  );
 
   const Caution = () => {
     return(
       <CardBase>
         <CardContent>
-          <Typography>・以下の情報は外部に送信等されませんので、安心してお使いください</Typography>
-          <Typography>・家族、親戚、知人の連絡先は、追加ボタンを押すと入力ができます</Typography>
-          <Typography>・避難場所の情報は、入力をすると自動的に保存されます</Typography>
+          <Typography>・以下の情報は外部に送信等されませんので、安心してお使いください。</Typography>
+          <Typography>・家族、親戚、知人の連絡先は、追加ボタンを押すと入力ができます。</Typography>
+          <Typography>・避難場所の情報は、入力をすると自動的に保存されます。</Typography>
         </CardContent>
       </CardBase>
     )
@@ -203,10 +209,10 @@ export const SandaP20Form = () => {
         </CardBase>
 
         <CardBase>
-          <HeaderCardPart title="親戚・知人の連絡先"  color="tertiary.main" />
+          <HeaderCardPart title="親戚の連絡先"  color="tertiary.main" />
           <CardContent>
             <div style={{textAlign:"center"}}>
-              <FormRegisterDialog category="family" submit={addAddress} />
+              <FormRegisterDialog category="relative" submit={addAddress} />
               <br/>
             </div>
             {relativeList.map((v, index) => (
@@ -219,49 +225,27 @@ export const SandaP20Form = () => {
             ))}
           </CardContent>
         </CardBase>
+
+        <CardBase>
+          <HeaderCardPart title="知人の連絡先"  color="tertiary.main" />
+          <CardContent>
+            <div style={{textAlign:"center"}}>
+              <FormRegisterDialog category="acquaintance" submit={addAddress} />
+              <br/>
+            </div>
+            {acquaintanceList.map((v, index) => (
+              <PrintAcquaintanceInformation
+                name={v.name}
+                phoneNumber={v.phoneNumber}
+                index={index}
+                key={index}
+              />
+            ))}
+          </CardContent>
+        </CardBase>
       </>
     )
   }
-
-  // const Shelter = () => {
-  //   return(
-  //     <>
-  //     <CardBase>
-  //         <CardContent>
-  //           <TitleCardPart title="集合場所・避難場所を決めておく" />
-  //           <table>
-  //             <tbody>
-  //               <tr>
-  //                 <td>避難場所</td>
-  //                 <td>
-  //                   <TextField
-  //                     onChange={handleHinanbasyoChange}
-  //                     id="P0Hinanbasyo"
-  //                     defaultValue={hinanbasyo}
-  //                     variant="standard"
-  //                   />
-  //                 </td>
-  //               </tr>
-  //               <tr>
-  //                 <td>市指定避難場所</td>
-  //                 <td>
-  //                   <TextField
-  //                     onChange={handleShishiteiChange}
-  //                     id="shishitei"
-  //                     defaultValue={shishitei}
-  //                     variant="standard"
-  //                   />
-  //                 </td>
-  //               </tr>
-  //             </tbody>
-  //           </table>
-  //           <Typography>避難場所:危険を回避するための待機場所</Typography>
-  //           <Typography>市指定避難所:避難生活を送る場所</Typography>
-  //         </CardContent>
-  //       </CardBase>
-  //     </>
-  //   )
-  // }
 
   const Dial = () => {
     return(
@@ -279,17 +263,17 @@ export const SandaP20Form = () => {
             <CardBase>
               <HeaderCardPart title="録音するとき" color='#FFF8AD' />
               <CardContent>
-                  <Typography>①「1」をダイヤル</Typography>
-                  <Typography>②自分の番号をダイヤル</Typography>
-                  <Typography>③メッセージを録音</Typography>
+                  <Typography>①「1」をダイヤル。</Typography>
+                  <Typography>②自分の番号をダイヤル。</Typography>
+                  <Typography>③メッセージを録音。</Typography>
               </CardContent>
             </CardBase>
             <CardBase>
               <HeaderCardPart title="再生するとき" color='#FFF8AD' />
               <CardContent>
-                  <Typography>①「2」をダイヤル</Typography>
-                  <Typography>②相手の番号をダイヤル</Typography>
-                  <Typography>③メッセージを聞く</Typography>
+                  <Typography>①「2」をダイヤル。</Typography>
+                  <Typography>②相手の番号をダイヤル。</Typography>
+                  <Typography>③メッセージを聞く。</Typography>
               </CardContent>
             </CardBase>
             <CardBase>
