@@ -4,7 +4,6 @@ import { BodyText } from "../components/TitleComponents";
 import {
   CardBase,
   HeaderCardPart,
-  TitleImageTextCard,
   ImageTextCard,
   ImageCardPart,
 } from "../components/CardComponents";

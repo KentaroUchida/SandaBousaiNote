@@ -177,7 +177,7 @@ const SandaP11Daijobu = () => {
       })} */}
       {daijobuTitles.map((_, i) => {
         return (
-          <CardBase>
+          <CardBase key={_}>
             <HeaderCardPart title={daijobuTitles[i]} color="tertiary.main" />
             <CardContent>
               {texts[i]}
