@@ -13,8 +13,8 @@ import { Edit as EditIcon } from "@mui/icons-material";
 
 const categoryTextList = {
   family: "家族",
-  relative: "親戚・知人",
-  facility: "保育園・幼稚園・学校",
+  relative: "親戚",
+  acquaintance: "知人",
 };
 
 const FormEditDialog = ({ category, edit, remove, defaultMember }) => {
@@ -114,7 +114,7 @@ const FormEditDialog = ({ category, edit, remove, defaultMember }) => {
         id="name"
         label="名前"
         type="name"
-        helperText="親戚・知人の名前を入力してください。"
+        helperText="親戚の名前を入力してください。"
         defaultValue={member.name}
         required={true}
       />
@@ -122,19 +122,19 @@ const FormEditDialog = ({ category, edit, remove, defaultMember }) => {
         id="phoneNumber"
         label="電話番号"
         type="text"
-        helperText="親戚・知人の電話番号を入力してください。"
+        helperText="親戚の電話番号を入力してください。"
         defaultValue={member.phoneNumber}
       />
     </div>
   );
 
-  const FacilityRegisterTextField = () => (
-    <div className="RelativeTextField">
+  const AcquaintanceRegisterTextField = () => (
+    <div className="AcquaintanceTextField">
       <AddressTextField
         id="name"
-        label="施設名"
+        label="名前"
         type="name"
-        helperText="施設名を入力してください。"
+        helperText="知人の名前を入力してください。"
         defaultValue={member.name}
         required={true}
       />
@@ -142,7 +142,7 @@ const FormEditDialog = ({ category, edit, remove, defaultMember }) => {
         id="phoneNumber"
         label="電話番号"
         type="text"
-        helperText="施設の電話番号を入力してください。"
+        helperText="知人の電話番号を入力してください。"
         defaultValue={member.phoneNumber}
       />
     </div>
@@ -151,7 +151,7 @@ const FormEditDialog = ({ category, edit, remove, defaultMember }) => {
   const textFieldList = {
     family: <FamilyRegisterTextField />,
     relative: <RelativeRegisterTextField />,
-    facility: <FacilityRegisterTextField />,
+    acquaintance: <AcquaintanceRegisterTextField />,
   };
 
   return (
