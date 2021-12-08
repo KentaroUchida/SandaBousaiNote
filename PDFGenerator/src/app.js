@@ -89,14 +89,17 @@ async function generatePDF(params) {
         {'k': 'insuranceId', 'x': 207, 'opt': option},
         {'k': 'illness', 'x': 270, 'opt': option},
       ];
-      for(let i=0; i<keys.length; i++) {
-       if(family[keys.k]) context.writeText(family[keys.k],keys.x,480-i*17,keys.opt);
+      for(let i=0; i<family.length; i++) {
+        for(let j=0; j<keys.length; j++) {
+          if(family[i][keys[j].k])
+            context.writeText(family[i][keys[j].k],keys[j].x,480-i*17,keys[j].opt);
+        }
       }
     }
 
     const categories = ['relatives', 'acquaintance'];
     for(let i=0; i<categories.length; i++) {
-       if(typeof form[categories[i]] === 'object') {
+      if(typeof form[categories[i]] === 'object') {
         if(form[categories[i]].name)
           context.writeText(form[categories[i]].name,95,350-i*51,option);
         if(form[categories[i]].phoneNumber)
@@ -366,7 +369,7 @@ async function generatePDF(params) {
       }
     }
 
-    if(typeof card.stock === 'object') { // TODONOW
+    if(typeof card.stock === 'object') {
       const stock = card.stock;
       const keys = [
         {'k': 'meal', 'x': 120, 'y': 197},

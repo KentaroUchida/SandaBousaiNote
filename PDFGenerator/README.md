@@ -24,6 +24,6 @@ sam cliをインストールしている環境 or AWS Cloud9
 ## ローカルでのテスト
 
 ```
-> sam local invoke -e event/event.json # 関数としてのテスト
-> sam local start-api                  # ローカルでのAPI Gatewayを通したテスト
+> sam local invoke -e events/event.json # 関数としてのテスト
+> sam local start-api                   # ローカルでのAPI Gatewayを通したテスト
 ```

@@ -23,6 +23,7 @@ import {
   DialogContentText,
   DialogActions,
   LinearProgress,
+  Link as LinkComponent,
 } from "@mui/material";
 import { useTheme } from "@mui/material/styles";
 import ChevronLeftIcon from "@mui/icons-material/ChevronLeft";
@@ -339,11 +340,14 @@ function DownloadDialog() {
     setDownloading(true);
     setFailed(false);
 
+    const relatives = JSON.parse(localStorage.getItem('relativeList') || '[]');
+    const acquaintance = JSON.parse(localStorage.getItem('acquaintanceList') || '[]');
+
     const body = {
       form: {
-        family: JSON.parse(localStorage.getItem('familyList') || '{}'),
-        // TODO: 親戚(relatives)と知人(acquaintance)のフォームを直して、ここに
-        //       localStorageの読み込み処理を追記する
+        family: JSON.parse(localStorage.getItem('familyList') || '[]'),
+        relatives: relatives.length >= 1 ? relatives[0] : {},
+        acquaintance: acquaintance.length >= 1 ? acquaintance[0] : {},
         shelter: localStorage.getItem('P20Hinanbasyo'),
         specified: localStorage.getItem('P20Shishitei'),
       },
@@ -430,7 +434,9 @@ function DownloadDialog() {
               <br />
               お手数ですが、こちらのリンクからダウンロードしてください。
               <br />
-              ** ここにさんだ防災ノートのURLが書かれます **
+              <LinkComponent href="https://mwish2014.link/download/6422/">
+                https://mwish2014.link/download/6422/
+              </LinkComponent>
             </DialogContentText>
           </DialogContent>
         )}
