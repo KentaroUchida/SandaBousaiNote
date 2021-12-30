@@ -7,11 +7,11 @@ const cloudwatch = new AWS.CloudWatch();
 
 if(process.argv.length < 4) {
   console.log(`
-  request.js is a tool for generating csv of sum of request each day in the service.
+  pdfInvocations.js is a tool for generating csv of sum of invocations each day in the service.
   
   Usage:
   
-      node request.js [app name] [date]
+      node pdfInvocations.js [function name] [date]
   `);
   return;
 }
@@ -20,13 +20,13 @@ const end = new Date();
 const start = new Date(process.argv[3]);
 
 const params = {
-  MetricName: 'Requests',
-  Namespace: 'AWS/AmplifyHosting',
+  MetricName: 'Invocations',
+  Namespace: 'AWS/Lambda',
   Period: String(3600*24), // 1日毎に集計
   StartTime: start,
   EndTime: end,
   Statistics: ['Sum'],
-  Dimensions: [{'Name': 'App', 'Value': process.argv[2]}],
+  Dimensions: [{'Name': 'FunctionName', 'Value': process.argv[2]}],
 };
 
 cloudwatch.getMetricStatistics(params, (err, data) => {
@@ -46,7 +46,7 @@ cloudwatch.getMetricStatistics(params, (err, data) => {
       header: true,
       columns: {
         Timestamp: 'date',
-        Sum: 'Number of Requests',
+        Sum: 'Number of Invocations',
       },
       quoted_string: true,
     });
